@@ -1,0 +1,61 @@
+* {
+    padding: 0;
+    margin: 0;
+    background-color: black;
+}
+
+#app {
+    text-align: center;
+    width: 100%;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+#app input[type=textfield] {
+
+    height: 70px;
+    width: 325px;
+
+    cursor: default;
+
+    font-family: 'Roboto', 'sans-serif';
+    font-size: 50px;
+
+    border: 0;
+    text-align: right;
+    color: white;
+    background-color: black;
+}
+
+#app input[type=button],
+input[type=reset] {
+
+    height: 70px;
+    width: 70px;
+
+    cursor: pointer;
+
+    font-family: 'Roboto', 'sans-serif';
+    font-weight: bold;
+    font-size: 26px;
+
+    margin: 4px;
+
+    border: 0;
+    border-radius: 100%;
+}
+
+#app .gray {
+    background-color: rgb(51, 51, 51) !important;
+    color: white !important;
+}
+
+#app .orange {
+    background-color: rgb(253, 149, 3) !important;
+    color: white !important;
+}
+
+#app .white {
+    background-color: white !important;
+    color: black !important;
+}
