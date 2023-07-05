@@ -4,7 +4,7 @@
     </a>
 </div>
 
-# Install
+## Install
 
 [Linux/Unix](https://git-scm.com/download/linux) / [Windows](https://git-scm.com/download/win) / [macOS](https://git-scm.com/download/mac)
 
@@ -14,7 +14,7 @@ To verify that we have git installed, we write the following command:
 git --version
 ```
 
-# Configuration
+## Configuration
 
 Configure user information for all local repositories.
 
@@ -72,7 +72,7 @@ If you’re a Windows programmer doing a Windows-only project, then you can turn
 git config --global core.autocrlf false
 ```
 
-# Create repositories
+## Create repositories
 
 Turn an existing directory into a git repository:
 
@@ -86,7 +86,7 @@ Clone (download) a repository that already exists on GitHub, including all of th
 git clone https://github.com/FJrodafo/University.git
 ```
 
-# The .gitignore file
+## The .gitignore file
 
 Sometimes it may be a good idea to exclude files from being tracked with Git. This is typically done in a special file named `.gitignore`
 
@@ -104,7 +104,7 @@ List all ignored files in this project:
 git ls-files --other --ignored --excluded-standard
 ```
 
-# Branches
+## Branches
 
 List all branches in the current repository:
 
@@ -142,7 +142,7 @@ Deletes the specified branch:
 git branch -d branch-name
 ```
 
-# Make changes
+## Make changes
 
 Lists all new or changed files that need to be committed:
 
@@ -192,7 +192,7 @@ Outputs metadata and content changes of the specified commit:
 git show commit-name
 ```
 
-# Synchronize changes
+## Synchronize changes
 
 Synchronize your local repository with the remote repository on GitHub
 
@@ -220,7 +220,7 @@ Updates your current local working branch with all new commits from the correspo
 git pull
 ```
 
-# Glossary
+## Glossary
 
 **git:** an open source, distributed version-control system
 
