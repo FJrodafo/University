@@ -1,4 +1,4 @@
-## Getting started!
+## Getting Started
 
 Open your repository folder and type the following commands to create your first script:
 

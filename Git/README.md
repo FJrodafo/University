@@ -72,7 +72,7 @@ If you’re a Windows programmer doing a Windows-only project, then you can turn
 git config --global core.autocrlf false
 ```
 
-## Create repositories
+## Create Repositories
 
 Turn an existing directory into a git repository:
 
@@ -86,7 +86,7 @@ Clone (download) a repository that already exists on GitHub, including all of th
 git clone https://github.com/FJrodafo/University.git
 ```
 
-## The .gitignore file
+## The .gitignore File
 
 Sometimes it may be a good idea to exclude files from being tracked with Git. This is typically done in a special file named `.gitignore`
 
@@ -142,7 +142,7 @@ Deletes the specified branch:
 git branch -d branch-name
 ```
 
-## Make changes
+## Make Changes
 
 Lists all new or changed files that need to be committed:
 
@@ -192,7 +192,7 @@ Outputs metadata and content changes of the specified commit:
 git show commit-name
 ```
 
-## Synchronize changes
+## Synchronize Changes
 
 Synchronize your local repository with the remote repository on GitHub
 
