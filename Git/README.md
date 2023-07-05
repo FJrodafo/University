@@ -6,11 +6,7 @@
 
 # Install
 
-[Windows](https://git-scm.com/download/win)
-
-[Linux](https://git-scm.com/download/linux)
-
-[Mac](https://git-scm.com/download/mac)
+[Linux/Unix](https://git-scm.com/download/linux) / [Windows](https://git-scm.com/download/win) / [macOS](https://git-scm.com/download/mac)
 
 To verify that we have git installed, we write the following command:
 
