@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="videoclub">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="pelicula" maxOccurs="unbounded">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="titulo" type="xs:string" />
+                            <xs:element name="nacionalidad" type="xs:string" />
+                            <xs:element name="productor" type="xs:string" />
+                            <xs:element name="director" type="xs:string" />
+                            <xs:element name="año" type="xs:string" />
+                            <xs:element name="duracion" type="xs:string" />
+                            <xs:element name="genero" type="xs:string" maxOccurs="unbounded" />
+                            <xs:element name="sinopsis" type="xs:string" />
+                            <xs:element name="foto" type="xs:string" />
+                            <xs:element name="url" type="xs:string" />
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:simpleType name="tipoGenero">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="Comedia|Drama|Terror|Acción|Ciencia Ficción|Romance|Crimen|Thriller" />
+        </xs:restriction>
+    </xs:simpleType>
+</xs:schema>

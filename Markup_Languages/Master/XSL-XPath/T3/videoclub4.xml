@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<videoclub>
+    <pelicula>
+        <titulo>Atraco A Las Tres</titulo>
+        <nacionalidad>ES</nacionalidad>
+        <director>José María Forqué</director>
+        <productor>José Alted</productor>
+        <año>1962</año>
+        <genero>Comedia</genero>
+        <url>https://www.imdb.com/title/tt0055763/</url>
+    </pelicula>
+    <pelicula>
+        <titulo>La Buena Estrella</titulo>
+        <nacionalidad>ES</nacionalidad>
+        <director>Ricardo Franco</director>
+        <productor>Enrique Cerezo</productor>
+        <año>1997</año>
+        <genero>Drama</genero>
+        <url>https://www.imdb.com/title/tt0118788/</url>
+    </pelicula>
+    <pelicula>
+        <titulo>Love Can Seriously Damage Your Health</titulo>
+        <nacionalidad>ES</nacionalidad>
+        <director>Manuel Gómez Pereira</director>
+        <productor>César Benítez</productor>
+        <año>1996</año>
+        <genero>Comedia</genero>
+        <genero>Romance</genero>
+        <url>https://www.imdb.com/title/tt0115536/</url>
+    </pelicula>
+    <pelicula>
+        <titulo>Mujeres Al Borde De Un Ataque De Nervios</titulo>
+        <nacionalidad>ES</nacionalidad>
+        <director>Pedro Almodóvar</director>
+        <productor>Agustín Almodóvar</productor>
+        <año>1988</año>
+        <genero>Comedia</genero>
+        <genero>Drama</genero>
+        <url>https://www.imdb.com/title/tt0095675/</url>
+    </pelicula>
+    <pelicula>
+        <titulo>Solas</titulo>
+        <nacionalidad>ES</nacionalidad>
+        <director>Benito Zambrano</director>
+        <productor>Antonio P. Pérez</productor>
+        <año>1999</año>
+        <genero>Drama</genero>
+        <url>https://www.imdb.com/title/tt0190798/</url>
+    </pelicula>
+    <pelicula>
+        <titulo>Talk To Her</titulo>
+        <nacionalidad>ES</nacionalidad>
+        <director>Pedro Almodóvar</director>
+        <productor>Agustín Almodóvar</productor>
+        <año>2002</año>
+        <genero>Comedia</genero>
+        <genero>Drama</genero>
+        <url>https://www.imdb.com/title/tt0287467/</url>
+    </pelicula>
+    <pelicula>
+        <titulo>Volver</titulo>
+        <nacionalidad>ES</nacionalidad>
+        <director>Pedro Almodóvar</director>
+        <productor>Enrique Morente</productor>
+        <año>2006</año>
+        <genero>Comedia</genero>
+        <genero>Drama</genero>
+        <url>https://www.imdb.com/title/tt0441909/</url>
+    </pelicula>
+</videoclub>

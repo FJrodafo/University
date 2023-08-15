@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" xml:lang="es">
+    <xs:element name="BDuniversidad">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="FACULTAD">
+                    <xs:complexType>
+                        <xs:attribute type="xs:integer" name="Código" use="required" />
+                        <xs:attribute type="xs:string" name="nombre" use="required" />
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="INVESTIGADORES">
+                    <xs:complexType>
+                        <xs:attribute name="DNI" use="required">
+                            <xs:simpleType>
+                                <xs:restriction base="xs:string">
+                                    <xs:pattern value="[1-9][0-9]{0,7}[A-HJ-NP-TV-Z]" />
+                                </xs:restriction>
+                            </xs:simpleType>
+                        </xs:attribute>
+                        <xs:attribute type="xs:string" name="NomApell" use="required" />
+                        <xs:attribute type="xs:string" name="facultad" use="required" />
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="EQUIPOS">
+                    <xs:complexType>
+                        <xs:attribute type="xs:integer" name="NumSerie" use="required" />
+                        <xs:attribute type="xs:string" name="Nombre" use="required" />
+                        <xs:attribute type="xs:string" name="facultad" use="required" />
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="RESERVA">
+                    <xs:complexType>
+                        <xs:attribute name="DNI" use="required">
+                            <xs:simpleType>
+                                <xs:restriction base="xs:string">
+                                    <xs:pattern value="[1-9][0-9]{0,7}[A-HJ-NP-TV-Z]" />
+                                </xs:restriction>
+                            </xs:simpleType>
+                        </xs:attribute>
+                        <xs:attribute type="xs:integer" name="NumSerie" use="required" />
+                        <xs:attribute type="xs:string" name="comienzo" use="required" />
+                        <xs:attribute type="xs:string" name="fin" use="required" />
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

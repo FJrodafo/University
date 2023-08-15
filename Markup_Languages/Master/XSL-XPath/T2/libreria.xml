@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="libreria.xsl" type="text/xsl"?>
+<libreria xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="libreria.xsd">
+    <libro>
+        <titulo>Antología de la Programación en Java</titulo>
+        <autor>John Goodman</autor>
+        <editor>Joel Cohen</editor>
+        <isbn>978-15-8450-380-4</isbn>
+        <precio>51.33</precio>
+        <numPaginas>470</numPaginas>
+    </libro>
+    <libro>
+        <titulo>Antología de la Programación en Perl</titulo>
+        <autor>Pepito López</autor>
+        <editor>Joel Cohen</editor>
+        <isbn>974-83-9255-703-8</isbn>
+        <precio>100.25</precio>
+        <numPaginas>679</numPaginas>
+    </libro>
+    <libro>
+        <titulo>Principios de la Relatividad</titulo>
+        <autor>Albert Einstein</autor>
+        <editor>Ethan Cohen</editor>
+        <isbn>978-84-9849-998-8</isbn>
+        <precio>14.00</precio>
+        <numPaginas>155</numPaginas>
+    </libro>
+    <libro>
+        <titulo>Circuitos y electrónica I</titulo>
+        <autor>Agnat Argwald</autor>
+        <editor>Joe Fraizier</editor>
+        <isbn> 978-84-9849-703-8</isbn>
+        <precio>81.00</precio>
+        <numPaginas>225</numPaginas>
+    </libro>
+    <libro>
+        <titulo>Circuitos y electrónica II</titulo>
+        <autor>Agnat Argwald</autor>
+        <editor>Joe Fraizier</editor>
+        <isbn> 978-84-9849-704-8</isbn>
+        <precio>9.00</precio>
+        <numPaginas>325</numPaginas>
+    </libro>
+    <libro>
+        <titulo>Circuitos y electrónica III</titulo>
+        <autor>Agnat Argwald</autor>
+        <editor>Joe Fraizier</editor>
+        <isbn> 978-84-9849-705-8</isbn>
+        <precio>10.25</precio>
+        <numPaginas>525</numPaginas>
+    </libro>
+</libreria>

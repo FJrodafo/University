@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE BDhospital SYSTEM "BDhospital.dtd">
+<BDhospital>
+    <Hospital hospital_cod="1" nombre="San Juan" direccion="Santa Cruz de Tenerife" telefono="922123456" num_camas="4" />
+    <Sala hospital_cod="1" sala_cod="23" nombre="Urgencias" num_cama="3" />
+    <Plantilla hospital_cod="1" sala_cod="23" empleado_num="30" apellido="Nieto" funcion="Ayudante" turno="Nocturno" Salario="1500" />
+    <Ocupacion inscripcion="415" hospital_cod="1" sala_cod="23" cama="2" />
+    <Doctor hospital_cod="1" doctor_num="16" apellido="Alfaro" especialidad="Cirujano" />
+    <enfermo inscripcion="216" apellido="Vidal" direccion="La Laguna" fecha_nac="2000-05-02" s="s" nss="1234567890" />
+</BDhospital>

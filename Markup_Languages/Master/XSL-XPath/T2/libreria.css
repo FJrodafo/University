@@ -1,0 +1,51 @@
+* {
+    text-align: center;
+    margin: auto;
+    margin-top: 10px;
+}
+
+td {
+    padding: 10px;
+}
+
+table#libros {
+    background-color: lightgray;
+}
+
+.derecha {
+    text-align: right;
+}
+
+.verde {
+    background-color: green;
+}
+
+.amarillo {
+    background-color: yellow;
+}
+
+.naranja {
+    background-color: orange;
+}
+
+.rojo {
+    background-color: red;
+}
+
+/*
+tr:nth-child(odd) {
+    background-color: lightgray;
+}
+
+tr:nth-child(even) {
+    background-color: lightblue;
+}
+*/
+
+.impar {
+    background-color: lightcyan;
+}
+
+.par {
+    background-color: lightblue;
+}

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE BDferreteria SYSTEM "BDferreteria.dtd">
+<BDferreteria>
+    <PIEZAS Código="1" nombre="Tuercas" />
+    <PROVEEDOR id="1" nombre="Manolo" />
+    <SUMINISTRA Código_Pieza="1" idProveedor="1" precio="5" />
+</BDferreteria>

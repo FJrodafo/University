@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estilos HTML - CSS</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <h1>Ejemplos de selectores</h1>
+    <h2>Selectores Globales (de etiqueta)</h2>
+    <p>Todos los párrafos del documento saldrán en color verde</p>
+    <p>Segundo párrafo que saldrá en color verde</p>
+    <p>Tercer párrafo que saldrá en color verde</p>
+    <h2>Selectores de clases</h2>
+    <p class="azul">Sin embargo este párrafo saldrá en color azul, aunque se ha aplicado en la hoja de estilo un cambio
+        global a verde, prevalece el cambio más particular, al aplicar a este párrafo la clase <cite>.azul</cite>,
+        prevalece el cambio más particular (más específico)</p>
+    <h2>Descendientes</h2>
+    <p>Este párrafo también saldrá en verde, y los elementos de la lista siguiente saldrán en magenta y subrayados,
+        mientras que los de la segunda lista no</p>
+    <ul>
+        <li>Mercurio</li>
+        <li>Venus</li>
+        <li>La Tierra</li>
+    </ul>
+    <ol>
+        <li>Mercurio</li>
+        <li>Venus</li>
+        <li>La Tierra</li>
+    </ol>
+    <h2>id</h2>
+    <p id="parrafoId">Este párrafo no saldrá en verde pues se le ha aplicado un cambio de estilo por id, con lo cual el
+        texto va a salir en color púrpura, subrayado y todo en mayúscula</p>
+    <h2>Universal (*)</h2>
+    <p>Este párrafo saldrá en verde, y los botones a continuación saldrán sin borde</p>
+    <form action="http://infociclos.rf.gd/datos.php" method="post" enctype="multipart/form-data">
+        <label for="nombre">Nombre:</label>
+        <input type="text" name="nombre" id="nombre" />
+        <br />
+        <button type="submit">Enviar</button>
+        <button type="reset">Borra Formulario</button>
+        <br />Este otro botón si saldrá con borde:<br />
+        <button type="button" class="conBorde">Botón con borde</button>
+    </form>
+</body>
+
+</html>

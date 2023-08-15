@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" xml:lang="es">
+    <xs:element name="BDdistribuciones">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="proveedores">
+                    <xs:complexType>
+                        <xs:attribute type="xs:integer" name="nro_pro" use="required" />
+                        <xs:attribute type="xs:string" name="nom_p" use="required" />
+                        <xs:attribute type="xs:string" name="categoria" use="required" />
+                        <xs:attribute type="xs:string" name="ciud_p" use="optional" />
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="items">
+                    <xs:complexType>
+                        <xs:attribute type="xs:integer" name="nro_i" use="required" />
+                        <xs:attribute type="xs:string" name="descripcion_i" use="required" />
+                        <xs:attribute type="xs:string" name="ciudad_i" use="required" />
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="pedidos">
+                    <xs:complexType>
+                        <xs:attribute type="xs:integer" name="nro_pe" use="required" />
+                        <xs:attribute type="xs:integer" name="nro_c" use="required" />
+                        <xs:attribute type="xs:integer" name="nro_i" use="required" />
+                        <xs:attribute type="xs:integer" name="nro_pro" use="required" />
+                        <xs:attribute type="xs:integer" name="cantidad" use="required" />
+                        <xs:attribute type="xs:integer" name="precio" use="required" />
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="clientes">
+                    <xs:complexType>
+                        <xs:attribute type="xs:integer" name="nro_c" use="required" />
+                        <xs:attribute type="xs:string" name="nom_c" use="required" />
+                        <xs:attribute type="xs:string" name="ciudad_c" use="required" />
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<BDuniversidad xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="BDuniversidad.xsd">
+    <FACULTAD Código="1" nombre="Psicologia" />
+    <INVESTIGADORES DNI="12345678T" NomApell="Henar Jorge" facultad="Psicologia" />
+    <EQUIPOS NumSerie="1" Nombre="Neuronas" facultad="Psicologia" />
+    <RESERVA DNI="87654321T" NumSerie="2" comienzo="2022-07-14" fin="2022-12-12" />
+</BDuniversidad>

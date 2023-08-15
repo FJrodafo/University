@@ -1,0 +1,29 @@
+table {
+    margin: auto;
+}
+
+th {
+    background-color: lightblue;
+    color: blue;
+}
+
+li {
+    list-style-type: none;
+}
+
+.enunciado {
+    text-align: center;
+    text-decoration: underline;
+}
+
+.derecha {
+    text-align: right;
+}
+
+tr:nth-child(odd) {
+    background-color: gray;
+}
+
+tr:nth-child(even) {
+    background-color: lightgray;
+}

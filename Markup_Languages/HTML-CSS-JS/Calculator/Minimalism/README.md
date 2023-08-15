@@ -1,0 +1,1 @@
+![Preview](https://raw.githubusercontent.com/FJrodafo/University/main/HTML-CSS-JS/Calculator/Minimalism/Assets/Preview.png)

@@ -1,0 +1,28 @@
+table {
+    margin: auto;
+    background-color: black;
+}
+
+li {
+    list-style-type: none;
+}
+
+.enunciado {
+    text-align: center;
+    text-decoration: underline;
+}
+
+.yellow {
+    text-align: center;
+    background-color: lightyellow;
+}
+
+.grayCentro {
+    text-align: center;
+    background-color: lightgray;
+}
+
+.grayIzquierda {
+    text-align: left;
+    background-color: lightgray;
+}

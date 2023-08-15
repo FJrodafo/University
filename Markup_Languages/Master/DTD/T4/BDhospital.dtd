@@ -1,0 +1,49 @@
+<!ELEMENT BDhospital (Hospital,Sala,Plantilla,Ocupacion,Doctor,enfermo)>
+<!ELEMENT Hospital EMPTY>
+<!ATTLIST Hospital
+    hospital_cod CDATA #REQUIRED
+    nombre CDATA #REQUIRED
+    direccion CDATA #REQUIRED
+    telefono CDATA #REQUIRED
+    num_camas CDATA #REQUIRED
+>
+<!ELEMENT Sala EMPTY>
+<!ATTLIST Sala
+    hospital_cod CDATA #REQUIRED
+    sala_cod CDATA #REQUIRED
+    nombre CDATA #REQUIRED
+    num_cama CDATA #REQUIRED
+>
+<!ELEMENT Plantilla EMPTY>
+<!ATTLIST Plantilla
+    hospital_cod CDATA #REQUIRED
+    sala_cod CDATA #REQUIRED
+    empleado_num CDATA #REQUIRED
+    apellido CDATA #REQUIRED
+    funcion CDATA #REQUIRED
+    turno CDATA #REQUIRED
+    Salario CDATA #REQUIRED
+>
+<!ELEMENT Ocupacion EMPTY>
+<!ATTLIST Ocupacion
+    inscripcion CDATA #REQUIRED
+    hospital_cod CDATA #REQUIRED
+    sala_cod CDATA #REQUIRED
+    cama CDATA #REQUIRED
+>
+<!ELEMENT Doctor EMPTY>
+<!ATTLIST Doctor
+    hospital_cod CDATA #REQUIRED
+    doctor_num CDATA #REQUIRED
+    apellido CDATA #REQUIRED
+    especialidad CDATA #REQUIRED
+>
+<!ELEMENT enfermo EMPTY>
+<!ATTLIST enfermo
+    inscripcion CDATA #REQUIRED
+    apellido CDATA #REQUIRED
+    direccion CDATA #REQUIRED
+    fecha_nac CDATA #REQUIRED
+    s CDATA #REQUIRED
+    nss CDATA #REQUIRED
+>

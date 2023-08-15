@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE BDferreteria [
+    <!ELEMENT BDferreteria (PIEZAS,PROVEEDORES,SUMINISTROS)>
+    <!ELEMENT PIEZAS (pieza*)>
+    <!ELEMENT pieza (#PCDATA)>
+    <!ATTLIST pieza codigo ID #REQUIRED>
+    <!ELEMENT PROVEEDORES (proveedor*)>
+    <!ELEMENT proveedor (#PCDATA)>
+    <!ATTLIST proveedor id ID #REQUIRED>
+    <!ELEMENT SUMINISTROS (suministro*)>
+    <!ELEMENT suministro EMPTY>
+    <!ATTLIST suministro codigoPieza CDATA #REQUIRED>
+    <!ATTLIST suministro idProveedor CDATA #REQUIRED>
+    <!ATTLIST suministro precio CDATA #REQUIRED>
+]>
+<BDferreteria>
+    <PIEZAS>
+        <pieza codigo="Pieza1">Tuerca</pieza>
+        <pieza codigo="Pieza2">Tornillo</pieza>
+        <pieza codigo="Pieza3">Remache</pieza>
+        <pieza codigo="Pieza4">Soporte</pieza>
+    </PIEZAS>
+    <PROVEEDORES>
+        <proveedor id="Proveedor1">Ferretería Manuel S.L.</proveedor>
+        <proveedor id="Proveedor2">Distribuciones Férricas S.L.</proveedor>
+        <proveedor id="Proveedor3">Tus Herramientas S.L.</proveedor>
+        <proveedor id="Proveedor4">Ferrallas Joe S.L.</proveedor>
+    </PROVEEDORES>
+    <SUMINISTROS>
+        <suministro codigoPieza="1" idProveedor="1" precio="5€" />
+        <suministro codigoPieza="4" idProveedor="2" precio="6€" />
+        <suministro codigoPieza="2" idProveedor="3" precio="4€" />
+        <suministro codigoPieza="2" idProveedor="1" precio="5€" />
+    </SUMINISTROS>
+</BDferreteria>

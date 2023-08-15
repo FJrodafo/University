@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="videoclub.xsl"?>
+<videoclub xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="videoclub.xsd">
+    <pelicula>
+        <titulo>Atraco A Las Tres</titulo>
+        <nacionalidad>ES</nacionalidad>
+        <productor>José Alted</productor>
+        <director>José María Forqué</director>
+        <año>1962</año>
+        <duracion>92</duracion>
+        <genero>Comedia</genero>
+        <sinopsis>Galindo works in a bank. One day he convinces the other employees in the bank to plan a hold-up in the bank they are working...</sinopsis>
+        <foto>AtracoALasTres.jpg</foto>
+        <url>https://www.imdb.com/title/tt0055763/</url>
+    </pelicula>
+    <pelicula>
+        <titulo>La Buena Estrella</titulo>
+        <nacionalidad>ES</nacionalidad>
+        <productor>Enrique Cerezo</productor>
+        <director>Ricardo Franco</director>
+        <año>1997</año>
+        <duracion>95</duracion>
+        <genero>Drama</genero>
+        <sinopsis>Marina, a woman with a glass eye, has the bad luck to be the victim of an assault witnessed by Rafael...</sinopsis>
+        <foto>LaBuenaEstrella.jpg</foto>
+        <url>https://www.imdb.com/title/tt0118788/</url>
+    </pelicula>
+    <pelicula>
+        <titulo>Love Can Seriously Damage Your Health</titulo>
+        <nacionalidad>ES</nacionalidad>
+        <productor>César Benítez</productor>
+        <director>Manuel Gómez Pereira</director>
+        <año>1996</año>
+        <duracion>117</duracion>
+        <genero>Comedia</genero>
+        <genero>Romance</genero>
+        <sinopsis>Two young people meet in the 60's as a result of their devotion to John Lennon, and have a recurring relationship during the next thirty years at the oddest of moments...</sinopsis>
+        <foto>LoveCanSeriouslyDamageYourHealth.jpg</foto>
+        <url>https://www.imdb.com/title/tt0115536/</url>
+    </pelicula>
+    <pelicula>
+        <titulo>Mujeres Al Borde De Un Ataque De Nervios</titulo>
+        <nacionalidad>ES</nacionalidad>
+        <productor>Agustín Almodóvar</productor>
+        <director>Pedro Almodóvar</director>
+        <año>1988</año>
+        <duracion>88</duracion>
+        <genero>Comedia</genero>
+        <genero>Drama</genero>
+        <sinopsis>A television actress encounters a variety of eccentric characters after embarking on a journey to discover why her lover abruptly left her.</sinopsis>
+        <foto>MujeresAlBordeDeUnAtaqueDeNervios.jpg</foto>
+        <url>https://www.imdb.com/title/tt0095675/</url>
+    </pelicula>
+    <pelicula>
+        <titulo>Pulp Fiction</titulo>
+        <nacionalidad>EEUU</nacionalidad>
+        <productor>Lawrence Bender</productor>
+        <director>Quentin Tarantino</director>
+        <año>1994</año>
+        <duracion>154</duracion>
+        <genero>Crimen</genero>
+        <genero>Thriller</genero>
+        <sinopsis>The lives of two mob hit men, a boxer, a gangster's wife, and a pair of diner bandits intertwine in four tales of violence and redemption.</sinopsis>
+        <foto>PulpFiction.jpg</foto>
+        <url>https://www.imdb.com/title/tt0110912/</url>
+    </pelicula>
+    <pelicula>
+        <titulo>Solas</titulo>
+        <nacionalidad>ES</nacionalidad>
+        <productor>Antonio P. Pérez</productor>
+        <director>Benito Zambrano</director>
+        <año>1999</año>
+        <duracion>101</duracion>
+        <genero>Drama</genero>
+        <sinopsis>Maria, whose parents live in the country, cannot stand her father's authoritarian ways and moves to the city...</sinopsis>
+        <foto>Solas.jpg</foto>
+        <url>https://www.imdb.com/title/tt0190798/</url>
+    </pelicula>
+    <pelicula>
+        <titulo>Talk To Her</titulo>
+        <nacionalidad>ES</nacionalidad>
+        <productor>Agustín Almodóvar</productor>
+        <director>Pedro Almodóvar</director>
+        <año>2002</año>
+        <duracion>112</duracion>
+        <genero>Comedia</genero>
+        <genero>Drama</genero>
+        <sinopsis>Two men share an odd friendship while they care for their girlfriends who are both in deep comas.</sinopsis>
+        <foto>TalkToHer.jpg</foto>
+        <url>https://www.imdb.com/title/tt0287467/</url>
+    </pelicula>
+    <pelicula>
+        <titulo>The Cider House Rules</titulo>
+        <nacionalidad>EEUU</nacionalidad>
+        <productor>Alan C. Blomquist</productor>
+        <director>Lasse Hallström</director>
+        <año>1999</año>
+        <duracion>126</duracion>
+        <genero>Drama</genero>
+        <genero>Romance</genero>
+        <sinopsis>A compassionate young man, raised in an orphanage and trained to be a doctor there, decides to leave to see the world.</sinopsis>
+        <foto>TheCiderHouseRules.jpg</foto>
+        <url>https://www.imdb.com/title/tt0124315/</url>
+    </pelicula>
+    <pelicula>
+        <titulo>The Ides Of March</titulo>
+        <nacionalidad>EEUU</nacionalidad>
+        <productor>George Clooney</productor>
+        <director>George Clooney</director>
+        <año>2011</año>
+        <duracion>101</duracion>
+        <genero>Drama</genero>
+        <sinopsis>An idealistic staffer for a new presidential candidate gets a crash course on dirty politics during his stint on the campaign trail.</sinopsis>
+        <foto>TheIdesOfMarch.jpg</foto>
+        <url>https://www.imdb.com/title/tt1124035/</url>
+    </pelicula>
+    <pelicula>
+        <titulo>Thelma &amp; Louise</titulo>
+        <nacionalidad>EEUU</nacionalidad>
+        <productor>Mimi Polk Gitlin</productor>
+        <director>Ridley Scott</director>
+        <año>1991</año>
+        <duracion>130</duracion>
+        <genero>Crimen</genero>
+        <genero>Drama</genero>
+        <sinopsis>An Arkansas waitress and a housewife shoot a rapist and take off in a '66 Thunderbird.</sinopsis>
+        <foto>ThelmaLouise.jpg</foto>
+        <url>https://www.imdb.com/title/tt0103074/</url>
+    </pelicula>
+    <pelicula>
+        <titulo>The Shawshank Redemption</titulo>
+        <nacionalidad>EEUU</nacionalidad>
+        <productor>Liz Glotzer</productor>
+        <director>Frank Darabont</director>
+        <año>1994</año>
+        <duracion>142</duracion>
+        <genero>Crimen</genero>
+        <genero>Drama</genero>
+        <sinopsis>Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.</sinopsis>
+        <foto>TheShawshankRedemption.jpg</foto>
+        <url>https://www.imdb.com/title/tt0111161/</url>
+    </pelicula>
+    <pelicula>
+        <titulo>Volver</titulo>
+        <nacionalidad>ES</nacionalidad>
+        <productor>Enrique Morente</productor>
+        <director>Pedro Almodóvar</director>
+        <año>2006</año>
+        <duracion>121</duracion>
+        <genero>Comedia</genero>
+        <genero>Drama</genero>
+        <sinopsis>After her death, a mother returns to her home town in order to fix the situations she couldn't resolve during her life.</sinopsis>
+        <foto>Volver.jpg</foto>
+        <url>https://www.imdb.com/title/tt0441909/</url>
+    </pelicula>
+</videoclub>

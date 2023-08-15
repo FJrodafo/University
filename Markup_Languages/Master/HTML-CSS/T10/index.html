@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documento</title>
+</head>
+
+<body>
+    <h4><u>Formulario de registro en el videoclub</u></h4>
+    <form action="http://infociclos.rf.gd/PHP/datos.php" method="get" enctype="multipart/form-data">
+        <table>
+            <tr>
+                <td><label for="dni">DNI:</label></td>
+                <td>
+                    <input type="number" name="dni" id="dni" />
+                    <select name="letra" id="letra">
+                        <option>T</option>
+                        <option>R</option>
+                        <option>W</option>
+                        <option>A</option>
+                        <option>G</option>
+                        <option>M</option>
+                        <option>Y</option>
+                        <option>F</option>
+                        <option>P</option>
+                        <option>D</option>
+                        <option>X</option>
+                        <option>B</option>
+                        <option>N</option>
+                        <option>J</option>
+                        <option>Z</option>
+                        <option>S</option>
+                        <option>Q</option>
+                        <option>V</option>
+                        <option>H</option>
+                        <option>L</option>
+                        <option>C</option>
+                        <option>K</option>
+                        <option>E</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="nombre">Nombre:</label></td>
+                <td><input type="text" name="nombre" id="nombre" /></td>
+            </tr>
+            <tr>
+                <td><label for="apellidos">Apellidos:</label></td>
+                <td><input type="text" name="apellidos" id="apellidos" /></td>
+            </tr>
+            <tr>
+                <td><label for="fechadenacimiento">Fecha de Nacimiento:</label></td>
+                <td>
+                    <select name="day" id="day">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                        <option>6</option>
+                        <option>7</option>
+                        <option>8</option>
+                        <option>9</option>
+                        <option>10</option>
+                        <option>11</option>
+                        <option>12</option>
+                        <option>13</option>
+                        <option>14</option>
+                        <option>15</option>
+                        <option>16</option>
+                        <option>17</option>
+                        <option>18</option>
+                        <option>19</option>
+                        <option>20</option>
+                        <option>21</option>
+                        <option>22</option>
+                        <option>23</option>
+                        <option>24</option>
+                        <option>25</option>
+                        <option>26</option>
+                        <option>27</option>
+                        <option>28</option>
+                        <option>29</option>
+                        <option>30</option>
+                        <option>31</option>
+                    </select>
+                    <select name="month" id="month">
+                        <option>Enero</option>
+                        <option>Febrero</option>
+                        <option>Marzo</option>
+                        <option>Abril</option>
+                        <option>Mayo</option>
+                        <option>Junio</option>
+                        <option>Julio</option>
+                        <option>Agosto</option>
+                        <option>Septiembre</option>
+                        <option>Octubre</option>
+                        <option>Noviembre</option>
+                        <option>Diciembre</option>
+                    </select>
+                    <input type="number" name="year" id="year" value="2000" />
+                </td>
+            </tr>
+            <tr>
+                <td><label for="password">Contraseña:</label></td>
+                <td><input type="password" name="password" id="password" /></td>
+            </tr>
+            <tr>
+                <td><label for="passwordagain">Repite Contraseña:</label></td>
+                <td><input type="password" name="passwordagain" id="passwordagain" /></td>
+            </tr>
+            <tr>
+                <td><label for="address">Dirección:</label></td>
+                <td><input type="text" name="address" id="address" /></td>
+            </tr>
+            <tr>
+                <td><label for="phonenumber">Teléfono:</label></td>
+                <td><input type="tel" name="phonenumber" id="phonenumber" placeholder="123 456 789"
+                        pattern="[0-9]{3} [0-9]{3} [0-9]{3}" /></td>
+            </tr>
+            <tr>
+                <td><label for="favorite">Géneros Favoritos:</label></td>
+                <td>
+                    <input type="checkbox" name="dramatic" id="dramatic" value="dramatic" />
+                    <label for="dramatic">Dramático</label>
+
+                    <input type="checkbox" name="humor" id="humor" value="humor" />
+                    <label for="humor">Humor</label>
+
+                    <input type="checkbox" name="terror" id="terror" value="terror" />
+                    <label for="terror">Terror</label>
+
+                    <input type="checkbox" name="musical" id="musical" value="musical" />
+                    <label for="musical">Musical</label>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="payment">Forma de Pago:</label></td>
+                <td>
+                    <input type="radio" name="payment" id="transferencia" value="transferencia" />
+                    <label for="transferencia">Transferencia</label>
+
+                    <input type="radio" name="payment" id="metalic" value="metalic" />
+                    <label for="metalic">Metálico</label>
+
+                    <input type="radio" name="payment" id="third" value="third" />
+                    <label for="third">Tercero</label>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="observation">Observaciones:</label></td>
+            </tr>
+            <tr>
+                <td colspan="2"><textarea rows="6" cols="84" type="text" name="observation" id="observation"></textarea>
+                </td>
+            </tr>
+            <tr>
+                <td><input type="submit" name="submit" id="submit" value="Enviar"></td>
+                <td><input type="reset" name="reset" id="reset" value="Borrar formulario"></td>
+            </tr>
+        </table>
+    </form>
+</body>
+
+</html>
