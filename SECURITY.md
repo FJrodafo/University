@@ -4,12 +4,12 @@ Read this document carefully to learn how to download the repository correctly a
 
 ## Supported Versions
 
-Be sure to download the latest [release](https://github.com/FJrodafo/University/releases) of the code, as earlier versions of the code may not be stable and may contain unsatisfactory bugs.
+Be sure to download the latest release of the code, as earlier versions of the code may not be stable and may contain unsatisfactory bugs. The latest release of the code can be downloaded from the following link: [GitHub](https://github.com/FJrodafo/University/releases)/[GitLab](https://gitlab.com/FJrodafo/University/-/releases).
 
-If there is no release, just download the latest commit from the [main branch](https://github.com/FJrodafo/University/tree/main). The repository can be downloaded via a zip file by clicking [here](https://github.com/FJrodafo/University/archive/refs/heads/main.zip).
+If there is no release, just download the latest commit from the main branch. The repository can be downloaded via a zip file by clicking the following link: [GitHub](https://github.com/FJrodafo/University/archive/refs/heads/main.zip)/[GitLab](https://gitlab.com/FJrodafo/University/-/archive/main/University-main.zip).
 
 ## Reporting a Vulnerability
 
-If you have detected any security vulnerability, please report it by filling out a specialized form [here](https://github.com/FJrodafo/University/issues/new/choose).
+If you have detected any security vulnerability, please report it by filling out a specialized form at the following link: [GitHub](https://github.com/FJrodafo/University/issues/new/choose)/[GitLab](https://gitlab.com/FJrodafo/University/-/issues/new).
 
 It's really important to preserve the maximum security, besides we appreciate the effort that this work entails to improve our code.
