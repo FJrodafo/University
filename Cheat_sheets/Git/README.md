@@ -1,6 +1,6 @@
 <div align="center">
     <a href="https://git-scm.com/">
-        <img alt="logo" src="https://git-scm.com/images/logo.png" />
+        <img alt="logo" src="https://raw.githubusercontent.com/FJrodafo/University/main/Cheat_sheets/Git/Assets/Logo.png" />
     </a>
 </div>
 
