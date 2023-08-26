@@ -236,7 +236,7 @@ The `-d` flag (short for `--detach`) runs the container in the background. The `
 
 After a few seconds, open your web browser to [http://localhost:3000](http://localhost:3000/). You should see your app.
 
-![todo-list-empty](./Assets/todo-list-empty.png)
+<img alt="logo" height="100" src="https://raw.githubusercontent.com/FJrodafo/University/main/Cheat_sheets/Docker/Assets/todo-list-empty.png" />
 
 Add an item or two and see that it works as you expect. You can mark items as complete and remove them. Your frontend is successfully storing items in the backend.
 
@@ -335,4 +335,3 @@ Remember to stop the container when you stop using your application using the fo
 ```shell
 docker stop <the-container-id>
 ```
-
