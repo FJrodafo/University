@@ -53,7 +53,7 @@ Delete a specific image:
 docker image rm node:18
 ```
 
-## Containers
+## Commands
 
 Before creating a container, we need to have an [image installed](#images). In this case we will download the latest version of [MongoDB](https://hub.docker.com/_/mongo):
 
@@ -70,7 +70,7 @@ docker container create mongo
 Run the container:
 
 ```shell
-docker start container_ID
+docker start <the-container-id>
 ```
 
 View the data and confirm the execution of the containers:
@@ -82,7 +82,7 @@ docker ps
 Stop de container:
 
 ```shell
-docker stop container_ID
+docker stop <the-container-id>
 ```
 
 Shows all existing containers regardless of whether they are running or not:
@@ -94,44 +94,44 @@ docker ps -a
 Delete a specific container:
 
 ```shell
-docker rm container_ID/Name
+docker rm <the-container-id/name>
 ```
 
 Create a container with a custom name:
 
 ```shell
-docker create --name custom_Name mongo
+docker create --name <custom-name> mongo
 ```
 
 Run the container with a custom name:
 
 ```shell
-docker start custom_Name
+docker start <custom-name>
 ```
 
 We can also stop and remove the container with the custom name:
 
 ```shell
-docker stop custom_Name
-docker rm custom_Name
+docker stop <custom-name>
+docker rm <custom-name>
 ```
 
 Create a container with the ports mapped:
 
 ```shell
-docker create -p27017:27017 --name custom_Name mongo
+docker create -p27017:27017 --name <custom-name> mongo
 ```
 
 Verify if your server ran correctly:
 
 ```shell
-docker logs container_ID/Name
+docker logs <the-container-id/name>
 ```
 
 Verify if your server ran correctly with the option to keep listening:
 
 ```shell
-docker logs --follow container_ID/Name
+docker logs --follow <the-container-id/name>
 # Press 'Ctrl + C' to exit
 ```
 
@@ -150,12 +150,16 @@ docker run -d mongo
 Finally we could mix all the commands and options for our MongoDB container:
 
 ```shell
-docker run --name custom_Name -p27017:27017 -d mongo
+docker run --name <custom-name> -p27017:27017 -d mongo
 ```
 
-## Get Started
+## Overview of the get started guide
 
 The following guide has been taken from: https://docs.docker.com/get-started/
+
+[What is a container?](https://docs.docker.com/get-started/#what-is-a-container) / [What is an image?](https://docs.docker.com/get-started/#what-is-an-image)
+
+## Containerize an application
 
 For the rest of this guide, you'll be working with a simple todo list manager that runs on Node.js. If you're not familiar with Node.js, don't worry. This guide doesn't require any prior experience with JavaScript.
 
@@ -204,7 +208,7 @@ In the terminal, make sure you're in the `getting-started-app` directory. Replac
 cd /path/to/getting-started-app
 ```
 
-Build the image using the following command:
+Then, build the image using the following command:
 
 ```shell
 docker build -t getting-started .
@@ -239,3 +243,96 @@ Add an item or two and see that it works as you expect. You can mark items as co
 At this point, you have a running todo list manager with a few items.
 
 If you take a quick look at your containers, you should see at least one container running that's using the `getting-started` image and on port `3000`. To see your containers, you can use the CLI or Docker Desktop's graphical interface.
+
+## Update the application
+
+In the following steps, you'll change the "empty text" when you don't have any todo list items to "You have no todo items yet! Add one above!"
+
+In the `src/static/js/app.js` file, update line 56 to use the new empty text:
+
+```
+- <p className="text-center">No items yet! Add one above!</p>
++ <p className="text-center">You have no todo items yet! Add one above!</p>
+```
+
+Build your updated version of the image, using the docker build command (make sure you're in the `getting-started-app` directory):
+
+```shell
+docker build -t getting-started .
+```
+
+Start a new container using the updated code:
+
+```shell
+docker run -dp 127.0.0.1:3000:3000 getting-started
+```
+
+You probably saw an error like this:
+
+```shell
+docker: Error response from daemon: driver failed programming external connectivity on endpoint laughing_burnell 
+(bb242b2ca4d67eba76e79474fb36bb5125708ebdabd7f45c8eaf16caaabde9dd): Bind for 127.0.0.1:3000 failed: port is already allocated.
+```
+
+The error occurred because you aren't able to start the new container while your old container is still running. The reason is that the old container is already using the host's port 3000 and only one process on the machine (containers included) can listen to a specific port. To fix this, you need to remove the old container.
+
+### Remove the old container and image
+
+To remove a container, you first need to stop it. Once it has stopped, you can remove it. You can remove the old container using the CLI or Docker Desktop's graphical interface. Choose the option that you're most comfortable with.
+
+Get the ID of the container by using the `docker ps` or `docker ps -a` command.
+
+```shell
+docker ps
+```
+
+```shell
+docker ps -a
+```
+
+Use the `docker stop` command to stop the container. Replace `<the-container-id>` with the ID from `docker ps`.
+
+```shell
+docker stop <the-container-id>
+```
+
+Once the container has stopped, you can remove it by using the `docker rm` command.
+
+```shell
+docker rm <the-container-id>
+```
+
+You can stop and remove a container in a single command by adding the `force` flag to the `docker rm` command:
+
+```shell
+docker rm -f <the-container-id>
+```
+
+Then, remove the `getting-started` image:
+
+```shell
+docker image rm <the-image-id>
+```
+
+### Build and start the updated app container
+
+Now, build your updated version of the image, using the docker build command (make sure you're in the `getting-started-app` directory):
+
+```shell
+docker build -t getting-started .
+```
+
+Then, start your updated app using the `docker run` command:
+
+```shell
+docker run -dp 127.0.0.1:3000:3000 getting-started
+```
+
+Refresh your browser on [http://localhost:3000](http://localhost:3000/) and you should see your updated help text.
+
+Remember to stop the container when you stop using your application using the following command (This way we would free up port 3000 for use by other applications):
+
+```shell
+docker stop <the-container-id>
+```
+
