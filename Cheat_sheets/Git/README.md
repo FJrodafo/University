@@ -4,6 +4,18 @@
     </a>
 </div>
 
+## Index
+
+1. [Install](#install)
+2. [Configuration](#configuration)
+3. [Create Repositories](#create-repositories)
+4. [The .gitignore File](#the-gitignore-file)
+5. [Branches](#branches)
+6. [Make Changes](#make-changes)
+7. [Synchronize Changes](#synchronize-changes)
+8. [Create a Test repo](#create-a-test-repo)
+9. [Glossary](#glossary)
+
 ## Install
 
 [Linux/Unix](https://git-scm.com/download/linux) / [Windows](https://git-scm.com/download/win) / [macOS](https://git-scm.com/download/mac)
