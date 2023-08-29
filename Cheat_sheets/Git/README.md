@@ -278,3 +278,7 @@ git push gitlab
 **pull request:** a place to compare and discuss the differences introduced on a branch with reviews, comments, integrated tests, and more
 
 **HEAD:** representing your current working directory, the HEAD pointer can be moved to different branches, tags, or commits when using `git checkout`
+
+<link rel="stylesheet" href="./../Markdown.css">
+<a class="top-link hide" href="#top">↑</a>
+<a name="top"></a>
