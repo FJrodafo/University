@@ -272,27 +272,5 @@ quadrantChart
     Campaign F: [0.35, 0.78]
 ```
 
-<style>
-/* Back to top buttom */
-.top-link {
-    right: 0;
-    width: 1em;
-    bottom: 0;
-    height: 1em;
-    margin: 0 2em 2em 0;
-    padding: .25em;
-    border-radius: 40%;
-    color: #000000;
-    cursor: pointer;
-    display: inline-flex;
-    position: fixed;
-    align-items: center;
-    justify-content: center;
-    background-color: #FFFFFF;
-}
-.top-link:hover {
-    color: #000000;
-    text-decoration: none;
-}
-</style>
-<a class="top-link hide" href="#top" title="Back to top">↑</a>
+<link rel="stylesheet" href="./../MD_Back_to_top.css">
+<a class="back-to-top" href="#top" title="Back to top">↑</a>
