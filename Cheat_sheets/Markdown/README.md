@@ -20,11 +20,11 @@
             <td>
                 <code># H1</code></br>
                 <code>## H2</code></br>
-                <code>### H3</code></br>
+                <code>### H3</code>
             </td>
         </tr>
         <tr>
-        <td>Bold</td>
+            <td>Bold</td>
             <td>
                 <code>**bold text**</code>
             </td>
@@ -42,11 +42,11 @@
             </td>
         </tr>
         <tr>
-        <td>Ordered List</td>
+            <td>Ordered List</td>
             <td>
                 <code>1. First item</code></br>
                 <code>2. Second item</code></br>
-                <code>3. Third item</code></br>
+                <code>3. Third item</code>
             </td>
         </tr>
         <tr>
@@ -54,7 +54,7 @@
             <td>
                 <code>- First item</code></br>
                 <code>- Second item</code></br>
-                <code>- Third item</code></br>
+                <code>- Third item</code>
             </td>
         </tr>
         <tr>
@@ -79,6 +79,86 @@
             <td>Image</td>
             <td>
                 <code>![alt text](image.jpg)</code>
+            </td>
+        </tr>
+        <tr>
+            <td>Table</td>
+            <td>
+                <code>| Syntax      | Description |</code><br>
+                <code>| ----------- | ----------- |</code><br>
+                <code>| Header      | Title       |</code><br>
+                <code>| Paragraph   | Text        |</code>
+            </td>
+        </tr>
+        <tr>
+            <td>Fenced Code Block</td>
+            <td>
+                <code>```</code><br>
+                <code>{</code><br>
+                <code>&nbsp;&nbsp;"firstName": "John",</code><br>
+                <code>&nbsp;&nbsp;"lastName": "Smith",</code><br>
+                <code>&nbsp;&nbsp;"age": 25</code><br>
+                <code>}</code><br>
+                <code>```</code>
+            </td>
+        </tr>
+        <tr>
+            <td>Footnote</td>
+            <td>
+                <code>Here's a sentence with a footnote. [^1]</code><br>
+                <br>
+                <code>[^1]: This is the footnote.</code>
+            </td>
+        </tr>
+        <tr>
+            <td>Heading ID</td>
+            <td>
+                <code>### My Great Heading {#custom-id}</code>
+            </td>
+        </tr>
+        <tr>
+            <td>Definition List</td>
+            <td>
+                <code>term</code><br>
+                <code>: definition</code>
+            </td>
+        </tr>
+        <tr>
+            <td>Strikethrough</td>
+            <td>
+                <code>~~The world is flat.~~</code>
+            </td>
+        </tr>
+        <tr>
+            <td>Task List</td>
+            <td>
+                <code>- [x] Write the press release</code><br>
+                <code>- [ ] Update the website</code><br>
+                <code>- [ ] Contact the media</code>
+            </td>
+        </tr>
+        <tr>
+            <td>Emoji</td>
+            <td>
+                <code>That is so funny! :joy:</code>
+            </td>
+        </tr>
+        <tr>
+            <td>Highlight</td>
+            <td>
+                <code>I need to highlight these ==very important words==.</code>
+            </td>
+        </tr>
+        <tr>
+            <td>Subscript</td>
+            <td>
+                <code>H~2~O</code>
+            </td>
+        </tr>
+        <tr>
+            <td>Superscript</td>
+            <td>
+                <code>X^2^</code>
             </td>
         </tr>
     </tbody>
