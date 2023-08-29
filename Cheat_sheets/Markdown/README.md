@@ -1,8 +1,8 @@
 <div align="center">
     <a href="https://www.markdownguide.org/">
         <picture>
-            <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/FJrodafo/University/main/Cheat_sheets/Markdown/Assets/Dark.png">
-            <img alt="logo" height="46" src="https://raw.githubusercontent.com/FJrodafo/University/main/Cheat_sheets/Markdown/Assets/Light.png" />
+            <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/FJrodafo/University/main/Cheat_sheets/Markdown/Assets/Markdown_logo/Dark.png">
+            <img alt="logo" height="46" src="https://raw.githubusercontent.com/FJrodafo/University/main/Cheat_sheets/Markdown/Assets/Markdown_logo/Light.png" />
         </picture>
     </a>
 </div>
@@ -163,3 +163,8 @@
         </tr>
     </tbody>
 </table>
+<br>
+
+## Tools
+
+[Mermaid](./Mermaid.md) lets you create diagrams and visualizations using text and code. It is a JavaScript based diagramming and charting tool that renders Markdown-inspired text definitions to create and modify diagrams dynamically.
