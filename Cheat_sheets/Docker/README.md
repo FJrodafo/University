@@ -1,5 +1,5 @@
 <div align="center">
-    <a href="https://www.docker.com/">
+    <a href="https://www.docker.com/" target="_blank">
         <img alt="logo" height="46" src="https://raw.githubusercontent.com/FJrodafo/University/main/Cheat_sheets/Docker/Assets/Logo.png" />
     </a>
 </div>
@@ -249,7 +249,7 @@ The `-d` flag (short for `--detach`) runs the container in the background. The `
 After a few seconds, open your web browser to [http://localhost:3000](http://localhost:3000/). You should see your app.
 
 <a href="http://localhost:3000/">
-    <img alt="todo-list-empty" height="100" src="https://raw.githubusercontent.com/FJrodafo/University/main/Cheat_sheets/Docker/Assets/todo-list-empty.png" />
+    <img alt="Todo list empty" height="100" src="https://raw.githubusercontent.com/FJrodafo/University/main/Cheat_sheets/Docker/Assets/Todo_list_empty.png" />
 </a>
 
 Add an item or two and see that it works as you expect. You can mark items as complete and remove them. Your frontend is successfully storing items in the backend.
@@ -414,7 +414,7 @@ docker run -dp 127.0.0.1:3000:3000 --mount type=volume,src=todo-db,target=/etc/t
 ```
 
 <a href="http://localhost:3000/">
-    <img alt="items-added" height="300" src="https://raw.githubusercontent.com/FJrodafo/University/main/Cheat_sheets/Docker/Assets/items-added.png" />
+    <img alt="Items added" height="300" src="https://raw.githubusercontent.com/FJrodafo/University/main/Cheat_sheets/Docker/Assets/Items_added.png" />
 </a>
 
 2. Stop and remove the container for the todo app. Use Docker Desktop or docker ps to get the ID and then docker rm -f <id> to remove it.

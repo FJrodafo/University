@@ -1,5 +1,5 @@
 <div align="center">
-    <a href="https://mermaid.js.org/">
+    <a href="https://mermaid.js.org/" target="_blank">
         <img alt="logo" height="46" src="https://raw.githubusercontent.com/FJrodafo/University/main/Cheat_sheets/Markdown/Assets/Mermaid.png" />
     </a>
 </div>
@@ -7,15 +7,14 @@
 ## Index
 
 1. [About Mermaid](#about-mermaid)
-2. [Quick Example](#quick-example)
-3. [Flowchart](#flowchart)
-4. [Sequence Diagram](#sequence-diagram)
-5. [Gantt Diagram](#gantt-diagram)
-6. [Class Diagram](#class-diagram)
-7. [Git Graph](#git-graph)
-8. [Entity Relationship Diagram](#entity-relationship-diagram)
-9. [User Journey Diagram](#user-journey-diagram)
-10. [Quadrant Chart](#quadrant-chart)
+2. [Flowchart](#flowchart)
+3. [Sequence Diagram](#sequence-diagram)
+4. [Gantt Diagram](#gantt-diagram)
+5. [Class Diagram](#class-diagram)
+6. [Git Graph](#git-graph)
+7. [Entity Relationship Diagram](#entity-relationship-diagram)
+8. [User Journey Diagram](#user-journey-diagram)
+9. [Quadrant Chart](#quadrant-chart)
 
 ## About Mermaid
 
@@ -35,29 +34,7 @@ Mermaid addresses this problem by enabling users to create easily modifiable dia
 
 Mermaid allows even non-programmers to easily create detailed and diagrams through the [Mermaid Live Editor](https://mermaid.live/).
 
-## Quick Example
-
-### Input:
-
-    ```mermaid
-    flowchart
-        subgraph My App
-
-        Home(((Home))); style Home fill: navy
-        Review([Review]); style Review fill: darkgreen
-        Edit([Edit]); style Edit fill: darkgreen
-        Database[(Database)]; style Database fill: darkred
-        Help[Help]; style Help fill: purple
-
-        Home --> Review
-        Home --> Edit
-        Edit --> Database
-        Database --> Review
-        Home --> Help
-    end
-    ```
-
-### Output:
+## Flowchart
 
 ```mermaid
 flowchart
@@ -77,22 +54,22 @@ flowchart
 end
 ```
 
-## Flowchart
-
-```
-graph TD;
-    A-->B;
-    A-->C;
-    B-->D;
-    C-->D;
-```
-
 ```mermaid
-graph TD;
-    A-->B;
-    A-->C;
-    B-->D;
-    C-->D;
+flowchart
+    subgraph My App
+
+    Home(((Home))); style Home fill: navy
+    Review([Review]); style Review fill: darkgreen
+    Edit([Edit]); style Edit fill: darkgreen
+    Database[(Database)]; style Database fill: darkred
+    Help[Help]; style Help fill: purple
+
+    Home --> Review
+    Home --> Edit
+    Edit --> Database
+    Database --> Review
+    Home --> Help
+end
 ```
 
 ## Sequence Diagram

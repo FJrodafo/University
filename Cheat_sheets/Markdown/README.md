@@ -1,5 +1,5 @@
 <div align="center">
-    <a href="https://www.markdownguide.org/">
+    <a href="https://www.markdownguide.org/" target="_blank">
         <picture>
             <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/FJrodafo/University/main/Cheat_sheets/Markdown/Assets/Markdown_logo/Dark.png">
             <img alt="logo" height="46" src="https://raw.githubusercontent.com/FJrodafo/University/main/Cheat_sheets/Markdown/Assets/Markdown_logo/Light.png" />
