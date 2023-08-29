@@ -295,6 +295,4 @@ quadrantChart
     Campaign F: [0.35, 0.78]
 ```
 
-<link rel="stylesheet" href="./../Markdown.css">
-<a class="top-link hide" href="#top">↑</a>
-<a name="top"></a>
+**[Back to top](#top)**

@@ -1,4 +1,4 @@
-<div align="center" id="top">
+<div align="center">
     <a href="https://www.markdownguide.org/">
         <picture>
             <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/FJrodafo/University/main/Cheat_sheets/Markdown/Assets/Markdown_logo/Dark.png">
@@ -169,4 +169,4 @@
 
 [Mermaid](./Mermaid.md) lets you create diagrams and visualizations using text and code. It is a JavaScript based diagramming and charting tool that renders Markdown-inspired text definitions to create and modify diagrams dynamically.
 
-<a href="#top">Back to top</a>
+**[Back to top](#top)**
