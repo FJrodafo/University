@@ -19,11 +19,7 @@
         <tr>
             <td>Heading</td>
             <td>
-                <code>
-                    # H1<br>
-                    ## H2<br>
-                    ### H3
-                </code>
+                <code># H1<br>## H2<br>### H3</code>
             </td>
         </tr>
         <tr>
@@ -47,21 +43,13 @@
         <tr>
         <td>Ordered List</td>
             <td>
-                <code>
-                    1. First item<br>
-                    2. Second item<br>
-                    3. Third item<br>
-                </code>
+                <code>1. First item<br>2. Second item<br>3. Third item<br></code>
             </td>
         </tr>
         <tr>
             <td>Unordered List</td>
             <td>
-                <code>
-                    - First item<br>
-                    - Second item<br>
-                    - Third item<br>
-                </code>
+                <code>- First item<br>- Second item<br>- Third item<br></code>
             </td>
         </tr>
         <tr>
