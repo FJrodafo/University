@@ -1,3 +1,7 @@
+<div align="center">
+    <img alt="logo" height="46" src="https://raw.githubusercontent.com/FJrodafo/University/main/Shell/Assets/Logo.png" />
+</div>
+
 ## Getting Started
 
 Open your repository folder and type the following commands to create your first script:
