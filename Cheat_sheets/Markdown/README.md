@@ -6,7 +6,7 @@
         </picture>
     </a>
 </div>
-</br>
+<br>
 <table align="center">
     <thead>
         <tr>
@@ -18,8 +18,8 @@
         <tr>
             <td>Heading</td>
             <td>
-                <code># H1</code></br>
-                <code>## H2</code></br>
+                <code># H1</code><br>
+                <code>## H2</code><br>
                 <code>### H3</code>
             </td>
         </tr>
@@ -44,16 +44,16 @@
         <tr>
             <td>Ordered List</td>
             <td>
-                <code>1. First item</code></br>
-                <code>2. Second item</code></br>
+                <code>1. First item</code><br>
+                <code>2. Second item</code><br>
                 <code>3. Third item</code>
             </td>
         </tr>
         <tr>
             <td>Unordered List</td>
             <td>
-                <code>- First item</code></br>
-                <code>- Second item</code></br>
+                <code>- First item</code><br>
+                <code>- Second item</code><br>
                 <code>- Third item</code>
             </td>
         </tr>
