@@ -168,6 +168,3 @@
 ## Tools
 
 [Mermaid](./Mermaid.md) lets you create diagrams and visualizations using text and code. It is a JavaScript based diagramming and charting tool that renders Markdown-inspired text definitions to create and modify diagrams dynamically.
-
-<link rel="stylesheet" href="./../MD_Back_to_top.css">
-<a class="back-to-top" href="#top" title="Back to top">↑</a>
