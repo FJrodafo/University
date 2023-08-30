@@ -2,7 +2,28 @@
 
 These simple exercises will help you practice what you learned.
 
-### Exercise 1: Hello, World!
+## Index
+
+- [Exercise 1: Hello, World!](#exercise-1-hello-world)
+- [Exercise 2: Basic date](#exercise-2-basic-date)
+- [Exercise 3: Great day](#exercise-3-great-day)
+- [Exercise 4: Factors](#exercise-4-factors)
+- [Exercise 5: Argument check](#exercise-5-argument-check)
+- [Exercise 6: Files size](#exercise-6-files-size)
+- [Exercise 7: Count chars](#exercise-7-count-chars)
+- [Exercise 8: Sum](#exercise-8-sum)
+- [Exercise 9: Number of arguments](#exercise-9-number-of-arguments)
+- [Exercise 10: Empty files](#exercise-10-empty-files)
+- [Exercise 11: Directories comparison](#exercise-11-directories-comparison)
+- [Exercise 12: It's alive!](#exercise-12-its-alive)
+- [Exercise 13: Automate user management on servers](#exercise-13-automate-user-management-on-servers)
+- [Exercise 14: Automate backups to a separate server](#exercise-14-automate-backups-to-a-separate-server)
+- [Exercise 15: Automate backups on a regular basis](#exercise-15-automate-backups-on-a-regular-basis)
+- [Exercise 16: Automate monitoring available disk space](#exercise-16-automate-monitoring-available-disk-space)
+- [Exercise 17: Automate monitoring disk space on a regular basis](#exercise-17-automate-monitoring-disk-space-on-a-regular-basis)
+- [Exercise 18: Automate both disk space monitoring and taking backups on a regular basis](#exercise-18-automate-both-disk-space-monitoring-and-taking-backups-on-a-regular-basis)
+
+## Exercise 1: Hello, World!
 
 Define a variable with the string "Hello, World!"
 
@@ -10,13 +31,13 @@ Print the value of the variable you've defined and redirect the output to the fi
 
 Solution [here](./Solutions/Hello_world.sh).
 
-### Exercise 2: Basic date
+## Exercise 2: Basic date
 
 Write a script that will put the current date in a file called "Date.txt"
 
 Solution [here](./Solutions/Basic_date.sh).
 
-### Exercise 3: Great day
+## Exercise 3: Great day
 
 Write a script that will print "Today is a great day!" unless it's given a day name and then it should print "Today is "
 
@@ -24,7 +45,7 @@ Note: no need to check whether the given argument is actually a valid day.
 
 Solution [here](./Solutions/Great_day.sh).
 
-### Exercise 4: Factors
+## Exercise 4: Factors
 
 Write a script that when given a number, will:
 
@@ -34,7 +55,7 @@ Write a script that when given a number, will:
 
 Solution [here](./Solutions/Factors.sh).
 
-### Exercise 5: Argument check
+## Exercise 5: Argument check
 
 Write a script that will check if a given argument is the string "pizza"
 
@@ -48,7 +69,7 @@ Solution 1 [here](./Solutions/Argument_check_1.sh).
 
 Solution 2 [here](./Solutions/Argument_check_2.sh).
 
-### Exercise 5: Files size
+## Exercise 6: Files size
 
 Print the name and size of every file and directory in current path.
 
@@ -56,7 +77,7 @@ Note: use at least one for loop!
 
 Solution [here](./Solutions/Files_size.sh).
 
-### Exercise 6: Count chars
+## Exercise 7: Count chars
 
 Read input from the user until you get empty string.
 
@@ -64,7 +85,7 @@ For each of the lines you read, count the number of characters and print it.
 
 Solution [here](./Solutions/Count_chars.sh).
 
-### Exercise 7: Sum
+## Exercise 8: Sum
 
 Write a script that gets two numbers and prints their sum.
 
@@ -74,7 +95,7 @@ Test the script by running and passing it two numbers as arguments.
 
 Solution [here](./Solutions/Sum.sh).
 
-### Exercise 8: Number of arguments
+## Exercise 9: Number of arguments
 
 Write a script that will print "Got it: " in case of one argument.
 
@@ -84,13 +105,13 @@ In case of more than one argument, print "hey hey...too many!"
 
 Solution [here](./Solutions/Number_of_arguments.sh).
 
-### Exercise 9: Empty files
+## Exercise 10: Empty files
 
 Write a script to remove all the empty files in a given directory (including nested directories).
 
 Solution [here](./Solutions/Empty_files.sh).
 
-### Exercise 10: Directories comparison
+## Exercise 11: Directories comparison
 
 You are given two directories as arguments and the output should be any difference between the two directories.
 
@@ -106,13 +127,13 @@ Solution [here](./Solutions/dirdiff.sh).
 
 All the problems in the following exercises are advanced level and require you to have access to a test server be it in a VM, Cloud or Phsyical Server. If you don't have any, don't worry and don't feel too bad about it. Just read the problems and see the suggested solution to improve your understanding.
 
-### Exercise 11: It's alive!
+## Exercise 12: It's alive!
 
 Write a script to determine whether a given host is down or up.
 
 Solution [here](./Solutions/It_is_alive.sh).
 
-### Exercise 12: Automate user management on servers
+## Exercise 13: Automate user management on servers
 
 Creating a user on multiple servers maybe something that you would do on a daily basis as a sysadmin. It is a tedious a task. Write a bash script that automates the entire process.
 
@@ -134,7 +155,7 @@ These are server hostnames and the IP addresses are already assumed to have been
 
 Solution [here](./Solutions/Automate_user_management_on_servers.sh).
 
-### Exercise 13: Automate backups to a separate server
+## Exercise 14: Automate backups to a separate server
 
 Write an automated script to backup archives of your files on a separate server.
 
@@ -148,7 +169,7 @@ Finally, for all the directories in the **backup_dirs** array, create a gzip com
 
 Solution [here](./Solutions/Automate_backups_to_a_separate_server.sh).
 
-### Exercise 14: Automate backups on a regular basis
+## Exercise 15: Automate backups on a regular basis
 
 Take backups based on exercise 2 every day at midnight on the separate backup server.
 
@@ -162,7 +183,7 @@ Solution:
 0   0   *   *   * /home/fjrodafo/Documents/Scripts/backup.sh
 ```
 
-### Exercise 15: Automate monitoring available disk space
+## Exercise 16: Automate monitoring available disk space
 
 Use the commands df , tail , awk and cut to grab the disk usage percentage of your system and check to see if it’s bigger than or equal to 90%.
 
@@ -170,7 +191,7 @@ Hint: First, created a **filesystems** array that holds all the filesystems that
 
 Solution [here](./Solutions/Automate_monitoring_available_disk_space.sh).
 
-### Exercise 16: Automate monitoring disk space on a regular basis
+## Exercise 17: Automate monitoring disk space on a regular basis
 
 Check disk usage based on exercise 4 every six hours on your system.
 
@@ -184,7 +205,7 @@ Solution:
 0   */6 *       *       * /home/fjrodafo/Documents/Scripts/disk_space.sh
 ```
 
-### Exercise 17: Automate both disk space monitoring and taking backups on a regular basis
+## Exercise 18: Automate both disk space monitoring and taking backups on a regular basis
 
 Use Cron to take backups based on exercise 2 every day at midnight on the separate backup server. Also check disk usage based on exercise 4 every six hours on your system.
 
@@ -200,3 +221,6 @@ Solution:
 ```
 
 Please note here, that we are using the same crontab file to execute both scripts on a regular basis.
+
+<link rel="stylesheet" href="./Back_to_top.css">
+<a class="back-to-top" href="#top" title="Back to top">↑</a>
