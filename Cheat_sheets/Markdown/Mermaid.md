@@ -36,7 +36,7 @@ Mermaid allows even non-programmers to easily create detailed and diagrams throu
 
 ## Flowchart
 
-```mermaid
+```
 flowchart
     subgraph My App
 
