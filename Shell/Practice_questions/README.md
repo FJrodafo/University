@@ -222,5 +222,5 @@ Solution:
 
 Please note here, that we are using the same crontab file to execute both scripts on a regular basis.
 
-<link rel="stylesheet" href="./Back_to_top.css">
+<link rel="stylesheet" href="./README.css">
 <a class="back-to-top" href="#top" title="Back to top">↑</a>
