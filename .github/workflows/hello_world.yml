@@ -1,8 +1,10 @@
-name: Hello world
+name: Hello World
+
 on:
   push:
     branches:
       - main
+
 jobs:
   Hello_world:
     runs-on: ubuntu-22.04
