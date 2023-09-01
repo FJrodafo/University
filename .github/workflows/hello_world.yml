@@ -6,7 +6,7 @@ on:
       - main
 
 jobs:
-  Hello_world:
+  Hello_World:
     runs-on: ubuntu-22.04
     steps:
       - name: Echo the message
