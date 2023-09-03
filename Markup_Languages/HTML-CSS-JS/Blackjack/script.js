@@ -19,7 +19,7 @@ window.onload = function () {
 
 function buildDeck() {
     let types = ["C", "D", "H", "S"];
-    let values = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"];
+    let values = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "T", "J", "Q", "K"];
     deck = [];
     for (let i = 0; i < types.length; i++) {
         for (let j = 0; j < values.length; j++) {
@@ -75,27 +75,28 @@ function hit() {
     playerSum += getValue(card);
     playerAceCount += checkAce(card);
     document.getElementById("player-cards").append(cardImg);
-    if (reduceAce(playerSum, playerAceCount) > 21) {
+    if (reduceAce(playerSum, playerAceCount) >= 21) {
         canHit = false;
     }
 }
 
 async function stay() {
+    canHit = false;
     hiddenCard.src = "./Cards/" + hidden + ".png";
     playerSum = reduceAce(playerSum, playerAceCount);
-    for (let i = 0; i < 2; i++) {
-        while (dealerSum < 17 && playerSum <= 21 && dealerSum < playerSum) {
-            let cardImg = document.createElement("img");
-            let card = deck.pop();
-            cardImg.src = "./Cards/" + card + ".png";
-            dealerSum += getValue(card);
-            dealerAceCount += checkAce(card);
-            await sleep(1);
-            document.getElementById("dealer-cards").append(cardImg);
-            dealerSum = reduceAce(dealerSum, dealerAceCount);
-        }
+    if (dealerAceCount == 2) {
+        dealerSum = reduceAce(dealerSum, dealerAceCount);
     }
-    canHit = false;
+    while (dealerSum < playerSum && dealerSum < 17 && playerSum <= 21) {
+        let cardImg = document.createElement("img");
+        let card = deck.pop();
+        cardImg.src = "./Cards/" + card + ".png";
+        dealerSum += getValue(card);
+        dealerAceCount += checkAce(card);
+        await sleep(1);
+        document.getElementById("dealer-cards").append(cardImg);
+        dealerSum = reduceAce(dealerSum, dealerAceCount);
+    }
     let message = "";
     if (playerSum > 21) {
         message = "You lose!";
