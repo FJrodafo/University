@@ -95,7 +95,22 @@ async function stay() {
         dealerAceCount += checkAce(card);
         await sleep(1);
         document.getElementById("dealer-cards").append(cardImg);
-        dealerSum = reduceAce(dealerSum, dealerAceCount);
+        if (dealerAceCount > 1) {
+            dealerSum = reduceAce(dealerSum, dealerAceCount);
+        }
+    }
+    dealerSum = reduceAce(dealerSum, dealerAceCount);
+    while (dealerSum < playerSum && dealerSum < 17 && playerSum <= 21) {
+        let cardImg = document.createElement("img");
+        let card = deck.pop();
+        cardImg.src = "./Cards/" + card + ".png";
+        dealerSum += getValue(card);
+        dealerAceCount += checkAce(card);
+        await sleep(1);
+        document.getElementById("dealer-cards").append(cardImg);
+        if (dealerAceCount > 1) {
+            dealerSum = reduceAce(dealerSum, dealerAceCount);
+        }
     }
     let message = "";
     if (playerSum > 21) {
