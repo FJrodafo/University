@@ -279,5 +279,5 @@ git push gitlab
 
 **HEAD:** representing your current working directory, the HEAD pointer can be moved to different branches, tags, or commits when using `git checkout`
 
-<link rel="stylesheet" href="./../README.css">
+<link rel="stylesheet" href="./README.css">
 <a class="back-to-top" href="#top" title="Back to top">↑</a>

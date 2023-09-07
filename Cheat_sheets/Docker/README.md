@@ -283,7 +283,7 @@ docker run -dp 127.0.0.1:3000:3000 getting-started
 
 You probably saw an error like this:
 
-```shell
+```
 docker: Error response from daemon: driver failed programming external connectivity on endpoint laughing_burnell 
 (bb242b2ca4d67eba76e79474fb36bb5125708ebdabd7f45c8eaf16caaabde9dd): Bind for 127.0.0.1:3000 failed: port is already allocated.
 ```
@@ -434,5 +434,5 @@ docker volume inspect todo-db
 
 The `Mountpoint` is the actual location of the data on the disk. Note that on most machines, you will need to have root access to access this directory from the host.
 
-<link rel="stylesheet" href="./../README.css">
+<link rel="stylesheet" href="./README.css">
 <a class="back-to-top" href="#top" title="Back to top">↑</a>
