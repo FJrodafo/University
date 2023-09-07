@@ -269,7 +269,7 @@ In the `src/static/js/app.js` file, update line 56 to use the new empty text:
 + <p className="text-center">You have no todo items yet! Add one above!</p>
 ```
 
-Build your updated version of the image, using the docker build command (make sure you are in the `getting-started-app` directory):
+Build your updated version of the image, using the docker build command (Make sure you are in the `getting-started-app` directory):
 
 ```shell
 docker build -t getting-started .
@@ -330,7 +330,7 @@ docker image rm <the-image-id>
 
 ### Build and start the updated app container
 
-Now, build your updated version of the image, using the docker build command (make sure you are in the `getting-started-app` directory):
+Now, build your updated version of the image, using the docker build command (Make sure you are in the `getting-started-app` directory):
 
 ```shell
 docker build -t getting-started .

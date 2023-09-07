@@ -262,6 +262,8 @@ git push gitlab
 
 ## Revert to a previous commit
 
+These commands cannot be used if the branch is protected:
+
 ```shell
 git reset <commit-SHA>
 git add -A
