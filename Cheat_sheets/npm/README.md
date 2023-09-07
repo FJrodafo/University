@@ -1,9 +1,6 @@
 <div align="center">
     <a href="https://www.npmjs.com/" target="_blank">
-        <picture>
-            <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/FJrodafo/University/main/Cheat_sheets/npm/Assets/Dark.png">
-            <img alt="logo" height="46" src="https://raw.githubusercontent.com/FJrodafo/University/main/Cheat_sheets/npm/Assets/Logo.png" />
-        </picture>
+        <img alt="logo" height="46" src="https://raw.githubusercontent.com/FJrodafo/University/main/Cheat_sheets/npm/Assets/Logo.png" />
     </a>
 </div>
 
@@ -71,7 +68,7 @@ If everything went well, you can check that your package has been published by s
 
 Don't worry, there is a method to publish your package with whatever name you want, you just need to add a prefix to it.
 
-<img alt="Screenshot" height="300" src="https://raw.githubusercontent.com/FJrodafo/University/main/Cheat_sheets/npm/Assets/Screenshot.png" />
+![Screenshot](https://raw.githubusercontent.com/FJrodafo/University/main/Cheat_sheets/npm/Assets/Screenshot.png)
 
 As you can see in the screenshot above, I simply add my username to the package name from the `package.json` file. Then you can publish your new package even if the name is already taken.To publish it, type the following command (The `--access=public` option is required, otherwise npm will publish packages with prefixes as private packages by default. If we want to publish it as a public package, just type the following command):
 
