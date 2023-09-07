@@ -17,7 +17,8 @@
 6. [Make Changes](#make-changes)
 7. [Synchronize Changes](#synchronize-changes)
 8. [Create a Test repo](#create-a-test-repo)
-9. [Glossary](#glossary)
+9. [Revert to a previous commit](#revert-to-a-previous-commit)
+10. [Glossary](#glossary)
 
 ## Install
 
@@ -257,6 +258,15 @@ git remote add github git@github.com:FJrodafo/Test.git
 git remote add gitlab git@gitlab.com:FJrodafo/Test.git
 git push github
 git push gitlab
+```
+
+## Revert to a previous commit
+
+```shell
+git reset <commit-SHA>
+git add -A
+git commit -m "commit-name"
+git push origin -f
 ```
 
 ## Glossary
