@@ -1,4 +1,4 @@
-name: Hello World
+name: Hello, World!
 
 on:
   push:
@@ -6,7 +6,7 @@ on:
       - main
 
 jobs:
-  Hello_World:
+  echo:
     runs-on: ubuntu-22.04
     steps:
       - name: Echo the message
