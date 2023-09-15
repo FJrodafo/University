@@ -1,3 +1,4 @@
-- [ ] Java 2.31
+- [x] Java 2.31
+- [ ] Java 2.35
 - [ ] Buy Me a Coffee clon
 - [ ] Mongodb
