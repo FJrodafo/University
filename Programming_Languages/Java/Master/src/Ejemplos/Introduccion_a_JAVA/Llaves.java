@@ -1,4 +1,4 @@
-package Ejemplos;
+package Ejemplos.Introduccion_a_JAVA;
 
 public class Llaves {
     public static void main(String[] args) {

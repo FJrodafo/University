@@ -1,4 +1,4 @@
-package Ejemplos;
+package Ejemplos.Introduccion_a_JAVA;
 
 import java.util.Scanner;
 

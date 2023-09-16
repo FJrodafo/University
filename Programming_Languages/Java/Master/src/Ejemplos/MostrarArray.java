@@ -11,14 +11,16 @@ public class MostrarArray {
 
         // Mostrar array con fori
         for (int i = 0; i < array1.length; i++) {
-            System.out.println(array1[i]);
+            System.out.print(array1[i] + " ");
         }
 
-        System.out.println("----------");
+        System.out.println();
 
         // Mostrar array con foreach
         for (int pivote : array2) {
-            System.out.println(pivote);
+            System.out.print(pivote + " ");
         }
+
+        System.out.println();
     }
 }
