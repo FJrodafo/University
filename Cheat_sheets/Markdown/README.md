@@ -78,7 +78,7 @@
         <tr>
             <td>Image</td>
             <td>
-                <code>![alt text](image.jpg)</code>
+                <code>![alt text](image.jpg "Hello, World!")</code>
             </td>
         </tr>
         <tr>
