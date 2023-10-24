@@ -7,7 +7,6 @@ document.getElementById('tablaMultiplicar').innerHTML = tablaMultiplicar;
 
 // Tabla de sumar del 8 (usando bucle while)
 var tablaSumar = '';
-var num = 8;
 var i = 1;
 while (i <= 10) {
     tablaSumar += '8 + ' + i + ' = ' + (8 + i) + '<br>';
@@ -17,7 +16,6 @@ document.getElementById('tablaSumar').innerHTML = tablaSumar;
 
 // Tabla de dividir del 9 (usando bucle do-while)
 var tablaDividir = '';
-var divisor = 9;
 var i = 1;
 do {
     tablaDividir += '9 ÷ ' + i + ' = ' + (9 / i) + '<br>';
