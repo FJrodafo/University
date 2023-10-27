@@ -1,4 +1,4 @@
-package Ejercicios.Introduccion_a_JAVA.Ejercicio_4;
+package Ejercicios.Introduccion.Ejercicio_4;
 
 import java.util.Scanner;
 
@@ -11,7 +11,7 @@ import java.util.Scanner;
  * 
  * EJEMPLO:
  *     Entrada:
- *         1, -111, 5, 111, 66, 201, 27, 0
+ *         1, -111, 5, 111, 66, 201, 27, 0.
  *     Salida:
  *         1 + 111 + 201 = 313
  */

@@ -1,4 +1,4 @@
-package Ejercicios.Introduccion_a_JAVA.Ejercicio_3;
+package Ejercicios.Introduccion.Ejercicio_3;
 
 import java.util.Scanner;
 
@@ -12,7 +12,7 @@ import java.util.Scanner;
  * 
  * EJEMPLO:
  *     Entrada:
- *         3, 4, 5, 6, -2, 8, 0
+ *         3, 4, 5, 6, -2, 8, 0.
  *     Salida:
  *         3 + 4 + 5 + 6 + 8 = 26
  */

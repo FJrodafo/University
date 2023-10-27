@@ -1,4 +1,4 @@
-package Ejercicios.Introduccion_a_JAVA.Ejercicio_1;
+package Ejercicios.Introduccion.Ejercicio_1;
 
 import java.util.Scanner;
 
