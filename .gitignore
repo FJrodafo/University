@@ -1,0 +1,9 @@
+# Nodejs
+node_modules
+
+# Programming_Languages/Java
+bin
+lib
+
+# Programming_Languages/Python
+__pycache__
