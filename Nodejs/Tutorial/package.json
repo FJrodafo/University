@@ -28,9 +28,9 @@
   },
   "homepage": "https://github.com/FJrodafo/University#readme",
   "dependencies": {
+    "@fjrodafo/colors": "^0.0.1",
     "@fjrodafo/free-port": "^0.0.1",
-    "express": "4.18.2",
-    "picocolors": "^1.0.0"
+    "express": "4.18.2"
   },
   "devDependencies": {
     "nodemon": "^3.0.1",
