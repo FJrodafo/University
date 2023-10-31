@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documento</title>
+    <script>
+        function abrirFormulario() {
+            let confirmacion = self.confirm("¿Deseas abrir el formulario de registro?");
+
+            if (confirmacion) {
+                ventanaFormulario = window.open("formulario.html", "Formulario de registro", "height=305,width=365");
+            } else {
+                self.alert("No se pudo completar el registro.");
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <h2>Regístrese aquí</h2>
+    <button onclick="abrirFormulario()">Abrir formulario</button>
+    <div id="resultado"></div>
+</body>
+
+</html>
