@@ -35,7 +35,7 @@ function abrirFormulario() {
                                     <label for="telefono">Teléfono:</label>
                                     <input type="tel" id="telefono" name="telefono" required>
                                     <br><br>
-                                    <label for="correo">Correo Electrónico:</label>
+                                    <label for="correo">Correo electrónico:</label>
                                     <input type="email" id="correo" name="correo" required>
                                     <br><br>
                                     <input type="submit" value="Enviar">
