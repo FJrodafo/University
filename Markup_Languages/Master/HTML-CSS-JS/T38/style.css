@@ -1,26 +1,57 @@
-html,
-body {
-    margin: 0;
+label {
+    width: 200px;
+    float: left;
+    margin-bottom: 5px;
 }
 
-html {
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    height: 100%;
+input,
+select {
+    width: 200px;
+    float: left;
+    margin-bottom: 5px;
 }
 
-body {
-    overflow: hidden;
-    height: inherit;
+fieldset {
+    background: #66CCCC;
+    width: 410px;
+    border-radius: 9px;
+    border: thick solid #306;
 }
 
-h2 {
-    font-size: 2rem;
-    letter-spacing: -1px;
-    position: absolute;
-    margin: 0;
-    top: -4px;
-    right: 5px;
-
-    color: transparent;
-    text-shadow: 0 0 4px white;
+legend {
+    border-top-width: medium;
+    border-right-width: medium;
+    border-bottom-width: medium;
+    border-left-width: medium;
+    border-top-style: solid;
+    border-right-style: solid;
+    border-bottom-style: solid;
+    border-left-style: solid;
+    border-radius: 9px;
+    border: thick solid #306;
+    background-color: #FFF;
 }
+
+#mensajes {
+    float: left;
+    background: #33FF33;
+    width: 400px;
+}
+
+#intentos {
+    float: left;
+    background: #CCFF33;
+    width: 400px;
+}
+
+#errores {
+    float: left;
+    background: #FF6633;
+    width: 400px;
+}
+
+/*
+.error {
+    border: solid 2px #FF0000;
+}
+*/

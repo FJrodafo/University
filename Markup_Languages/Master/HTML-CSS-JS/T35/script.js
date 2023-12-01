@@ -50,7 +50,7 @@ var numeroMayor = Math.max(...numeros);
 var numeroAzar = Math.floor(Math.random() * 1_000_000_000);
 
 // Imprimir los resultados en la ventana principal
-document.write('<h1>TAREA DWEC03</h1><hr />');
+document.write('<h1>TAREA</h1><hr />');
 document.write('Buenos días ' + nombreCompleto + '<br>');
 document.write('Tu nombre tiene ' + nombreCompleto.length + ' caracteres, incluidos espacios.<br>');
 document.write('La primera letra A de tu nombre está en la posición: ' + primeraA + '<br>');
