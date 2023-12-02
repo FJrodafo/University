@@ -1,4 +1,4 @@
-package Introduccion_a_JAVA;
+package Introduccion_a_JAVA.Ejemplos;
 
 public class Escapes {
     public static void main(String[] args) {

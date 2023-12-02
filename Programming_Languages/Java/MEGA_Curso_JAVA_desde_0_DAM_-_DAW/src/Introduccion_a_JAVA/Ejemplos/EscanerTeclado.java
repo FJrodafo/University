@@ -1,4 +1,4 @@
-package Introduccion_a_JAVA;
+package Introduccion_a_JAVA.Ejemplos;
 
 import java.util.Scanner; // Importamos la libraría del escáner
 
