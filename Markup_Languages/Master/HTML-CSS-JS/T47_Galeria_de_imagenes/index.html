@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documento</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <div class="gallery-container">
+        <div class="thumbnails" id="thumbnails">
+            <!-- Miniaturas de las imágenes -->
+            <img src="./FRUITS/ORANGE.png" onclick="showImage(0)">
+            <img src="./FRUITS/PEPPER.png" onclick="showImage(1)">
+            <img src="./FRUITS/PEAR.png" onclick="showImage(2)">
+        </div>
+
+        <div class="main-image-container">
+            <!-- Área principal para mostrar la imagen completa -->
+            <img src="./FRUITS/ORANGE.png" id="mainImage">
+            <span class="prev" onclick="changeImage(-1)">&#10094;</span>
+            <span class="next" onclick="changeImage(1)">&#10095;</span>
+        </div>
+    </div>
+
+    <script src="./script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,9 @@
+/* Estilo para el contenedor del mensaje */
+#infoCoordenadas {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.7);
+    border: 1px solid #ccc;
+}
