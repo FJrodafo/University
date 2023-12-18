@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documento</title>
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        #contenedor {
+            text-align: center;
+        }
+
+        .tablerodibujo {
+            border: thin solid;
+            width: auto;
+            margin: 0 auto;
+            border-collapse: collapse;
+        }
+
+        .tablerodibujo td {
+            width: 10px;
+            height: 10px;
+            margin: 0;
+            padding: 0;
+        }
+
+        #paleta {
+            width: auto;
+            margin: 0 auto;
+        }
+
+        .color {
+            width: 35px;
+            height: 20px;
+            cursor: pointer;
+        }
+
+        .seleccionado {
+            border: medium solid #939;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="contenedor">
+        <p>TABLERO DE DIBUJO EN JAVASCRIPT</p>
+
+        <table border="1" id="paleta" summary="Tabla de selección de colores">
+            <caption>Haga clic en un color para comenzar a pintar</caption>
+            <tr>
+                <td class="color seleccionado" style="background-color: #FF0"></td>
+                <td class="color" style="background-color: #0F0"></td>
+                <td class="color" style="background-color: #000"></td>
+                <td class="color" style="background-color: #F00"></td>
+                <td class="color" style="background-color: #06C"></td>
+                <td class="color" style="background-color: #FFF"></td>
+            </tr>
+            <tr>
+                <td colspan="6" id="pincel"><span id="estadoPincel">PINCEL DESACTIVADO</span></td>
+            </tr>
+        </table>
+
+        <p></p>
+
+        <div id="zonadibujo"></div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var pincelActivo = false;
+            var colores = ['#FF0', '#0F0', '#000', '#F00', '#06C', '#FFF'];
+            var colorSeleccionado = colores[0];
+
+            var tablero = document.createElement('table');
+            tablero.className = 'tablerodibujo';
+
+            for (var i = 0; i < 40; i++) {
+                var fila = document.createElement('tr');
+                for (var j = 0; j < 40; j++) {
+                    var celda = document.createElement('td');
+                    celda.addEventListener('mouseover', pintarCelda);
+                    celda.addEventListener('mousedown', cambiarEstadoPincel);
+                    fila.appendChild(celda);
+                }
+                tablero.appendChild(fila);
+            }
+
+            document.getElementById('zonadibujo').appendChild(tablero);
+
+            var paleta = document.getElementById('paleta');
+            paleta.addEventListener('mousedown', cambiarColor);
+
+            var coloresPaleta = paleta.getElementsByClassName('color');
+
+            for (var k = 0; k < coloresPaleta.length; k++) {
+                coloresPaleta[k].style.backgroundColor = colores[k];
+            }
+
+            actualizarEstadoPincel();
+
+            function pintarCelda() {
+                if (pincelActivo) {
+                    this.style.backgroundColor = colorSeleccionado;
+                }
+            }
+
+            function cambiarEstadoPincel() {
+                pincelActivo = !pincelActivo;
+                actualizarEstadoPincel();
+            }
+
+            function cambiarColor(event) {
+                if (event.target.classList.contains('color')) {
+                    colorSeleccionado = event.target.style.backgroundColor;
+                    actualizarEstadoPincel();
+                    actualizarSeleccionColor();
+                }
+            }
+
+            function actualizarEstadoPincel() {
+                var estadoPincel = document.getElementById('estadoPincel');
+                estadoPincel.textContent = pincelActivo ? 'PINCEL ACTIVADO' : 'PINCEL DESACTIVADO';
+            }
+
+            function actualizarSeleccionColor() {
+                var coloresPaleta = paleta.getElementsByClassName('color');
+                for (var i = 0; i < coloresPaleta.length; i++) {
+                    coloresPaleta[i].classList.remove('seleccionado');
+                    if (coloresPaleta[i].style.backgroundColor === colorSeleccionado) {
+                        coloresPaleta[i].classList.add('seleccionado');
+                    }
+                }
+            }
+
+            var parrafo = document.querySelectorAll('p')[1];
+            parrafo.textContent = "Haga CLICK en cualquier celda para activar/desactivar el Pincel";
+        });
+    </script>
+</body>
+
+</html>
