@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
         let fdn = document.getElementById('fechaNacimiento').value;
 
         pacienteActual = new Paciente(nombre, apellidos, nhc, sexo, fdn);
-        document.getElementById('datospaciente').value = `Nombre completo: ${nombre} ${apellidos}\nNHC: ${nhc}\nSexo: ${sexo}\nFecha de nacimiento: ${fdn}`
+        document.getElementById('datospaciente').value = `Nombre completo: ${nombre} ${apellidos}\nNHC: ${nhc}\nSexo: ${sexo}\nFecha de nacimiento: ${fdn}`;
         return false; // Dar ayuda aquí para evitar el comportamiento por defecho del formulario.
     }
 
