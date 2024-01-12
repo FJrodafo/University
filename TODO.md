@@ -1,11 +1,13 @@
-- [x] Java 3.1
-- [x] Java 3.2
-- [ ] Java 3.3
+- [x] Java/MEGA_Curso_JAVA_desde_0_DAM_-_DAW 3.1
+- [x] Java/MEGA_Curso_JAVA_desde_0_DAM_-_DAW 3.2
+- [ ] Java/MEGA_Curso_JAVA_desde_0_DAM_-_DAW 3.3
 
-- [x] JavaScript 0:40:44
-- [ ] JavaScript 0:46:30
+- [x] JavaScript/Beginner_course 0:40:44
+- [ ] JavaScript/Beginner_course 0:46:30
 
-- [ ] db
-- [ ] Mongodb
+- [ ] JavaScript/jQuery
 
-- [ ] Buy Me a Coffee clon
+- [ ] ?/db
+- [ ] ?/Mongodb
+
+- [ ] ?/Buy Me a Coffee clon

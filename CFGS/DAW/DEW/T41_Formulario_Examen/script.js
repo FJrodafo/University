@@ -1,32 +1,6 @@
 // Definir persona;
 let persona = null;
 
-// Función para validar el DNI
-function validarDNI(dni) {
-    var numero, letr, letra;
-    var expresion_regular_dni = /^[XYZ]?\d{5,8}[A-Z]$/;
-
-    dni = dni.toUpperCase();
-
-    if (expresion_regular_dni.test(dni) === true) {
-        numero = dni.substr(0, dni.length - 1);
-        numero = numero.replace('X', 0);
-        numero = numero.replace('Y', 1);
-        numero = numero.replace('Z', 2);
-        letr = dni.substr(dni.length - 1, 1);
-        numero = numero % 23;
-        letra = 'TRWAGMYFPDXBNJZSQVHLCKET';
-        letra = letra.substring(numero, numero + 1);
-        if (letra != letr) {
-            return false;
-        } else {
-            return true;
-        }
-    } else {
-        return false;
-    }
-}
-
 // Función para crear una nueva persona
 function crearPersona() {
     // Obtener el valor de los campos
@@ -34,49 +8,15 @@ function crearPersona() {
     let apellidos = document.getElementById('apellidos').value.trim();
     let sexo = document.getElementById('sexo').value.trim().toUpperCase();
     let edad = document.getElementById('edad').value.trim();
-    let dni = document.getElementById('dni').value.trim();
+    let dni = document.getElementById('dni').value.trim().toUpperCase();
     let telefono = document.getElementById('telefono').value.trim();
     let email = document.getElementById('email').value.trim();
     let fdn = document.getElementById('fdn').value.trim();
     let provincia = document.getElementById('provincia').value.trim();
-    // Validaciones
+
     try {
-        // Validar que todos los campos estén rellenos
-        if (!nombre || !apellidos || !sexo || !edad || !dni || !telefono || !email || !fdn || !provincia) {
-            throw new Error('Todos los campos son obligatorios.');
-        }
-        // Validar que el sexo sea 'V' o 'H'
-        if (sexo !== 'V' && sexo !== 'H') {
-            throw new Error('El sexo debe ser V (Varón) o H (Hembra).');
-        }
-        // Validar la edad: debe ser un número y estar en un rango aceptable
-        if (!Number.isInteger(Number(edad)) || edad < 0 || edad > 120) {
-            throw new Error('La edad debe ser un número válido entre 0 y 120.');
-        }
-        // Validar el DNI: calcula la letra correcta incluyendo DNI para extranjeros
-        if (!validarDNI(dni)) {
-            throw new Error('El DNI no es válido.');
-        }
-        // Validar el teléfono: se trata de una validación simple que acepta teléfonos internacionales
-        const regexTelefono = /^[+]?[(]?[0-9]{1,4}[)]?[-\s./0-9]*$/;
-        if (!regexTelefono.test(telefono)) {
-            throw new Error('El número de teléfono no es válido.');
-        }
-        // Validar el email con una expresión regular básica
-        const regexEmail = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
-        if (!regexEmail.test(email)) {
-            throw new Error('El email no es válido.');
-        }
-        // Validar la fecha de nacimiento con una expresión regular compatible con la validación integrada de HTML5
-        const regexFdn = /^\d{4}-\d{2}-\d{2}$/;
-        if (!regexFdn.test(fdn)) {
-            throw new Error('La fecha de nacimiento no es válida.');
-        }
-        // Validar la provincia contra una lista predefinida
-        const provinciasValidas = ['Santa Cruz de Tenerife', 'Las Palmas de Gran Canaria'];
-        if (!provinciasValidas.includes(provincia)) {
-            throw new Error('La provincia seleccionada no es válida.');
-        }
+        // Validaciones
+        validarCamposFormulario(nombre, apellidos, sexo, edad, dni, telefono, email, fdn, provincia);
         // Crear persona
         persona = new Persona(nombre, apellidos, sexo, edad, dni, telefono, email, fdn, provincia);
         // Mostrar datos de la nueva persona
@@ -227,6 +167,15 @@ function resetear() {
     }
 }
 
+/*
+// DOMContentLoaded
+document.addEventListener('DOMContentLoaded', (event) => {
+    // ...
+});
+*/
+
+/*
+// DOM Level 1
 // Asignar las funciones a cada botón
 document.getElementById('crearPersona').onclick = crearPersona;
 document.getElementById('limpiarFormulario').onclick = limpiarFormulario;
@@ -243,3 +192,74 @@ document.getElementById('agregarHistorial').onclick = agregarHistorial;
 document.getElementById('eliminarHistorial').onclick = eliminarHistorial;
 document.getElementById('modificarHistorial').onclick = modificarHistorial;
 document.getElementById('resetear').onclick = resetear;
+*/
+
+// DOM Level 2
+// Función para asignar eventos a los botones
+function asignarEventos() {
+    document.getElementById('crearPersona').addEventListener('click', crearPersona);
+    document.getElementById('limpiarFormulario').addEventListener('click', limpiarFormulario);
+    document.getElementById('modificarNombre').addEventListener('click', modificarNombre);
+    document.getElementById('modificarApellidos').addEventListener('click', modificarApellidos);
+    document.getElementById('modificarSexo').addEventListener('click', modificarSexo);
+    document.getElementById('modificarEdad').addEventListener('click', modificarEdad);
+    document.getElementById('modificarDni').addEventListener('click', modificarDni);
+    document.getElementById('modificarTelefono').addEventListener('click', modificarTelefono);
+    document.getElementById('modificarEmail').addEventListener('click', modificarEmail);
+    document.getElementById('modificarFdn').addEventListener('click', modificarFdn);
+    document.getElementById('modificarProvincia').addEventListener('click', modificarProvincia);
+    document.getElementById('agregarHistorial').addEventListener('click', agregarHistorial);
+    document.getElementById('eliminarHistorial').addEventListener('click', eliminarHistorial);
+    document.getElementById('modificarHistorial').addEventListener('click', modificarHistorial);
+    document.getElementById('resetear').addEventListener('click', resetear);
+}
+
+// Llamar a la función de asignación de eventos cuando se carga la página
+window.onload = asignarEventos;
+
+/*
+// DOM Level 3
+// Función para asignar eventos a los botones
+function asignarEventos() {
+    document.getElementById('crearPersona').addEventListener('click', crearPersona);
+    document.getElementById('limpiarFormulario').addEventListener('click', limpiarFormulario);
+    document.getElementById('modificarNombre').addEventListener('click', modificarNombre);
+    document.getElementById('modificarApellidos').addEventListener('click', modificarApellidos);
+    document.getElementById('modificarSexo').addEventListener('click', modificarSexo);
+    document.getElementById('modificarEdad').addEventListener('click', modificarEdad);
+    document.getElementById('modificarDni').addEventListener('click', modificarDni);
+    document.getElementById('modificarTelefono').addEventListener('click', modificarTelefono);
+    document.getElementById('modificarEmail').addEventListener('click', modificarEmail);
+    document.getElementById('modificarFdn').addEventListener('click', modificarFdn);
+    document.getElementById('modificarProvincia').addEventListener('click', modificarProvincia);
+    document.getElementById('agregarHistorial').addEventListener('click', agregarHistorial);
+    document.getElementById('eliminarHistorial').addEventListener('click', eliminarHistorial);
+    document.getElementById('modificarHistorial').addEventListener('click', modificarHistorial);
+    document.getElementById('resetear').addEventListener('click', resetear);
+}
+
+// Función para eliminar eventos de los botones
+function eliminarEventos() {
+    document.getElementById('crearPersona').removeEventListener('click', crearPersona);
+    document.getElementById('limpiarFormulario').removeEventListener('click', limpiarFormulario);
+    document.getElementById('modificarNombre').removeEventListener('click', modificarNombre);
+    document.getElementById('modificarApellidos').removeEventListener('click', modificarApellidos);
+    document.getElementById('modificarSexo').removeEventListener('click', modificarSexo);
+    document.getElementById('modificarEdad').removeEventListener('click', modificarEdad);
+    document.getElementById('modificarDni').removeEventListener('click', modificarDni);
+    document.getElementById('modificarTelefono').removeEventListener('click', modificarTelefono);
+    document.getElementById('modificarEmail').removeEventListener('click', modificarEmail);
+    document.getElementById('modificarFdn').removeEventListener('click', modificarFdn);
+    document.getElementById('modificarProvincia').removeEventListener('click', modificarProvincia);
+    document.getElementById('agregarHistorial').removeEventListener('click', agregarHistorial);
+    document.getElementById('eliminarHistorial').removeEventListener('click', eliminarHistorial);
+    document.getElementById('modificarHistorial').removeEventListener('click', modificarHistorial);
+    document.getElementById('resetear').removeEventListener('click', resetear);
+}
+
+// Llamar a la función de asignación de eventos cuando se carga la página
+window.addEventListener('load', asignarEventos);
+
+// Llamar a la función de eliminación de eventos al descargar la página
+window.addEventListener('unload', eliminarEventos);
+*/

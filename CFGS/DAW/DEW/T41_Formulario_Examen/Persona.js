@@ -16,10 +16,13 @@ class Persona {
     modificarNombre() {
         if (confirm('¿Desea modificar el nombre de la persona?')) {
             let nuevoNombre = prompt('Introduzca el nuevo nombre:');
-            if (nuevoNombre === null || nuevoNombre.trim() === '') {
-                alert('El nuevo nombre no es válido.');
-            } else {
+            if (nuevoNombre === null) return;
+            nuevoNombre = nuevoNombre.trim();
+            try {
+                validarNombre(nuevoNombre);
                 this.nombre = nuevoNombre;
+            } catch (error) {
+                alert(error.message);
             }
         }
     }
@@ -27,21 +30,27 @@ class Persona {
     modificarApellidos() {
         if (confirm('¿Desea modificar los apellidos de la persona?')) {
             let nuevosApellidos = prompt('Introduzca los nuevos apellidos:');
-            if (nuevosApellidos === null || nuevosApellidos.trim() === '') {
-                alert('Los nuevos apellidos no son válidos.');
-            } else {
+            if (nuevosApellidos === null) return;
+            nuevosApellidos = nuevosApellidos.trim();
+            try {
+                validarApellidos(nuevosApellidos);
                 this.apellidos = nuevosApellidos;
+            } catch (error) {
+                alert(error.message);
             }
         }
     }
 
     modificarSexo() {
         if (confirm('¿Desea modificar el sexo de la persona?')) {
-            let nuevoSexo = prompt('Introduzca el nuevo sexo:').toUpperCase();
-            if ((nuevoSexo === null || nuevoSexo.trim() === '') || (nuevoSexo !== 'V' && nuevoSexo !== 'H')) {
-                alert('El nuevo sexo debe ser V (Varón) o H (Hembra).');
-            } else {
+            let nuevoSexo = prompt('Introduzca el nuevo sexo:');
+            if (nuevoSexo === null) return;
+            nuevoSexo = nuevoSexo.trim().toUpperCase();
+            try {
+                validarSexo(nuevoSexo);
                 this.sexo = nuevoSexo;
+            } catch (error) {
+                alert(error.message);
             }
         }
     }
@@ -49,10 +58,13 @@ class Persona {
     modificarEdad() {
         if (confirm('¿Desea modificar la edad de la persona?')) {
             let nuevaEdad = prompt('Introduzca la nueva edad:');
-            if ((nuevaEdad === null || nuevaEdad.trim() === '') || (!Number.isInteger(Number(nuevaEdad)) || nuevaEdad < 0 || nuevaEdad > 120)) {
-                alert('La nueva edad debe ser un número válido entre 0 y 120.');
-            } else {
+            if (nuevaEdad === null) return;
+            nuevaEdad = nuevaEdad.trim();
+            try {
+                validarEdad(nuevaEdad);
                 this.edad = nuevaEdad;
+            } catch (error) {
+                alert(error.message);
             }
         }
     }
@@ -60,10 +72,13 @@ class Persona {
     modificarDni() {
         if (confirm('¿Desea modificar el DNI de la persona?')) {
             let nuevoDni = prompt('Introduzca el nuevo DNI:');
-            if ((nuevoDni === null || nuevoDni.trim() === '') || (!validarDNI(nuevoDni))) {
-                alert('El nuevo DNI no es válido.');
-            } else {
+            if (nuevoDni === null) return;
+            nuevoDni = nuevoDni.trim().toUpperCase();
+            try {
+                validarDni(nuevoDni);
                 this.dni = nuevoDni;
+            } catch (error) {
+                alert(error.message);
             }
         }
     }
@@ -71,11 +86,13 @@ class Persona {
     modificarTelefono() {
         if (confirm('¿Desea modificar el número de teléfono de la persona?')) {
             let nuevoTelefono = prompt('Introduzca el nuevo número de teléfono:');
-            const regexTelefono = /^[+]?[(]?[0-9]{1,4}[)]?[-\s./0-9]*$/;
-            if ((nuevoTelefono === null || nuevoTelefono.trim() === '') || (!regexTelefono.test(nuevoTelefono))) {
-                alert('El nuevo número de teléfono no es válido.');
-            } else {
+            if (nuevoTelefono === null) return;
+            nuevoTelefono = nuevoTelefono.trim();
+            try {
+                validarTelefono(nuevoTelefono);
                 this.telefono = nuevoTelefono;
+            } catch (error) {
+                alert(error.message);
             }
         }
     }
@@ -83,11 +100,13 @@ class Persona {
     modificarEmail() {
         if (confirm('¿Desea modificar el email de la persona?')) {
             let nuevoEmail = prompt('Introduzca el nuevo email:');
-            const regexEmail = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
-            if ((nuevoEmail === null || nuevoEmail.trim() === '') || (!regexEmail.test(nuevoEmail))) {
-                alert('El nuevo email no es válido.');
-            } else {
+            if (nuevoEmail === null) return;
+            nuevoEmail = nuevoEmail.trim();
+            try {
+                validarEmail(nuevoEmail);
                 this.email = nuevoEmail;
+            } catch (error) {
+                alert(error.message);
             }
         }
     }
@@ -95,11 +114,13 @@ class Persona {
     modificarFdn() {
         if (confirm('¿Desea modificar la fecha de nacimiento de la persona?')) {
             let nuevaFdn = prompt('Introduzca la nueva fecha de nacimiento:');
-            const regexFdn = /^\d{4}-\d{2}-\d{2}$/;
-            if ((nuevaFdn === null || nuevaFdn.trim() === '') || (!regexFdn.test(nuevaFdn))) {
-                alert('La nueva fecha de nacimiento no es válida.');
-            } else {
+            if (nuevaFdn === null) return;
+            nuevaFdn = nuevaFdn.trim();
+            try {
+                validarFdn(nuevaFdn);
                 this.fdn = nuevaFdn;
+            } catch (error) {
+                alert(error.message);
             }
         }
     }
@@ -107,17 +128,19 @@ class Persona {
     modificarProvincia() {
         if (confirm('¿Desea modificar la provincia de la persona?')) {
             let nuevaProvincia = prompt('Introduzca el nueva provincia:');
-            const provinciasValidas = ['Santa Cruz de Tenerife', 'Las Palmas de Gran Canaria'];
-            if ((nuevaProvincia === null || nuevaProvincia.trim() === '') || (!provinciasValidas.includes(nuevaProvincia))) {
-                alert('La nueva provincia no es válida.');
-            } else {
+            if (nuevaProvincia === null) return;
+            nuevaProvincia = nuevaProvincia.trim();
+            try {
+                validarProvincia(nuevaProvincia);
                 this.provincia = nuevaProvincia;
+            } catch (error) {
+                alert(error.message);
             }
         }
     }
 
     /**
-     * @returns los datos de la persona
+     * @returns {string} Los datos de la persona como una cadena de texto formateada.
      */
     mostrarInformacion() {
         return `Nombre completo: ${this.nombre} ${this.apellidos}\nSexo: ${this.sexo}\nEdad: ${this.edad}\nDNI: ${this.dni}\nTeléfono: ${this.telefono}\nEmail: ${this.email}\nFecha de nacimiento: ${this.fdn}\nProvincia: ${this.provincia}`;
