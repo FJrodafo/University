@@ -5,7 +5,5 @@
 - [x] JavaScript/Beginner_course 0:40:44
 - [ ] JavaScript/Beginner_course 0:46:30
 
-- [x] JavaScript/jQuery
-
 - [ ] ?/db
 - [ ] ?/Mongodb

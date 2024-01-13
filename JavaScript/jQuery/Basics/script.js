@@ -1,4 +1,5 @@
 // We should run our jQuery actions once the document has finished loading with this line of code
+// $(() => {});
 $(document).ready(function () {
 
     // Hide all h2 tags
@@ -89,4 +90,24 @@ $(document).ready(function () {
         // It toggles a class to the selected element
         $("h2").toggleClass("blue");
     });
+
+    // Cascading
+    $('#special-btn')
+        .css('background', '#09f')
+        .css('border', '#fff')
+        .css({
+            padding: '16px',
+            borderRadius: '4px'
+        })
+        .on('click', () => {
+            alert('Hello, World!')
+        })
+
+    // each list index
+    $('li').each((index, myElement) => {
+        if (index === 0) $(myElement).css('color', '#09f')
+        if (index === 1) $(myElement).css('color', 'red')
+        if (index === 2) $(myElement).css('color', 'yellow')
+        if (index === 3) $(myElement).css('color', '#09f')
+    })
 });
