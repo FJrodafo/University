@@ -5,9 +5,7 @@
 - [x] JavaScript/Beginner_course 0:40:44
 - [ ] JavaScript/Beginner_course 0:46:30
 
-- [ ] JavaScript/jQuery
+- [x] JavaScript/jQuery
 
 - [ ] ?/db
 - [ ] ?/Mongodb
-
-- [ ] ?/Buy Me a Coffee clon
