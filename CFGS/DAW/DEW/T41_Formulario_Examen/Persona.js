@@ -19,7 +19,7 @@ class Persona {
             if (nuevoNombre === null) return;
             nuevoNombre = nuevoNombre.trim();
             try {
-                validarNombre(nuevoNombre);
+                validarModificarNombre(nuevoNombre);
                 this.nombre = nuevoNombre;
             } catch (error) {
                 alert(error.message);
@@ -33,7 +33,7 @@ class Persona {
             if (nuevosApellidos === null) return;
             nuevosApellidos = nuevosApellidos.trim();
             try {
-                validarApellidos(nuevosApellidos);
+                validarModificarApellidos(nuevosApellidos);
                 this.apellidos = nuevosApellidos;
             } catch (error) {
                 alert(error.message);
@@ -47,7 +47,7 @@ class Persona {
             if (nuevoSexo === null) return;
             nuevoSexo = nuevoSexo.trim().toUpperCase();
             try {
-                validarSexo(nuevoSexo);
+                validarModificarSexo(nuevoSexo);
                 this.sexo = nuevoSexo;
             } catch (error) {
                 alert(error.message);
@@ -61,7 +61,7 @@ class Persona {
             if (nuevaEdad === null) return;
             nuevaEdad = nuevaEdad.trim();
             try {
-                validarEdad(nuevaEdad);
+                validarModificarEdad(nuevaEdad);
                 this.edad = nuevaEdad;
             } catch (error) {
                 alert(error.message);
@@ -75,7 +75,7 @@ class Persona {
             if (nuevoDni === null) return;
             nuevoDni = nuevoDni.trim().toUpperCase();
             try {
-                validarDni(nuevoDni);
+                validarModificarDni(nuevoDni);
                 this.dni = nuevoDni;
             } catch (error) {
                 alert(error.message);
@@ -89,7 +89,7 @@ class Persona {
             if (nuevoTelefono === null) return;
             nuevoTelefono = nuevoTelefono.trim();
             try {
-                validarTelefono(nuevoTelefono);
+                validarModificarTelefono(nuevoTelefono);
                 this.telefono = nuevoTelefono;
             } catch (error) {
                 alert(error.message);
@@ -103,7 +103,7 @@ class Persona {
             if (nuevoEmail === null) return;
             nuevoEmail = nuevoEmail.trim();
             try {
-                validarEmail(nuevoEmail);
+                validarModificarEmail(nuevoEmail);
                 this.email = nuevoEmail;
             } catch (error) {
                 alert(error.message);
@@ -117,7 +117,7 @@ class Persona {
             if (nuevaFdn === null) return;
             nuevaFdn = nuevaFdn.trim();
             try {
-                validarFdn(nuevaFdn);
+                validarModificarFdn(nuevaFdn);
                 this.fdn = nuevaFdn;
             } catch (error) {
                 alert(error.message);
@@ -127,11 +127,11 @@ class Persona {
 
     modificarProvincia() {
         if (confirm('¿Desea modificar la provincia de la persona?')) {
-            let nuevaProvincia = prompt('Introduzca el nueva provincia:');
+            let nuevaProvincia = prompt('Introduzca la nueva provincia:');
             if (nuevaProvincia === null) return;
             nuevaProvincia = nuevaProvincia.trim();
             try {
-                validarProvincia(nuevaProvincia);
+                validarModificarProvincia(nuevaProvincia);
                 this.provincia = nuevaProvincia;
             } catch (error) {
                 alert(error.message);

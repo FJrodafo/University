@@ -57,22 +57,20 @@
                 <div class="section-header">
                     <h2>Datos de la persona</h2>
                 </div>
-                <form>
-                    <textarea readonly name="datos" id="datos" rows="8" placeholder="..."></textarea>
-                    <!-- Contenedor para los botones de modificación -->
-                    <div class="modification-buttons">
-                        <h2 style="font-size: 16px;">Modificar:</h2>
-                        <button type="button" id="modificarNombre">Nombre</button>
-                        <button type="button" id="modificarApellidos">Apellidos</button>
-                        <button type="button" id="modificarSexo">Sexo</button>
-                        <button type="button" id="modificarEdad">Edad</button>
-                        <button type="button" id="modificarDni">DNI</button>
-                        <button type="button" id="modificarTelefono">Teléfono</button>
-                        <button type="button" id="modificarEmail">Email</button>
-                        <button type="button" id="modificarFdn">Fecha de nacimiento</button>
-                        <button type="button" id="modificarProvincia">Provincia</button>
-                    </div>
-                </form>
+                <textarea readonly name="datos" id="datos" rows="8" placeholder="..."></textarea>
+                <!-- Botones de modificación -->
+                <div>
+                    <h2 style="font-size: 16px;">Modificar:</h2>
+                    <button type="button" id="modificarNombre">Nombre</button>
+                    <button type="button" id="modificarApellidos">Apellidos</button>
+                    <button type="button" id="modificarSexo">Sexo</button>
+                    <button type="button" id="modificarEdad">Edad</button>
+                    <button type="button" id="modificarDni">DNI</button>
+                    <button type="button" id="modificarTelefono">Teléfono</button>
+                    <button type="button" id="modificarEmail">Email</button>
+                    <button type="button" id="modificarFdn">Fecha de nacimiento</button>
+                    <button type="button" id="modificarProvincia">Provincia</button>
+                </div>
             </div>
             <!-- Bloque 3: Historial completo -->
             <div>
@@ -92,8 +90,8 @@
     </div>
     <!-- Scripts -->
     <script src="./Persona.js"></script>
-    <script src="./validaciones.js"></script>
     <script src="./script.js"></script>
+    <script src="./validaciones.js"></script>
 </body>
 
 </html>
