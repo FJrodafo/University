@@ -1,6 +1,5 @@
 blank_issues_enabled: false
 contact_links:
-  - name: Discord
-    url: https://discord.com/users/549577369342574602
-  - name: Issues
-    url: https://github.com/FJrodafo/University/issues/new/choose
+  - name: Security advisories
+    url: https://github.com/FJrodafo/University/security/advisories
+    about: Please report security vulnerabilities here.
