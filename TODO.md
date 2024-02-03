@@ -5,6 +5,7 @@
 - [x] JavaScript/Beginner_course/*.js 0:51:41
 - [ ] JavaScript/Beginner_course/*.js 1:02:40
 
-- [ ] SQL/*.sql 1:41:13
+- [x] SQL/*.sql 1:41:13
+- [ ] SQL/*.sql 1:59:53
 
 - [ ] ?/Mongodb
