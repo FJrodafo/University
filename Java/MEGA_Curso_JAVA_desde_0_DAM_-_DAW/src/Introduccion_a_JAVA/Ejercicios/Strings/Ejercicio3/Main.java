@@ -10,9 +10,9 @@ import java.util.Scanner;
  * 
  * EJEMPLO:
  *     Entrada:
- *         Hoy es viernes, 27 de octubre de 202?.
+ *         Introduce una frase: Hoy es viernes, 27 de octubre de 202?
  *     Salida:
- *         La frase tiene 8 palabras
+ *         La frase tiene 8 palabras.
  */
 public class Main {
     public static void main(String[] args) {

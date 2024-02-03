@@ -11,7 +11,7 @@ import java.util.Scanner;
  * 
  * EJEMPLO:
  *     Entrada:
- *         altura = 5.
+ *         Introduce la altura del triángulo: 5
  *     Salida:
  *                 * 
  *               * * * 
@@ -24,6 +24,12 @@ import java.util.Scanner;
  *             *       * 
  *           *           * 
  *         * * * * * * * * * 
+ * 
+ * 
+ *                 *   
+ *               *   *   
+ *             *   *   *   
+ *           *   *   *   *   
  */
 public class Main {
     public static void main(String[] args) {
@@ -42,6 +48,8 @@ public class Main {
         // 0 espacio 9 asterisco 0 espacio (indice 0, 1, 2, 3, 4, 5, 6, 7, 8)
 
         int base = altura * 2 - 1;
+
+        System.out.println();
 
         // Con relleno
         for (int i = 0; i < altura; i++) {

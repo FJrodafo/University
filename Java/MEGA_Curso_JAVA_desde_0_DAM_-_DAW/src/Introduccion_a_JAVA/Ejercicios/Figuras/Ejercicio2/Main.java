@@ -11,7 +11,7 @@ import java.util.Scanner;
  * 
  * EJEMPLO:
  *     Entrada:
- *         altura = 5.
+ *         Introduce la altura del triángulo: 5
  *     Salida:
  *         * 
  *         * * 
@@ -32,6 +32,8 @@ public class Main {
 
         System.out.print("Introduce la altura del triángulo: ");
         altura = teclado.nextInt();
+
+        System.out.println();
 
         // Con relleno
         for (int i = 0; i < altura; i++) {

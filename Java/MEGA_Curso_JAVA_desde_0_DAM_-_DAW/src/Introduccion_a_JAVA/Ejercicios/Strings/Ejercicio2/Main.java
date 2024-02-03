@@ -10,7 +10,11 @@ import java.util.Scanner;
  * 
  * EJEMPLO:
  *     Entrada:
- *         Ada, Mesa, ab, c, Alba.
+ *         Introduce una palabra (1 de 5): Ada
+ *         Introduce una palabra (2 de 5): Mesa
+ *         Introduce una palabra (3 de 5): ab
+ *         Introduce una palabra (4 de 5): c
+ *         Introduce una palabra (5 de 5): Alba
  *     Salida:
  *         Mesa
  */

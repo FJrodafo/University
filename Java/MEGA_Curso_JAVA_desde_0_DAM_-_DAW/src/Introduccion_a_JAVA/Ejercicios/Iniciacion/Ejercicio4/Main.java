@@ -11,7 +11,14 @@ import java.util.Scanner;
  * 
  * EJEMPLO:
  *     Entrada:
- *         1, -111, 5, 111, 66, 201, 27, 0.
+ *         Introduce un número entero positivo (0 para terminar): 1
+ *         Introduce un número entero positivo (0 para terminar): -111
+ *         Introduce un número entero positivo (0 para terminar): 5
+ *         Introduce un número entero positivo (0 para terminar): 111
+ *         Introduce un número entero positivo (0 para terminar): 66
+ *         Introduce un número entero positivo (0 para terminar): 201
+ *         Introduce un número entero positivo (0 para terminar): 27
+ *         Introduce un número entero positivo (0 para terminar): 0
  *     Salida:
  *         1 + 111 + 201 = 313
  */

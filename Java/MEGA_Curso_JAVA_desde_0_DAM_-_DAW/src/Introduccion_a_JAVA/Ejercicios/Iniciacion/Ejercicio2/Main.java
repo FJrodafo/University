@@ -9,7 +9,7 @@ import java.util.Scanner;
  * 
  * EJEMPLO:
  *     Entrada:
- *         12749
+ *         Introduce un número entero positivo: 12749
  *     Salida:
  *         El número introducido tiene 5 dígitos.
  */
@@ -29,7 +29,7 @@ public class Main {
                 digitos++;
             }
 
-            System.out.println("El número introducido tiene " + digitos + (digitos == 1 ? " cifra." : " cifras."));
+            System.out.println("El número introducido tiene " + digitos + (digitos == 1 ? " dígito." : " dígitos."));
         }
 
         teclado.close();

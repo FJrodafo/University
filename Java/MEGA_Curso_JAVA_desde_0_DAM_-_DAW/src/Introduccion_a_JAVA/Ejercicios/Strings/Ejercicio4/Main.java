@@ -10,7 +10,7 @@ import java.util.Scanner;
  * 
  * EJEMPLO:
  *     Entrada:
- *         Reconocer
+ *         Introduce una palabra: Reconocer
  *     Salida:
  *         [reconocer] es un palíndromo!
  */

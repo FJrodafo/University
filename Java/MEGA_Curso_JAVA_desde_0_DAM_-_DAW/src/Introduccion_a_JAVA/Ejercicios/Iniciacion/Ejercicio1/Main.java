@@ -10,7 +10,13 @@ import java.util.Scanner;
  * 
  * EJEMPLO:
  *     Entrada:
- *         N = 5 --- 3, 3, 8, 1, 8.
+ *         ¿Cuantos números quieres introducir?: 5
+ * 
+ *         Introduce un número (1 de 5): 3
+ *         Introduce un número (2 de 5): 3
+ *         Introduce un número (3 de 5): 8
+ *         Introduce un número (4 de 5): 1
+ *         Introduce un número (5 de 5): 8
  *     Salida:
  *         El mínimo es 1 y aparece 1 vez.
  *         El máximo es 8 y aparece 2 veces.

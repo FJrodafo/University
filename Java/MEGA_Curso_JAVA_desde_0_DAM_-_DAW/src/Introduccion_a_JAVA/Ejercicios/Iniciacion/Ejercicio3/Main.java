@@ -12,7 +12,13 @@ import java.util.Scanner;
  * 
  * EJEMPLO:
  *     Entrada:
- *         3, 4, 5, 6, -2, 8, 0.
+ *         Introduce un número entero positivo (0 para terminar): 3
+ *         Introduce un número entero positivo (0 para terminar): 4
+ *         Introduce un número entero positivo (0 para terminar): 5
+ *         Introduce un número entero positivo (0 para terminar): 6
+ *         Introduce un número entero positivo (0 para terminar): -2
+ *         Introduce un número entero positivo (0 para terminar): 8
+ *         Introduce un número entero positivo (0 para terminar): 0
  *     Salida:
  *         3 + 4 + 5 + 6 + 8 = 26
  */

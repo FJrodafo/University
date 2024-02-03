@@ -11,7 +11,8 @@ import java.util.Scanner;
  * 
  * EJEMPLO:
  *     Entrada:
- *         base = 10, altura = 5.
+ *         Introduce la base del rectángulo: 10
+ *         Introduce la altura del rectángulo: 5
  *     Salida:
  *         * * * * * * * * * * 
  *         * * * * * * * * * * 
@@ -35,6 +36,8 @@ public class Main {
 
         System.out.print("Introduce la altura del rectángulo: ");
         altura = teclado.nextInt();
+
+        System.out.println();
 
         // Con relleno
         for (int i = 0; i < altura; i++) {

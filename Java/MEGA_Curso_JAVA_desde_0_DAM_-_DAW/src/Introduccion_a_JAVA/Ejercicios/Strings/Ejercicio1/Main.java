@@ -9,7 +9,7 @@ import java.util.Scanner;
  * 
  * EJEMPLO:
  *     Entrada:
- *         Programación
+ *         Introduce una palabra: Programación
  *     Salida:
  *         P r o g r a m a c i ó n
  */
