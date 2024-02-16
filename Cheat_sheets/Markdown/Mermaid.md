@@ -272,5 +272,5 @@ quadrantChart
     Campaign F: [0.35, 0.78]
 ```
 
-<link rel="stylesheet" href="./README.css">
+<link rel="stylesheet" href="./../README.css">
 <a class="back-to-top" href="#top" title="Back to top">↑</a>

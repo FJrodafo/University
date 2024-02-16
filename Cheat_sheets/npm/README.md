@@ -130,5 +130,5 @@ Full repository on [github](https://github.com/FJrodafo/npm-free-port)/[gitlab](
 
 Visit the npm package website [here](https://www.npmjs.com/package/@fjrodafo/free-port).
 
-<link rel="stylesheet" href="./README.css">
+<link rel="stylesheet" href="./../README.css">
 <a class="back-to-top" href="#top" title="Back to top">↑</a>
