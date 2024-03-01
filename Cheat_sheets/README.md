@@ -1,11 +1,11 @@
 ## Index
 
-- [Docker](./Docker/README.md)
+[Docker](./Docker/README.md)
 
-- [Git](./Git/README.md)
+[Git](./Git/README.md)
 
-- [Markdown](./Markdown/README.md)
+[Markdown](./Markdown/README.md)
 
-- [MySQL](./MySQL/README.md)
+[MySQL](./MySQL/README.md)
 
-- [npm](./npm/README.md)
+[npm](./npm/README.md)
