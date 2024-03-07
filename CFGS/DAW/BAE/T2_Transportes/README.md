@@ -3,3 +3,5 @@ Se desea informatizar la gestión de una empresa de transportes que reparte paqu
 De los paquetes transportados interesa conocer el código de paquete, descripción, destinatario y dirección del destinatario. Un camionero distribuye muchos paquetes, y un paquete sólo puede ser distribuido por un camionero. De las provincias a las que llegan los paquetes interesa guardar el código de provincia y el nombre. Un paquete sólo puede llegar a una provincia. Sin embargo, a una provincia pueden llegar varios paquetes.
 
 De los camiones que llevan los camioneros, interesa conocer la matrícula, modelo, tipo y potencia. Un camionero puede conducir diferentes camiones en fechas diferentes, y un camión puede ser conducido por varios camioneros.
+
+![Diagrama](https://raw.githubusercontent.com/FJrodafo/University/main/CFGS/DAW/BAE/T2_Transportes/Diagrama.png)

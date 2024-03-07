@@ -11,3 +11,5 @@ De los diferentes contratos que surjan al contratar a un trabajador de la empres
 Se registran las diferentes categorías profesionales que recoge la normativa. De estas categorías profesionales que vienen dadas oficialmente se guarda su nombre y un ID categoría. Observar que todo contrato que se haya hecho debe corresponder a una y sólo una categoría profesional. Sin embargo al tener registradas todas las categorías profesionales oficiales, puede darse que no tengamos ningún contrato de una categoría dada.
 
 Las nóminas de la empresa no tienen una periodicidad regular y la cuantía puede variar para un mismo contrato (imaginar por ejemplo el aguinaldo de Navidad) Estas nóminas están determinadas por cada contrato y la fecha de pago. También se desea guardar el salario de cada nómina.
+
+![Diagrama](https://raw.githubusercontent.com/FJrodafo/University/main/CFGS/DAW/BAE/T4_Empresa/Diagrama.png)

@@ -5,3 +5,5 @@ Los profesores imparten módulos, y cada módulo tiene un código y un nombre. C
 De cada alumno se desea guardar el nº de expediente, nombre, apellidos y fecha de nacimiento. Los profesores pueden impartir varios módulos, pero un módulo sólo puede ser impartido por un profesor.
 
 Cada curso tiene un grupo de alumnos, uno de los cuales es el delegado del grupo.
+
+![Diagrama](https://raw.githubusercontent.com/FJrodafo/University/main/CFGS/DAW/BAE/T3_Instituto/Diagrama.png)
