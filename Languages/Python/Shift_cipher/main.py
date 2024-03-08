@@ -2,6 +2,7 @@ FIRST_CHAR_CODE = ord("A")
 LAST_CHAR_CODE = ord("Z")
 CHAR_RANGE = LAST_CHAR_CODE - FIRST_CHAR_CODE + 1
 
+
 def shift_cipher(message, shift):
     # Result placeholder.
     result = ""
@@ -24,6 +25,7 @@ def shift_cipher(message, shift):
             result += char
 
     return result
+
 
 user_message = input("Message to encrypt: ")
 user_shift_key = int(input("Shift Key (integer): "))

@@ -9,6 +9,7 @@ Webs:
 - Rich: https://rich.readthedocs.io/en/stable/
 """
 
+
 def main():
 
     print("[bold green]  ChatBOT   Python[/bold green]")
@@ -35,11 +36,12 @@ def main():
 
         if prompt == "/fact":
             print("[bold green]> [/bold green] [green]I'm a chat bot![/green]")
-        
+
         if prompt == "/exit":
             exit = typer.confirm("Are you sure?")
             if exit:
                 raise typer.Abort()
+
 
 if __name__ == "__main__":
     typer.run(main)
