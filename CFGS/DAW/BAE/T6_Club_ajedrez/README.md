@@ -20,4 +20,7 @@ Cada partida se celebra en una de las salas de las que pueden disponer los hotel
 
 De cada partida se pretende registrar todos los movimientos que la componen, la identificación de movimiento se establece en base a un número de orden dentro de cada partida: para cada movimiento se guardan la jugada y un breve comentario realizado por un experto.
 
-![Diagrama](https://raw.githubusercontent.com/FJrodafo/University/main/CFGS/DAW/BAE/T6_Club_ajedrez/Diagrama.png)
+<picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/FJrodafo/University/main/CFGS/DAW/BAE/T6_Club_ajedrez/Assets/Dark.svg">
+    <img alt="Supermercado" src="https://raw.githubusercontent.com/FJrodafo/University/main/CFGS/DAW/BAE/T6_Club_ajedrez/Assets/Light.svg">
+</picture>

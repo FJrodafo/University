@@ -10,4 +10,7 @@ Se debe contemplar los km de recorrido de los ríos al pasar por una localidad. 
 
 Por último se guardará la superficie de los lagos, la altura de las montañas y la longitud de los ríos.
 
-![Diagrama](https://raw.githubusercontent.com/FJrodafo/University/main/CFGS/DAW/BAE/T5_Accidentes_geograficos/Diagrama.png)
+<picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/FJrodafo/University/main/CFGS/DAW/BAE/T5_Accidentes_geograficos/Assets/Dark.svg">
+    <img alt="Supermercado" src="https://raw.githubusercontent.com/FJrodafo/University/main/CFGS/DAW/BAE/T5_Accidentes_geograficos/Assets/Light.svg">
+</picture>

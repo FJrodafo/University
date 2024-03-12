@@ -6,4 +6,7 @@ De cada alumno se desea guardar el nº de expediente, nombre, apellidos y fecha 
 
 Cada curso tiene un grupo de alumnos, uno de los cuales es el delegado del grupo.
 
-![Diagrama](https://raw.githubusercontent.com/FJrodafo/University/main/CFGS/DAW/BAE/T3_Instituto/Diagrama.png)
+<picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/FJrodafo/University/main/CFGS/DAW/BAE/T3_Instituto/Assets/Dark.svg">
+    <img alt="Supermercado" src="https://raw.githubusercontent.com/FJrodafo/University/main/CFGS/DAW/BAE/T3_Instituto/Assets/Light.svg">
+</picture>
