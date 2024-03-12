@@ -14,5 +14,5 @@ Las nóminas de la empresa no tienen una periodicidad regular y la cuantía pued
 
 <picture>
     <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/FJrodafo/University/main/CFGS/DAW/BAE/T4_Empresa/Assets/Dark.svg">
-    <img alt="Supermercado" src="https://raw.githubusercontent.com/FJrodafo/University/main/CFGS/DAW/BAE/T4_Empresa/Assets/Light.svg">
+    <img alt="Empresa" src="https://raw.githubusercontent.com/FJrodafo/University/main/CFGS/DAW/BAE/T4_Empresa/Assets/Light.svg">
 </picture>

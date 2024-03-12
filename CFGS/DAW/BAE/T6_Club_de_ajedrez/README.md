@@ -22,5 +22,5 @@ De cada partida se pretende registrar todos los movimientos que la componen, la 
 
 <picture>
     <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/FJrodafo/University/main/CFGS/DAW/BAE/T6_Club_ajedrez/Assets/Dark.svg">
-    <img alt="Supermercado" src="https://raw.githubusercontent.com/FJrodafo/University/main/CFGS/DAW/BAE/T6_Club_ajedrez/Assets/Light.svg">
+    <img alt="Club de ajedrez" src="https://raw.githubusercontent.com/FJrodafo/University/main/CFGS/DAW/BAE/T6_Club_ajedrez/Assets/Light.svg">
 </picture>

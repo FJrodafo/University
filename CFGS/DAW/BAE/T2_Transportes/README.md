@@ -6,5 +6,5 @@ De los camiones que llevan los camioneros, interesa conocer la matrícula, model
 
 <picture>
     <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/FJrodafo/University/main/CFGS/DAW/BAE/T2_Transportes/Assets/Dark.svg">
-    <img alt="Supermercado" src="https://raw.githubusercontent.com/FJrodafo/University/main/CFGS/DAW/BAE/T2_Transportes/Assets/Light.svg">
+    <img alt="Transportes" src="https://raw.githubusercontent.com/FJrodafo/University/main/CFGS/DAW/BAE/T2_Transportes/Assets/Light.svg">
 </picture>

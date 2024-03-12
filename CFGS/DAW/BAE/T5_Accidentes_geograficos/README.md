@@ -12,5 +12,5 @@ Por último se guardará la superficie de los lagos, la altura de las montañas 
 
 <picture>
     <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/FJrodafo/University/main/CFGS/DAW/BAE/T5_Accidentes_geograficos/Assets/Dark.svg">
-    <img alt="Supermercado" src="https://raw.githubusercontent.com/FJrodafo/University/main/CFGS/DAW/BAE/T5_Accidentes_geograficos/Assets/Light.svg">
+    <img alt="Accidentes geográficos" src="https://raw.githubusercontent.com/FJrodafo/University/main/CFGS/DAW/BAE/T5_Accidentes_geograficos/Assets/Light.svg">
 </picture>
