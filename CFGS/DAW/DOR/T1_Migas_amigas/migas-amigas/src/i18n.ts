@@ -10,38 +10,360 @@ i18n.use(initReactI18next).init({
     resources: {
         es: {
             translation: {
-                titleApp: 'PROYECTO Migas amigas',
-                titleFooter: 'Pié de página',
-                titleHeader: 'Cabecera y barra de navegacion',
-                navPrincipal: 'Principal',
-                navPanaderia: 'Panadería',
-                navPasteleriaBolleria: 'Pastelería y bollería',
-                navEmpanadas: 'Empanadas',
-                navContacto: 'Contacto',
-                titleContacto: 'Esta es la página contacto',
-                titleEmpanadas: 'Esta es la página empanadas',
-                titleError404: 'Error 404 no encontrado',
-                titlePanaderia: 'Esta es la página panaderia',
-                titlePasteleriaBolleria: 'Esta es la página pastelería y bollería',
-                titlePrincipal: 'Esta es la página principal',
+                nav: {
+                    Inicio: 'Inicio',
+                    Panaderia: 'Panadería',
+                    PasteleriaBolleria: 'Pastelería y bollería',
+                    Empanadas: 'Empanadas',
+                    Contacto: 'Contacto',
+                },
+                productos: {
+                    panaderia: [
+                        {
+                            nombre: 'Pan',
+                            descripcion: '...',
+                            elaboracion: '...',
+                            imagen: '/migas_amigas.png'
+                        },
+                        {
+                            nombre: 'Pan',
+                            descripcion: '...',
+                            elaboracion: '...',
+                            imagen: '/migas_amigas.png'
+                        },
+                        {
+                            nombre: 'Pan',
+                            descripcion: '...',
+                            elaboracion: '...',
+                            imagen: '/migas_amigas.png'
+                        },
+                        {
+                            nombre: 'Pan',
+                            descripcion: '...',
+                            elaboracion: '...',
+                            imagen: '/migas_amigas.png'
+                        },
+                        {
+                            nombre: 'Pan',
+                            descripcion: '...',
+                            elaboracion: '...',
+                            imagen: '/migas_amigas.png'
+                        },
+                        {
+                            nombre: 'Pan',
+                            descripcion: '...',
+                            elaboracion: '...',
+                            imagen: '/migas_amigas.png'
+                        },
+                        {
+                            nombre: 'Pan',
+                            descripcion: '...',
+                            elaboracion: '...',
+                            imagen: '/migas_amigas.png'
+                        },
+                        {
+                            nombre: 'Pan',
+                            descripcion: '...',
+                            elaboracion: '...',
+                            imagen: '/migas_amigas.png'
+                        },
+                        {
+                            nombre: 'Pan',
+                            descripcion: '...',
+                            elaboracion: '...',
+                            imagen: '/migas_amigas.png'
+                        },
+                        {
+                            nombre: 'Pan',
+                            descripcion: '...',
+                            elaboracion: '...',
+                            imagen: '/migas_amigas.png'
+                        },
+                        {
+                            nombre: 'Próximamente...',
+                            descripcion: '...',
+                            elaboracion: '...',
+                            imagen: '/coming_soon.png'
+                        },
+                        {
+                            nombre: 'Próximamente...',
+                            descripcion: '...',
+                            elaboracion: '...',
+                            imagen: '/coming_soon.png'
+                        },
+                    ],
+                    pasteleria: [
+                        {
+                            nombre: 'Pastel',
+                            descripcion: '...',
+                            elaboracion: '...',
+                            imagen: '/migas_amigas.png'
+                        },
+                        {
+                            nombre: 'Pastel',
+                            descripcion: '...',
+                            elaboracion: '...',
+                            imagen: '/migas_amigas.png'
+                        },
+                        {
+                            nombre: 'Pastel',
+                            descripcion: '...',
+                            elaboracion: '...',
+                            imagen: '/migas_amigas.png'
+                        },
+                        {
+                            nombre: 'Pastel',
+                            descripcion: '...',
+                            elaboracion: '...',
+                            imagen: '/migas_amigas.png'
+                        },
+                        {
+                            nombre: 'Pastel',
+                            descripcion: '...',
+                            elaboracion: '...',
+                            imagen: '/migas_amigas.png'
+                        },
+                        {
+                            nombre: 'Pastel',
+                            descripcion: '...',
+                            elaboracion: '...',
+                            imagen: '/migas_amigas.png'
+                        },
+                        {
+                            nombre: 'Pastel',
+                            descripcion: '...',
+                            elaboracion: '...',
+                            imagen: '/migas_amigas.png'
+                        },
+                        {
+                            nombre: 'Pastel',
+                            descripcion: '...',
+                            elaboracion: '...',
+                            imagen: '/migas_amigas.png'
+                        },
+                    ],
+                    empanadas: [
+                        {
+                            nombre: 'Empanada',
+                            descripcion: '...',
+                            elaboracion: '...',
+                            imagen: '/migas_amigas.png'
+                        },
+                        {
+                            nombre: 'Empanada',
+                            descripcion: '...',
+                            elaboracion: '...',
+                            imagen: '/migas_amigas.png'
+                        },
+                        {
+                            nombre: 'Empanada',
+                            descripcion: '...',
+                            elaboracion: '...',
+                            imagen: '/migas_amigas.png'
+                        },
+                        {
+                            nombre: 'Empanada',
+                            descripcion: '...',
+                            elaboracion: '...',
+                            imagen: '/migas_amigas.png'
+                        },
+                    ],
+                },
+                texts: {
+                    Footer: 'Esta página ha sido desarrollada por ',
+                    Direccion: 'Dirección',
+                    Telefono: 'Teléfono',
+                },
+                titles: {
+                    App: 'PROYECTO Migas Amigas',
+                    Footer: 'Pié de página',
+                    Header: 'Cabecera y barra de navegación',
+                    Contacto: 'Esta es la página de contacto',
+                    Empanadas: 'Esta es la página Empanadas',
+                    Error404: 'No encontrado',
+                    Inicio: 'Esta es la página principal',
+                    Panaderia: 'Esta es la página Panaderia',
+                    PasteleriaBolleria: 'Esta es la página Pastelería y bollería',
+                }
             }
         },
         pt: {
             translation: {
-                titleApp: 'PROJETO Migas amigas',
-                titleFooter: 'Pé de página',
-                titleHeader: 'Cabeçalho e barra de navegação',
-                navPrincipal: 'Principal',
-                navPanaderia: 'Padaria',
-                navPasteleriaBolleria: 'Pastelaria',
-                navEmpanadas: 'Empanadas',
-                navContacto: 'Contato',
-                titleContacto: 'Esta é a página de contato',
-                titleEmpanadas: 'Esta é a página das empanadas',
-                titleError404: 'Erro 404 não encontrado',
-                titlePanaderia: 'Esta é a página da padaria',
-                titlePasteleriaBolleria: 'Esta é a página de pastelaria',
-                titlePrincipal: 'Esta é a página principal',
+                nav: {
+                    Inicio: 'Início',
+                    Panaderia: 'Padaria',
+                    PasteleriaBolleria: 'Pastelaria',
+                    Empanadas: 'Empanadas',
+                    Contacto: 'Contato',
+                },
+                productos: {
+                    panaderia: [
+                        {
+                            nombre: 'Pão',
+                            descripcion: '...',
+                            elaboracion: '...',
+                            imagen: '/migas_amigas.png'
+                        },
+                        {
+                            nombre: 'Pão',
+                            descripcion: '...',
+                            elaboracion: '...',
+                            imagen: '/migas_amigas.png'
+                        },
+                        {
+                            nombre: 'Pão',
+                            descripcion: '...',
+                            elaboracion: '...',
+                            imagen: '/migas_amigas.png'
+                        },
+                        {
+                            nombre: 'Pão',
+                            descripcion: '...',
+                            elaboracion: '...',
+                            imagen: '/migas_amigas.png'
+                        },
+                        {
+                            nombre: 'Pão',
+                            descripcion: '...',
+                            elaboracion: '...',
+                            imagen: '/migas_amigas.png'
+                        },
+                        {
+                            nombre: 'Pão',
+                            descripcion: '...',
+                            elaboracion: '...',
+                            imagen: '/migas_amigas.png'
+                        },
+                        {
+                            nombre: 'Pão',
+                            descripcion: '...',
+                            elaboracion: '...',
+                            imagen: '/migas_amigas.png'
+                        },
+                        {
+                            nombre: 'Pão',
+                            descripcion: '...',
+                            elaboracion: '...',
+                            imagen: '/migas_amigas.png'
+                        },
+                        {
+                            nombre: 'Pão',
+                            descripcion: '...',
+                            elaboracion: '...',
+                            imagen: '/migas_amigas.png'
+                        },
+                        {
+                            nombre: 'Pão',
+                            descripcion: '...',
+                            elaboracion: '...',
+                            imagen: '/migas_amigas.png'
+                        },
+                        {
+                            nombre: 'Em breve...',
+                            descripcion: '...',
+                            elaboracion: '...',
+                            imagen: '/coming_soon.png'
+                        },
+                        {
+                            nombre: 'Em breve...',
+                            descripcion: '...',
+                            elaboracion: '...',
+                            imagen: '/coming_soon.png'
+                        },
+                    ],
+                    pasteleria: [
+                        {
+                            nombre: 'Bolo',
+                            descripcion: '...',
+                            elaboracion: '...',
+                            imagen: '/migas_amigas.png'
+                        },
+                        {
+                            nombre: 'Bolo',
+                            descripcion: '...',
+                            elaboracion: '...',
+                            imagen: '/migas_amigas.png'
+                        },
+                        {
+                            nombre: 'Bolo',
+                            descripcion: '...',
+                            elaboracion: '...',
+                            imagen: '/migas_amigas.png'
+                        },
+                        {
+                            nombre: 'Bolo',
+                            descripcion: '...',
+                            elaboracion: '...',
+                            imagen: '/migas_amigas.png'
+                        },
+                        {
+                            nombre: 'Bolo',
+                            descripcion: '...',
+                            elaboracion: '...',
+                            imagen: '/migas_amigas.png'
+                        },
+                        {
+                            nombre: 'Bolo',
+                            descripcion: '...',
+                            elaboracion: '...',
+                            imagen: '/migas_amigas.png'
+                        },
+                        {
+                            nombre: 'Bolo',
+                            descripcion: '...',
+                            elaboracion: '...',
+                            imagen: '/migas_amigas.png'
+                        },
+                        {
+                            nombre: 'Bolo',
+                            descripcion: '...',
+                            elaboracion: '...',
+                            imagen: '/migas_amigas.png'
+                        },
+                    ],
+                    empanadas: [
+                        {
+                            nombre: 'Patty',
+                            descripcion: '...',
+                            elaboracion: '...',
+                            imagen: '/migas_amigas.png'
+                        },
+                        {
+                            nombre: 'Patty',
+                            descripcion: '...',
+                            elaboracion: '...',
+                            imagen: '/migas_amigas.png'
+                        },
+                        {
+                            nombre: 'Patty',
+                            descripcion: '...',
+                            elaboracion: '...',
+                            imagen: '/migas_amigas.png'
+                        },
+                        {
+                            nombre: 'Patty',
+                            descripcion: '...',
+                            elaboracion: '...',
+                            imagen: '/migas_amigas.png'
+                        },
+                    ],
+                },
+                titles: {
+                    App: 'PROJETO Migas Amigas',
+                    Footer: 'Pé de página',
+                    Header: 'Cabeçalho e barra de navegação',
+                    Contacto: 'Esta é a página de contato',
+                    Empanadas: 'Esta é a página Empanadas',
+                    Error404: 'Não encontrado',
+                    Inicio: 'Esta é a página principal',
+                    Panaderia: 'Esta é a página Padaria',
+                    PasteleriaBolleria: 'Esta é a página Pastelaria',
+                },
+                texts: {
+                    Footer: 'Esta página foi desenvolvida por ',
+                    Direccion: 'Endereço',
+                    Telefono: 'Telefone',
+                }
             }
         },
     },

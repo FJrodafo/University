@@ -1,6 +1,6 @@
 import React from 'react';
 import { Routes, Route, BrowserRouter } from 'react-router-dom';
-import Principal from '../views/Principal.js';
+import Inicio from '../views/Inicio.js';
 import Panaderia from '../views/Panaderia.js';
 import PasteleriaBolleria from '../views/PasteleriaBolleria.js';
 import Empanadas from '../views/Empanadas.js';
@@ -17,8 +17,8 @@ const MisRutas = () => {
             <hr />
             {/* Contenido central */}
             <Routes>
-                <Route path='/' element={<Principal />} />
-                <Route path='/Principal' element={<Principal />} />
+                <Route path='/' element={<Inicio />} />
+                <Route path='/Inicio' element={<Inicio />} />
                 <Route path='/Panaderia' element={<Panaderia />} />
                 <Route path='/PasteleriaBolleria' element={<PasteleriaBolleria />} />
                 <Route path='/Empanadas' element={<Empanadas />} />

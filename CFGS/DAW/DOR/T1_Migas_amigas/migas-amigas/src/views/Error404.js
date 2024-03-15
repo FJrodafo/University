@@ -5,7 +5,8 @@ const Error404 = () => {
     const { t } = useTranslation();
     return (
         <div>
-            <h1>{t('titleError404')}</h1>
+            <h2>{t('titles.Error404')}</h2>
+            <img src="/not_found.png" alt={t('titles.Error404')} />
         </div>
     );
 };

@@ -11,20 +11,18 @@ const HeaderNav = () => {
     };
     return (
         <div>
-            <h1>{t('titleHeader')}</h1>
-            <select defaultValue={i18n.language} onChange={onChangeLang}>
-                {LANGUAGES.map(({ code, label }) => (
-                    <option key={code} value={code}>
-                        {label}
-                    </option>
-                ))}
+            <h1>{t('titles.Header')}</h1>
+            <select defaultValue={i18n.language} onChange={onChangeLang}>{LANGUAGES.map(({ code, label }) => (
+                <option key={code} value={code}>
+                    {label}
+                </option>))}
             </select>
             <ul>
-                <li><NavLink to='/'>{t('navPrincipal')}</NavLink></li>
-                <li><NavLink to='/Panaderia'>{t('navPanaderia')}</NavLink></li>
-                <li><NavLink to='/PasteleriaBolleria'>{t('navPasteleriaBolleria')}</NavLink></li>
-                <li><NavLink to='/Empanadas'>{t('navEmpanadas')}</NavLink></li>
-                <li><NavLink to='/Contacto'>{t('navContacto')}</NavLink></li>
+                <li><NavLink to='/'>{t('nav.Inicio')}</NavLink></li>
+                <li><NavLink to='/Panaderia'>{t('nav.Panaderia')}</NavLink></li>
+                <li><NavLink to='/PasteleriaBolleria'>{t('nav.PasteleriaBolleria')}</NavLink></li>
+                <li><NavLink to='/Empanadas'>{t('nav.Empanadas')}</NavLink></li>
+                <li><NavLink to='/Contacto'>{t('nav.Contacto')}</NavLink></li>
             </ul>
         </div>
     );

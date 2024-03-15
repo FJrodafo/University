@@ -6,7 +6,7 @@ function App() {
     const { t } = useTranslation();
     return (
         <div>
-            <h1>{t('titleApp')}</h1>
+            <h1>{t('titles.App')}</h1>
             <MisRutas />
         </div>
     );

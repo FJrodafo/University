@@ -11,3 +11,26 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.productos-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.producto {
+  border: 1px solid #ccc;
+  padding: 20px;
+}
+
+.producto img {
+  max-width: 100%;
+}
+
+.producto h3 {
+  margin-top: 10px;
+}
+
+.producto p {
+  margin-top: 5px;
+}
