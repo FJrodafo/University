@@ -19,6 +19,6 @@ De las organizaciones mediadoras se recogerá su código, su nombre, su tipo (gu
 Con diversos fines, los líderes políticos dialogan con las organizaciones; se desea recoger explícitamente esta información. Así para cada líder se recogerán aquellas organizaciones con que dialoga y viceversa.
 
 <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/FJrodafo/University/main/CFGS/DAW/BAE/T7_Conflictos_belicos/Assets/Dark.svg">
-    <img alt="Club de ajedrez" src="https://raw.githubusercontent.com/FJrodafo/University/main/CFGS/DAW/BAE/T7_Conflictos_belicos/Assets/Light.svg">
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/FJrodafo/University/main/CFGS/DAW/BAE/T7_Conflicto_belico/Assets/Dark.svg">
+    <img alt="Conflicto bélico" src="https://raw.githubusercontent.com/FJrodafo/University/main/CFGS/DAW/BAE/T7_Conflicto_belico/Assets/Light.svg">
 </picture>
