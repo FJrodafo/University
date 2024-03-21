@@ -8,7 +8,7 @@ CREATE TABLE Clientes (
     nombre varchar(25) NOT NULL,
     apellidos varchar(25) NOT NULL,
     direccion varchar(100) NOT NULL,
-    fecha_nacimiento DATE NOT NULL CHECK (fecha_nacimiento <= CURRENT_DATE)
+    fecha_nacimiento DATE NOT NULL CHECK (fecha_nacimiento < CURRENT_DATE)
 );
 
 -- Tabla de Proveedores
@@ -29,9 +29,10 @@ CREATE TABLE Productos (
 
 -- Tabla de Relación Clientes_Productos
 CREATE TABLE Clientes_Productos (
-    id int AUTO_INCREMENT NOT NULL UNIQUE PRIMARY KEY,
+    -- id int AUTO_INCREMENT NOT NULL UNIQUE PRIMARY KEY,
     dni_cliente varchar(9) NOT NULL,
     codigo_producto int NOT NULL,
     FOREIGN KEY(dni_cliente) REFERENCES Clientes(dni),
-    FOREIGN KEY(codigo_producto) REFERENCES Productos(codigo)
+    FOREIGN KEY(codigo_producto) REFERENCES Productos(codigo),
+    PRIMARY KEY(dni_cliente, codigo_producto)
 );
