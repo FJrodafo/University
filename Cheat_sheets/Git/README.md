@@ -256,8 +256,10 @@ git add -A
 git commit -m "Initial commit"
 git remote add github git@github.com:FJrodafo/Test.git
 git remote add gitlab git@gitlab.com:FJrodafo/Test.git
+git remote add bitbucket git@bitbucket.org:FJrodafo/Test.git
 git push github
 git push gitlab
+git push bitbucket
 ```
 
 ## Revert to a previous commit
