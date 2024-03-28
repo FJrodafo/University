@@ -16,9 +16,10 @@
 5. [Branches](#branches)
 6. [Make Changes](#make-changes)
 7. [Synchronize Changes](#synchronize-changes)
-8. [Create a Test repo](#create-a-test-repo)
-9. [Revert to a previous commit](#revert-to-a-previous-commit)
-10. [Glossary](#glossary)
+8. [Revert commits](#revert-commits)
+9. [Go back and merge](#go-back-and-merge)
+10. [Create a Test repo](#create-a-test-repo)
+11. [Glossary](#glossary)
 
 ## Install
 
@@ -242,6 +243,46 @@ Updates your current local working branch with all new commits from the correspo
 git pull
 ```
 
+## Revert commits
+
+These commands cannot be used if the branch is protected:
+
+```shell
+git reset <commit-SHA>
+git add -A
+git commit -m "commit-name"
+git push origin -f
+```
+
+## Go back and merge
+
+First, you need to find the hash of the commit you want to return to. You can use the `git log` command to view the commit history and find the hash of the desired commit:
+
+```shell
+git log --oneline
+```
+
+After identifying the hash of the commit you want to return to, you can use the `git checkout` command to move to that commit:
+
+```shell
+git checkout <commit_hash>
+```
+
+You are now in the state of the previous commit. To create a new branch from this point and merge it to the main branch, you can do the following (This will create a new branch from the previous commit and switch you to that branch):
+
+```shell
+git checkout -b <name_of_new_branch_from_previous_commit>
+```
+
+Finally, to merge this new branch with the main branch, you can use the `git merge` command while you are on the main branch (This will merge the changes from the previous commit into the new branch with the main branch):
+
+```shell
+git checkout main
+git merge <name_of_new_branch_from_previous_commit>
+```
+
+It's important to note that by going back to a previous commit and creating a new branch from that point, you are creating a fork in your repository history. This can be useful for experimenting or fixing bugs, but keep in mind that it can complicate project history if not handled properly.
+
 ## Create a Test repo
 
 ```shell
@@ -260,17 +301,6 @@ git remote add bitbucket git@bitbucket.org:FJrodafo/Test.git
 git push github
 git push gitlab
 git push bitbucket
-```
-
-## Revert to a previous commit
-
-These commands cannot be used if the branch is protected:
-
-```shell
-git reset <commit-SHA>
-git add -A
-git commit -m "commit-name"
-git push origin -f
 ```
 
 ## Glossary
