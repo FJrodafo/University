@@ -1,7 +1,7 @@
 import qrcode
 
 # URL to be encoded
-url = "https://fjrodafo.github.io"
+url = "https://fjrodafo.vercel.app/"
 
 # Create a QRCode object
 qr = qrcode.QRCode(
