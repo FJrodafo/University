@@ -1,0 +1,20 @@
+{
+    "header": {
+        "title": "Header",
+        "sentence": "Sentence",
+        "texts": {
+            "nested": {
+                "even_more": "nested"
+            },
+            "word": "Word"
+        }
+    },
+    "footer": {
+        "title": "Footer",
+        "texts": {
+            "language": "English",
+            "copyright": "Copyright"
+        }
+    },
+    "translate": "Translate"
+}
