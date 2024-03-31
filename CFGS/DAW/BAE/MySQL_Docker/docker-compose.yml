@@ -1,0 +1,27 @@
+version: '3'
+ 
+services:
+  dbmysql:
+    image: mysql
+    container_name: dbmysql
+    environment:
+      MYSQL_ROOT_PASSWORD: your_root_password
+      MYSQL_USER: your_user_name
+      MYSQL_PASSWORD: your_user_password
+    ports:
+      - "3306:3306"
+    volumes:
+      - dbdata:/var/lib/mysql
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: pma
+    links:
+      - dbmysql
+    environment:
+      PMA_HOST: dbmysql
+      PMA_PORT: 3306
+    restart: always
+    ports:
+      - 8000:80
+volumes:
+  dbdata:
