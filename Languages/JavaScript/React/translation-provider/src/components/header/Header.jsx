@@ -1,5 +1,5 @@
 import React from 'react';
-import { useTranslation } from './../../translation/Translation.jsx';
+import { useTranslation } from './../../providers/translation/Translation.jsx';
 
 function Header() {
   const { translations, toggleLanguage } = useTranslation();

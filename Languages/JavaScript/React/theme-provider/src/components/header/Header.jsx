@@ -1,6 +1,6 @@
 import React from 'react';
 import './header.css';
-import { useTheme } from './../../theme/Theme.jsx';
+import { useTheme } from './../../providers/theme/Theme.jsx';
 
 function Header() {
   const { theme, toggleTheme } = useTheme();
