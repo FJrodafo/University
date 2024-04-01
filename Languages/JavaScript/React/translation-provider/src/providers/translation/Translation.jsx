@@ -18,6 +18,7 @@ const TranslationProvider = ({ children }) => {
   useEffect(() => {
     // Saves the current language to local storage, ensuring it persists even after page reload.
     localStorage.setItem('language', language);
+
     // Defines an asynchronous function loadTranslations that loads the translations corresponding to the current language. It uses import to dynamically load the translation file from the specified location.
     const loadTranslations = async () => {
       // Uses the import function to dynamically load the translation file corresponding to the current language. The file path is dynamically constructed using the value of language.
