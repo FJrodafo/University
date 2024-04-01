@@ -5,7 +5,7 @@ function Header() {
   const { translations, toggleLanguage } = useTranslation();
   const handleToggleLanguage = () => { toggleLanguage() };
   // Check if translations are loaded, otherwise provide default values.
-  if (!translations.header) return <header>Loading...</header>;
+  if (!translations.header) return '...';
 
   return (
     <header>

@@ -4,7 +4,7 @@ import { useTranslation } from './../../providers/translation/Translation.jsx';
 function Footer() {
   const { translations } = useTranslation();
   // Check if translations are loaded, otherwise provide default values.
-  if (!translations.footer) return <header>Loading...</header>;
+  if (!translations.footer) return '...';
 
   return (
     <footer>
