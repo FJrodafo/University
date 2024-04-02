@@ -1,9 +1,9 @@
 version: '3'
  
 services:
-  dbmysql:
-    image: mysql
-    container_name: dbmysql
+  mysqldb:
+    image: mysql:8.3.0
+    container_name: mysqlcontainer
     environment:
       MYSQL_ROOT_PASSWORD: your_root_password
       MYSQL_USER: your_user_name
@@ -11,17 +11,14 @@ services:
     ports:
       - "3306:3306"
     volumes:
-      - dbdata:/var/lib/mysql
+      - $HOME/volumes_docker/var_lib_mysql:/var/lib/mysql
   phpmyadmin:
-    image: phpmyadmin/phpmyadmin
-    container_name: pma
-    links:
-      - dbmysql
+    image: phpmyadmin:5.2.1
+    container_name: phpmyadmincontainer
     environment:
-      PMA_HOST: dbmysql
+      PMA_HOST: mysqldb
       PMA_PORT: 3306
+      PMA_ARBITRARY: 1
     restart: always
     ports:
       - 8000:80
-volumes:
-  dbdata:
