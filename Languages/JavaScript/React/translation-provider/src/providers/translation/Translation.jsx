@@ -38,9 +38,23 @@ const TranslationProvider = ({ children }) => {
     setLanguage(newLanguage);
   };
 
+  // Defines the t function which takes a key as input and returns the translation for that key.
+  const t = (key) => {
+    // Split the key based on '.' to access nested translations
+    const keys = key.split('.');
+    let translation = translations;
+    // Loop through the keys to access nested translations
+    for (const k of keys) {
+      translation = translation[k];
+      // If translation is not found, return the key itself
+      if (!translation) return key;
+    }
+    return translation;
+  };
+
   return (
-    // Wraps the child components (children) with the TranslationContext provider. Provides the translations object and the toggleLanguage function as context values so they are available to child components using the useTranslation hook.
-    <TranslationContext.Provider value={{ translations, toggleLanguage }}>
+    // Wraps the child components (children) with the TranslationContext provider. Provides the t function and the toggleLanguage function as context values so they are available to child components using the useTranslation hook.
+    <TranslationContext.Provider value={{ t, toggleLanguage }}>
       {children} {/* Renders the child components within the context provider. */}
     </TranslationContext.Provider>
   );

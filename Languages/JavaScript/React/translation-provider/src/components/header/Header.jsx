@@ -2,19 +2,17 @@ import React from 'react';
 import { useTranslation } from './../../providers/translation/Translation.jsx';
 
 function Header() {
-  const { translations, toggleLanguage } = useTranslation();
+  const { t, toggleLanguage } = useTranslation();
   const handleToggleLanguage = () => { toggleLanguage() };
-  // Check if translations are loaded, otherwise provide default values.
-  if (!translations.header) return '...';
 
   return (
     <header>
-      <h2>{translations.header.title}</h2>
-      <p>{translations.header.sentence}</p>
-      <p>{translations.header.texts.nested.even_more}</p>
-      <p>{translations.header.texts.word}</p>
+      <h2>{t('header.title')}</h2>
+      <p>{t('header.sentence')}</p>
+      <p>{t('header.texts.nested.even_more')}</p>
+      <p>{t('header.texts.word')}</p>
       <button onClick={handleToggleLanguage}>
-        {translations.translate}
+        {t('translate')}
       </button>
     </header>
   );
