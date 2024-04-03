@@ -42,10 +42,13 @@ const TranslationProvider = ({ children }) => {
   const t = (key) => {
     // Split the key based on '.' to access nested translations
     const keys = key.split('.');
+
     let translation = translations;
+
     // Loop through the keys to access nested translations
     for (const k of keys) {
       translation = translation[k];
+
       // If translation is not found, return the key itself
       if (!translation) return key;
     }
