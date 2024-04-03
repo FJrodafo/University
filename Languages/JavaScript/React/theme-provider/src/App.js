@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
-import './App.css';
+import './assets/styles/app.css';
 import Header from './components/header/Header.jsx';
 import Footer from './components/footer/Footer.jsx';
-import { ThemeProvider } from './providers/theme/Theme.jsx';
+import { ThemeProvider } from './components/context/theme/Theme.jsx';
 
 function App() {
   useEffect(() => {

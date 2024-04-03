@@ -1,5 +1,5 @@
 import React from 'react';
-import { useTranslation } from './../../providers/translation/Translation.jsx';
+import { useTranslation } from './../context/translation/Translation.jsx';
 
 function Footer() {
   const { t } = useTranslation();

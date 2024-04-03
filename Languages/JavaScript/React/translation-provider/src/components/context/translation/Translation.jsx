@@ -22,7 +22,7 @@ const TranslationProvider = ({ children }) => {
     // Defines an asynchronous function loadTranslations that loads the translations corresponding to the current language. It uses import to dynamically load the translation file from the specified location.
     const loadTranslations = async () => {
       // Uses the import function to dynamically load the translation file corresponding to the current language. The file path is dynamically constructed using the value of language.
-      const translationData = await import(`./../../assets/translations/${language}/translation.json`);
+      const translationData = await import(`./../../../assets/translations/${language}/translation.json`);
 
       // Updates the translations state with the loaded translations. translationData.default contains the translations object exported from the JSON file.
       setTranslations(translationData.default);
