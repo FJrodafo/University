@@ -2,7 +2,6 @@ CREATE DATABASE supermercado;
 
 USE supermercado;
 
--- Tabla de Clientes
 CREATE TABLE Clientes (
     dni varchar(9) NOT NULL UNIQUE PRIMARY KEY,
     nombre varchar(25) NOT NULL,
@@ -11,14 +10,12 @@ CREATE TABLE Clientes (
     fecha_nacimiento DATE NOT NULL CHECK (fecha_nacimiento < CURRENT_DATE)
 );
 
--- Tabla de Proveedores
 CREATE TABLE Proveedores (
     nif varchar(9) NOT NULL UNIQUE PRIMARY KEY,
     nombre varchar(25) NOT NULL,
     direccion varchar(100) NOT NULL
 );
 
--- Tabla de Productos
 CREATE TABLE Productos (
     codigo int NOT NULL UNIQUE PRIMARY KEY,
     nombre varchar(25) NOT NULL,
@@ -27,7 +24,6 @@ CREATE TABLE Productos (
     CONSTRAINT fk_productos_proveedores FOREIGN KEY (nif_proveedor) REFERENCES Proveedores(nif)
 );
 
--- Tabla intermedia Clientes_Productos
 CREATE TABLE Clientes_Productos (
     -- id int AUTO_INCREMENT NOT NULL UNIQUE PRIMARY KEY,
     dni_cliente varchar(9) NOT NULL,

@@ -63,8 +63,14 @@ Las puntuaciones serán acumulativas (para poder puntuar un epí­grafe posterio
 
 ## Comandos
 
-Para exportar las tablas de la base de datos (nos generará el archivo sql de nuestra base de datos en la ruta especificada):
+Para exportar las tablas de la base de datos (Nos generará el archivo sql de nuestra base de datos en la ruta especificada):
 
 ```shell
-mysqldump -u root -p -h 127.0.0.1 regiones > /home/user/Documents/regiones.sql
+mysqldump -u root -p -h 127.0.0.1 -P 3306 regiones > /home/user/Documents/path/to/regiones.sql
+```
+
+Para importar las tablas ejecutaremos el siguiente comando (Es importante tener la base de datos regiones previamente creada):
+
+```shell
+mysql -u root -p -h 127.0.0.1 -P 3306 regiones < /home/user/Documents/path/to/regiones.sql
 ```
