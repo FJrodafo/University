@@ -211,7 +211,7 @@ SELECT EmployeeID, LastName, FirstName FROM employees WHERE ReportsTo = 5;
 Ordenar los empleados según su antigüedad en la empresa
 
 ```sql
-SELECT EmployeeID, LastName, FirstName, HireDate FROM employees ORDER BY HireDate;
+SELECT EmployeeID, LastName, FirstName, HireDate FROM employees ORDER BY HireDate ASC;
 ```
 
 Ordenar los empleados según su antigüedad en la empresa invertido
@@ -230,6 +230,8 @@ Obtener el número de pedidos que se hizo en el año 1997
 
 ```sql
 SELECT COUNT(*) AS NumeroPedidos FROM orders WHERE YEAR(OrderDate) = 1997;
+SELECT COUNT(*) AS NumeroPedidos FROM orders WHERE OrderDate >= '1997-01-01' AND OrderDate <= '1997-12-31';
+SELECT COUNT(*) AS NumeroPedidos FROM orders WHERE OrderDate BETWEEN '1997-01-01' AND '1997-12-31';
 ```
 
 Obtener el número de pedidos que se hizo en el mes de junio de ese año
@@ -282,7 +284,7 @@ ORDER BY
 Mostrar la cuantía total de cada pedido ordenado de mayor a menor junto con la fecha y el nombre del cliente que lo hizo
 
 ```sql
-SELECT
+SELECT SUM(UnitPrice*Quantity) FROM order_details GROUP BY OrderID;
 ```
 
 Se desea saber cuáles son los 5 mejores clientes de nuestra compañía. Entendiéndose por mejores clientes aquellas empresas que nos han dejado más dinero (los clientes que la cuantía que suman todos sus pedidos sea la mayor)
