@@ -187,6 +187,7 @@ Obtener...
 
 ```sql
 SELECT * FROM `categories` WHERE `Description` = 'Cheeses';
+
 SELECT CategoryID AS IDconsulta, CategoryName AS NombreCategoria FROM `categories` WHERE `Description` LIKE '%teas, beers%' and `CategoryName` LIKE '%a%';
 ```
 
@@ -230,14 +231,20 @@ Obtener el número de pedidos que se hizo en el año 1997
 
 ```sql
 SELECT COUNT(*) AS NumeroPedidos FROM orders WHERE YEAR(OrderDate) = 1997;
-SELECT COUNT(*) AS NumeroPedidos FROM orders WHERE OrderDate >= '1997-01-01' AND OrderDate <= '1997-12-31';
+
 SELECT COUNT(*) AS NumeroPedidos FROM orders WHERE OrderDate BETWEEN '1997-01-01' AND '1997-12-31';
+
+SELECT COUNT(*) AS NumeroPedidos FROM orders WHERE OrderDate >= '1997-01-01' AND OrderDate <= '1997-12-31';
 ```
 
 Obtener el número de pedidos que se hizo en el mes de junio de ese año
 
 ```sql
 SELECT COUNT(*) AS NumeroPedidos FROM orders WHERE YEAR(OrderDate) = 1997 AND MONTH(OrderDate) = 6;
+
+SELECT COUNT(*) AS NumeroPedidos FROM orders WHERE OrderDate BETWEEN '1997-06-01' AND '1997-06-30';
+
+SELECT COUNT(*) AS NumeroPedidos FROM orders WHERE OrderDate >= '1997-06-01' AND OrderDate <= '1997-06-30';
 ```
 
 Obtener el número de empleados estadounidenses de la empresa
@@ -261,24 +268,17 @@ SELECT SupplierID, ContactName FROM suppliers WHERE Country = 'France';
 Obtener la cantidad de queso de cabrales que se ha pedido en total (ProductID = 11)
 
 ```sql
-SELECT COUNT(*) ProductID FROM order_details WHERE ProductID = 11;
+SELECT COUNT(*) AS QuesoCabrales FROM order_details WHERE ProductID = 11;
 ```
 
 Ordenar los productos de mayor a menor cantidad solicitada en total
 
 ```sql
-SELECT 
-    p.ProductID,
-    p.ProductName,
-    SUM(od.Quantity) AS TotalSolicitado
-FROM 
-    products p
-JOIN 
-    order_details od ON p.ProductID = od.ProductID
-GROUP BY 
-    p.ProductID, p.ProductName
-ORDER BY 
-    TotalSolicitado DESC;
+SELECT products.ProductID, ProductName, SUM(Quantity) AS TotalCantidadSolicitada
+FROM order_details
+JOIN products ON order_details.ProductID = products.ProductID
+GROUP BY products.ProductID, ProductName
+ORDER BY TotalCantidadSolicitada DESC;
 ```
 
 Mostrar la cuantía total de cada pedido ordenado de mayor a menor junto con la fecha y el nombre del cliente que lo hizo
