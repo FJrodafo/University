@@ -4,8 +4,8 @@
     bottom: 0;
     height: 1em;
     margin: 0 2em 2em 0;
-    padding: .25em;
-    border-radius: 40%;
+    padding: 0.25em;
+    border-radius: 0.4rem;
     color: #000000;
     cursor: pointer;
     display: inline-flex;
