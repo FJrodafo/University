@@ -139,4 +139,4 @@ GRANT CREATE, ALTER, DROP, INSERT, UPDATE, INDEX, DELETE, SELECT, REFERENCES, RE
 ```
 
 <link rel="stylesheet" href="./../README.css">
-<a class="back-to-top" href="#top" title="Back to top">↑</a>
+<a class="scrollup" href="#top">&#x1F53A</a>

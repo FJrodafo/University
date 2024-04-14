@@ -1,21 +1,12 @@
-.back-to-top {
+.scrollup {
     right: 0;
-    width: 1em;
     bottom: 0;
-    height: 1em;
-    margin: 0 2em 2em 0;
-    padding: 0.25em;
-    border-radius: 0.4rem;
-    color: #000000;
-    cursor: pointer;
-    display: inline-flex;
+    margin: 0.6rem 0.6rem;
+    padding: 0.6rem 0.6rem;
+    border-radius: 0.6rem;
     position: fixed;
-    align-items: center;
-    justify-content: center;
-    background-color: #FFFFFF;
 }
 
-.back-to-top:hover {
-    color: #000000;
+.scrollup:hover {
     text-decoration: none;
 }
