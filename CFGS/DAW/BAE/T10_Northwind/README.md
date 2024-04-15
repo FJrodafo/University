@@ -13,6 +13,12 @@ Importa la base de datos Northwind con el siguiente comando:
 mysql -u root -p -h 127.0.0.1 -P 3306 < /home/fjrodafo/Documents/path/to/University/CFGS/DAW/BAE/T10_Northwind/northwind.sql
 ```
 
+Exporta la base de datos Northwind con el siguiente comando:
+
+```shell
+mysqldump -u root -p northwind > /home/fjrodafo/Documents/path/to/University/CFGS/DAW/BAE/T10_Northwind/northwind.sql
+```
+
 Muestra todos los usuarios que existen en tu sistema con el siguiente comando:
 
 ```sql
