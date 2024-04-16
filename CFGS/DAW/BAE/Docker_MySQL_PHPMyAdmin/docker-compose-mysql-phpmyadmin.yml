@@ -5,9 +5,7 @@ services:
     image: mysql:8.3.0
     container_name: mysqlcontainer
     environment:
-      MYSQL_ROOT_PASSWORD: your_root_password
-      MYSQL_USER: your_user_name
-      MYSQL_PASSWORD: your_user_password
+      MYSQL_ROOT_PASSWORD: 1q2w3e4r
     ports:
       - "3306:3306"
     volumes:
