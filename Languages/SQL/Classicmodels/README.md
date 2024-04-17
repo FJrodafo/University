@@ -187,3 +187,57 @@ Select all orders with order number between 10400 and 10420, sorted by shipping 
 SELECT orderNumber, orderDate, shippedDate, status, customerNumber FROM orders WHERE orderNumber BETWEEN 10400 AND 10420 ORDER BY status DESC, shippedDate ASC;
 ```
 
+Insert a new record into the productlines table:
+
+```sql
+INSERT INTO productlines (productLine, textDescription, htmlDescription, image)
+VALUES ("Drones", "A new line of products to modernize", NULL, NULL);
+```
+
+Delete the record you added previously:
+
+```sql
+DELETE FROM productlines WHERE productLine = 'Drones';
+```
+
+Update employee Eric Natividad's phone number to +65 456 8345:
+
+```sql
+SELECT customerNumber, customerName, contactLastName, contactFirstName, phone FROM customers WHERE contactFirstName = 'Eric' AND contactLastName = 'Natividad';
+UPDATE customers SET phone = '+65 456 8345' WHERE customerNumber = 148;
+```
+
+The employees who are working in office 2 have been temporarily transferred to office 3, update it:
+
+```sql
+SELECT employeeNumber, lastName, firstName, officeCode FROM employees WHERE officeCode = 2;
+UPDATE employees SET officeCode = 3 WHERE officeCode = 2;
+SELECT employeeNumber, lastName, firstName, officeCode FROM employees;
+```
+
+Employees who worked in office 2 who were moved to office 3 can now return to office 2, update:
+
+```sql
+UPDATE employees SET officeCode = 2 WHERE officeCode = 3 AND employeeNumber = 1188 OR employeeNumber = 1216;
+SELECT employeeNumber, lastName, firstName, officeCode FROM employees;
+```
+
+Remove a former employee from the database, his name is Tom King:
+
+```sql
+DELETE FROM employees WHERE employeeNumber = 1619;
+SELECT employeeNumber, lastName, firstName, officeCode FROM employees;
+```
+
+Select the customerNumber, paymentDate and amount fields from the payments table with a custom name:
+
+```sql
+SELECT customerNumber AS Customer_number, paymentDate AS Payment_date, amount AS Amount FROM payments;
+```
+
+> Select the product with the lowest price and then the highest price:
+
+```sql
+SELECT productCode, productName, MIN(buyPrice) AS Price FROM products;
+SELECT productCode, productName, MAX(buyPrice) AS Price FROM products;
+```
