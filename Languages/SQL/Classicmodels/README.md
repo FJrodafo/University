@@ -238,6 +238,37 @@ SELECT customerNumber AS Customer_number, paymentDate AS Payment_date, amount AS
 > Select the product with the lowest price and then the highest price:
 
 ```sql
-SELECT productCode, productName, MIN(buyPrice) AS Price FROM products;
-SELECT productCode, productName, MAX(buyPrice) AS Price FROM products;
+SELECT MIN(buyPrice) AS Price FROM products;
+
+SELECT productCode, productName, buyPrice AS Price
+FROM products
+WHERE buyPrice = (
+    SELECT MIN(buyPrice)
+    FROM products
+)
+ORDER BY productName;
+
+SELECT productCode, productName, buyPrice AS Price
+FROM products
+WHERE buyPrice = (
+    SELECT MAX(buyPrice)
+    FROM products
+)
+ORDER BY productName;
+```
+
+Make a query for all orders. The customer name, customer number, order number and order status must appear:
+
+```sql
+SELECT customers.customerName, customers.customerNumber, orders.orderNumber, orders.status
+FROM customers
+INNER JOIN orders
+ON customers.customerNumber = orders.customerNumber
+ORDER BY orders.status ASC;
+
+SELECT customers.customerName, customers.customerNumber, orders.orderNumber, orders.status
+FROM customers
+LEFT JOIN orders
+ON customers.customerNumber = orders.customerNumber
+ORDER BY orders.status ASC;
 ```
