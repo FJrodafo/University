@@ -4,6 +4,7 @@
 2. [Northwind](#northwind)
 3. [Consultas](#consultas)
 4. [Consultas, borrado, actualización, etc](#consultas-borrado-actualización-etc)
+5. [Subconsultas](#subconsultas)
 
 ## Prepara la base de datos
 
@@ -274,7 +275,7 @@ SELECT SupplierID, ContactName FROM suppliers WHERE Country = 'France';
 Obtener la cantidad de queso de cabrales que se ha pedido en total (ProductID = 11)
 
 ```sql
-SELECT COUNT(*) AS QuesoCabrales FROM order_details WHERE ProductID = 11;
+SELECT SUM(Quantity) AS QuesoCabrales FROM order_details WHERE ProductID = 11;
 ```
 
 Ordenar los productos de mayor a menor cantidad solicitada en total
@@ -474,3 +475,38 @@ Ahora borrar todos los empleados que no tengan jefes en prueba
 ```sql
 SELECT
 ```
+
+## Subconsultas
+
+Mostrar todas las categorias y en cada fila además de la categoría mostrar el nombre del producto con el precio más alto de esa categoría (también mostrar el precio de ese producto)
+
+```sql
+SELECT
+```
+
+Obtener una lista de empleados junto con el total de ventas de sus pedidos, donde se incluyan solo aquellos empleados que hayan vendido más que la media
+
+```sql
+SELECT
+```
+
+Obtener por cada jefe su subordinado que tenga más antigüedad
+
+```sql
+SELECT
+```
+
+Nosotros podemos calcular y obtener la cantidad mínima de productos que hay de todas las categorías. Se quiere que se muestren todas las categorías que coincidan con esa cantidad mínima
+
+```sql
+SELECT
+```
+
+Obtener por cada ciudad de destino  el/los pedido más reciente ( se mostrarán varios pedidos si coinciden en su fecha y todos son la fecha más reciente ) que ha llegado a esa ciudad, junto con la información del pedido y del cliente.
+
+```sql
+SELECT
+```
+
+<link rel="stylesheet" href="./README.css">
+<a class="scrollup" href="#top">&#x1F53A</a>
