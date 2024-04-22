@@ -291,7 +291,38 @@ ORDER BY TotalCantidadSolicitada DESC;
 Mostrar la cuantía total de cada pedido ordenado de mayor a menor junto con la fecha y el nombre del cliente que lo hizo
 
 ```sql
+-- Obviando el descuento
 SELECT SUM(UnitPrice*Quantity) FROM order_details GROUP BY OrderID;
+
+-- Incluye el descuento, la fecha y el nombre del cliente
+SELECT 
+    orders.OrderID,
+    orders.OrderDate,
+    customers.CompanyName AS CustomerName,
+    SUM(order_details.UnitPrice * order_details.Quantity * (1 - order_details.Discount)) AS TotalAmount
+FROM 
+    orders
+    INNER JOIN customers ON orders.CustomerID = customers.CustomerID
+    INNER JOIN order_details ON orders.OrderID = order_details.OrderID
+GROUP BY 
+    orders.OrderID, orders.OrderDate, customers.CompanyName
+ORDER BY 
+    TotalAmount DESC;
+
+-- Abreviaturas y redondeo para mostrar dos decimales
+SELECT 
+    o.OrderID,
+    o.OrderDate,
+    c.CompanyName AS CustomerName,
+    ROUND(SUM(od.UnitPrice * od.Quantity * (1 - od.Discount)), 2) AS TotalAmount
+FROM 
+    orders o
+    INNER JOIN customers c ON o.CustomerID = c.CustomerID
+    INNER JOIN order_details od ON o.OrderID = od.OrderID
+GROUP BY 
+    o.OrderID, o.OrderDate, c.CompanyName
+ORDER BY 
+    TotalAmount DESC;
 ```
 
 Se desea saber cuáles son los 5 mejores clientes de nuestra compañía. Entendiéndose por mejores clientes aquellas empresas que nos han dejado más dinero (los clientes que la cuantía que suman todos sus pedidos sea la mayor)

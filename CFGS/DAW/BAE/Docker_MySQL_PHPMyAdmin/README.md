@@ -10,7 +10,7 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: 1q2w3e4r
     ports:
-      - "3306:3306"
+      - "3307:3306"
     volumes:
       - $HOME/volumes_docker/var_lib_mysql:/var/lib/mysql
   phpmyadmin:
@@ -38,7 +38,7 @@ docker-compose -f docker-compose-mysql-phpmyadmin.yml up -d
 Para iniciar sesión desde la terminal, ejecutamos el siguiente comando:
 
 ```shell
-mysql -u root -p -h 127.0.0.1
+mysql -h 127.0.0.1 -P 3307 -u root -p
 ```
 
 La contraseña para acceder al usuario root es `1q2w3e4r`
