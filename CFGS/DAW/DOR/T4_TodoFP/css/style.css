@@ -1,0 +1,347 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+h1 {
+    font-family: sans-serif;
+
+    left: 0px;
+    bottom: 20px;
+    margin-bottom: 0px;
+
+    text-align: left;
+    text-shadow: 0px 1px 3px #FFFFFF;
+    color: #333333;
+}
+
+hr {
+    margin: 10px 20px;
+    border: 1px dashed #666666;
+}
+
+#container {
+    margin: 0px auto;
+    float: center;
+}
+
+#header {
+    text-align: center;
+}
+
+.box {
+    float: left;
+    position: relative;
+
+    margin-left: 5px;
+    left: 0px;
+
+    height: 100px;
+    width: 926px;
+
+    background: -webkit-linear-gradient(#3E9722, #CAE646);
+    background: -moz-linear-gradient(#3E9722, #CAE646);
+    background: -o-linear-gradient(#3E9722, #CAE646);
+    background: linear-gradient(#3E9722, #CAE646);
+    background-color: #3E9722;
+
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    border-radius: 15px;
+
+    padding: 20px 20px 0px 20px;
+}
+
+.box_shadow {
+    -webkit-box-shadow: 3px 3px 4px #b1b3a2;
+    -moz-box-shadow: 3px 3px 4px #b1b3a2;
+    box-shadow: 3px 3px 4px #b1b3a2;
+}
+
+.logo {
+    float: left;
+    left: 0px;
+    margin-bottom: 0px;
+    width: 200px;
+}
+
+.logo * a {
+    color: #333333;
+    text-decoration: none;
+}
+
+.subtitle {
+    margin: 0px;
+    left: 0px;
+
+    color: #333333;
+
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+
+    text-align: left;
+}
+
+.sections {
+    padding: 10px 20px;
+    margin-bottom: 10px;
+
+    background-color: #3c74e6;
+    color: white;
+
+    font: 0.9em/1.4 Arial, Helvetica, sans-serif;
+    font-weight: bolder;
+
+    -webkit-border-radius: 5px 5px 0 0;
+    -moz-border-radius: 5px 5px 0 0;
+    border-radius: 5px 5px 0 0;
+}
+
+.menu {
+    right: 0px;
+    bottom: -15px;
+
+    margin-right: 15px;
+    margin-bottom: 0px;
+
+    float: right;
+    position: absolute;
+}
+
+.menu ul {
+    padding: 0;
+    margin-right: 0;
+
+    list-style: none;
+    float: right;
+}
+
+.menu ul li {
+    float: left;
+
+    width: 90px;
+    margin-left: 2px;
+
+    filter: alpha(opacity=75);
+    -moz-opacity: 0.75;
+    opacity: 0.75;
+
+    background: -webkit-linear-gradient(left, #CAE646, #FFFFFF, #CAE646);
+    background: -moz-linear-gradient(left, #CAE646, #FFFFFF, #CAE646);
+    background: -o-linear-gradient(left, #CAE646, #FFFFFF, #CAE646);
+    background: linear-gradient(left, #CAE646, #FFFFFF, #CAE646);
+    background-color: #CAE646;
+
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+
+.menu ul li a {
+    line-height: 2.1em;
+    display: block;
+    color: #333333;
+
+    text-decoration: none;
+    text-align: center;
+
+    font-size: small;
+    font-weight: bold;
+    font-family: arial, sans-serif;
+}
+
+.menu ul li a:hover {
+    background: -webkit-linear-gradient(left, #e58c24, #FFFFFF, #e58c24);
+    background: -moz-linear-gradient(left, #e58c24, #FFFFFF, #e58c24);
+    background: -o-linear-gradient(left, #e58c24, #FFFFFF, #e58c24);
+    background: linear-gradient(left, #e58c24, #FFFFFF, #e58c24);
+    background-color: #e58c24;
+
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+
+#active {
+    -webkit-box-shadow: 0px 0px 20px #3c74e6;
+    -moz-box-shadow: 0px 0px 20px #3c74e6;
+    box-shadow: 0px 0px 20px #3c74e6;
+
+    background: -webkit-linear-gradient(left, #e58c24, #FFFFFF, #e58c24);
+    background: -moz-linear-gradient(left, #e58c24, #FFFFFF, #e58c24);
+    background: -o-linear-gradient(left, #e58c24, #FFFFFF, #e58c24);
+    background: linear-gradient(left, #e58c24, #FFFFFF, #e58c24);
+    background-color: #e58c24;
+    color: #666666;
+
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+
+#content {
+    top: 0px;
+    left: 0px;
+
+    float: left;
+    position: relative;
+}
+
+#content * a {
+    color: #3E9722;
+    font-weight: bold;
+}
+
+#content * p {
+    margin: 0px 20px;
+    text-align: justify;
+}
+
+.corners {
+    float: left;
+    position: absolute;
+
+    width: 920px;
+    height: 100px;
+
+    left: 0px;
+    margin-left: 5px;
+
+    padding: 20px 20px 0px 20px;
+
+    border: #3E9722 3px solid;
+    border-bottom: none;
+
+    -webkit-border-radius: 15px 15px 0px 0px;
+    -moz-border-radius: 15px 15px 0px 0px;
+    border-radius: 15px 15px 0px 0px;
+}
+
+.secondbox {
+    float: left;
+    position: relative;
+
+    width: 920px;
+
+    left: 0px;
+    margin-left: 5px;
+
+    padding: 20px 20px 0px 20px;
+}
+
+.secondbox * li,
+.secondbox * li a:visited {
+    color: #3E9722;
+    font-size: small;
+}
+
+.secondbox * li a:hover {
+    color: blue;
+}
+
+#left {
+    float: left;
+    position: relative;
+
+    top: 0px;
+    left: 0px;
+
+    width: 220px;
+    height: 100%;
+}
+
+#left * dt {
+    margin-left: 20px;
+
+    font: 0.9em sans-serif, Arial, Helvetica;
+    font-weight: bold;
+}
+
+#left * dd {
+    margin-left: 20px;
+    padding-bottom: 15px;
+}
+
+#left * a {
+    text-decoration: none;
+    font: 0.8em sans-serif, Arial, Helvetica;
+}
+
+.separation {
+    padding-left: 20px;
+}
+
+#center {
+    float: left;
+    position: relative;
+
+    width: 480px;
+    height: 100%;
+
+    top: 0px;
+    left: 0px;
+    padding-left: 20px;
+}
+
+#center li {
+    font: 1em Arial, Helvetica, sans-serif;
+    color: #000000;
+}
+
+.date {
+    float: right;
+    font: 0.75em Arial, Helvetica, sans-serif bold white;
+}
+
+.logoFP {
+    float: left;
+    margin: 5px 20px 20px 20px;
+
+    background-image: url("./../img/fondo.png");
+    background-color: #ebebeb;
+    color: #3E9722;
+
+    text-align: center;
+    font-weight: bolder;
+    font-size: 5em;
+    text-shadow: 0px 1px 3px #3E9722;
+}
+
+.tiny {
+    font: 0.5em Arial, Helvetica, sans-serif;
+    font-size: smaller;
+}
+
+.italic {
+    margin: 0px 20px 20px 20px;
+    font: 0.9em sans-serif, Arial, Helvetica;
+    font-style: italic;
+}
+
+#right {
+    width: 180px;
+    height: 100%;
+    padding-left: 20px;
+    float: left;
+    position: relative;
+    left: 0px;
+    top: 0px;
+}
+
+.column {
+    float: left;
+
+    width: 100%;
+    height: 478px;
+
+    text-align: center;
+}
+
+#footer {
+    float: left;
+    position: relative;
+    left: 0px;
+}
+
+#footer * a {
+    color: green;
+}
