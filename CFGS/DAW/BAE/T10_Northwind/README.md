@@ -190,53 +190,53 @@ CREATE TABLE suppliers (
 
 ## Consultas
 
-Obtener...
-
 ```sql
+-- Obtener...
+
 SELECT * FROM `categories` WHERE `Description` = 'Cheeses';
 
 SELECT CategoryID AS IDconsulta, CategoryName AS NombreCategoria FROM `categories` WHERE `Description` LIKE '%teas, beers%' and `CategoryName` LIKE '%a%';
 ```
 
-Obtener los distintos puestos de trabajo
-
 ```sql
+-- Obtener los distintos puestos de trabajo
+
 SELECT DISTINCT Title FROM `employees`;
 ```
 
-Obtener los distintos puestos de trabajo y contar cuantas veces aparece cada uno
-
 ```sql
+-- Obtener los distintos puestos de trabajo y contar cuantas veces aparece cada uno
+
 SELECT COUNT(*), Title FROM `employees` GROUP BY Title;
 ```
 
-Obtener los subordinados del empleado número 5
-
 ```sql
+-- Obtener los subordinados del empleado número 5
+
 SELECT EmployeeID, LastName, FirstName FROM employees WHERE ReportsTo = 5;
 ```
 
-Ordenar los empleados según su antigüedad en la empresa
-
 ```sql
+-- Ordenar los empleados según su antigüedad en la empresa
+
 SELECT EmployeeID, LastName, FirstName, HireDate FROM employees ORDER BY HireDate ASC;
 ```
 
-Ordenar los empleados según su antigüedad en la empresa invertido
-
 ```sql
+-- Ordenar los empleados según su antigüedad en la empresa invertido
+
 SELECT EmployeeID, LastName, FirstName, HireDate FROM employees ORDER BY HireDate DESC;
 ```
 
-Obtener los datos de las empleadas solteras de la empresa
-
 ```sql
+-- Obtener los datos de las empleadas solteras de la empresa
+
 SELECT EmployeeID, LastName, FirstName FROM employees WHERE TitleOfCourtesy = 'Ms.';
 ```
 
-Obtener el número de pedidos que se hizo en el año 1997
-
 ```sql
+-- Obtener el número de pedidos que se hizo en el año 1997
+
 SELECT COUNT(*) AS NumeroPedidos FROM orders WHERE YEAR(OrderDate) = 1997;
 
 SELECT COUNT(*) AS NumeroPedidos FROM orders WHERE OrderDate BETWEEN '1997-01-01' AND '1997-12-31';
@@ -244,9 +244,9 @@ SELECT COUNT(*) AS NumeroPedidos FROM orders WHERE OrderDate BETWEEN '1997-01-01
 SELECT COUNT(*) AS NumeroPedidos FROM orders WHERE OrderDate >= '1997-01-01' AND OrderDate <= '1997-12-31';
 ```
 
-Obtener el número de pedidos que se hizo en el mes de junio de ese año
-
 ```sql
+-- Obtener el número de pedidos que se hizo en el mes de junio de ese año
+
 SELECT COUNT(*) AS NumeroPedidos FROM orders WHERE YEAR(OrderDate) = 1997 AND MONTH(OrderDate) = 6;
 
 SELECT COUNT(*) AS NumeroPedidos FROM orders WHERE OrderDate BETWEEN '1997-06-01' AND '1997-06-30';
@@ -254,33 +254,33 @@ SELECT COUNT(*) AS NumeroPedidos FROM orders WHERE OrderDate BETWEEN '1997-06-01
 SELECT COUNT(*) AS NumeroPedidos FROM orders WHERE OrderDate >= '1997-06-01' AND OrderDate <= '1997-06-30';
 ```
 
-Obtener el número de empleados estadounidenses de la empresa
-
 ```sql
+-- Obtener el número de empleados estadounidenses de la empresa
+
 SELECT COUNT(*) AS EmployeeID FROM employees WHERE Country = 'USA';
 ```
 
-Obtener los diferentes precios a los que se ha vendido el queso cabrales (ProductID = 11)
-
 ```sql
+-- Obtener los diferentes precios a los que se ha vendido el queso cabrales (ProductID = 11)
+
 SELECT DISTINCT UnitPrice FROM order_details WHERE ProductID = 11;
 ```
 
-Obtener los proveedores franceses
-
 ```sql
+-- Obtener los proveedores franceses
+
 SELECT SupplierID, ContactName FROM suppliers WHERE Country = 'France';
 ```
 
-Obtener la cantidad de queso de cabrales que se ha pedido en total (ProductID = 11)
-
 ```sql
+-- Obtener la cantidad de queso de cabrales que se ha pedido en total (ProductID = 11)
+
 SELECT SUM(Quantity) AS QuesoCabrales FROM order_details WHERE ProductID = 11;
 ```
 
-Ordenar los productos de mayor a menor cantidad solicitada en total
-
 ```sql
+-- Ordenar los productos de mayor a menor cantidad solicitada en total
+
 SELECT products.ProductID, ProductName, SUM(Quantity) AS TotalCantidadSolicitada
 FROM order_details
 JOIN products ON order_details.ProductID = products.ProductID
@@ -288,254 +288,283 @@ GROUP BY products.ProductID, ProductName
 ORDER BY TotalCantidadSolicitada DESC;
 ```
 
-Mostrar la cuantía total de cada pedido ordenado de mayor a menor junto con la fecha y el nombre del cliente que lo hizo
-
 ```sql
+-- Mostrar la cuantía total de cada pedido ordenado de mayor a menor junto con la fecha y el nombre del cliente que lo hizo
+
 -- Obviando el descuento
 SELECT SUM(UnitPrice*Quantity) FROM order_details GROUP BY OrderID;
 
 -- Incluye el descuento, la fecha y el nombre del cliente
-SELECT 
-    orders.OrderID,
-    orders.OrderDate,
-    customers.CompanyName AS CustomerName,
+SELECT orders.OrderID, orders.OrderDate, customers.CompanyName AS CustomerName,
     SUM(order_details.UnitPrice * order_details.Quantity * (1 - order_details.Discount)) AS TotalAmount
-FROM 
-    orders
-    INNER JOIN customers ON orders.CustomerID = customers.CustomerID
-    INNER JOIN order_details ON orders.OrderID = order_details.OrderID
-GROUP BY 
-    orders.OrderID, orders.OrderDate, customers.CompanyName
-ORDER BY 
-    TotalAmount DESC;
+FROM orders
+INNER JOIN customers ON orders.CustomerID = customers.CustomerID
+INNER JOIN order_details ON orders.OrderID = order_details.OrderID
+GROUP BY orders.OrderID, orders.OrderDate, customers.CompanyName
+ORDER BY TotalAmount DESC;
 
 -- Abreviaturas y redondeo para mostrar dos decimales
-SELECT 
-    o.OrderID,
-    o.OrderDate,
-    c.CompanyName AS CustomerName,
+SELECT o.OrderID, o.OrderDate, c.CompanyName AS CustomerName,
     ROUND(SUM(od.UnitPrice * od.Quantity * (1 - od.Discount)), 2) AS TotalAmount
-FROM 
-    orders o
-    INNER JOIN customers c ON o.CustomerID = c.CustomerID
-    INNER JOIN order_details od ON o.OrderID = od.OrderID
-GROUP BY 
-    o.OrderID, o.OrderDate, c.CompanyName
-ORDER BY 
-    TotalAmount DESC;
+FROM orders o
+INNER JOIN customers c ON o.CustomerID = c.CustomerID
+INNER JOIN order_details od ON o.OrderID = od.OrderID
+GROUP BY o.OrderID, o.OrderDate, c.CompanyName
+ORDER BY TotalAmount DESC;
 ```
 
-Se desea saber cuáles son los 5 mejores clientes de nuestra compañía. Entendiéndose por mejores clientes aquellas empresas que nos han dejado más dinero (los clientes que la cuantía que suman todos sus pedidos sea la mayor)
-
 ```sql
+-- Se desea saber cuáles son los 5 mejores clientes de nuestra compañía. Entendiéndose por mejores clientes aquellas empresas que nos han dejado más dinero (los clientes que la cuantía que suman todos sus pedidos sea la mayor)
+
 SELECT
 ```
 
-¿De qué país tenemos más clientes?
-
 ```sql
+-- ¿De qué país tenemos más clientes?
+
 SELECT
 ```
 
-Obtener la edad que tenía cada empleado al entrar en la empresa
-
 ```sql
+-- Obtener la edad que tenía cada empleado al entrar en la empresa
+
 SELECT
 ```
 
-Calcular ahora la edad media a la que un empleado entra en la empresa
-
 ```sql
+-- Calcular ahora la edad media a la que un empleado entra en la empresa
+
 SELECT
 ```
 
-Saber cuántos pedidos ha llevado cada transportista
-
 ```sql
+-- Saber cuántos pedidos ha llevado cada transportista
+
 SELECT
 ```
 
-Mostrar el ID de los empleados que tengan a otros empleados a su cargo
-
 ```sql
+-- Mostrar el ID de los empleados que tengan a otros empleados a su cargo
+
 SELECT
 ```
 
-Mostrar los pedidos que deben ser enviados fuera de USA
-
 ```sql
+-- Mostrar los pedidos que deben ser enviados fuera de USA
+
 SELECT
 ```
 
-Mostrar los pedidos que aún no se han enviado
-
 ```sql
+-- Mostrar los pedidos que aún no se han enviado
+
 SELECT
 ```
 
-¿Qué productos de los que ya no se va a seguir trabajando con ellos tenía un precio más alto?
-
 ```sql
+-- ¿Qué productos de los que ya no se va a seguir trabajando con ellos tenía un precio más alto?
+
 SELECT
 ```
 
-Obtener los nombre de los productos que sean quesos
-
 ```sql
+-- Obtener los nombre de los productos que sean quesos
+
 SELECT
 ```
 
-Ordenar los productos del más caro al más barato precio por unidad
-
 ```sql
+-- Ordenar los productos del más caro al más barato precio por unidad
+
 SELECT
 ```
 
-Obtener cuántos proveedores distintos suministran actualmente quesos a la empresa (categoría 4)
-
 ```sql
+-- Obtener cuántos proveedores distintos suministran actualmente quesos a la empresa (categoría 4)
+
 SELECT
 ```
 
-Todos los productos tienen una cantidad llamada "reorderlevel" que si el stock baja de esa cifra se debe solicitar del proveedor que reponga el producto. Detectar que productos hay que solicitar a su proveedor que reponga. Tener en cuenta que ya hay productos a los que se les ha detectado que precisan de reposición y se le ha solicitado a su proveedor que traiga una cantidad de ese producto. Eso lo vemos en el campo "UnitsOnOrder" que nos dice la cantidad de producto que se ha solicitado reponer
-
 ```sql
+-- Todos los productos tienen una cantidad llamada "reorderlevel" que si el stock baja de esa cifra se debe solicitar del proveedor que reponga el producto. Detectar que productos hay que solicitar a su proveedor que reponga. Tener en cuenta que ya hay productos a los que se les ha detectado que precisan de reposición y se le ha solicitado a su proveedor que traiga una cantidad de ese producto. Eso lo vemos en el campo "UnitsOnOrder" que nos dice la cantidad de producto que se ha solicitado reponer
+
 SELECT
 ```
 
-Empleados contratados en 1993
-
 ```sql
+-- Empleados contratados en 1993
+
 SELECT
 ```
 
-Un cliente quiere presentar una reclamación por la actuación de uno de los empleados de la empresa Lo único que recuerda del empleado es que le dijo que el nombre de su calle decía algo de "Winchester". Buscar los empleados que pueden coincidir para la reclamación
-
 ```sql
+-- Un cliente quiere presentar una reclamación por la actuación de uno de los empleados de la empresa Lo único que recuerda del empleado es que le dijo que el nombre de su calle decía algo de "Winchester". Buscar los empleados que pueden coincidir para la reclamación
+
 SELECT
 ```
 
-Se desea saber que empleados van a cumplir años en el próximo mes de julio
+```sql
+-- Se desea saber que empleados van a cumplir años en el próximo mes de julio
+
+SELECT * FROM employees WHERE MONTH(BirthDate) = 7;
+```
 
 ```sql
+-- Un cliente puede desear enviar un pedido a un sitio o persona distinto de su nombre de empresa. Obtener los nombres de envío que no coinciden con el nombre de la compañía cliente
+
+SELECT ShipName, customers.CompanyName
+FROM orders
+JOIN customers ON orders.CustomerID = customers.CustomerID
+WHERE ShipName <> customers.CompanyName;
+```
+
+```sql
+-- Se va a enviar una carta comercial a las distintas personas que se tiene como contacto en las empresas clientes. Se quiere hacer una carta personalizada según el tipo de puesto de trabajo que ocupen esas personas. Se desea saber cuántas cartas se debe hacer para cada uno de esos tipos de puestos de trabajo
+
+SELECT ContactTitle, COUNT(*) AS TotalCartas FROM customers GROUP BY ContactTitle;
+```
+
+```sql
+-- Se desea saber cual es el pedido en el que ha solicitado mayor cantidad de productos distintos
+
+SELECT OrderID, COUNT(DISTINCT ProductID) AS Cantidad FROM order_details
+GROUP BY OrderID ORDER BY Cantidad DESC
+LIMIT 1;
+```
+
+```sql
+-- Se desea saber cual es el  producto ( ProductID) que más veces se ha solicitado
+
 SELECT
 ```
 
-Un cliente puede desear enviar un pedido a un sitio o persona distinto de su nombre de empresa. Obtener los nombres de envío que no coinciden con el nombre de la compañía cliente
-
 ```sql
+-- Se desea saber que pedido ha tenido una reducción de precio mayor por los descuentos aplicados
+
 SELECT
 ```
 
-Se va a enviar una carta comercial a las distintas personas que se tiene como contacto en las empresas clientes. Se quiere hacer una carta personalizada según el tipo de puesto de trabajo que ocupen esas personas. Se desea saber cuántas cartas se debe hacer para cada uno de esos tipos de puestos de trabajo
-
 ```sql
+-- Se desea saber que productos tienen el mismo precio
+
 SELECT
 ```
 
-Se desea saber cual es el pedido en el que ha solicitado mayor cantidad de productos distintos
-
 ```sql
+-- Mostrar los paises donde tenemos como mínimo 3 proveedores
+
 SELECT
 ```
 
-Se desea saber cual es el  producto ( ProductID) que más veces se ha solicitado
-
 ```sql
-SELECT
-```
+-- Mostrar en que meses del año 1997 se hicieron menos de 30 pedidos
 
-Se desea saber que pedido ha tenido una reducción de precio mayor por los descuentos aplicados
-
-```sql
-SELECT
-```
-
-Se desea saber que productos tienen el mismo precio
-
-```sql
-SELECT
-```
-
-Mostrar los paises donde tenemos como mínimo 3 proveedores
-
-```sql
-SELECT
-```
-
-Mostrar en que meses del año 1997 se hicieron menos de 30 pedidos
-
-```sql
 SELECT
 ```
 
 ## Consultas, borrado, actualización, etc
 
-Crear una nueva tabla llamada prueba con los empleados que tengan nombre que comience por letra A
-
 ```sql
+-- Crear una nueva tabla llamada prueba con los empleados que tengan nombre que comience por letra A
+
 SELECT
 ```
 
-Crear una copia de la tabla productos Que se llame prueba2
-
 ```sql
+-- Crear una copia de la tabla productos Que se llame prueba2
+
 SELECT
 ```
 
-Incrementar el precio de los productos un 10% si su precio actual es mayor de 80 en la tabla prueba2
-
 ```sql
+-- Incrementar el precio de los productos un 10% si su precio actual es mayor de 80 en la tabla prueba2
+
 SELECT
 ```
 
-Sin borrar los registros de la tabla prueba2 hacer una consulta que en el caso que el precio sea diferente en las dos tablas ponga en prueba2 el precio que aparece en products
-
 ```sql
+-- Sin borrar los registros de la tabla prueba2 hacer una consulta que en el caso que el precio sea diferente en las dos tablas ponga en prueba2 el precio que aparece en products
+
 SELECT
 ```
 
-Hacer que los empleados de UK se queden sin jefe establecido (hacer esto en una tabla llamada prueba que sea una copia de employees)
-
 ```sql
+-- Hacer que los empleados de UK se queden sin jefe establecido (hacer esto en una tabla llamada prueba que sea una copia de employees)
+
 SELECT
 ```
 
-Ahora borrar todos los empleados que no tengan jefes en prueba
-
 ```sql
+-- Ahora borrar todos los empleados que no tengan jefes en prueba
+
 SELECT
 ```
 
 ## Subconsultas
 
-Mostrar todas las categorias y en cada fila además de la categoría mostrar el nombre del producto con el precio más alto de esa categoría (también mostrar el precio de ese producto)
+```sql
+-- Se desea identificar aquellos productos que nunca han sido incluidos en ningún pedido:
+
+SELECT *
+FROM order_details
+RIGHT JOIN products ON products.ProductID = order_details.ProductID
+WHERE order_details.OrderID IS NULL;
+
+SELECT *
+FROM products
+WHERE ProductID NOT IN (
+    SELECT DISTINCT(ProductID)
+    FROM order_details
+);
+```
 
 ```sql
+-- El precio medio de los productos
+
+SELECT AVG(UnitPrice) AS PrecioMedio FROM products;
+
+SELECT SUM(UnitPrice) AS PrecioMedio,
+    COUNT(DISTINCT(ProductID)) AS CantidadProductos
+FROM products;
+
+SELECT SUM(UnitPrice) / (SELECT COUNT(DISTINCT(ProductID)) FROM products) AS PrecioMedio
+FROM products;
+```
+
+```sql
+-- Mostrar todas las categorias y en cada fila además de la categoría mostrar el nombre del producto con el precio más alto de esa categoría (también mostrar el precio de ese producto)
+
 SELECT
 ```
 
-Obtener una lista de empleados junto con el total de ventas de sus pedidos, donde se incluyan solo aquellos empleados que hayan vendido más que la media
+```sql
+-- Obtener una lista de empleados junto con el total de ventas de sus pedidos, donde se incluyan solo aquellos empleados que hayan vendido más que la media
+
+SELECT employees.EmployeeID, employees.LastName, employees.FirstName, COUNT(*) AS TotalPedidos
+FROM employees
+INNER JOIN orders ON employees.EmployeeID = orders.EmployeeID
+GROUP BY employees.EmployeeID
+HAVING TotalPedidos >= (
+    SELECT COUNT(*) / (SELECT COUNT(*) FROM employees)
+    FROM orders
+);
+```
 
 ```sql
+-- Obtener por cada jefe su subordinado que tenga más antigüedad
+
 SELECT
 ```
 
-Obtener por cada jefe su subordinado que tenga más antigüedad
-
 ```sql
+-- Nosotros podemos calcular y obtener la cantidad mínima de productos que hay de todas las categorías. Se quiere que se muestren todas las categorías que coincidan con esa cantidad mínima
+
 SELECT
 ```
 
-Nosotros podemos calcular y obtener la cantidad mínima de productos que hay de todas las categorías. Se quiere que se muestren todas las categorías que coincidan con esa cantidad mínima
-
 ```sql
-SELECT
-```
+-- Obtener por cada ciudad de destino  el/los pedido más reciente ( se mostrarán varios pedidos si coinciden en su fecha y todos son la fecha más reciente ) que ha llegado a esa ciudad, junto con la información del pedido y del cliente
 
-Obtener por cada ciudad de destino  el/los pedido más reciente ( se mostrarán varios pedidos si coinciden en su fecha y todos son la fecha más reciente ) que ha llegado a esa ciudad, junto con la información del pedido y del cliente.
-
-```sql
 SELECT
 ```
 
