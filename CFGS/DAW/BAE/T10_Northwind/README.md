@@ -11,7 +11,7 @@
 Importa la base de datos Northwind con el siguiente comando:
 
 ```shell
-mysql -u root -p -h 127.0.0.1 -P 3306 < /home/fjrodafo/Documents/path/to/University/CFGS/DAW/BAE/T10_Northwind/northwind.sql
+mysql -h 127.0.0.1 -P 3306 -u root -p < /home/fjrodafo/Documents/path/to/University/CFGS/DAW/BAE/T10_Northwind/northwind.sql
 ```
 
 Exporta la base de datos Northwind con el siguiente comando:
@@ -193,98 +193,138 @@ CREATE TABLE suppliers (
 ```sql
 -- Obtener...
 
-SELECT * FROM `categories` WHERE `Description` = 'Cheeses';
+SELECT *
+FROM categories
+WHERE `Description` = 'Cheeses';
 
-SELECT CategoryID AS IDconsulta, CategoryName AS NombreCategoria FROM `categories` WHERE `Description` LIKE '%teas, beers%' and `CategoryName` LIKE '%a%';
+SELECT
+    CategoryID AS IDconsulta,
+    CategoryName AS NombreCategoria
+FROM categories
+WHERE `Description` LIKE '%teas, beers%' AND CategoryName LIKE '%a%';
 ```
 
 ```sql
 -- Obtener los distintos puestos de trabajo
 
-SELECT DISTINCT Title FROM `employees`;
+SELECT DISTINCT Title
+FROM employees;
 ```
 
 ```sql
 -- Obtener los distintos puestos de trabajo y contar cuantas veces aparece cada uno
 
-SELECT COUNT(*), Title FROM `employees` GROUP BY Title;
+SELECT
+    COUNT(Title) AS Count,
+    Title
+FROM employees
+GROUP BY Title;
 ```
 
 ```sql
 -- Obtener los subordinados del empleado número 5
 
-SELECT EmployeeID, LastName, FirstName FROM employees WHERE ReportsTo = 5;
+SELECT EmployeeID, LastName, FirstName
+FROM employees
+WHERE ReportsTo = 5;
 ```
 
 ```sql
 -- Ordenar los empleados según su antigüedad en la empresa
 
-SELECT EmployeeID, LastName, FirstName, HireDate FROM employees ORDER BY HireDate ASC;
+SELECT EmployeeID, LastName, FirstName, HireDate
+FROM employees
+ORDER BY HireDate ASC;
 ```
 
 ```sql
 -- Ordenar los empleados según su antigüedad en la empresa invertido
 
-SELECT EmployeeID, LastName, FirstName, HireDate FROM employees ORDER BY HireDate DESC;
+SELECT EmployeeID, LastName, FirstName, HireDate
+FROM employees
+ORDER BY HireDate DESC;
 ```
 
 ```sql
 -- Obtener los datos de las empleadas solteras de la empresa
 
-SELECT EmployeeID, LastName, FirstName FROM employees WHERE TitleOfCourtesy = 'Ms.';
+SELECT EmployeeID, LastName, FirstName
+FROM employees
+WHERE TitleOfCourtesy = 'Ms.';
 ```
 
 ```sql
 -- Obtener el número de pedidos que se hizo en el año 1997
 
-SELECT COUNT(*) AS NumeroPedidos FROM orders WHERE YEAR(OrderDate) = 1997;
+SELECT COUNT(*) AS NumeroPedidos
+FROM orders
+WHERE YEAR(OrderDate) = 1997;
 
-SELECT COUNT(*) AS NumeroPedidos FROM orders WHERE OrderDate BETWEEN '1997-01-01' AND '1997-12-31';
+SELECT COUNT(*) AS NumeroPedidos
+FROM orders
+WHERE OrderDate BETWEEN '1997-01-01' AND '1997-12-31';
 
-SELECT COUNT(*) AS NumeroPedidos FROM orders WHERE OrderDate >= '1997-01-01' AND OrderDate <= '1997-12-31';
+SELECT COUNT(*) AS NumeroPedidos
+FROM orders
+WHERE OrderDate >= '1997-01-01' AND OrderDate <= '1997-12-31';
 ```
 
 ```sql
 -- Obtener el número de pedidos que se hizo en el mes de junio de ese año
 
-SELECT COUNT(*) AS NumeroPedidos FROM orders WHERE YEAR(OrderDate) = 1997 AND MONTH(OrderDate) = 6;
+SELECT COUNT(*) AS NumeroPedidos
+FROM orders
+WHERE YEAR(OrderDate) = 1997 AND MONTH(OrderDate) = 6;
 
-SELECT COUNT(*) AS NumeroPedidos FROM orders WHERE OrderDate BETWEEN '1997-06-01' AND '1997-06-30';
+SELECT COUNT(*) AS NumeroPedidos
+FROM orders
+WHERE OrderDate BETWEEN '1997-06-01' AND '1997-06-30';
 
-SELECT COUNT(*) AS NumeroPedidos FROM orders WHERE OrderDate >= '1997-06-01' AND OrderDate <= '1997-06-30';
+SELECT COUNT(*) AS NumeroPedidos
+FROM orders
+WHERE OrderDate >= '1997-06-01' AND OrderDate <= '1997-06-30';
 ```
 
 ```sql
 -- Obtener el número de empleados estadounidenses de la empresa
 
-SELECT COUNT(*) AS EmployeeID FROM employees WHERE Country = 'USA';
+SELECT COUNT(*) AS EmployeeID
+FROM employees
+WHERE Country = 'USA';
 ```
 
 ```sql
 -- Obtener los diferentes precios a los que se ha vendido el queso cabrales (ProductID = 11)
 
-SELECT DISTINCT UnitPrice FROM order_details WHERE ProductID = 11;
+SELECT DISTINCT UnitPrice
+FROM order_details
+WHERE ProductID = 11;
 ```
 
 ```sql
 -- Obtener los proveedores franceses
 
-SELECT SupplierID, ContactName FROM suppliers WHERE Country = 'France';
+SELECT SupplierID, ContactName
+FROM suppliers
+WHERE Country = 'France';
 ```
 
 ```sql
 -- Obtener la cantidad de queso de cabrales que se ha pedido en total (ProductID = 11)
 
-SELECT SUM(Quantity) AS QuesoCabrales FROM order_details WHERE ProductID = 11;
+SELECT SUM(Quantity) AS QuesoCabrales
+FROM order_details
+WHERE ProductID = 11;
 ```
 
 ```sql
 -- Ordenar los productos de mayor a menor cantidad solicitada en total
 
-SELECT products.ProductID, ProductName, SUM(Quantity) AS TotalCantidadSolicitada
-FROM order_details
-JOIN products ON order_details.ProductID = products.ProductID
-GROUP BY products.ProductID, ProductName
+SELECT p.ProductID, p.ProductName,
+    SUM(od.Quantity) AS TotalCantidadSolicitada
+FROM products p
+JOIN order_details od ON p.ProductID = od.ProductID
+GROUP BY p.ProductID
 ORDER BY TotalCantidadSolicitada DESC;
 ```
 
@@ -292,91 +332,121 @@ ORDER BY TotalCantidadSolicitada DESC;
 -- Mostrar la cuantía total de cada pedido ordenado de mayor a menor junto con la fecha y el nombre del cliente que lo hizo
 
 -- Obviando el descuento
-SELECT SUM(UnitPrice*Quantity) FROM order_details GROUP BY OrderID;
+SELECT ROUND(SUM(UnitPrice * Quantity), 2) AS CuantiaTotal
+FROM order_details
+GROUP BY OrderID;
 
 -- Incluye el descuento, la fecha y el nombre del cliente
-SELECT orders.OrderID, orders.OrderDate, customers.CompanyName AS CustomerName,
-    SUM(order_details.UnitPrice * order_details.Quantity * (1 - order_details.Discount)) AS TotalAmount
-FROM orders
-INNER JOIN customers ON orders.CustomerID = customers.CustomerID
-INNER JOIN order_details ON orders.OrderID = order_details.OrderID
-GROUP BY orders.OrderID, orders.OrderDate, customers.CompanyName
-ORDER BY TotalAmount DESC;
-
--- Abreviaturas y redondeo para mostrar dos decimales
-SELECT o.OrderID, o.OrderDate, c.CompanyName AS CustomerName,
-    ROUND(SUM(od.UnitPrice * od.Quantity * (1 - od.Discount)), 2) AS TotalAmount
+SELECT o.OrderID, o.OrderDate,
+    c.CompanyName AS NombreCliente,
+    ROUND(SUM(od.UnitPrice * od.Quantity - od.Discount), 2) AS CantidadTotal
 FROM orders o
-INNER JOIN customers c ON o.CustomerID = c.CustomerID
-INNER JOIN order_details od ON o.OrderID = od.OrderID
+JOIN customers c ON o.CustomerID = c.CustomerID
+JOIN order_details od ON o.OrderID = od.OrderID
 GROUP BY o.OrderID, o.OrderDate, c.CompanyName
-ORDER BY TotalAmount DESC;
+ORDER BY CantidadTotal DESC;
 ```
 
 ```sql
 -- Se desea saber cuáles son los 5 mejores clientes de nuestra compañía. Entendiéndose por mejores clientes aquellas empresas que nos han dejado más dinero (los clientes que la cuantía que suman todos sus pedidos sea la mayor)
 
-SELECT
+SELECT c.CustomerID, c.CompanyName,
+    ROUND(SUM(od.UnitPrice * od.Quantity - od.Discount), 2) AS CantidadTotal
+FROM customers c
+JOIN orders o ON c.CustomerID = o.CustomerID
+JOIN order_details od ON o.OrderID = od.OrderID
+GROUP BY c.CustomerID
+ORDER BY CantidadTotal DESC
+LIMIT 5;
 ```
 
 ```sql
 -- ¿De qué país tenemos más clientes?
 
-SELECT
+SELECT Country,
+    COUNT(*) AS NumeroClientes
+FROM customers
+GROUP BY Country
+ORDER BY NumeroClientes DESC
+LIMIT 1;
 ```
 
 ```sql
 -- Obtener la edad que tenía cada empleado al entrar en la empresa
 
-SELECT
+SELECT EmployeeID, LastName, FirstName,
+    DATEDIFF(HireDate, BirthDate) / 365 AS EdadContratacion
+FROM employees;
 ```
 
 ```sql
 -- Calcular ahora la edad media a la que un empleado entra en la empresa
 
-SELECT
+SELECT AVG(DATEDIFF(HireDate, BirthDate) / 365) AS EdadMediaContratacion
+FROM employees;
 ```
 
 ```sql
 -- Saber cuántos pedidos ha llevado cada transportista
 
-SELECT
+SELECT ShipVia,
+    COUNT(*) AS NumeroPedidos
+FROM orders
+GROUP BY ShipVia;
 ```
 
 ```sql
 -- Mostrar el ID de los empleados que tengan a otros empleados a su cargo
 
-SELECT
+SELECT EmployeeID, LastName, FirstName
+FROM employees
+WHERE EmployeeID IN (
+    SELECT DISTINCT ReportsTo
+    FROM employees
+);
 ```
 
 ```sql
 -- Mostrar los pedidos que deben ser enviados fuera de USA
 
-SELECT
+SELECT OrderID, ShipCountry
+FROM orders
+WHERE ShipCountry != 'USA'
+ORDER BY ShipCountry;
 ```
 
 ```sql
 -- Mostrar los pedidos que aún no se han enviado
 
-SELECT
+SELECT OrderID, ShippedDate
+FROM orders
+WHERE ShippedDate IS NULL;
 ```
 
 ```sql
 -- ¿Qué productos de los que ya no se va a seguir trabajando con ellos tenía un precio más alto?
 
-SELECT
+SELECT ProductID, ProductName, UnitPrice
+FROM products
+WHERE Discontinued = 'y'
+ORDER BY UnitPrice DESC
+LIMIT 1;
 ```
 
 ```sql
 -- Obtener los nombre de los productos que sean quesos
 
-SELECT
+SELECT ProductName
+FROM products
+WHERE ProductName LIKE '%queso%';
 ```
 
 ```sql
 -- Ordenar los productos del más caro al más barato precio por unidad
 
-SELECT
+SELECT ProductName, UnitPrice
+FROM products
+ORDER BY UnitPrice DESC;
 ```
 
 ```sql
