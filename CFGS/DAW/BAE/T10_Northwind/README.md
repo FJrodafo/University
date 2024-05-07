@@ -250,7 +250,7 @@ ORDER BY HireDate DESC;
 
 SELECT EmployeeID, LastName, FirstName
 FROM employees
-WHERE TitleOfCourtesy = 'Ms.';
+WHERE TitleOfCourtesy = 'Mrs.';
 ```
 
 ```sql
@@ -638,5 +638,5 @@ SELECT
 SELECT
 ```
 
-<link rel="stylesheet" href="./README.css">
+<link rel="stylesheet" href="./../README.css">
 <a class="scrollup" href="#top">&#x1F53A</a>
