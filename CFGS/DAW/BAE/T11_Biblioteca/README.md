@@ -1,7 +1,52 @@
 ## Índice
 
-1. [Biblioteca](#biblioteca)
-2. [Consultas](#consultas)
+1. [Prepara la base de datos](#prepara-la-base-de-datos)
+2. [Biblioteca](#biblioteca)
+3. [Consultas](#consultas)
+
+## Prepara la base de datos
+
+Importa la base de datos "Biblioteca" con el siguiente comando:
+
+```shell
+mysql -h 127.0.0.1 -P 3306 -u root -p < /home/user/Documents/path/to/biblioteca.sql
+```
+
+Exporta la base de datos "Biblioteca" con el siguiente comando:
+
+```shell
+mysqldump -h 127.0.0.1 -P 3306 -u root -p biblioteca > /home/user/Documents/path/to/biblioteca.sql
+```
+
+Inicia sesión en MySQL con el usuario root:
+
+```shell
+mysql -h 127.0.0.1 -P 3306 -u root -p
+```
+
+Muestra todos los usuarios que existen en tu sistema con el siguiente comando:
+
+```sql
+SELECT user, host FROM mysql.user;
+```
+
+Muestra los privilegios que tengan los usuarios con el siguiente comando:
+
+```sql
+SHOW GRANTS FOR 'fjrodafo'@'localhost';
+```
+
+Concede todos los permisos a los usuarios que necesiten manejar esta base de datos con el siguiente comando:
+
+```sql
+GRANT ALL PRIVILEGES ON biblioteca.* TO 'fjrodafo'@'localhost';
+```
+
+Revoca todos los permisos a los usuarios que tengan todos los permisos en esta base de datos con el siguiente comando:
+
+```sql
+REVOKE ALL PRIVILEGES ON biblioteca.* FROM 'fjrodafo'@'localhost';
+```
 
 ## Biblioteca
 
@@ -76,19 +121,27 @@ CREATE TABLE prestamos (
 ```sql
 -- ¿Cuántos volúmenes están disponibles para préstamos? (su estado pone: disponible)
 
-SELECT
+SELECT COUNT(*) AS VolumenesDisponibles
+FROM volumenes
+WHERE estado = 'disponible';
 ```
 
 ```sql
 -- Obtener los usuarios (nombre y apellidos) que incluyan en su nombre o su apellido las letras: Ana
 
-SELECT
+SELECT nombre, apellidos
+FROM usuarios
+WHERE nombre LIKE '%Ana%' OR apellidos LIKE '%Ana%';
 ```
 
 ```sql
 -- ¿En qué categorías aparece el libro "Cien años de soledad"? (mostrar solo el nombre de las categorías a las que corresponda)
 
-SELECT
+SELECT c.nombre AS Categorias
+FROM categorias c
+INNER JOIN libros_categorias lc ON c.id = lc.categoriaid
+INNER JOIN libros l ON lc.libroid = l.id
+WHERE l.titulo = 'Cien años de soledad';
 ```
 
 ```sql

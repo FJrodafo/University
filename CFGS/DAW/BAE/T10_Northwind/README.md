@@ -8,16 +8,22 @@
 
 ## Prepara la base de datos
 
-Importa la base de datos Northwind con el siguiente comando:
+Importa la base de datos "Northwind" con el siguiente comando:
 
 ```shell
-mysql -h 127.0.0.1 -P 3306 -u root -p < /home/fjrodafo/Documents/path/to/University/CFGS/DAW/BAE/T10_Northwind/northwind.sql
+mysql -h 127.0.0.1 -P 3306 -u root -p < /home/user/Documents/path/to/northwind.sql
 ```
 
-Exporta la base de datos Northwind con el siguiente comando:
+Exporta la base de datos "Northwind" con el siguiente comando:
 
 ```shell
-mysqldump -u root -p northwind > /home/fjrodafo/Documents/path/to/University/CFGS/DAW/BAE/T10_Northwind/northwind.sql
+mysqldump -h 127.0.0.1 -P 3306 -u root -p northwind > /home/user/Documents/path/to/northwind.sql
+```
+
+Inicia sesión en MySQL con el usuario root:
+
+```shell
+mysql -h 127.0.0.1 -P 3306 -u root -p
 ```
 
 Muestra todos los usuarios que existen en tu sistema con el siguiente comando:
@@ -26,16 +32,16 @@ Muestra todos los usuarios que existen en tu sistema con el siguiente comando:
 SELECT user, host FROM mysql.user;
 ```
 
-Concede todos los permisos a los usuarios que necesiten manejar esta base de datos con el siguiente comando:
-
-```sql
-GRANT ALL PRIVILEGES ON northwind.* TO 'fjrodafo'@'localhost';
-```
-
 Muestra los privilegios que tengan los usuarios con el siguiente comando:
 
 ```sql
 SHOW GRANTS FOR 'fjrodafo'@'localhost';
+```
+
+Concede todos los permisos a los usuarios que necesiten manejar esta base de datos con el siguiente comando:
+
+```sql
+GRANT ALL PRIVILEGES ON northwind.* TO 'fjrodafo'@'localhost';
 ```
 
 Revoca todos los permisos a los usuarios que tengan todos los permisos en esta base de datos con el siguiente comando:
@@ -51,26 +57,26 @@ CREATE DATABASE northwind;
 USE `northwind`;
 
 CREATE TABLE categories (
-    `CategoryID` tinyint(5) AUTO_INCREMENT,
-    `CategoryName` varchar(15),
-    `Description` mediumtext,
-    `Picture` varchar(50),
+    `CategoryID` TINYINT(5) AUTO_INCREMENT,
+    `CategoryName` VARCHAR(15),
+    `Description` MEDIUMTEXT,
+    `Picture` VARCHAR(50),
     PRIMARY KEY (`CategoryID`),
     UNIQUE KEY `unique_categories_category_name` (`CategoryName`)
 );
 
 CREATE TABLE customers (
-    `CustomerID` varchar(5),
-    `CompanyName` varchar(40),
-    `ContactName` varchar(30),
-    `ContactTitle` varchar(30),
-    `Address` varchar(60),
-    `City` varchar(15),
-    `Region` varchar(15),
-    `PostalCode` varchar(10),
-    `Country` varchar(15),
-    `Phone` varchar(24),
-    `Fax` varchar(24),
+    `CustomerID` VARCHAR(5),
+    `CompanyName` VARCHAR(40),
+    `ContactName` VARCHAR(30),
+    `ContactTitle` VARCHAR(30),
+    `Address` VARCHAR(60),
+    `City` VARCHAR(15),
+    `Region` VARCHAR(15),
+    `PostalCode` VARCHAR(10),
+    `Country` VARCHAR(15),
+    `Phone` VARCHAR(24),
+    `Fax` VARCHAR(24),
     PRIMARY KEY (`CustomerID`),
     KEY `key_customers_company_name` (`CompanyName`),
     KEY `key_customers_city` (`City`),
@@ -79,23 +85,23 @@ CREATE TABLE customers (
 );
 
 CREATE TABLE employees (
-    `EmployeeID` int(10) AUTO_INCREMENT,
-    `LastName` varchar(20),
-    `FirstName` varchar(10),
-    `Title` varchar(30),
-    `TitleOfCourtesy` varchar(25),
-    `BirthDate` datetime,
-    `HireDate` datetime,
-    `Address` varchar(60),
-    `City` varchar(15),
-    `Region` varchar(15),
-    `PostalCode` varchar(10),
-    `Country` varchar(15),
-    `HomePhone` varchar(24),
-    `Extension` varchar(4),
-    `Photo` varchar(50),
-    `Notes` mediumtext,
-    `ReportsTo` int(10),
+    `EmployeeID` INT(10) AUTO_INCREMENT,
+    `LastName` VARCHAR(20),
+    `FirstName` VARCHAR(10),
+    `Title` VARCHAR(30),
+    `TitleOfCourtesy` VARCHAR(25),
+    `BirthDate` DATETIME,
+    `HireDate` DATETIME,
+    `Address` VARCHAR(60),
+    `City` VARCHAR(15),
+    `Region` VARCHAR(15),
+    `PostalCode` VARCHAR(10),
+    `Country` VARCHAR(15),
+    `HomePhone` VARCHAR(24),
+    `Extension` VARCHAR(4),
+    `Photo` VARCHAR(50),
+    `Notes` MEDIUMTEXT,
+    `ReportsTo` INT(10),
     PRIMARY KEY (`EmployeeID`),
     KEY `key_employees_lastname` (`LastName`),
     KEY `key_employees_postalcode` (`PostalCode`),
@@ -104,12 +110,12 @@ CREATE TABLE employees (
 );
 
 CREATE TABLE order_details (
-    `ID` int(10) AUTO_INCREMENT,
-    `OrderID` int(10),
-    `ProductID` int(10),
-    `UnitPrice` double,
-    `Quantity` smallint(5),
-    `Discount` float,
+    `ID` INT(10) AUTO_INCREMENT,
+    `OrderID` INT(10),
+    `ProductID` INT(10),
+    `UnitPrice` DOUBLE,
+    `Quantity` SMALLINT(5),
+    `Discount` FLOAT,
     PRIMARY KEY (`ID`),
     UNIQUE KEY `unique_order_id_product_id` (`OrderID`,`ProductID`),
     KEY `fk_order_details_product_id` (`ProductID`),
@@ -118,20 +124,20 @@ CREATE TABLE order_details (
 );
 
 CREATE TABLE orders (
-    `OrderID` int(10) AUTO_INCREMENT,
-    `CustomerID` varchar(5),
-    `EmployeeID` int(10),
-    `OrderDate` datetime,
-    `RequiredDate` datetime,
-    `ShippedDate` datetime,
-    `ShipVia` int(10),
-    `Freight` double,
-    `ShipName` varchar(40),
-    `ShipAddress` varchar(60),
-    `ShipCity` varchar(15),
-    `ShipRegion` varchar(15),
-    `ShipPostalCode` varchar(10),
-    `ShipCountry` varchar(15),
+    `OrderID` INT(10) AUTO_INCREMENT,
+    `CustomerID` VARCHAR(5),
+    `EmployeeID` INT(10),
+    `OrderDate` DATETIME,
+    `RequiredDate` DATETIME,
+    `ShippedDate` DATETIME,
+    `ShipVia` INT(10),
+    `Freight` DOUBLE,
+    `ShipName` VARCHAR(40),
+    `ShipAddress` VARCHAR(60),
+    `ShipCity` VARCHAR(15),
+    `ShipRegion` VARCHAR(15),
+    `ShipPostalCode` VARCHAR(10),
+    `ShipCountry` VARCHAR(15),
     PRIMARY KEY (`OrderID`),
     KEY `fk_orders_customer_id` (`CustomerID`),
     KEY `fk_orders_employee_id` (`EmployeeID`),
@@ -144,16 +150,16 @@ CREATE TABLE orders (
 );
 
 CREATE TABLE products (
-    `ProductID` int(10) AUTO_INCREMENT,
-    `ProductName` varchar(40),
-    `SupplierID` int(10),
-    `CategoryID` tinyint(5),
-    `QuantityPerUnit` varchar(20),
-    `UnitPrice` double,
-    `UnitsInStock` smallint(5),
-    `UnitsOnOrder` smallint(5),
-    `ReorderLevel` smallint(5),
-    `Discontinued` enum('y','n'),
+    `ProductID` INT(10) AUTO_INCREMENT,
+    `ProductName` VARCHAR(40),
+    `SupplierID` INT(10),
+    `CategoryID` TINYINT(5),
+    `QuantityPerUnit` VARCHAR(20),
+    `UnitPrice` DOUBLE,
+    `UnitsInStock` SMALLINT(5),
+    `UnitsOnOrder` SMALLINT(5),
+    `ReorderLevel` SMALLINT(5),
+    `Discontinued` ENUM('y','n'),
     PRIMARY KEY (`ProductID`),
     KEY `fk_products_category_id` (`CategoryID`),
     KEY `fk_products_supplier_id` (`SupplierID`),
@@ -163,25 +169,25 @@ CREATE TABLE products (
 );
 
 CREATE TABLE shippers (
-    `ShipperID` int(10) AUTO_INCREMENT,
-    `CompanyName` varchar(40),
-    `Phone` varchar(24),
+    `ShipperID` INT(10) AUTO_INCREMENT,
+    `CompanyName` VARCHAR(40),
+    `Phone` VARCHAR(24),
     PRIMARY KEY (`ShipperID`)
 );
 
 CREATE TABLE suppliers (
-    `SupplierID` int(10) AUTO_INCREMENT,
-    `CompanyName` varchar(40),
-    `ContactName` varchar(30),
-    `ContactTitle` varchar(30),
-    `Address` varchar(60),
-    `City` varchar(15),
-    `Region` varchar(15),
-    `PostalCode` varchar(10),
-    `Country` varchar(15),
-    `Phone` varchar(24),
-    `Fax` varchar(24),
-    `HomePage` varchar(255),
+    `SupplierID` INT(10) AUTO_INCREMENT,
+    `CompanyName` VARCHAR(40),
+    `ContactName` VARCHAR(30),
+    `ContactTitle` VARCHAR(30),
+    `Address` VARCHAR(60),
+    `City` VARCHAR(15),
+    `Region` VARCHAR(15),
+    `PostalCode` VARCHAR(10),
+    `Country` VARCHAR(15),
+    `Phone` VARCHAR(24),
+    `Fax` VARCHAR(24),
+    `HomePage` VARCHAR(255),
     PRIMARY KEY (`SupplierID`),
     KEY `key_suppliers_product_name` (`CompanyName`),
     KEY `key_suppliers_postal_code` (`PostalCode`)
@@ -638,5 +644,5 @@ SELECT
 SELECT
 ```
 
-<link rel="stylesheet" href="./../README.css">
+<link rel="stylesheet" href="./README.css">
 <a class="scrollup" href="#top">&#x1F53A</a>
