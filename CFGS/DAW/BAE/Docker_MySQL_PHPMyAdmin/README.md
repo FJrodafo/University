@@ -1,6 +1,6 @@
 ## Contenido del archivo
 
-```yml
+```yaml
 version: '3'
  
 services:
@@ -27,12 +27,12 @@ services:
 
 ## Comandos
 
-Para arrancar el servicio nos posicionamos donde esté el archivo [docker-compose-mysql-phpmyadmin.yml](./docker-compose-mysql-phpmyadmin.yml)
+Para arrancar el servicio nos posicionamos donde esté el archivo [docker-compose.yaml](./docker-compose.yaml)
 
 Posteriormente ejecutamos el siguiente comando:
 
 ```shell
-docker-compose -f docker-compose-mysql-phpmyadmin.yml up -d
+docker-compose -f docker-compose.yaml up -d
 ```
 
 Para iniciar sesión desde la terminal, ejecutamos el siguiente comando:
@@ -46,5 +46,5 @@ La contraseña para acceder al usuario root es `1q2w3e4r`
 Una vez hayamos acabado, tenemos que parar el servicio ejecutando el siguiente comando:
 
 ```shell
-docker-compose -f docker-compose-mysql-phpmyadmin.yml down
+docker-compose -f docker-compose.yaml down
 ```
