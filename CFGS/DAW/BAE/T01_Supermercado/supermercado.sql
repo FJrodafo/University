@@ -1,7 +1,5 @@
 DROP DATABASE IF EXISTS supermercado;
-
 CREATE DATABASE supermercado;
-
 USE supermercado;
 
 CREATE TABLE clientes (
@@ -43,16 +41,16 @@ CREATE TABLE clientes_productos (
 );
 
 INSERT INTO clientes (dni, nombre, apellidos, direccion, fecha_nacimiento)
-VALUES ('123456789', 'Juan', 'Perez', 'Calle Principal 123', '1990-05-15'),
-       ('234567891', 'Maria', 'Gomez', 'Avenida Central 456', '1985-10-20'),
-       ('345678912', 'Laura', 'Gonzalez', 'Calle del Sol 789', '1988-03-25'),
-       ('456789123', 'Carlos', 'Martinez', 'Avenida Principal 456', '1975-09-12');
+VALUES ('123456789', 'Juan', 'Pérez', 'Calle Principal 123', '1990-05-15'),
+       ('234567891', 'María', 'Gómez', 'Avenida Central 456', '1985-10-20'),
+       ('345678912', 'Laura', 'Martinez', 'Calle del Sol 789', '1988-03-25'),
+       ('456789123', 'Carlos', 'González', 'Avenida Principal 456', '1975-09-12');
 
 INSERT INTO proveedores (nif, nombre, direccion)
-VALUES ('567891234', 'Proveedor A', 'Calle Proveedor 1'),
-       ('678912345', 'Proveedor B', 'Avenida de los Proveedores 2'),
-       ('789123456', 'Proveedor C', 'Calle Proveedor 3'),
-       ('891234567', 'Proveedor D', 'Avenida de las Proveedoras 4');
+VALUES ('567891234', 'Proveedor A', 'Calle Proveedor 12'),
+       ('678912345', 'Proveedor B', 'Avenida de los Proveedores 23'),
+       ('789123456', 'Proveedor C', 'Calle Proveedor 34'),
+       ('891234567', 'Proveedor D', 'Avenida de las Proveedoras 45');
 
 INSERT INTO productos (codigo, nombre, precio, nif_proveedor)
 VALUES (1, 'Producto A', 10.50, '678912345'),

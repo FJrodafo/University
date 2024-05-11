@@ -17,6 +17,6 @@ De un montador nos interesa su NIF, nombre, dirección, un único número de tel
 Cada cocina pueden comprarla uno o varios clientes, y el mismo cliente puede comprar varias cocinas. De un cliente nos interesa su NIF, nombre, dirección y un único número de teléfono.
 
 <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/FJrodafo/University/main/CFGS/DAW/BAE/T8_Cocina/Assets/Dark.svg">
-    <img alt="Cocina" src="https://raw.githubusercontent.com/FJrodafo/University/main/CFGS/DAW/BAE/T8_Cocina/Assets/Light.svg">
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/FJrodafo/University/main/CFGS/DAW/BAE/T08_Cocina/Assets/Dark.svg">
+    <img alt="Cocina" src="https://raw.githubusercontent.com/FJrodafo/University/main/CFGS/DAW/BAE/T08_Cocina/Assets/Light.svg">
 </picture>

@@ -235,7 +235,7 @@ Select the customerNumber, paymentDate and amount fields from the payments table
 SELECT customerNumber AS Customer_number, paymentDate AS Payment_date, amount AS Amount FROM payments;
 ```
 
-> Select the product with the lowest price and then the highest price:
+Select the product with the lowest price and then the highest price:
 
 ```sql
 SELECT MIN(buyPrice) AS Price FROM products;

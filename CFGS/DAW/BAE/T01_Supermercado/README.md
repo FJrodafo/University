@@ -5,6 +5,6 @@ Cada producto tiene un nombre y un código, así como un precio unitario. Un cli
 Los productos son suministrados por diferentes proveedores. Se debe tener en cuenta que un producto sólo puede ser suministrado por un proveedor, y que un proveedor puede suministrar diferentes productos. De cada proveedor se desea conocer el NIF, nombre y dirección.
 
 <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/FJrodafo/University/main/CFGS/DAW/BAE/T1_Supermercado/Assets/Dark.svg">
-    <img alt="Supermercado" src="https://raw.githubusercontent.com/FJrodafo/University/main/CFGS/DAW/BAE/T1_Supermercado/Assets/Light.svg">
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/FJrodafo/University/main/CFGS/DAW/BAE/T01_Supermercado/Assets/Dark.svg">
+    <img alt="Supermercado" src="https://raw.githubusercontent.com/FJrodafo/University/main/CFGS/DAW/BAE/T01_Supermercado/Assets/Light.svg">
 </picture>

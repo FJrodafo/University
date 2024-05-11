@@ -13,6 +13,6 @@ Se registran las diferentes categorías profesionales que recoge la normativa. D
 Las nóminas de la empresa no tienen una periodicidad regular y la cuantía puede variar para un mismo contrato (imaginar por ejemplo el aguinaldo de Navidad) Estas nóminas están determinadas por cada contrato y la fecha de pago. También se desea guardar el salario de cada nómina.
 
 <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/FJrodafo/University/main/CFGS/DAW/BAE/T4_Empresa/Assets/Dark.svg">
-    <img alt="Empresa" src="https://raw.githubusercontent.com/FJrodafo/University/main/CFGS/DAW/BAE/T4_Empresa/Assets/Light.svg">
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/FJrodafo/University/main/CFGS/DAW/BAE/T04_Empresa/Assets/Dark.svg">
+    <img alt="Empresa" src="https://raw.githubusercontent.com/FJrodafo/University/main/CFGS/DAW/BAE/T04_Empresa/Assets/Light.svg">
 </picture>

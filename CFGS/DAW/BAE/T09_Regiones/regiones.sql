@@ -1,7 +1,5 @@
 DROP DATABASE IF EXISTS regiones;
-
 CREATE DATABASE regiones;
-
 USE regiones;
 
 CREATE TABLE paises (

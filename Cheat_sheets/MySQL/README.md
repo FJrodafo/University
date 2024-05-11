@@ -56,6 +56,12 @@ Finally to stop the server you can use `systemctl stop` command:
 sudo systemctl stop mysql.service
 ```
 
+If you want to disable automatic startup of MySQL every time you start your operating system, run the following command:
+
+```shell
+sudo systemctl disable mysql.service
+```
+
 ## Configuring MySQL
 
 You will need to change your authentication method from `auth_socket` to `mysql_native_password` to use a password to connect to MySQL as **root**. To do this, open the MySQL prompt from your terminal:
