@@ -7,7 +7,7 @@ var deck;
 var canHit = true;
 
 let hiddenCard = document.createElement("img");
-hiddenCard.src = "./Cards/BACK.png";
+hiddenCard.src = "./../Assets/Cards/BACK.png";
 
 window.onload = function () {
     document.getElementById("dealer-cards").append(hiddenCard);
@@ -46,7 +46,7 @@ function startGame() {
     for (let i = 0; i < 1; i++) {
         let cardImg = document.createElement("img");
         let card = deck.pop();
-        cardImg.src = "./Cards/" + card + ".png";
+        cardImg.src = "./../Assets/Cards/" + card + ".png";
         dealerSum += getValue(card);
         dealerAceCount += checkAce(card);
         document.getElementById("dealer-cards").append(cardImg);
@@ -55,7 +55,7 @@ function startGame() {
     for (let i = 0; i < 2; i++) {
         let cardImg = document.createElement("img");
         let card = deck.pop();
-        cardImg.src = "./Cards/" + card + ".png";
+        cardImg.src = "./../Assets/Cards/" + card + ".png";
         playerSum += getValue(card);
         playerAceCount += checkAce(card);
         document.getElementById("player-cards").append(cardImg);
@@ -71,7 +71,7 @@ function hit() {
     }
     let cardImg = document.createElement("img");
     let card = deck.pop();
-    cardImg.src = "./Cards/" + card + ".png";
+    cardImg.src = "./../Assets/Cards/" + card + ".png";
     playerSum += getValue(card);
     playerAceCount += checkAce(card);
     document.getElementById("player-cards").append(cardImg);
@@ -82,7 +82,7 @@ function hit() {
 
 async function stay() {
     canHit = false;
-    hiddenCard.src = "./Cards/" + hidden + ".png";
+    hiddenCard.src = "./../Assets/Cards/" + hidden + ".png";
     playerSum = reduceAce(playerSum, playerAceCount);
     if (dealerAceCount == 2) {
         dealerSum = reduceAce(dealerSum, dealerAceCount);
@@ -90,7 +90,7 @@ async function stay() {
     while (dealerSum < playerSum && dealerSum < 17 && playerSum <= 21) {
         let cardImg = document.createElement("img");
         let card = deck.pop();
-        cardImg.src = "./Cards/" + card + ".png";
+        cardImg.src = "./../Assets/Cards/" + card + ".png";
         dealerSum += getValue(card);
         dealerAceCount += checkAce(card);
         await sleep(1);
@@ -103,7 +103,7 @@ async function stay() {
     while (dealerSum < playerSum && dealerSum < 17 && playerSum <= 21) {
         let cardImg = document.createElement("img");
         let card = deck.pop();
-        cardImg.src = "./Cards/" + card + ".png";
+        cardImg.src = "./../Assets/Cards/" + card + ".png";
         dealerSum += getValue(card);
         dealerAceCount += checkAce(card);
         await sleep(1);

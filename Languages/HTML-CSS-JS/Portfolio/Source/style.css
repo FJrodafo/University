@@ -2,7 +2,7 @@
     font-family: 'Be Vietnam';
     font-style: italic;
     font-weight: 800;
-    src: url(./Assets/Fonts/Font.woff2) format('woff2');
+    src: url(./../Assets/Fonts/Font.woff2) format('woff2');
 }
 
 * {
@@ -14,7 +14,7 @@
 }
 
 body {
-    background-image: url(./Assets/Background.jpg);
+    background-image: url(./../Assets/Background.jpg);
 }
 
 #content {
