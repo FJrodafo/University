@@ -1,30 +1,125 @@
+<div align="center">
+    <a href="https://www.minecraft.net/" target="_blank">
+        <img alt="logo" height="46" src="https://raw.githubusercontent.com/FJrodafo/University/main/Languages/Minecraft/Assets/Logo.svg" />
+    </a>
+</div>
+
 ## Index
 
+1. [Minecraft Command Language](#minecraft-command-language)
+
+2. [Useful game rules for servers](#useful-game-rules-for-servers)
+
+3. [Pacomeda](#pacomeda)
+
+4. [Efects ID](#efects-id)
+
+5. [Colors ID](#colors-id)
+
+6. [Emojis](#emojis)
+
+7. [Websites](#websites)
+
+8. [Custom heads](#custom-heads)
+
+9. [Custom shields](#custom-shields)
+
+10. [Custom potions](#custom-potions)
+
+11. [Invisible items](#inivisible-items)
+
+## Minecraft Command Language
+
+```sh
+# Command Block
+/give UserName minecraft:command_block
+# Structure Block
+/give UserName minecraft:structure_block
 ```
----- Minecraft Command Language ----
 
+```sh
+# Force load a chunk so commands work anywhere:
+/forceload 0 0 0
+```
+
+```sh
 /give @p minecraft:elytra{display:{Name:'{"text":"ナヤイシャ","color":"yellow","italic":false}'},Unbreakable:1b,Enchantments:[{}]} 1
+```
 
-/scoreboard objectives add Franchutr minecraft.used:minecraft.netherite_pickaxe
+```sh
+/scoreboard objectives add UserName minecraft.used:minecraft.netherite_pickaxe
+```
 
+```sh
 /give @p netherite_pickaxe{display:{Name:'{"text":"ナヤイシャ","color":"yellow","italic":false}'},Unbreakable:1b,Enchantments:[{id:binding_curse,lvl:1},{id:vanishing_curse,lvl:1},{id:looting,lvl:4},{id:fortune,lvl:4}]} 1
+```
 
+```sh
 effect give @a[nbt={Inventory:[{id:"minecraft:netherite_pickaxe",tag:{display:{Name:'{"text":"ナヤイシャ","color":"yellow","italic":false}'}}}]}] minecraft:saturation 2 0 true
+```
 
-execute as @a[nbt={SelectedItem:{id:"minecraft:netherite_pickaxe",Count:1b,tag:{display:{Name:'{"text":"ナヤイシャ","color":"yellow","italic":false}'}}}},scores={Franchutr=1..}] at @s run execute as @e[distance=..10,limit=1,nbt=!{HurtTime:0s}] at @s run particle minecraft:ambient_entity_effect ~ ~1 ~ 1 1 1 .1 9 force
+```sh
+execute as @a[nbt={SelectedItem:{id:"minecraft:netherite_pickaxe",Count:1b,tag:{display:{Name:'{"text":"ナヤイシャ","color":"yellow","italic":false}'}}}},scores={UserName=1..}] at @s run execute as @e[distance=..10,limit=1,nbt=!{HurtTime:0s}] at @s run particle minecraft:ambient_entity_effect ~ ~1 ~ 1 1 1 .1 9 force
+```
 
-scoreboard players set @a Franchutr 0
+```sh
+scoreboard players set @a UserName 0
+```
 
----- Useful game rules for servers ----
+## Useful game rules for servers
 
-/gamerule commandBlockOutput False → prevent spam from command messages
-/gamerule logAdminCommands True → log used commands
-/gamerule keepInventory True → keep your inventory on death
-/gamerule mobGriefing False → prevent mobs from breaking the environment
-/gamerule doFireTick False → prevent fires
+```sh
+# Prevent spam from command messages
+/gamerule commandBlockOutput false
+```
 
----- Efects ID ----
+```sh
+# Log used commands
+/gamerule logAdminCommands true
+```
 
+```sh
+# Keep your inventory on death
+/gamerule keepInventory true
+```
+
+```sh
+# Prevent mobs from breaking the environment
+/gamerule mobGriefing false
+```
+
+```sh
+# Prevent fires
+/gamerule doFireTick false
+```
+
+## Pacomeda
+
+Seed: [7334907763147734721]
+
+```sh
+# Lobby
+/tp UserName 0 68 23 -180 0
+```
+
+```sh
+# Island
+/tp UserName -9775 69 15614 -180 0
+```
+
+```sh
+# Map
+/tp UserName -9776 14.2 15551 180 90
+```
+
+```sh
+# Home
+/tp UserName -9770 11 15540 90 90
+```
+
+## Efects ID
+
+```
 absorption
 bad_omen
 blindness
@@ -57,9 +152,11 @@ unluck
 water_breathing
 weakness
 wither
+```
 
----- Colors ID ----
+## Colors ID
 
+```
 black 0
 dark_blue 170
 dark_green 43520
@@ -78,50 +175,113 @@ yellow 16777045
 white 16777215
 
 By default "HTML Color Code" (FFFFFF) (FF00FF) (000000)
+```
 
----- Emojis ----
+## Emojis
 
-⭐☘❤⚡✎☠⚠⌛⌚⚓✝☃🌊☮☯ⓂℹΩ☽☀❄☁☂☔☄☺☹☻♀♂♫♩♪♬⚀⚁⚂⚃⚄⚅→←↓↑←↔☞☜⊻⊼⊽⌀⌂™©®☑☒✔✘⏏◆◇■□♠♤♣♧♥♡♦♢★☆¢ψ∞▲△▼▽○◎●Δ
-ⒶⒷⒸⒹⒺⒻⒼⒽⒾⒿⓀⓁⓂⓃⓄⓅⓆⓇⓈⓉⓊⓋⓌⓍⓎⓏⓐⓑⓒⓓⓔⓕⓖⓗⓘⓙⓚⓛⓜⓝⓞⓟⓠⓡⓢⓣⓤⓥⓦⓧⓨⓩ
-⁰¹²³⁴⁵⁶⁷⁸⁹ ₀₁₂₃₄₅₆₇₈₉ ⓪①②③④⑤⑥⑦⑧⑨⑩⑪⑫⑬⑭⑮⑯⑰⑱⑲⑳ ʊღ₪∧∨∩⊂⊃⊥∀ΞΓΣΠ
-██■▓〓≡╝╚╔╗╬═╓╩┌┐└┘┇▀▄█▌▐░▒▁▂▃▄█
-⛏🔱🪓🛡🗡🏹🎣⚗🧪🔥⛄🌧⛈❌⏭ ⏯ ⏮ ⏸ ⏹ ⏺
+```
+⛏🔱🪓🛡🗡🏹🎣⚗🧪🔥⛄🌧⛈❌⭐☘❤⚡✎☠⚠⌛⌚⚓✝☃🌊☮☯ⓂℹΩ☽☀❄☁☂☔☄☺☹☻♀♂♫♩♪♬⚀⚁⚂⚃⚄⚅→←↓↑←↔☞☜⊻⊼⊽⌀⌂™©®☑☒✔✘⏏◆◇■□♠♤♣♧♥♡♦♢★☆¢ψ∞▲△▼▽○◎●Δʊღ₪∧∨∩⊂⊃⊥∀ΞΓΣΠ
+```
+
+```
+ⒶⒷⒸⒹⒺⒻⒼⒽⒾⒿⓀⓁⓂⓃⓄⓅⓆⓇⓈⓉⓊⓋⓌⓍⓎⓏ
+ⓐⓑⓒⓓⓔⓕⓖⓗⓘⓙⓚⓛⓜⓝⓞⓟⓠⓡⓢⓣⓤⓥⓦⓧⓨⓩ
+⓪①②③④⑤⑥⑦⑧⑨⑩⑪⑫⑬⑭⑮⑯⑰⑱⑲⑳
+```
+
+```
+⁰¹²³⁴⁵⁶⁷⁸⁹
+₀₁₂₃₄₅₆₇₈₉
 ⅟½⅓¼⅕⅙⅐⅛
+```
 
----- Additional features ----
+```
+██■▓〓≡╝╚╔╗╬═╓╩┌┐└┘┇▀▄█▌▐░▒▁▂▃▄█
+```
 
-/give Franchutr minecraft:command_block
-/give Franchutr minecraft:structure_block
+```
+⏭ ⏯ ⏮ ⏸ ⏹ ⏺
+```
 
-Force load a chunk so commands work anywhere:
-/forceload (coordinates)
+## Websites
 
-Soda:
-/give @p potion{display:{Name:'{"text":"Soda","color":"green"}',Lore:['{"text":"Bien fresquita!"}']},CustomPotionEffects:[{Id:9b,Amplifier:0b,Duration:1200}],CustomPotionColor:FF00FF} 1
+[Wiki](https://minecraft.fandom.com/wiki/Commands)
 
-Custom potions:
-potion{display:{Name:'{"text":"Granizado de fresa"}',CustomPotionColor:D53032}} 1
-potion{display:{Name:'{"text":"Licor de fuego","color":"red"}',Lore:['{"text":"De alta calidad procedente del reino de Arabasta"}']},CustomPotionEffects:[{Id:9b,Amplifier:0b,Duration:1200}],CustomPotionColor:F59622} 1
+[Command Block](https://minecraft.fandom.com/wiki/Command_Block)
 
-Custom mobs:
-https://www.digminecraft.com/generators/summon_mob.php
+[Commands](https://www.minecraft.net/en-us/article/minecraft-commands)
 
-Custom heads:
-/give Franchutr minecraft:player_head{SkullOwner:Franchutr}
-https://minecraft-heads.com/custom-heads
+[Data component format](https://minecraft.wiki/w/Data_component_format)
 
-Skins:
-https://www.minecraftskins.com/
+[Custom mobs](https://www.digminecraft.com/generators/summon_mob.php)
 
-/give @p minecraft:item_frame{EntityTag:{Invisible:1b}}
-/give @p minecraft:glow_item_frame{EntityTag:{Invisible:1b}}
-/give @p minecraft:armor_stand{EntityTag:{Invisible:1b}}
+[Custom skins](https://www.minecraftskins.com/)
 
-Rain on the players:
+[Custom heads](https://minecraft-heads.com/custom-heads)
+
+[Custom shields](https://minecraft.tools/en/shield-galery.php)
+
+[Book editors](https://minecraft.tools/en/book.php)
+
+## Custom heads
+
+```sh
+# Your own head
+/give @s minecraft:player_head{SkullOwner:UserName}
+```
+
+## Custom shields
+
+```sh
+# Shield color
+/give @s minecraft:shield[minecraft:base_color="white"]
+```
+
+```sh
+# Pirate
+/give @s minecraft:shield{BlockEntityTag:{Base:15,Patterns:[{Color:7,Pattern:"cbo"},{Color:15,Pattern:"sc"},{Color:15,Pattern:"bri"},{Color:15,Pattern:"bri"},{Color:0,Pattern:"sku"}]}}
+```
+
+## Custom potions
+
+```sh
+# Soda
+/give @s potion{display:{Name:'{"text":"Soda","color":"green"}',Lore:['{"text":"Bien fresquita!"}']},CustomPotionEffects:[{Id:9b,Amplifier:0b,Duration:1200}],CustomPotionColor:FF00FF} 1
+```
+
+```sh
+# Granizado de fresa
+/give @s potion{display:{Name:'{"text":"Granizado de fresa"}',CustomPotionColor:D53032}} 1
+```
+
+```sh
+# Licor de fuego
+/give @s potion{display:{Name:'{"text":"Licor de fuego","color":"red"}',Lore:['{"text":"De alta calidad procedente del reino de Arabasta"}']},CustomPotionEffects:[{Id:9b,Amplifier:0b,Duration:1200}],CustomPotionColor:F59622} 1
+```
+
+## Inivisible items
+
+```sh
+# 1.15.0
+/give @s minecraft:item_frame{EntityTag:{Invisible:1b}}
+/give @s minecraft:glow_item_frame{EntityTag:{Invisible:1b}}
+/give @s minecraft:armor_stand{EntityTag:{Invisible:1b}}
+```
+
+```sh
+# 1.20.6
+/give @s minecraft:item_frame[minecraft:entity_data={id:"item_frame",Invisible:1b}]
+/give @s minecraft:glow_item_frame[minecraft:entity_data={id:"glow_item_frame",Invisible:1b}]
+/give @s minecraft:armor_stand[minecraft:entity_data={id:"armor_stand",Invisible:1b}]
+```
+
+```
+---- Rain on the players ----
+
 (Repeat/Unconditional/Needs Redstone)
-execute at Franchutr run particle minecraft:dust 1 1 1 1 ~ ~3 ~ 0.5 0.25 0.5 0 100
+execute at UserName run particle minecraft:dust 1 1 1 1 ~ ~3 ~ 0.5 0.25 0.5 0 100
 (Chain/Unconditional/Always Active)
-execute at Franchutr run particle minecraft:falling_water ~ ~3 ~ 0.5 0.1 0.5 0 10
+execute at UserName run particle minecraft:falling_water ~ ~3 ~ 0.5 0.1 0.5 0 10
 
 ---- Drill Pickaxe ----
 
@@ -418,7 +578,7 @@ execute as @e[tag=npc,distance=..5] at @s if entity @a[distance=..3,scores={habl
 ---- Jail ----
 
 send someone to jail:
-/tag Franchutr add jail
+/tag UserName add jail
 
 Scoreboard:
 /scoreboard objectives add jailtime dummy
@@ -616,8 +776,8 @@ https://minecraft.tools/en/book.php
 
 ---- Items at the head's player ----
 
-/item replace entity Franchutr armor.head with tinted_glass 1
-/item replace entity Franchutr armor.head with end_rod 1
+/item replace entity UserName armor.head with tinted_glass 1
+/item replace entity UserName armor.head with end_rod 1
 
 ---- This Circle is in Vanilla Minecraft ----
 
