@@ -10,12 +10,18 @@ p {
 }
 
 #dealer-cards img {
-    margin: 2px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    margin-left: 2px;
+    margin-right: 2px;
     height: 175px;
 }
 
 #player-cards img {
-    margin: 2px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    margin-left: 2px;
+    margin-right: 2px;
     height: 175px;
 }
 
@@ -27,11 +33,6 @@ button {
 }
 
 @media only screen and (min-width: 768px) {
-    * {
-        margin: 0;
-        padding: 0;
-    }
-
     .container {
         width: 100%;
         height: 100%;
