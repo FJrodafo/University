@@ -8,7 +8,10 @@
 
 ## Databases
 
-- [x] SQL/*.sql 1:41:13
-- [ ] SQL/*.sql 1:59:53
+- [x] SQL/SQLBolt/README.md 00:00
+- [ ] SQL/SQLBolt/README.md 17:02
+
+- [x] SQL/Tutorial/Statements/*.sql 1:59:53
+- [ ] SQL/Tutorial/Statements/*.sql 2:05:02
 
 - [ ] ?/Mongodb
