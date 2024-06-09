@@ -14,4 +14,7 @@
 - [x] SQL/Tutorial/Statements/*.sql 1:59:53
 - [ ] SQL/Tutorial/Statements/*.sql 2:05:02
 
+- [x] SQL/Twitter/*.sql 0:00:00
+- [ ] SQL/Twitter/*.sql 0:20:51
+
 - [ ] ?/Mongodb
