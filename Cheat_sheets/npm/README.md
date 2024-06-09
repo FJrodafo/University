@@ -126,7 +126,7 @@ npm publish --access=public
 
 I have created a repository and published a very simple npm package that will serve as a reference for creating your first npm packages.
 
-Full repository on [github](https://github.com/FJrodafo/npm-free-port)/[gitlab](https://gitlab.com/FJrodafo/npm-free-port).
+Full repository on [github](https://github.com/FJrodafo/free-port)/[gitlab](https://gitlab.com/FJrodafo/free-port).
 
 Visit the npm package website [here](https://www.npmjs.com/package/@fjrodafo/free-port).
 
