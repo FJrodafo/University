@@ -34,14 +34,14 @@ vercel -h
 ## Deploy your app
 
 ```
-╭╴fjrodafo@linux[Portfolio](main)
+╭╴fjrodafo@linux[FJrodafo](main)
 ╰─╴$ vercel
 Vercel CLI 33.6.1
-? Set up and deploy “~/Documents/Git_Repos/Portfolio”? [Y/n] Y
+? Set up and deploy “~/Documents/Git_Repos/FJrodafo”? [Y/n] Y
 ? Which scope do you want to deploy to? FJrodafo's projects
 ? Link to existing project? [y/N] N
-? What’s your project’s name? portfolio
-? In which directory is your code located? ./App
+? What’s your project’s name? fjrodafo
+? In which directory is your code located? ./
 Local settings detected in vercel.json:
 Auto-detected Project Settings (Create React App):
 - Build Command: react-scripts build
@@ -49,11 +49,11 @@ Auto-detected Project Settings (Create React App):
 - Install Command: `yarn install`, `pnpm install`, `npm install`, or `bun install`
 - Output Directory: build
 ? Want to modify these settings? [y/N] N
-🔗  Linked to fjrodafos-projects/portfolio (created .vercel and added it to .gitignore)
-🔍  Inspect: https://vercel.com/fjrodafos-projects/portfolio [2s]
+🔗  Linked to fjrodafos-projects/fjrodafo (created .vercel and added it to .gitignore)
+🔍  Inspect: https://vercel.com/fjrodafos-projects/fjrodafo [2s]
 ✅  Production: https://fjrodafo.vercel.app [2s]
 📝  Deployed to production. Run `vercel --prod` to overwrite later (https://vercel.link/2F).
-💡  To change the domain or build command, go to https://vercel.com/fjrodafos-projects/portfolio/settings
+💡  To change the domain or build command, go to https://vercel.com/fjrodafos-projects/fjrodafo/settings
 ```
 
 <link rel="stylesheet" href="./../README.css">
