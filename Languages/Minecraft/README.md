@@ -7,25 +7,15 @@
 ## Index
 
 1. [Minecraft Command Language](#minecraft-command-language)
-
 2. [Useful game rules for servers](#useful-game-rules-for-servers)
-
 3. [Pacomeda](#pacomeda)
-
 4. [Efects ID](#efects-id)
-
 5. [Colors ID](#colors-id)
-
 6. [Emojis](#emojis)
-
 7. [Websites](#websites)
-
 8. [Custom heads](#custom-heads)
-
 9. [Custom shields](#custom-shields)
-
 10. [Custom potions](#custom-potions)
-
 11. [Invisible items](#inivisible-items)
 
 ## Minecraft Command Language
@@ -282,6 +272,15 @@ By default "HTML Color Code" (FFFFFF) (FF00FF) (000000)
 execute at UserName run particle minecraft:dust 1 1 1 1 ~ ~3 ~ 0.5 0.25 0.5 0 100
 (Chain/Unconditional/Always Active)
 execute at UserName run particle minecraft:falling_water ~ ~3 ~ 0.5 0.1 0.5 0 10
+
+---- Drop the owner's skull upon death ----
+
+/scoreboard objectives add deaths deathCount
+
+(Repeat/Unconditional/Needs Redstone)
+/execute as @a[scores={deaths=1..}] at @s run summon minecraft:item ~ ~ ~ {Item:{id:"minecraft:player_head",Count:1b,tag:{SkullOwner:"@s"}},Owner:@s}
+(Chain/Unconditional/Always Active)
+/scoreboard players reset @a[scores={deaths=1..}] deaths
 
 ---- Drill Pickaxe ----
 
