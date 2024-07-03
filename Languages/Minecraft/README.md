@@ -213,6 +213,8 @@ By default "HTML Color Code" (FFFFFF) (FF00FF) (000000)
 
 [Book editors](https://minecraft.tools/en/book.php)
 
+[1.20.4→1.20.5 Command Converter](https://kennytv.eu/converter/)
+
 ## Custom heads
 
 ```sh
