@@ -6,13 +6,13 @@
 - [x] Java/MEGA_Curso_JAVA_desde_0_DAM_-_DAW/*.java 3.6
 - [ ] Java/MEGA_Curso_JAVA_desde_0_DAM_-_DAW/*.java 3.7
 
-- [x] JavaScript/Beginner_course/*.js 1:08:41
-- [ ] JavaScript/Beginner_course/*.js 1:17:04
+- [x] JavaScript/Beginner_course/*.js 1:17:04
+- [ ] JavaScript/Beginner_course/*.js 1:19:17
 
 #### Databases
 
-- [x] SQL/PLSQL/*.sql 1
-- [ ] SQL/PLSQL/*.sql 2
+- [x] SQL/PLSQL/*.sql 2
+- [ ] SQL/PLSQL/*.sql 3
 
 - [x] SQL/SQLBolt/README.md 17:02
 - [ ] SQL/SQLBolt/README.md 20:38
