@@ -287,7 +287,7 @@ It's important to note that by going back to a previous commit and creating a ne
 
 ```shell
 cd
-cd Documents/Git_Repos/
+cd Documents/Repos/
 mkdir Test
 cd Test
 touch README.md
