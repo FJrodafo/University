@@ -431,4 +431,4 @@ docker volume inspect todo-db
 The `Mountpoint` is the actual location of the data on the disk. Note that on most machines, you will need to have root access to access this directory from the host.
 
 <link rel="stylesheet" href="./../README.css">
-<a class="scrollup" href="#top">&#x1F53A</a>
+<a class="scrollup" href="#top">&#x1F53C</a>

@@ -131,4 +131,4 @@ Full repository on [github](https://github.com/FJrodafo/free-port)/[gitlab](http
 Visit the npm package website [here](https://www.npmjs.com/package/@fjrodafo/free-port).
 
 <link rel="stylesheet" href="./../README.css">
-<a class="scrollup" href="#top">&#x1F53A</a>
+<a class="scrollup" href="#top">&#x1F53C</a>

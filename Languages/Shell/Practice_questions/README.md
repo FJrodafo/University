@@ -223,4 +223,4 @@ Solution:
 Please note here, that we are using the same crontab file to execute both scripts on a regular basis.
 
 <link rel="stylesheet" href="./README.css">
-<a class="scrollup" href="#top">&#x1F53A</a>
+<a class="scrollup" href="#top">&#x1F53C</a>
