@@ -116,3 +116,25 @@ function testLessOrEqual(val) {
 }
 
 console.log(testLessOrEqual(10));
+
+// Comparison with the Logical And operator
+function testLogicalAnd(val) {
+    if (val <= 50 && val >= 25) {
+        return "Yes";
+    }
+
+    return "No";
+}
+
+console.log(testLessOrEqual(40));
+
+// Comparison with the Logical Or operator
+function testLogicalOr(val) {
+    if (val < 10 || val > 20) {
+        return "Outside";
+    }
+
+    return "Inside";
+}
+
+console.log(testLessOrEqual(15));
