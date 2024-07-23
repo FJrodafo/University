@@ -14,8 +14,8 @@
 - [x] SQL/PLSQL/*.sql 2
 - [ ] SQL/PLSQL/*.sql 3
 
-- [x] SQL/SQLBolt/README.md 17:02
-- [ ] SQL/SQLBolt/README.md 20:38
+- [x] SQL/SQLBolt/README.md 20:38
+- [ ] SQL/SQLBolt/README.md 26:39
 
 - [x] SQL/Tutorial/01_Reading/*.sql 2:06:54
 - [ ] SQL/Tutorial/01_Reading/*.sql 2:10:33
