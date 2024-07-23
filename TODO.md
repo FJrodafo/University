@@ -17,8 +17,8 @@
 - [x] SQL/SQLBolt/README.md 17:02
 - [ ] SQL/SQLBolt/README.md 20:38
 
-- [x] SQL/Tutorial/01_Reading/*.sql 2:05:02
-- [ ] SQL/Tutorial/01_Reading/*.sql 2:06:54
+- [x] SQL/Tutorial/01_Reading/*.sql 2:06:54
+- [ ] SQL/Tutorial/01_Reading/*.sql 2:10:33
 
 - [x] SQL/Twitter/*.sql 0:20:51
 - [ ] SQL/Twitter/*.sql 0:31:16
