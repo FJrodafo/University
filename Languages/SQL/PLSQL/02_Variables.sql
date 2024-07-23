@@ -13,7 +13,7 @@ BEGIN
     dbms_output.put_line(greeting);
     dbms_output.put_line('The value of the variable is: ' || my_identifier);
     dbms_output.put_line('The username is: ' || my_name);
-    dbms_output.put_line('The user''s nickname is: ' || nickname);
+    dbms_output.put_line("The user's nickname is: " || nickname);
     dbms_output.put_line('The user has ' || points || ' points');
     dbms_output.put_line('The price of the item is: ' || price);
     dbms_output.put_line('The current date is: ' || my_current_date);
