@@ -2,9 +2,8 @@
 
 #### Programming
 
-- [x] Java/MEGA_Curso_JAVA_desde_0_DAM_-_DAW/*.java 3.7
-- [x] Java/MEGA_Curso_JAVA_desde_0_DAM_-_DAW/*.java 3.8
-- [ ] Java/MEGA_Curso_JAVA_desde_0_DAM_-_DAW/*.java 3.9
+- [x] Java/MEGA_Curso_JAVA_desde_0_DAM_-_DAW/*.java 3.9
+- [ ] Java/MEGA_Curso_JAVA_desde_0_DAM_-_DAW/*.java 3.10
 
 - [x] JavaScript/Beginner_course/*.js 1:19:17
 - [ ] JavaScript/Beginner_course/*.js 1:21:37

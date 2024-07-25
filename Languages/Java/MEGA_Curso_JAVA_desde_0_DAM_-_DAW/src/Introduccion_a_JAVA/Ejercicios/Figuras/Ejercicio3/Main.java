@@ -80,7 +80,7 @@ public class Main {
 
         System.out.println();
 
-        // Con relleno especial
+        // Especial
         for (int i = 0; i < altura; i++) {
             int cont = i % 2;
             for (int j = 0; j < base; j++) {
