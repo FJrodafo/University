@@ -9,51 +9,30 @@
 1. [Minecraft Command Language](#minecraft-command-language)
 2. [Useful game rules for servers](#useful-game-rules-for-servers)
 3. [Pacomeda](#pacomeda)
-4. [Efects ID](#efects-id)
-5. [Colors ID](#colors-id)
-6. [Emojis](#emojis)
-7. [Websites](#websites)
-8. [Custom heads](#custom-heads)
-9. [Custom shields](#custom-shields)
-10. [Custom potions](#custom-potions)
-11. [Invisible items](#inivisible-items)
+4. [Target selector variables](#target-selector-variables)
+5. [Efects ID](#efects-id)
+6. [Colors ID](#colors-id)
+7. [Emojis](#emojis)
+8. [Websites](#websites)
+9. [Custom heads](#custom-heads)
+10. [Custom shields](#custom-shields)
+11. [Custom potions](#custom-potions)
+12. [Invisible items](#inivisible-items)
+13. [Rain on the players](#rain-on-the-players)
 
 ## Minecraft Command Language
 
 ```sh
 # Command Block
 /give UserName minecraft:command_block
+
 # Structure Block
 /give UserName minecraft:structure_block
 ```
 
 ```sh
-# Force load a chunk so commands work anywhere:
+# Force load a chunk so commands work anywhere
 /forceload 0 0 0
-```
-
-```sh
-/give @p minecraft:elytra{display:{Name:'{"text":"ナヤイシャ","color":"yellow","italic":false}'},Unbreakable:1b,Enchantments:[{}]} 1
-```
-
-```sh
-/scoreboard objectives add UserName minecraft.used:minecraft.netherite_pickaxe
-```
-
-```sh
-/give @p netherite_pickaxe{display:{Name:'{"text":"ナヤイシャ","color":"yellow","italic":false}'},Unbreakable:1b,Enchantments:[{id:binding_curse,lvl:1},{id:vanishing_curse,lvl:1},{id:looting,lvl:4},{id:fortune,lvl:4}]} 1
-```
-
-```sh
-effect give @a[nbt={Inventory:[{id:"minecraft:netherite_pickaxe",tag:{display:{Name:'{"text":"ナヤイシャ","color":"yellow","italic":false}'}}}]}] minecraft:saturation 2 0 true
-```
-
-```sh
-execute as @a[nbt={SelectedItem:{id:"minecraft:netherite_pickaxe",Count:1b,tag:{display:{Name:'{"text":"ナヤイシャ","color":"yellow","italic":false}'}}}},scores={UserName=1..}] at @s run execute as @e[distance=..10,limit=1,nbt=!{HurtTime:0s}] at @s run particle minecraft:ambient_entity_effect ~ ~1 ~ 1 1 1 .1 9 force
-```
-
-```sh
-scoreboard players set @a UserName 0
 ```
 
 ## Useful game rules for servers
@@ -85,7 +64,27 @@ scoreboard players set @a UserName 0
 
 ## Pacomeda
 
-Seed: [7334907763147734721]
+<details>
+<summary>Secret</summary>
+
+```sh
+# 1.15.0+
+
+/give @p minecraft:elytra{display:{Name:'{"text":"ナヤイシャ","color":"yellow","italic":false}'},Unbreakable:1b,Enchantments:[{}]} 1
+
+/scoreboard objectives add UserName minecraft.used:minecraft.netherite_pickaxe
+
+/give @p netherite_pickaxe{display:{Name:'{"text":"ナヤイシャ","color":"yellow","italic":false}'},Unbreakable:1b,Enchantments:[{id:binding_curse,lvl:1},{id:vanishing_curse,lvl:1},{id:looting,lvl:4},{id:fortune,lvl:4}]} 1
+
+effect give @a[nbt={Inventory:[{id:"minecraft:netherite_pickaxe",tag:{display:{Name:'{"text":"ナヤイシャ","color":"yellow","italic":false}'}}}]}] minecraft:saturation 2 0 true
+
+execute as @a[nbt={SelectedItem:{id:"minecraft:netherite_pickaxe",Count:1b,tag:{display:{Name:'{"text":"ナヤイシャ","color":"yellow","italic":false}'}}}},scores={UserName=1..}] at @s run execute as @e[distance=..10,limit=1,nbt=!{HurtTime:0s}] at @s run particle minecraft:ambient_entity_effect ~ ~1 ~ 1 1 1 .1 9 force
+
+scoreboard players set @a UserName 0
+```
+</details>
+
+Seed `7334907763147734721`
 
 ```sh
 # Lobby
@@ -106,6 +105,19 @@ Seed: [7334907763147734721]
 # Home
 /tp UserName -9770 11 15540 90 90
 ```
+
+## Target selector variables
+
+| Variable     | Selects                                                      |
+| :----------: | :----------------------------------------------------------- |
+| `@p`         | the nearest player                                           |
+| `@r`         | a random player                                              |
+| `@a`         | all players                                                  |
+| `@e`         | all entities                                                 |
+| `@s`         | the entity executing the command                             |
+| `@c`         | the player's agent [Minecraft Education only]                |
+| `@v`         | all agents [Minecraft Education only]                        |
+| `@initiator` | the player who clicks an NPC dialogue button [BE & edu only] |
 
 ## Efects ID
 
@@ -213,68 +225,93 @@ By default "HTML Color Code" (FFFFFF) (FF00FF) (000000)
 
 [Book editors](https://minecraft.tools/en/book.php)
 
-[1.20.4→1.20.5 Command Converter](https://kennytv.eu/converter/)
+[1.20.4→1.20.5 Command Converter](https://docs.papermc.io/misc/tools/item-command-converter)
 
 ## Custom heads
 
 ```sh
 # Your own head
+
+# 1.15.0+
 /give @s minecraft:player_head{SkullOwner:UserName}
+
+# 1.20.6+
+/give @p minecraft:player_head[minecraft:profile={name:"UserName"}]
 ```
 
 ## Custom shields
 
 ```sh
 # Shield color
-/give @s minecraft:shield[minecraft:base_color="white"]
+
+# 1.20.6+
+/give @p minecraft:shield[minecraft:base_color="white"]
 ```
 
 ```sh
 # Pirate
+
+# 1.15.0+
 /give @s minecraft:shield{BlockEntityTag:{Base:15,Patterns:[{Color:7,Pattern:"cbo"},{Color:15,Pattern:"sc"},{Color:15,Pattern:"bri"},{Color:15,Pattern:"bri"},{Color:0,Pattern:"sku"}]}}
+
+# 1.20.6+
+/give @p minecraft:shield[minecraft:base_color="black",minecraft:banner_patterns=[{color:"gray",pattern:"minecraft:curly_border"},{color:"black",pattern:"minecraft:straight_cross"},{color:"black",pattern:"minecraft:bricks"},{color:"black",pattern:"minecraft:bricks"},{color:"white",pattern:"minecraft:skull"}]]
 ```
 
 ## Custom potions
 
+[<img src="./Assets/Warning.svg" alt="Warning!" width="40" height="40" align="center" />](./Assets/Warning.svg "Warning!")
+`Pending update to version 1.20.6+`
+
 ```sh
 # Soda
-/give @s potion{display:{Name:'{"text":"Soda","color":"green"}',Lore:['{"text":"Bien fresquita!"}']},CustomPotionEffects:[{Id:9b,Amplifier:0b,Duration:1200}],CustomPotionColor:FF00FF} 1
+
+# 1.15.0+
+/give @p potion{display:{Name:'{"text":"Soda","color":"green"}',Lore:['{"text":"Bien fresquita!"}']},CustomPotionEffects:[{Id:9b,Amplifier:0b,Duration:1200}],CustomPotionColor:FF00FF} 1
 ```
 
 ```sh
 # Granizado de fresa
-/give @s potion{display:{Name:'{"text":"Granizado de fresa"}',CustomPotionColor:D53032}} 1
+
+# 1.15.0+
+/give @p potion{display:{Name:'{"text":"Granizado de fresa"}',CustomPotionColor:D53032}} 1
 ```
 
 ```sh
 # Licor de fuego
-/give @s potion{display:{Name:'{"text":"Licor de fuego","color":"red"}',Lore:['{"text":"De alta calidad procedente del reino de Arabasta"}']},CustomPotionEffects:[{Id:9b,Amplifier:0b,Duration:1200}],CustomPotionColor:F59622} 1
+
+# 1.15.0+
+/give @p potion{display:{Name:'{"text":"Licor de fuego","color":"red"}',Lore:['{"text":"De alta calidad procedente del reino de Arabasta"}']},CustomPotionEffects:[{Id:9b,Amplifier:0b,Duration:1200}],CustomPotionColor:F59622} 1
 ```
 
 ## Inivisible items
 
 ```sh
-# 1.15.0
+# 1.15.0+
 /give @s minecraft:item_frame{EntityTag:{Invisible:1b}}
 /give @s minecraft:glow_item_frame{EntityTag:{Invisible:1b}}
 /give @s minecraft:armor_stand{EntityTag:{Invisible:1b}}
 ```
 
 ```sh
-# 1.20.6
+# 1.20.6+
 /give @s minecraft:item_frame[minecraft:entity_data={id:"item_frame",Invisible:1b}]
 /give @s minecraft:glow_item_frame[minecraft:entity_data={id:"glow_item_frame",Invisible:1b}]
 /give @s minecraft:armor_stand[minecraft:entity_data={id:"armor_stand",Invisible:1b}]
 ```
 
+## Rain on the players
+
+[<img src="./Assets/Warning.svg" alt="Warning!" width="40" height="40" align="center" />](./Assets/Warning.svg "Warning!")
+`Pending update to version 1.20.6+`
+
+[<img src="./Assets/Repeat/Unconditional.gif" alt="(Repeat/Unconditional/Needs Redstone)" width="40" height="40" align="center" />](./Assets/Repeat/Unconditional.gif "(Repeat/Unconditional/Needs Redstone)")
+`execute at UserName run particle minecraft:dust 1 1 1 1 ~ ~3 ~ 0.5 0.25 0.5 0 100`
+
+[<img src="./Assets/Chain/Unconditional.gif" alt="(Chain/Unconditional/Always Active)" width="40" height="40" align="center" />](./Assets/Chain/Unconditional.gif "(Chain/Unconditional/Always Active)")
+`execute at UserName run particle minecraft:falling_water ~ ~3 ~ 0.5 0.1 0.5 0 10`
+
 ```
----- Rain on the players ----
-
-(Repeat/Unconditional/Needs Redstone)
-execute at UserName run particle minecraft:dust 1 1 1 1 ~ ~3 ~ 0.5 0.25 0.5 0 100
-(Chain/Unconditional/Always Active)
-execute at UserName run particle minecraft:falling_water ~ ~3 ~ 0.5 0.1 0.5 0 10
-
 ---- Drop the owner's skull upon death ----
 
 /scoreboard objectives add deaths deathCount
