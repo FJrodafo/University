@@ -1,3 +1,5 @@
+SET serveroutput ON
+
 DECLARE
     my_message CONSTANT VARCHAR2(50) := "Good morning y'all!";
     my_number CONSTANT NUMBER(6) := 40000;

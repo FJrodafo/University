@@ -1,3 +1,5 @@
+SET serveroutput ON -- To enable output of messages in script output
+
 DECLARE
 -- Declarative section
 
