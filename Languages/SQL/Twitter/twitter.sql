@@ -43,3 +43,27 @@ VALUES
 (3, 1),
 (4, 1),
 (4, 2);
+
+DROP TABLE IF EXISTS tweets;
+CREATE TABLE tweets (
+    tweet_id INT NOT NULL AUTO_INCREMENT,
+    owner_id INT NOT NULL,
+    tweet_text VARCHAR(280) NOT NULL,
+    num_likes INT DEFAULT 0,
+    num_retweets INT DEFAULT 0,
+    num_comments INT DEFAULT 0,
+    created_at TIMESTAMP NOT NULL DEFAULT (NOW()),
+    FOREIGN KEY(owner_id) REFERENCES users(user_id),
+    PRIMARY KEY(tweet_id)
+);
+
+INSERT INTO tweets(owner_id, tweet_text)
+VALUES
+(1, 'Hello! How are you? 👋'),
+(2, 'What is your favorite beach?'),
+(4, 'What are you thinking about?'),
+(1, 'Here is my website! https://fjrodafo.vercel.app/'),
+(3, 'Good morning from the bakery! 🍰'),
+(1, 'Studying MySQL! 📚'),
+(1, 'Little by little!'),
+(2, 'Lets go for the next championship! 🏆');

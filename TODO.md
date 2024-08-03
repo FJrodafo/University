@@ -19,7 +19,5 @@
 - [x] SQL/Tutorial/01_Reading/*.sql 2:10:33
 - [ ] SQL/Tutorial/01_Reading/*.sql 2:47:02
 
-- [x] SQL/Twitter/*.sql 0:31:16
-- [ ] SQL/Twitter/*.sql 0:33:55
-
-- [ ] ?/Mongodb
+- [x] SQL/Twitter/*.sql 0:33:55
+- [ ] SQL/Twitter/*.sql 0:46:55
