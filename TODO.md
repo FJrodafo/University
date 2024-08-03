@@ -5,8 +5,8 @@
 - [x] Java/MEGA_Curso_JAVA_desde_0_DAM_-_DAW/*.java 3.9
 - [ ] Java/MEGA_Curso_JAVA_desde_0_DAM_-_DAW/*.java 3.10
 
-- [x] JavaScript/Beginner_course/*.js 1:19:17
-- [ ] JavaScript/Beginner_course/*.js 1:21:37
+- [x] JavaScript/Beginner_course/*.js 1:21:37
+- [ ] JavaScript/Beginner_course/*.js 1:32:15
 
 #### Databases
 
