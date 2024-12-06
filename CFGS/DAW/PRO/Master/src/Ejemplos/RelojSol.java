@@ -31,17 +31,17 @@ public class RelojSol {
     }
 
     static String getPeriodo(int hour, int min) {
-        return (hour == 0) ? "Midnight" :
-        ((hour >= 1) && (hour < 4)) ? "Night" :
-        ((hour >= 4) && (hour < 6) || (hour == 6) && (min < 30)) ? "Early Morning" :
-        ((hour == 6) && (min >= 30)) || ((hour == 7) && (min < 30)) ? "Dawn" :
-        ((hour == 7) && (min >= 30)) || ((hour >= 8) && (hour < 10)) ? "Morning" :
-        ((hour >= 10) && (hour < 12)) ? "Late Morning" :
+        return (hour >= 21) ? "Night" :
+        (hour >= 20) || (hour == 19 && min >= 30) ? "Evening" :
+        (hour == 19 && min < 30) || (hour == 18 && min >= 30) ? "Dusk" :
+        (hour == 18 && min < 30) || (hour >= 16) ? "Late Afternoon" :
+        (hour >= 13) ? "Afternoon" :
         (hour == 12) ? "Midday" :
-        ((hour >= 13) && (hour < 16)) ? "Afternoon" :
-        ((hour >= 16) && (hour < 18) || (hour == 18) && (min < 30)) ? "Late Afternoon" :
-        ((hour == 18) && (min >= 30)) || ((hour == 19) && (min < 30)) ? "Dusk" :
-        ((hour == 19) && (min >= 30)) || ((hour >= 20) && (hour < 21)) ? "Evening" :
-        (hour >= 21) ? "Night" : "Unknown Time";
+        (hour >= 10) ? "Late Morning" :
+        (hour >= 8) || (hour == 7 && min >= 30) ? "Morning" :
+        (hour == 7 && min < 30) || (hour == 6 && min >= 30) ? "Dawn" :
+        (hour == 6 && min < 30) || (hour >= 4) ? "Early Morning" :
+        (hour >= 1) ? "Night" :
+        (hour == 0) ? "Midnight" : "Unknown Time";
     }
 }
