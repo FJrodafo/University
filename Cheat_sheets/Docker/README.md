@@ -7,14 +7,15 @@
 ## Index
 
 1. [Install](#install)
-2. [Docker Hub](#docker-hub)
-3. [Images](#images)
-4. [Basic Commands](#basic-commands)
-5. [Overview of the get started guide](#overview-of-the-get-started-guide)
-6. [Containerize an application](#containerize-an-application)
-7. [Update the application](#update-the-application)
-8. [Share the application](#share-the-application)
-9. [Persist the DB](#persist-the-db)
+2. [Install from a package](#install-from-a-package)
+3. [Docker Hub](#docker-hub)
+4. [Images](#images)
+5. [Basic Commands](#basic-commands)
+6. [Overview of the get started guide](#overview-of-the-get-started-guide)
+7. [Containerize an application](#containerize-an-application)
+8. [Update the application](#update-the-application)
+9. [Share the application](#share-the-application)
+10. [Persist the DB](#persist-the-db)
 
 ## Install
 
@@ -24,6 +25,43 @@
 # Upgrade
 sudo apt-get install ./docker-desktop-<version>-<arch>.deb
 ```
+
+## Install from a package
+
+If you can't use Docker's `apt` repository to install Docker Engine, you can download the `deb` file for your release and install it manually. You need to download a new file each time you want to upgrade Docker Engine.
+
+1. Go to https://download.docker.com/linux/debian/dists/
+2. Select your Debian version in the list.
+3. Go to `pool/stable/` and select the applicable architecture (`amd64`, `armhf`, `arm64`, or `s390x`).
+4. Download the following deb files for the Docker Engine, CLI, containerd, and Docker Compose packages:
+    * `containerd.io_<version>_<arch>.deb`
+    * `docker-ce_<version>_<arch>.deb`
+    * `docker-ce-cli_<version>_<arch>.deb`
+    * `docker-buildx-plugin_<version>_<arch>.deb`
+    * `docker-compose-plugin_<version>_<arch>.deb`
+5. Install the `.deb` packages. Update the paths in the following example to where you downloaded the Docker packages.
+    ```sh
+    sudo dpkg -i ./containerd.io_<version>_<arch>.deb \
+    ./docker-ce_<version>_<arch>.deb \
+    ./docker-ce-cli_<version>_<arch>.deb \
+    ./docker-buildx-plugin_<version>_<arch>.deb \
+    ./docker-compose-plugin_<version>_<arch>.deb
+    ```
+    The Docker daemon starts automatically.
+6. Verify that the installation is successful by running the `hello-world` image:
+    ```sh
+    sudo service docker start
+    sudo docker run hello-world
+    ```
+    This command downloads a test image and runs it in a container. When the container runs, it prints a confirmation message and exits.
+
+You have now successfully installed and started Docker Engine. To upgrade Docker Engine, download the newer package files and repeat the installation procedure, pointing to the new files.
+
+> [!TIP]
+> 
+> Receiving errors when trying to run without root?
+> 
+> The `docker` user group exists but contains no users, which is why you’re required to use `sudo` to run Docker commands. Continue to [Linux Postinstall](https://docs.docker.com/engine/install/linux-postinstall/) to allow non-privileged users to run Docker commands and for other optional configuration steps.
 
 ## Docker Hub
 
