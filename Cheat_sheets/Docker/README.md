@@ -57,11 +57,15 @@ If you can't use Docker's `apt` repository to install Docker Engine, you can dow
 
 You have now successfully installed and started Docker Engine. To upgrade Docker Engine, download the newer package files and repeat the installation procedure, pointing to the new files.
 
-> [!TIP]
+> [!IMPORTANT]
 > 
 > Receiving errors when trying to run without root?
 > 
 > The `docker` user group exists but contains no users, which is why you’re required to use `sudo` to run Docker commands. Continue to [Linux Postinstall](https://docs.docker.com/engine/install/linux-postinstall/) to allow non-privileged users to run Docker commands and for other optional configuration steps.
+
+> [!TIP]
+> 
+> To install docker-compose, visit: https://github.com/docker/compose/releases
 
 ## Docker Hub
 
@@ -211,7 +215,7 @@ It is not the complete guide, I have only taken the parts that I considered most
 
 ## Containerize an application
 
-For the rest of this guide, you'll be working with a simple todo list manager that runs on Node.js. If you are not familiar with Node.js, don't worry. This guide doesn't require any prior experience with JavaScript.
+For the rest of this guide, you'll be working with a simple to-do list manager that runs on Node.js. If you are not familiar with Node.js, don't worry. This guide doesn't require any prior experience with JavaScript.
 
 ### Prerequisites
 
@@ -252,7 +256,7 @@ CMD ["node", "src/index.js"]
 EXPOSE 3000
 ```
 
-In the terminal, make sure you are in the `getting-started-app` directory. Replace `/path/to/getting-started-app` with the path to your `getting-started-app` directory.
+In the terminal, make sure you are in the `getting-started-app` directory where your Dockerfile is. Replace `/path/to/getting-started-app` with the path to your `getting-started-app` directory.
 
 ```shell
 cd /path/to/getting-started-app
@@ -286,23 +290,23 @@ The `-d` flag (short for `--detach`) runs the container in the background. The `
 
 After a few seconds, open your web browser to [http://localhost:3000](http://localhost:3000/). You should see your app.
 
-[![Todo list empty](https://raw.githubusercontent.com/FJrodafo/University/main/Cheat_sheets/Docker/Assets/Todo_list_empty.png)](http://localhost:3000/)
+[![To-do list empty](https://raw.githubusercontent.com/FJrodafo/University/main/Cheat_sheets/Docker/Assets/To-do_list_empty.png)](http://localhost:3000/)
 
 Add an item or two and see that it works as you expect. You can mark items as complete and remove them. Your frontend is successfully storing items in the backend.
 
-At this point, you have a running todo list manager with a few items.
+At this point, you have a running to-do list manager with a few items.
 
 If you take a quick look at your containers, you should see at least one container running that's using the `getting-started` image and on port `3000`. To see your containers, you can use the CLI or Docker Desktop's graphical interface.
 
 ## Update the application
 
-In the following steps, you'll change the "empty text" when you don't have any todo list items to "You have no todo items yet! Add one above!"
+In the following steps, you'll change the "empty text" when you don't have any to-do list items to "You have no to-do items yet! Add one above!"
 
 In the `src/static/js/app.js` file, update line 56 to use the new empty text:
 
 ```
 - <p className="text-center">No items yet! Add one above!</p>
-+ <p className="text-center">You have no todo items yet! Add one above!</p>
++ <p className="text-center">You have no to-do items yet! Add one above!</p>
 ```
 
 Build your updated version of the image, using the docker build command (Make sure you are in the `getting-started-app` directory):
@@ -399,16 +403,13 @@ docker stop <container-id>
 
 1. Open your terminal and sign in to Docker Hub using the command `docker login -u YOUR-USER-NAME`.
 2. Use the `docker tag` command to give the `getting-started` image a new name. Replace `YOUR-USER-NAME` with your Docker ID:
-
-```shell
-docker tag getting-started YOUR-USER-NAME/getting-started
-```
-
+    ```shell
+    docker tag getting-started YOUR-USER-NAME/getting-started
+    ```
 3. Now run the docker push command again. If you are copying the value from Docker Hub, you can drop the tagname part, as you didn't add a tag to the image name. If you don't specify a tag, Docker uses a tag called latest:
-
-```shell
-docker push YOUR-USER-NAME/getting-started
-```
+    ```shell
+    docker push YOUR-USER-NAME/getting-started
+    ```
 
 ### Run the image on a new instance
 
@@ -419,11 +420,9 @@ Now that your image has been built and pushed into a registry, try running your 
 3. Sign in with your Docker Hub account and then select Start.
 4. Select the ADD NEW INSTANCE option on the left side bar. If you don't see it, make your browser a little wider. After a few seconds, a terminal window opens in your browser.
 5. In the terminal, start your freshly pushed app:
-
-```shell
-docker run -dp 0.0.0.0:3000:3000 YOUR-USER-NAME/getting-started
-```
-
+    ```shell
+    docker run -dp 0.0.0.0:3000:3000 YOUR-USER-NAME/getting-started
+    ```
 6. Select the 3000 badge when it appears. If the 3000 badge doesn't appear, you can select **Open Port** and specify `3000`.
 
 ## Persist the DB
@@ -437,24 +436,19 @@ There are two main types of volumes. You'll eventually use both, but you'll star
 ### Create a volume and start the container
 
 1. Create a volume by using the `docker volume create` command:
-
-```shell
-docker volume create todo-db
-```
-
-2. Stop and remove the todo app container with `docker rm -f <container-id>`, as it is still running without using the persistent volume.
-3. Start the todo app container, but add the `--mount` option to specify a volume mount. Give the volume a name, and mount it to `/etc/todos` in the container, which captures all files created at the path. In your Mac or Linux terminal, or in Windows Command Prompt or PowerShell, run the following command:
-
-```shell
-docker run -dp 127.0.0.1:3000:3000 --mount type=volume,src=todo-db,target=/etc/todos getting-started
-```
-
-[![Items added](https://raw.githubusercontent.com/FJrodafo/University/main/Cheat_sheets/Docker/Assets/Items_added.png)](http://localhost:3000/)
-
-2. Stop and remove the container for the todo app. Use Docker Desktop or docker ps to get the ID and then docker rm -f <id> to remove it.
-3. Start a new container using the previous steps.
-4. Open the app. You should see your items still in your list.
-5. Go ahead and remove the container when you are done checking out your list.
+    ```shell
+    docker volume create to-do-db
+    ```
+2. Stop and remove the to-do app container with `docker rm -f <container-id>`, as it is still running without using the persistent volume.
+3. Start the to-do app container, but add the `--mount` option to specify a volume mount. Give the volume a name, and mount it to `/etc/todos` in the container, which captures all files created at the path. In your Mac or Linux terminal, or in Windows Command Prompt or PowerShell, run the following command:
+    ```shell
+    docker run -dp 127.0.0.1:3000:3000 --mount type=volume,src=to-do-db,target=/etc/todos getting-started
+    ```
+    [![Items added](https://raw.githubusercontent.com/FJrodafo/University/main/Cheat_sheets/Docker/Assets/Items_added.png)](http://localhost:3000/)
+4. Stop and remove the container for the to-do app. Use Docker Desktop or `docker ps` to get the ID and then `docker rm -f <container-id>` to remove it.
+5. Start a new container using the previous steps.
+6. Open the app. You should see your items still in your list.
+7. Go ahead and remove the container when you are done checking out your list.
 
 You've now learned how to persist data.
 
@@ -463,7 +457,7 @@ You've now learned how to persist data.
 A lot of people frequently ask "Where is Docker storing my data when I use a volume?" If you want to know, you can use the `docker volume inspect` command.
 
 ```shell
-docker volume inspect todo-db
+docker volume inspect to-do-db
 ```
 
 The `Mountpoint` is the actual location of the data on the disk. Note that on most machines, you will need to have root access to access this directory from the host.
