@@ -5,6 +5,6 @@ De los paquetes transportados interesa conocer el código de paquete, descripci�
 De los camiones que llevan los camioneros, interesa conocer la matrícula, modelo, tipo y potencia. Un camionero puede conducir diferentes camiones en fechas diferentes, y un camión puede ser conducido por varios camioneros.
 
 <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/FJrodafo/University/main/CFGS/DAW/BAE/T02_Transporte/Assets/Dark.svg">
-    <img alt="Transporte" src="https://raw.githubusercontent.com/FJrodafo/University/main/CFGS/DAW/BAE/T02_Transporte/Assets/Light.svg">
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/FJrodafo/University/main/DAW/BAE/Extras/T02_Transporte/Assets/Dark.svg">
+    <img alt="Transporte" src="https://raw.githubusercontent.com/FJrodafo/University/main/DAW/BAE/Extras/T02_Transporte/Assets/Light.svg">
 </picture>

@@ -50,12 +50,28 @@ Representa las entidades, relaciones y cardinalidades mínimas y máximas para c
     <img src="./Assets/Images/6.drawio.png">
     </details>
     </br>
-7. Se desea construir una base de datos para mantener información sobre los equipos y partidos de la liga. Un equipo tiene un cierto número de jugadores (Id_jugador, datos_personales) y no todos participan en cada partido. Queremos registrar además por cada partido, qué jugadores juegan, la fecha y la hora del partido, resultados de los encuentros y las posiciones donde juegan.
+7. Se desea construir una base de datos para mantener información sobre los equipos y partidos de la liga. Un equipo tiene un cierto número de jugadores (Identificador del jugador y datos personales) y no todos participan en cada partido. Queremos registrar además por cada partido, qué jugadores juegan, la fecha y la hora del partido, resultados de los encuentros y las posiciones donde juegan.
     </br>
     </br>
     <details>
     <summary>Solución</summary>
     <img src="./Assets/Images/7.drawio.png">
+    </details>
+    </br>
+8. En una empresa, para cada uno de sus empleados, se guardan los datos de sus hijos. Representa esta relación haciendo las suposiciones que creas convenientes.
+    </br>
+    </br>
+    <details>
+    <summary>Solución</summary>
+    <img src="./Assets/Images/8.drawio.png">
+    </details>
+    </br>
+9. Se desea diseñar una base de datos para una universidad que contenga información sobre carreras y asignaturas que se pueden estudiar. Además se incluirá la información de los alumnos matriculados en las correspondientes asignaturas y las calificaciones que obtienen en las asignaturas en las que están matriculados. (Nota: suponer que una asignatura solo puede pertenecer a una carrera).
+    </br>
+    </br>
+    <details>
+    <summary>Solución</summary>
+    <img src="./Assets/Images/9.drawio.png">
     </details>
     </br>
 
