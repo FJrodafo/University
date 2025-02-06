@@ -13,9 +13,27 @@
 5. [Basic Commands](#basic-commands)
 6. [Overview of the get started guide](#overview-of-the-get-started-guide)
 7. [Containerize an application](#containerize-an-application)
+    * [Prerequisites](#prerequisites)
+    * [Get the app](#get-the-app)
+    * [Build the app's image](#build-the-apps-image)
+    * [Start an app container](#start-an-app-container)
 8. [Update the application](#update-the-application)
+    * [Remove the old container and image](#remove-the-old-container-and-image)
+    * [Build and start the updated app container](#build-and-start-the-updated-app-container)
 9. [Share the application](#share-the-application)
+    * [Docker Hub](#docker-hub-1)
+        * [Create a repository](#create-a-repository)
+        * [Push the image](#push-the-image)
+        * [Run the image on a new instance](#run-the-image-on-a-new-instance)
+    * [GitHub Packages & Docker Hub](#github-packages--docker-hub)
+        * [Login](#login)
+        * [Build & Tag](#build--tag)
+        * [Push](#push)
+        * [Pull](#pull)
 10. [Persist the DB](#persist-the-db)
+    * [Container volumes](#container-volumes)
+    * [Create a volume and start the container](#create-a-volume-and-start-the-container)
+    * [Dive into the volume](#dive-into-the-volume)
 
 ## Install
 
@@ -392,14 +410,16 @@ docker stop <container-id>
 
 ## Share the application
 
-### Create a repository
+### Docker Hub
+
+#### Create a repository
 
 1. Sign up or Sign in to [Docker Hub](https://hub.docker.com/).
 2. Select the **Create Repository** button.
 3. For the repository name, use `getting-started`. Make sure the **Visibility** is **Public**.
 4. Select **Create**.
 
-### Push the image
+#### Push the image
 
 1. Open your terminal and sign in to Docker Hub using the command `docker login -u YOUR-USER-NAME`.
 2. Use the `docker tag` command to give the `getting-started` image a new name. Replace `YOUR-USER-NAME` with your Docker ID:
@@ -411,7 +431,7 @@ docker stop <container-id>
     docker push YOUR-USER-NAME/getting-started
     ```
 
-### Run the image on a new instance
+#### Run the image on a new instance
 
 Now that your image has been built and pushed into a registry, try running your app on a brand new instance that has never seen this container image. To do this, you will use Play with Docker.
 
@@ -424,6 +444,65 @@ Now that your image has been built and pushed into a registry, try running your 
     docker run -dp 0.0.0.0:3000:3000 YOUR-USER-NAME/getting-started
     ```
 6. Select the 3000 badge when it appears. If the 3000 badge doesn't appear, you can select **Open Port** and specify `3000`.
+
+### GitHub Packages & Docker Hub
+
+#### Login
+
+1. Log in to **Docker Hub**:
+
+    ```sh
+    docker login
+    ```
+2. Log in to **GitHub Packages**:
+
+    ```sh
+    echo YOUR_GITHUB_TOKEN | docker login ghcr.io -u YOUR_GITHUB_USERNAME --password-stdin
+    ```
+
+#### Build & Tag
+
+3. Build the Docker image:
+
+    ```sh
+    docker build -t fjrodafo/getting-started:v1.0.0 .
+    ```
+4. Tag the image for **Docker Hub**:
+
+    ```sh
+    docker tag fjrodafo/getting-started:v1.0.0 fjrodafo/getting-started:v1.0.0
+    ```
+5. Tag the image for **GitHub Packages**:
+
+    ```sh
+    docker tag fjrodafo/getting-started:v1.0.0 ghcr.io/fjrodafo/getting-started:v1.0.0
+    ```
+
+#### Push
+
+6. Push the image to **Docker Hub**:
+
+    ```sh
+    docker push fjrodafo/getting-started:v1.0.0
+    ```
+7. Push the image to **GitHub Packages**:
+
+    ```sh
+    docker push ghcr.io/fjrodafo/getting-started:v1.0.0
+    ```
+
+#### Pull
+
+8. Pull the image from **Docker Hub**:
+
+    ```sh
+    docker pull fjrodafo/getting-started:v1.0.0
+    ```
+9. Pull the image from **GitHub Packages**:
+
+    ```sh
+    docker pull ghcr.io/fjrodafo/getting-started:v1.0.0
+    ```
 
 ## Persist the DB
 
