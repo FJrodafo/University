@@ -1,4 +1,4 @@
-## Sistema de ventas
+## <img src="https://raw.githubusercontent.com/FJrodafo/University/main/DAW/BAE/Unidad-2/Tarea-2/Assets/Computer.png" height="24"> Sistema de ventas
 
 Se desea realizar una base de datos que permita apoyar la gestión de un sistema de ventas. La empresa necesita llevar un control de proveedores, clientes, productos y ventas.
 
