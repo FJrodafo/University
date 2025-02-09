@@ -10,8 +10,6 @@ También se quiere llevar un recuento de los goles que hay en cada partido. Se q
 
 Por último se quiere almacenar, en la base de datos, los datos de los presidentes de los equipos de fútbol (dni, nombre, apellidos, fecha de nacimiento, equipo del que es presidente y año en el que fue elegido presidente). Un equipo de fútbol tan sólo puede tener un presidente, y una persona sólo puede ser presidente de un equipo de la liga.
 
-Diseña el modelo entidad-relación resultante a través de diagrams.io.
-
 <details>
 <summary>Solución</summary>
 <img src="https://raw.githubusercontent.com/FJrodafo/University/main/DAW/BAE/Unidad-2/Tarea-4/Assets/Images/Diagram.drawio.png">
