@@ -10,5 +10,5 @@ Una empresa necesita organizar la siguiente información referente a su organiza
 
 <details>
 <summary>Solución</summary>
-<img src="https://raw.githubusercontent.com/FJrodafo/University/main/DAW/BAE/Unidad-2/Tarea-5/Assets/Diagram.drawio.png">
+<img src="https://raw.githubusercontent.com/FJrodafo/University/main/DAW/BAE/Unidad-2/Tarea-5/Assets/Diagram.drawio.svg">
 </details>
