@@ -25,7 +25,6 @@
 <summary>E/R</summary>
 <img src="https://raw.githubusercontent.com/FJrodafo/University/main/DAW/BAE/Unidad-2/Tarea-6/Assets/Diagrams/1.drawio.svg">
 </details>
-<br />
 
 ---
 
@@ -54,7 +53,6 @@
 <summary>E/R</summary>
 <img src="https://raw.githubusercontent.com/FJrodafo/University/main/DAW/BAE/Unidad-2/Tarea-6/Assets/Diagrams/2.drawio.svg">
 </details>
-<br />
 
 ---
 
@@ -83,7 +81,6 @@
 <summary>E/R</summary>
 <img src="https://raw.githubusercontent.com/FJrodafo/University/main/DAW/BAE/Unidad-2/Tarea-6/Assets/Diagrams/3.drawio.svg">
 </details>
-<br />
 
 ---
 
@@ -112,7 +109,6 @@
 <summary>E/R</summary>
 <img src="https://raw.githubusercontent.com/FJrodafo/University/main/DAW/BAE/Unidad-2/Tarea-6/Assets/Diagrams/4.drawio.svg">
 </details>
-<br />
 
 ---
 
@@ -141,7 +137,6 @@
 <summary>E/R</summary>
 <img src="https://raw.githubusercontent.com/FJrodafo/University/main/DAW/BAE/Unidad-2/Tarea-6/Assets/Diagrams/5.drawio.svg">
 </details>
-<br />
 
 ---
 
@@ -170,7 +165,6 @@
 <summary>E/R</summary>
 <img src="https://raw.githubusercontent.com/FJrodafo/University/main/DAW/BAE/Unidad-2/Tarea-6/Assets/Diagrams/6.drawio.svg">
 </details>
-<br />
 
 ---
 
@@ -199,7 +193,6 @@
 <summary>E/R</summary>
 <img src="https://raw.githubusercontent.com/FJrodafo/University/main/DAW/BAE/Unidad-2/Tarea-6/Assets/Diagrams/7.drawio.svg">
 </details>
-<br />
 
 ---
 
@@ -228,7 +221,6 @@
 <summary>E/R</summary>
 <img src="https://raw.githubusercontent.com/FJrodafo/University/main/DAW/BAE/Unidad-2/Tarea-6/Assets/Diagrams/8.drawio.svg">
 </details>
-<br />
 
 ---
 
@@ -257,7 +249,6 @@
 <summary>E/R</summary>
 <img src="https://raw.githubusercontent.com/FJrodafo/University/main/DAW/BAE/Unidad-2/Tarea-6/Assets/Diagrams/9.drawio.svg">
 </details>
-<br />
 
 ---
 
@@ -286,7 +277,6 @@
 <summary>E/R</summary>
 <img src="https://raw.githubusercontent.com/FJrodafo/University/main/DAW/BAE/Unidad-2/Tarea-6/Assets/Diagrams/9.drawio.svg">
 </details>
-<br />
 
 ---
 
