@@ -188,3 +188,6 @@
 ## Tools
 
 [Mermaid](./Mermaid.md) lets you create diagrams and visualizations using text and code. It is a JavaScript based diagramming and charting tool that renders Markdown-inspired text definitions to create and modify diagrams dynamically.
+
+<link rel="stylesheet" href="./../../README.css">
+<a class="scrollup" href="#top">&#x1F53C</a>

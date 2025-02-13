@@ -130,5 +130,5 @@ Full repository on [github](https://github.com/FJrodafo/port-finder)/[gitlab](ht
 
 Visit the npm package website [here](https://www.npmjs.com/package/@fjrodafo/port-finder).
 
-<link rel="stylesheet" href="./../README.css">
+<link rel="stylesheet" href="./../../README.css">
 <a class="scrollup" href="#top">&#x1F53C</a>

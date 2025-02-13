@@ -144,5 +144,5 @@ This is an example of some privileges:
 GRANT CREATE, ALTER, DROP, INSERT, UPDATE, INDEX, DELETE, SELECT, REFERENCES, RELOAD on users.* TO 'fjrodafo'@'localhost' WITH GRANT OPTION;
 ```
 
-<link rel="stylesheet" href="./../README.css">
+<link rel="stylesheet" href="./../../README.css">
 <a class="scrollup" href="#top">&#x1F53C</a>

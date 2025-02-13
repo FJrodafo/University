@@ -45,5 +45,5 @@ Now all that remains is to run the script. To do this you have to open a termina
 
 This is all you need to know to start writing your scripts!
 
-<link rel="stylesheet" href="./../README.css">
+<link rel="stylesheet" href="./../../README.css">
 <a class="scrollup" href="#top">&#x1F53C</a>

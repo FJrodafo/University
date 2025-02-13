@@ -12,3 +12,6 @@ Se desea realizar una base de datos que permita apoyar la gestión de un sistema
 <summary>Solución</summary>
 <img src="https://raw.githubusercontent.com/FJrodafo/University/main/DAW/BAE/Unidad-2/Tarea-2/Assets/Diagram.drawio.png">
 </details>
+
+<link rel="stylesheet" href="./../../../../README.css">
+<a class="scrollup" href="#top">&#x1F53C</a>

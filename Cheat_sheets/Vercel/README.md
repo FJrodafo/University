@@ -56,5 +56,5 @@ Auto-detected Project Settings (Create React App):
 💡  To change the domain or build command, go to https://vercel.com/fjrodafos-projects/fjrodafo/settings
 ```
 
-<link rel="stylesheet" href="./../README.css">
+<link rel="stylesheet" href="./../../README.css">
 <a class="scrollup" href="#top">&#x1F53C</a>
