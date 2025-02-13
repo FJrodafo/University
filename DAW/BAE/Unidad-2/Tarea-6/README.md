@@ -2,28 +2,109 @@
 
 #### **Ejercicio 1**: Lista de Productos
 
-- Aplicar **1FN**, eliminando los valores multivaluados en "Proveedores".
+- Aplicar **1FN**, eliminando los valores multivaluados en la columna "proveedor".
 - Aplicar **2FN**, asegurando que cada campo dependa completamente de la clave primaria.
 
 <details>
 <summary>Tabla</summary>
 
-| ID_Producto | Nombre_Producto | Proveedores | Categoría  | Precio |
-| :---------: | :-------------- | :---------- | :--------- | :----: |
-| 1           | Laptop          | Dell, HP    | Tecnología | 1000   |
-| 2           | Mouse           | Logitech    | Accesorios | 25     |
+| id_producto | nombre | proveedor | categoria  | precio |
+| :---------: | :----- | :-------- | :--------- | :----: |
+| 1           | Laptop | Dell, HP  | Tecnología | 1000   |
+| 2           | Mouse  | Logitech  | Accesorios | 25     |
 </details>
 <details>
-<summary>Solución</summary>
+<summary>Solución 1FN</summary>
 
-| ID_Producto | Nombre_Producto | Proveedores | Categoría  | Precio |
-| :---------: | :-------------- | :---------- | :--------- | :----: |
-| 1           | Laptop          | Dell, HP    | Tecnología | 1000   |
-| 2           | Mouse           | Logitech    | Accesorios | 25     |
+| id_producto | nombre | proveedor | categoria  | precio |
+| :---------: | :----- | :-------- | :--------- | :----: |
+| 1           | Laptop | Dell      | Tecnología | 1000   |
+| 1           | Laptop | HP        | Tecnología | 1000   |
+| 2           | Mouse  | Logitech  | Accesorios | 25     |
 </details>
 <details>
-<summary>E/R</summary>
-<img src="https://raw.githubusercontent.com/FJrodafo/University/main/DAW/BAE/Unidad-2/Tarea-6/Assets/Diagrams/1.drawio.svg">
+<summary>Solución 2FN</summary>
+
+| id_producto | nombre | categoria  | precio |
+| :---------: | :----- | :--------- | :----: |
+| 1           | Laptop | Tecnología | 1000   |
+| 2           | Mouse  | Accesorios | 25     |
+
+| id_producto | proveedor |
+| :---------: | :-------- |
+| 1           | Dell      |
+| 1           | HP        |
+| 2           | Logitech  |
+</details>
+<details>
+<summary>Diagrama</summary>
+<img src="https://raw.githubusercontent.com/FJrodafo/University/main/DAW/BAE/Unidad-2/Tarea-6/Assets/Diagrams/lista_de_productos.drawio.svg">
+</details>
+<details>
+<summary>SQL</summary>
+
+```sql
+--  ╔╗ ┌─┐┌─┐┌─┐  ┌┬┐┌─┐  ╔╦╗┌─┐┌┬┐┌─┐┌─┐
+--  ╠╩╗├─┤└─┐├┤    ││├┤    ║║├─┤ │ │ │└─┐
+--  ╚═╝┴ ┴└─┘└─┘  ─┴┘└─┘  ═╩╝┴ ┴ ┴ └─┘└─┘
+
+-- Eliminar la base de datos si ya existe
+DROP DATABASE IF EXISTS lista_de_productos_db;
+
+-- Crear la base de datos
+CREATE DATABASE lista_de_productos_db;
+
+-- Seleccionar la base de datos a usar
+USE lista_de_productos_db;
+
+--  ╔╦╗┬─┐┌─┐┌─┐  ╔╦╗┌─┐┌┐ ┬  ┌─┐
+--   ║║├┬┘│ │├─┘   ║ ├─┤├┴┐│  ├┤ 
+--  ═╩╝┴└─└─┘┴     ╩ ┴ ┴└─┘┴─┘└─┘
+
+-- Eliminar las tablas si ya existen (para evitar errores al crear las tablas)
+DROP TABLE IF EXISTS Productos;
+DROP TABLE IF EXISTS Proveedores;
+
+--  ╔═╗┬─┐┌─┐┌─┐┌┬┐┌─┐  ╔╦╗┌─┐┌┐ ┬  ┌─┐
+--  ║  ├┬┘├┤ ├─┤ │ ├┤    ║ ├─┤├┴┐│  ├┤ 
+--  ╚═╝┴└─└─┘┴ ┴ ┴ └─┘   ╩ ┴ ┴└─┘┴─┘└─┘
+
+-- Crear tabla Productos
+CREATE TABLE Productos (
+    id_producto INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(100) NOT NULL,
+    categoria VARCHAR(50) NOT NULL,
+    precio DECIMAL(10, 2) NOT NULL,
+    CONSTRAINT Unico_Producto UNIQUE (nombre) -- Aseguramos que no haya duplicados en productos (si aplica)
+);
+
+-- Crear tabla Proveedores
+CREATE TABLE Proveedores (
+    id_producto INT,
+    proveedor VARCHAR(100) NOT NULL,
+    PRIMARY KEY (id_producto, proveedor),
+    FOREIGN KEY (id_producto) REFERENCES Productos(id_producto)
+        ON DELETE CASCADE, -- Elimina proveedores si el producto es eliminado
+    CONSTRAINT Unico_Proveedor UNIQUE (id_producto, proveedor) -- Evitar duplicados de proveedor por producto
+);
+
+--  ╦┌┐┌┌─┐┌─┐┬─┐┌┬┐  ╦  ╦┌─┐┬  ┬ ┬┌─┐┌─┐
+--  ║│││└─┐├┤ ├┬┘ │   ╚╗╔╝├─┤│  │ │├┤ └─┐
+--  ╩┘└┘└─┘└─┘┴└─ ┴    ╚╝ ┴ ┴┴─┘└─┘└─┘└─┘
+
+-- Insertar en la tabla Productos
+INSERT INTO Productos (id_producto, nombre, categoria, precio)
+VALUES
+    (1, 'Laptop', 'Tecnología', 1000.00),
+    (2, 'Mouse', 'Accesorios', 25.00);
+
+-- Insertar en la tabla Proveedores
+INSERT INTO Proveedores (id_producto, proveedor)
+VALUES
+    (1, 'Dell'),
+    (1, 'HP'),
+    (2, 'Logitech');
+```
 </details>
 
 ---
@@ -36,246 +117,687 @@
 <details>
 <summary>Tabla</summary>
 
-| ID_Pedido | Cliente    | Dirección   | Producto | Cantidad | Precio |
+| id_pedido | cliente    | direccion   | producto | cantidad | precio |
 | :-------: | :--------- | :---------- | :------- | :------: | :----: |
 | 101       | Juan Pérez | Calle 123   | Laptop   | 1        | 1000   |
 | 102       | Ana López  | Av. Central | Teclado  | 2        | 50     |
 </details>
 <details>
-<summary>Solución</summary>
+<summary>Solución 1FN</summary>
 
-| ID_Pedido | Cliente    | Dirección   | Producto | Cantidad | Precio |
+| id_pedido | cliente    | direccion   | producto | cantidad | precio |
 | :-------: | :--------- | :---------- | :------- | :------: | :----: |
 | 101       | Juan Pérez | Calle 123   | Laptop   | 1        | 1000   |
 | 102       | Ana López  | Av. Central | Teclado  | 2        | 50     |
 </details>
 <details>
-<summary>E/R</summary>
-<img src="https://raw.githubusercontent.com/FJrodafo/University/main/DAW/BAE/Unidad-2/Tarea-6/Assets/Diagrams/2.drawio.svg">
+<summary>Solución 2FN</summary>
+
+| id_pedido | cliente    | direccion   | producto | cantidad | precio |
+| :-------: | :--------- | :---------- | :------- | :------: | :----: |
+| 101       | Juan Pérez | Calle 123   | Laptop   | 1        | 1000   |
+| 102       | Ana López  | Av. Central | Teclado  | 2        | 50     |
+</details>
+<details>
+<summary>Diagrama</summary>
+<img src="https://raw.githubusercontent.com/FJrodafo/University/main/DAW/BAE/Unidad-2/Tarea-6/Assets/Diagrams/pedidos_de_clientes.drawio.svg">
+</details>
+<details>
+<summary>SQL</summary>
+
+```sql
+--  ╔╗ ┌─┐┌─┐┌─┐  ┌┬┐┌─┐  ╔╦╗┌─┐┌┬┐┌─┐┌─┐
+--  ╠╩╗├─┤└─┐├┤    ││├┤    ║║├─┤ │ │ │└─┐
+--  ╚═╝┴ ┴└─┘└─┘  ─┴┘└─┘  ═╩╝┴ ┴ ┴ └─┘└─┘
+
+-- Eliminar la base de datos si ya existe
+DROP DATABASE IF EXISTS pedidos_de_clientes_db;
+
+-- Crear la base de datos
+CREATE DATABASE pedidos_de_clientes_db;
+
+-- Seleccionar la base de datos a usar
+USE pedidos_de_clientes_db;
+
+--  ╔╦╗┬─┐┌─┐┌─┐  ╔╦╗┌─┐┌┐ ┬  ┌─┐
+--   ║║├┬┘│ │├─┘   ║ ├─┤├┴┐│  ├┤ 
+--  ═╩╝┴└─└─┘┴     ╩ ┴ ┴└─┘┴─┘└─┘
+
+-- Eliminar las tablas si ya existen (para evitar errores al crear las tablas)
+DROP TABLE IF EXISTS ;
+
+--  ╔═╗┬─┐┌─┐┌─┐┌┬┐┌─┐  ╔╦╗┌─┐┌┐ ┬  ┌─┐
+--  ║  ├┬┘├┤ ├─┤ │ ├┤    ║ ├─┤├┴┐│  ├┤ 
+--  ╚═╝┴└─└─┘┴ ┴ ┴ └─┘   ╩ ┴ ┴└─┘┴─┘└─┘
+
+-- Crear tabla 
+CREATE TABLE  ();
+
+--  ╦┌┐┌┌─┐┌─┐┬─┐┌┬┐  ╦  ╦┌─┐┬  ┬ ┬┌─┐┌─┐
+--  ║│││└─┐├┤ ├┬┘ │   ╚╗╔╝├─┤│  │ │├┤ └─┐
+--  ╩┘└┘└─┘└─┘┴└─ ┴    ╚╝ ┴ ┴┴─┘└─┘└─┘└─┘
+
+-- Insertar en la tabla 
+INSERT INTO  ()
+VALUES
+    ();
+```
 </details>
 
 ---
 
 #### **Ejercicio 3**: Registro de Empleados
 
-- Aplicar **1FN**, eliminando los valores multivaluados en "Teléfonos".
+- Aplicar **1FN**, eliminando los valores multivaluados en la columna "telefono".
 - Aplicar **2FN**, asegurando que cada atributo dependa completamente de la clave primaria.
 
 <details>
 <summary>Tabla</summary>
 
-| ID_Empleado | Nombre    | Teléfonos    | Departamento |
+| id_empleado | nombre    | telefono     | departamento |
 | :---------: | :-------: | :----------: | :----------: |
 | 1           | Carlos R. | 12345, 67890 | Ventas       |
 | 2           | Laura M.  | 54321        | Finanzas     |
 </details>
 <details>
-<summary>Solución</summary>
+<summary>Solución 1FN</summary>
 
-| ID_Empleado | Nombre    | Teléfonos    | Departamento |
+| id_empleado | nombre    | telefono     | departamento |
 | :---------: | :-------: | :----------: | :----------: |
 | 1           | Carlos R. | 12345, 67890 | Ventas       |
 | 2           | Laura M.  | 54321        | Finanzas     |
 </details>
 <details>
-<summary>E/R</summary>
-<img src="https://raw.githubusercontent.com/FJrodafo/University/main/DAW/BAE/Unidad-2/Tarea-6/Assets/Diagrams/3.drawio.svg">
+<summary>Solución 2FN</summary>
+
+| id_empleado | nombre    | telefono     | departamento |
+| :---------: | :-------: | :----------: | :----------: |
+| 1           | Carlos R. | 12345, 67890 | Ventas       |
+| 2           | Laura M.  | 54321        | Finanzas     |
+</details>
+<details>
+<summary>Diagrama</summary>
+<img src="https://raw.githubusercontent.com/FJrodafo/University/main/DAW/BAE/Unidad-2/Tarea-6/Assets/Diagrams/registro_de_empleados.drawio.svg">
+</details>
+<details>
+<summary>SQL</summary>
+
+```sql
+--  ╔╗ ┌─┐┌─┐┌─┐  ┌┬┐┌─┐  ╔╦╗┌─┐┌┬┐┌─┐┌─┐
+--  ╠╩╗├─┤└─┐├┤    ││├┤    ║║├─┤ │ │ │└─┐
+--  ╚═╝┴ ┴└─┘└─┘  ─┴┘└─┘  ═╩╝┴ ┴ ┴ └─┘└─┘
+
+-- Eliminar la base de datos si ya existe
+DROP DATABASE IF EXISTS registro_de_empleados_db;
+
+-- Crear la base de datos
+CREATE DATABASE registro_de_empleados_db;
+
+-- Seleccionar la base de datos a usar
+USE registro_de_empleados_db;
+
+--  ╔╦╗┬─┐┌─┐┌─┐  ╔╦╗┌─┐┌┐ ┬  ┌─┐
+--   ║║├┬┘│ │├─┘   ║ ├─┤├┴┐│  ├┤ 
+--  ═╩╝┴└─└─┘┴     ╩ ┴ ┴└─┘┴─┘└─┘
+
+-- Eliminar las tablas si ya existen (para evitar errores al crear las tablas)
+DROP TABLE IF EXISTS ;
+
+--  ╔═╗┬─┐┌─┐┌─┐┌┬┐┌─┐  ╔╦╗┌─┐┌┐ ┬  ┌─┐
+--  ║  ├┬┘├┤ ├─┤ │ ├┤    ║ ├─┤├┴┐│  ├┤ 
+--  ╚═╝┴└─└─┘┴ ┴ ┴ └─┘   ╩ ┴ ┴└─┘┴─┘└─┘
+
+-- Crear tabla 
+CREATE TABLE  ();
+
+--  ╦┌┐┌┌─┐┌─┐┬─┐┌┬┐  ╦  ╦┌─┐┬  ┬ ┬┌─┐┌─┐
+--  ║│││└─┐├┤ ├┬┘ │   ╚╗╔╝├─┤│  │ │├┤ └─┐
+--  ╩┘└┘└─┘└─┘┴└─ ┴    ╚╝ ┴ ┴┴─┘└─┘└─┘└─┘
+
+-- Insertar en la tabla 
+INSERT INTO  ()
+VALUES
+    ();
+```
 </details>
 
 ---
 
 #### **Ejercicio 4**: Reservas de Hotel
 
-- Aplicar **1FN**, eliminando los valores multivaluados en "Fechas".
+- Aplicar **1FN**, eliminando los valores multivaluados en la columna "fecha".
 - Aplicar **2FN**, asegurando que las dependencias parciales sean eliminadas.
 
 <details>
 <summary>Tabla</summary>
 
-| ID_Reserva | Cliente  | Habitación | Fechas              | Precio |
+| id_reserva | cliente  | habitacion | fecha               | precio |
 | :--------: | :------- | :--------: | :-----------------: | :----: |
 | 5001       | Pedro G. | 101        | 01/02, 02/02, 03/02 | 300    |
 | 5002       | María T. | 202        | 10/03, 11/03        | 200    |
 </details>
 <details>
-<summary>Solución</summary>
+<summary>Solución 1FN</summary>
 
-| ID_Reserva | Cliente  | Habitación | Fechas              | Precio |
+| id_reserva | cliente  | habitacion | fecha               | precio |
 | :--------: | :------- | :--------: | :-----------------: | :----: |
 | 5001       | Pedro G. | 101        | 01/02, 02/02, 03/02 | 300    |
 | 5002       | María T. | 202        | 10/03, 11/03        | 200    |
 </details>
 <details>
-<summary>E/R</summary>
-<img src="https://raw.githubusercontent.com/FJrodafo/University/main/DAW/BAE/Unidad-2/Tarea-6/Assets/Diagrams/4.drawio.svg">
+<summary>Solución 2FN</summary>
+
+| id_reserva | cliente  | habitacion | fecha               | precio |
+| :--------: | :------- | :--------: | :-----------------: | :----: |
+| 5001       | Pedro G. | 101        | 01/02, 02/02, 03/02 | 300    |
+| 5002       | María T. | 202        | 10/03, 11/03        | 200    |
+</details>
+<details>
+<summary>Diagrama</summary>
+<img src="https://raw.githubusercontent.com/FJrodafo/University/main/DAW/BAE/Unidad-2/Tarea-6/Assets/Diagrams/reservas_de_hotel.drawio.svg">
+</details>
+<details>
+<summary>SQL</summary>
+
+```sql
+--  ╔╗ ┌─┐┌─┐┌─┐  ┌┬┐┌─┐  ╔╦╗┌─┐┌┬┐┌─┐┌─┐
+--  ╠╩╗├─┤└─┐├┤    ││├┤    ║║├─┤ │ │ │└─┐
+--  ╚═╝┴ ┴└─┘└─┘  ─┴┘└─┘  ═╩╝┴ ┴ ┴ └─┘└─┘
+
+-- Eliminar la base de datos si ya existe
+DROP DATABASE IF EXISTS reservas_de_hotel_db;
+
+-- Crear la base de datos
+CREATE DATABASE reservas_de_hotel_db;
+
+-- Seleccionar la base de datos a usar
+USE reservas_de_hotel_db;
+
+--  ╔╦╗┬─┐┌─┐┌─┐  ╔╦╗┌─┐┌┐ ┬  ┌─┐
+--   ║║├┬┘│ │├─┘   ║ ├─┤├┴┐│  ├┤ 
+--  ═╩╝┴└─└─┘┴     ╩ ┴ ┴└─┘┴─┘└─┘
+
+-- Eliminar las tablas si ya existen (para evitar errores al crear las tablas)
+DROP TABLE IF EXISTS ;
+
+--  ╔═╗┬─┐┌─┐┌─┐┌┬┐┌─┐  ╔╦╗┌─┐┌┐ ┬  ┌─┐
+--  ║  ├┬┘├┤ ├─┤ │ ├┤    ║ ├─┤├┴┐│  ├┤ 
+--  ╚═╝┴└─└─┘┴ ┴ ┴ └─┘   ╩ ┴ ┴└─┘┴─┘└─┘
+
+-- Crear tabla 
+CREATE TABLE  ();
+
+--  ╦┌┐┌┌─┐┌─┐┬─┐┌┬┐  ╦  ╦┌─┐┬  ┬ ┬┌─┐┌─┐
+--  ║│││└─┐├┤ ├┬┘ │   ╚╗╔╝├─┤│  │ │├┤ └─┐
+--  ╩┘└┘└─┘└─┘┴└─ ┴    ╚╝ ┴ ┴┴─┘└─┘└─┘└─┘
+
+-- Insertar en la tabla 
+INSERT INTO  ()
+VALUES
+    ();
+```
 </details>
 
 ---
 
 #### **Ejercicio 5**: Inscripciones a Cursos
 
-- Aplicar **1FN**, eliminando valores multivaluados en "Horarios".
+- Aplicar **1FN**, eliminando valores multivaluados en la columna "horario".
 - Aplicar **2FN**, asegurando que cada campo dependa completamente de la clave primaria.
 
 <details>
 <summary>Tabla</summary>
 
-| ID_Inscripción | Estudiante | Curso       | Profesor    | Horarios                  |
+| id_inscripcion | estudiante | curso       | profesor    | horario                   |
 | :------------: | :--------- | :---------- | :---------- | :------------------------ |
 | 3001           | Luis R.    | Matemáticas | Prof. Pérez | Lunes 10AM, Miércoles 2PM |
 | 3002           | Ana S.     | Física      | Prof. Gómez | Martes 3PM                |
 </details>
 <details>
-<summary>Solución</summary>
+<summary>Solución 1FN</summary>
 
-| ID_Inscripción | Estudiante | Curso       | Profesor    | Horarios                  |
+| id_inscripcion | estudiante | curso       | profesor    | horario                   |
 | :------------: | :--------- | :---------- | :---------- | :------------------------ |
 | 3001           | Luis R.    | Matemáticas | Prof. Pérez | Lunes 10AM, Miércoles 2PM |
 | 3002           | Ana S.     | Física      | Prof. Gómez | Martes 3PM                |
 </details>
 <details>
-<summary>E/R</summary>
-<img src="https://raw.githubusercontent.com/FJrodafo/University/main/DAW/BAE/Unidad-2/Tarea-6/Assets/Diagrams/5.drawio.svg">
+<summary>Solución 2FN</summary>
+
+| id_inscripcion | estudiante | curso       | profesor    | horario                   |
+| :------------: | :--------- | :---------- | :---------- | :------------------------ |
+| 3001           | Luis R.    | Matemáticas | Prof. Pérez | Lunes 10AM, Miércoles 2PM |
+| 3002           | Ana S.     | Física      | Prof. Gómez | Martes 3PM                |
+</details>
+<details>
+<summary>Diagrama</summary>
+<img src="https://raw.githubusercontent.com/FJrodafo/University/main/DAW/BAE/Unidad-2/Tarea-6/Assets/Diagrams/inscripciones_a_cursos.drawio.svg">
+</details>
+<details>
+<summary>SQL</summary>
+
+```sql
+--  ╔╗ ┌─┐┌─┐┌─┐  ┌┬┐┌─┐  ╔╦╗┌─┐┌┬┐┌─┐┌─┐
+--  ╠╩╗├─┤└─┐├┤    ││├┤    ║║├─┤ │ │ │└─┐
+--  ╚═╝┴ ┴└─┘└─┘  ─┴┘└─┘  ═╩╝┴ ┴ ┴ └─┘└─┘
+
+-- Eliminar la base de datos si ya existe
+DROP DATABASE IF EXISTS inscripciones_a_cursos_db;
+
+-- Crear la base de datos
+CREATE DATABASE inscripciones_a_cursos_db;
+
+-- Seleccionar la base de datos a usar
+USE inscripciones_a_cursos_db;
+
+--  ╔╦╗┬─┐┌─┐┌─┐  ╔╦╗┌─┐┌┐ ┬  ┌─┐
+--   ║║├┬┘│ │├─┘   ║ ├─┤├┴┐│  ├┤ 
+--  ═╩╝┴└─└─┘┴     ╩ ┴ ┴└─┘┴─┘└─┘
+
+-- Eliminar las tablas si ya existen (para evitar errores al crear las tablas)
+DROP TABLE IF EXISTS ;
+
+--  ╔═╗┬─┐┌─┐┌─┐┌┬┐┌─┐  ╔╦╗┌─┐┌┐ ┬  ┌─┐
+--  ║  ├┬┘├┤ ├─┤ │ ├┤    ║ ├─┤├┴┐│  ├┤ 
+--  ╚═╝┴└─└─┘┴ ┴ ┴ └─┘   ╩ ┴ ┴└─┘┴─┘└─┘
+
+-- Crear tabla 
+CREATE TABLE  ();
+
+--  ╦┌┐┌┌─┐┌─┐┬─┐┌┬┐  ╦  ╦┌─┐┬  ┬ ┬┌─┐┌─┐
+--  ║│││└─┐├┤ ├┬┘ │   ╚╗╔╝├─┤│  │ │├┤ └─┐
+--  ╩┘└┘└─┘└─┘┴└─ ┴    ╚╝ ┴ ┴┴─┘└─┘└─┘└─┘
+
+-- Insertar en la tabla 
+INSERT INTO  ()
+VALUES
+    ();
+```
 </details>
 
 ---
 
 #### **Ejercicio 6**: Ventas de Tienda
 
-- Aplicar **1FN**, separando valores multivaluados en "Productos Comprados".
+- Aplicar **1FN**, separando valores multivaluados en la columna "producto_comprado".
 - Aplicar **2FN**, asegurando que cada atributo dependa completamente de la clave primaria.
 
 <details>
 <summary>Tabla</summary>
 
-| ID_Venta | Cliente   | Productos Comprados | Total |
-| :------: | :-------- | :------------------ | :---: |
-| 8001     | Juan P.   | Celular, Funda      | 500   |
-| 8002     | Andrea M. | Laptop              | 1000  |
+| id_venta | cliente   | producto_comprado | costo_total |
+| :------: | :-------- | :---------------- | :---------: |
+| 8001     | Juan P.   | Celular, Funda    | 500         |
+| 8002     | Andrea M. | Laptop            | 1000        |
 </details>
 <details>
-<summary>Solución</summary>
+<summary>Solución 1FN</summary>
 
-| ID_Venta | Cliente   | Productos Comprados | Total |
-| :------: | :-------- | :------------------ | :---: |
-| 8001     | Juan P.   | Celular, Funda      | 500   |
-| 8002     | Andrea M. | Laptop              | 1000  |
+| id_venta | cliente   | producto_comprado | costo_total |
+| :------: | :-------- | :---------------- | :---------: |
+| 8001     | Juan P.   | Celular, Funda    | 500         |
+| 8002     | Andrea M. | Laptop            | 1000        |
 </details>
 <details>
-<summary>E/R</summary>
-<img src="https://raw.githubusercontent.com/FJrodafo/University/main/DAW/BAE/Unidad-2/Tarea-6/Assets/Diagrams/6.drawio.svg">
+<summary>Solución 2FN</summary>
+
+| id_venta | cliente   | producto_comprado | costo_total |
+| :------: | :-------- | :---------------- | :---------: |
+| 8001     | Juan P.   | Celular, Funda    | 500         |
+| 8002     | Andrea M. | Laptop            | 1000        |
+</details>
+<details>
+<summary>Diagrama</summary>
+<img src="https://raw.githubusercontent.com/FJrodafo/University/main/DAW/BAE/Unidad-2/Tarea-6/Assets/Diagrams/ventas_de_tienda.drawio.svg">
+</details>
+<details>
+<summary>SQL</summary>
+
+```sql
+--  ╔╗ ┌─┐┌─┐┌─┐  ┌┬┐┌─┐  ╔╦╗┌─┐┌┬┐┌─┐┌─┐
+--  ╠╩╗├─┤└─┐├┤    ││├┤    ║║├─┤ │ │ │└─┐
+--  ╚═╝┴ ┴└─┘└─┘  ─┴┘└─┘  ═╩╝┴ ┴ ┴ └─┘└─┘
+
+-- Eliminar la base de datos si ya existe
+DROP DATABASE IF EXISTS ventas_de_tienda_db;
+
+-- Crear la base de datos
+CREATE DATABASE ventas_de_tienda_db;
+
+-- Seleccionar la base de datos a usar
+USE ventas_de_tienda_db;
+
+--  ╔╦╗┬─┐┌─┐┌─┐  ╔╦╗┌─┐┌┐ ┬  ┌─┐
+--   ║║├┬┘│ │├─┘   ║ ├─┤├┴┐│  ├┤ 
+--  ═╩╝┴└─└─┘┴     ╩ ┴ ┴└─┘┴─┘└─┘
+
+-- Eliminar las tablas si ya existen (para evitar errores al crear las tablas)
+DROP TABLE IF EXISTS ;
+
+--  ╔═╗┬─┐┌─┐┌─┐┌┬┐┌─┐  ╔╦╗┌─┐┌┐ ┬  ┌─┐
+--  ║  ├┬┘├┤ ├─┤ │ ├┤    ║ ├─┤├┴┐│  ├┤ 
+--  ╚═╝┴└─└─┘┴ ┴ ┴ └─┘   ╩ ┴ ┴└─┘┴─┘└─┘
+
+-- Crear tabla 
+CREATE TABLE  ();
+
+--  ╦┌┐┌┌─┐┌─┐┬─┐┌┬┐  ╦  ╦┌─┐┬  ┬ ┬┌─┐┌─┐
+--  ║│││└─┐├┤ ├┬┘ │   ╚╗╔╝├─┤│  │ │├┤ └─┐
+--  ╩┘└┘└─┘└─┘┴└─ ┴    ╚╝ ┴ ┴┴─┘└─┘└─┘└─┘
+
+-- Insertar en la tabla 
+INSERT INTO  ()
+VALUES
+    ();
+```
 </details>
 
 ---
 
 #### **Ejercicio 7**: Biblioteca de Libros
 
-- Aplicar **1FN**, eliminando valores multivaluados en "Autores".
+- Aplicar **1FN**, eliminando valores multivaluados en la columna "autor".
 - Aplicar **2FN**, asegurando que cada atributo dependa completamente de la clave primaria.
 
 <details>
 <summary>Tabla</summary>
 
-| ID_Libro | Título     | Autores   | Género          |
+| id_libro | titulo     | autor     | genero          |
 | :------: | :--------- | :-------- | :-------------- |
 | 101      | El Quijote | Cervantes | Novela          |
 | 102      | 1984       | Orwell    | Ciencia Ficción |
 </details>
 <details>
-<summary>Solución</summary>
+<summary>Solución 1FN</summary>
 
-| ID_Libro | Título     | Autores   | Género          |
+| id_libro | titulo     | autor     | genero          |
 | :------: | :--------- | :-------- | :-------------- |
 | 101      | El Quijote | Cervantes | Novela          |
 | 102      | 1984       | Orwell    | Ciencia Ficción |
 </details>
 <details>
-<summary>E/R</summary>
-<img src="https://raw.githubusercontent.com/FJrodafo/University/main/DAW/BAE/Unidad-2/Tarea-6/Assets/Diagrams/7.drawio.svg">
+<summary>Solución 2FN</summary>
+
+| id_libro | titulo     | autor     | genero          |
+| :------: | :--------- | :-------- | :-------------- |
+| 101      | El Quijote | Cervantes | Novela          |
+| 102      | 1984       | Orwell    | Ciencia Ficción |
+</details>
+<details>
+<summary>Diagrama</summary>
+<img src="https://raw.githubusercontent.com/FJrodafo/University/main/DAW/BAE/Unidad-2/Tarea-6/Assets/Diagrams/biblioteca_de_libros.drawio.svg">
+</details>
+<details>
+<summary>SQL</summary>
+
+```sql
+--  ╔╗ ┌─┐┌─┐┌─┐  ┌┬┐┌─┐  ╔╦╗┌─┐┌┬┐┌─┐┌─┐
+--  ╠╩╗├─┤└─┐├┤    ││├┤    ║║├─┤ │ │ │└─┐
+--  ╚═╝┴ ┴└─┘└─┘  ─┴┘└─┘  ═╩╝┴ ┴ ┴ └─┘└─┘
+
+-- Eliminar la base de datos si ya existe
+DROP DATABASE IF EXISTS biblioteca_de_libros_db;
+
+-- Crear la base de datos
+CREATE DATABASE biblioteca_de_libros_db;
+
+-- Seleccionar la base de datos a usar
+USE biblioteca_de_libros_db;
+
+--  ╔╦╗┬─┐┌─┐┌─┐  ╔╦╗┌─┐┌┐ ┬  ┌─┐
+--   ║║├┬┘│ │├─┘   ║ ├─┤├┴┐│  ├┤ 
+--  ═╩╝┴└─└─┘┴     ╩ ┴ ┴└─┘┴─┘└─┘
+
+-- Eliminar las tablas si ya existen (para evitar errores al crear las tablas)
+DROP TABLE IF EXISTS ;
+
+--  ╔═╗┬─┐┌─┐┌─┐┌┬┐┌─┐  ╔╦╗┌─┐┌┐ ┬  ┌─┐
+--  ║  ├┬┘├┤ ├─┤ │ ├┤    ║ ├─┤├┴┐│  ├┤ 
+--  ╚═╝┴└─└─┘┴ ┴ ┴ └─┘   ╩ ┴ ┴└─┘┴─┘└─┘
+
+-- Crear tabla 
+CREATE TABLE  ();
+
+--  ╦┌┐┌┌─┐┌─┐┬─┐┌┬┐  ╦  ╦┌─┐┬  ┬ ┬┌─┐┌─┐
+--  ║│││└─┐├┤ ├┬┘ │   ╚╗╔╝├─┤│  │ │├┤ └─┐
+--  ╩┘└┘└─┘└─┘┴└─ ┴    ╚╝ ┴ ┴┴─┘└─┘└─┘└─┘
+
+-- Insertar en la tabla 
+INSERT INTO  ()
+VALUES
+    ();
+```
 </details>
 
 ---
 
 #### **Ejercicio 8**: Facturación de Servicios
 
-- Aplicar **1FN**, separando valores multivaluados en "Servicios Contratados".
+- Aplicar **1FN**, separando valores multivaluados en la columna "servicio_contratado".
 - Aplicar **2FN**, asegurando que cada atributo dependa completamente de la clave primaria.
 
 <details>
 <summary>Tabla</summary>
 
-| ID_Factura | Cliente | Servicios Contratados | Costo Total |
-| :--------: | :------ | :-------------------- | :---------: |
-| 9001       | Juan P. | Internet, TV          | 50          |
-| 9002       | Ana M.  | Teléfono              | 20          |
+| id_factura | cliente | servicio_contratado | costo_total |
+| :--------: | :------ | :------------------ | :---------: |
+| 9001       | Juan P. | Internet, TV        | 50          |
+| 9002       | Ana M.  | Teléfono            | 20          |
 </details>
 <details>
-<summary>Solución</summary>
+<summary>Solución 1FN</summary>
 
-| ID_Factura | Cliente | Servicios Contratados | Costo Total |
-| :--------: | :------ | :-------------------- | :---------: |
-| 9001       | Juan P. | Internet, TV          | 50          |
-| 9002       | Ana M.  | Teléfono              | 20          |
+| id_factura | cliente | servicio_contratado | costo_total |
+| :--------: | :------ | :------------------ | :---------: |
+| 9001       | Juan P. | Internet, TV        | 50          |
+| 9002       | Ana M.  | Teléfono            | 20          |
 </details>
 <details>
-<summary>E/R</summary>
-<img src="https://raw.githubusercontent.com/FJrodafo/University/main/DAW/BAE/Unidad-2/Tarea-6/Assets/Diagrams/8.drawio.svg">
+<summary>Solución 2FN</summary>
+
+| id_factura | cliente | servicio_contratado | costo_total |
+| :--------: | :------ | :------------------ | :---------: |
+| 9001       | Juan P. | Internet, TV        | 50          |
+| 9002       | Ana M.  | Teléfono            | 20          |
+</details>
+<details>
+<summary>Diagrama</summary>
+<img src="https://raw.githubusercontent.com/FJrodafo/University/main/DAW/BAE/Unidad-2/Tarea-6/Assets/Diagrams/facturacion_de_servicios.drawio.svg">
+</details>
+<details>
+<summary>SQL</summary>
+
+```sql
+--  ╔╗ ┌─┐┌─┐┌─┐  ┌┬┐┌─┐  ╔╦╗┌─┐┌┬┐┌─┐┌─┐
+--  ╠╩╗├─┤└─┐├┤    ││├┤    ║║├─┤ │ │ │└─┐
+--  ╚═╝┴ ┴└─┘└─┘  ─┴┘└─┘  ═╩╝┴ ┴ ┴ └─┘└─┘
+
+-- Eliminar la base de datos si ya existe
+DROP DATABASE IF EXISTS facturacion_de_servicios_db;
+
+-- Crear la base de datos
+CREATE DATABASE facturacion_de_servicios_db;
+
+-- Seleccionar la base de datos a usar
+USE facturacion_de_servicios_db;
+
+--  ╔╦╗┬─┐┌─┐┌─┐  ╔╦╗┌─┐┌┐ ┬  ┌─┐
+--   ║║├┬┘│ │├─┘   ║ ├─┤├┴┐│  ├┤ 
+--  ═╩╝┴└─└─┘┴     ╩ ┴ ┴└─┘┴─┘└─┘
+
+-- Eliminar las tablas si ya existen (para evitar errores al crear las tablas)
+DROP TABLE IF EXISTS ;
+
+--  ╔═╗┬─┐┌─┐┌─┐┌┬┐┌─┐  ╔╦╗┌─┐┌┐ ┬  ┌─┐
+--  ║  ├┬┘├┤ ├─┤ │ ├┤    ║ ├─┤├┴┐│  ├┤ 
+--  ╚═╝┴└─└─┘┴ ┴ ┴ └─┘   ╩ ┴ ┴└─┘┴─┘└─┘
+
+-- Crear tabla 
+CREATE TABLE  ();
+
+--  ╦┌┐┌┌─┐┌─┐┬─┐┌┬┐  ╦  ╦┌─┐┬  ┬ ┬┌─┐┌─┐
+--  ║│││└─┐├┤ ├┬┘ │   ╚╗╔╝├─┤│  │ │├┤ └─┐
+--  ╩┘└┘└─┘└─┘┴└─ ┴    ╚╝ ┴ ┴┴─┘└─┘└─┘└─┘
+
+-- Insertar en la tabla 
+INSERT INTO  ()
+VALUES
+    ();
+```
 </details>
 
 ---
 
 #### **Ejercicio 9**: Gestión de Vehículos
 
-- Aplicar **1FN**, eliminando valores multivaluados en "Modelos".
+- Aplicar **1FN**, eliminando valores multivaluados en la columna "modelo".
 - Aplicar **2FN**, asegurando que cada atributo dependa completamente de la clave primaria.
 
 <details>
 <summary>Tabla</summary>
 
-| ID_Vehículo | Marca  | Modelos        | Año  |
-| :---------: | :----- | :------------- | :--: |
-| 5001        | Toyota | Corolla, Yaris | 2022 |
-| 5002        | Honda  | Civic          | 2023 |
+| id_vehiculo | marca  | modelo         | anio  |
+| :---------: | :----- | :------------- | :---: |
+| 5001        | Toyota | Corolla, Yaris | 2022  |
+| 5002        | Honda  | Civic          | 2023  |
 </details>
 <details>
-<summary>Solución</summary>
+<summary>Solución 1FN</summary>
 
-| ID_Vehículo | Marca  | Modelos        | Año  |
-| :---------: | :----- | :------------- | :--: |
-| 5001        | Toyota | Corolla, Yaris | 2022 |
-| 5002        | Honda  | Civic          | 2023 |
+| id_vehiculo | marca  | modelo         | anio  |
+| :---------: | :----- | :------------- | :---: |
+| 5001        | Toyota | Corolla, Yaris | 2022  |
+| 5002        | Honda  | Civic          | 2023  |
 </details>
 <details>
-<summary>E/R</summary>
-<img src="https://raw.githubusercontent.com/FJrodafo/University/main/DAW/BAE/Unidad-2/Tarea-6/Assets/Diagrams/9.drawio.svg">
+<summary>Solución 2FN</summary>
+
+| id_vehiculo | marca  | modelo         | anio  |
+| :---------: | :----- | :------------- | :---: |
+| 5001        | Toyota | Corolla, Yaris | 2022  |
+| 5002        | Honda  | Civic          | 2023  |
+</details>
+<details>
+<summary>Diagrama</summary>
+<img src="https://raw.githubusercontent.com/FJrodafo/University/main/DAW/BAE/Unidad-2/Tarea-6/Assets/Diagrams/gestion_de_vehiculos.drawio.svg">
+</details>
+<details>
+<summary>SQL</summary>
+
+```sql
+--  ╔╗ ┌─┐┌─┐┌─┐  ┌┬┐┌─┐  ╔╦╗┌─┐┌┬┐┌─┐┌─┐
+--  ╠╩╗├─┤└─┐├┤    ││├┤    ║║├─┤ │ │ │└─┐
+--  ╚═╝┴ ┴└─┘└─┘  ─┴┘└─┘  ═╩╝┴ ┴ ┴ └─┘└─┘
+
+-- Eliminar la base de datos si ya existe
+DROP DATABASE IF EXISTS gestion_de_vehiculos_db;
+
+-- Crear la base de datos
+CREATE DATABASE gestion_de_vehiculos_db;
+
+-- Seleccionar la base de datos a usar
+USE gestion_de_vehiculos_db;
+
+--  ╔╦╗┬─┐┌─┐┌─┐  ╔╦╗┌─┐┌┐ ┬  ┌─┐
+--   ║║├┬┘│ │├─┘   ║ ├─┤├┴┐│  ├┤ 
+--  ═╩╝┴└─└─┘┴     ╩ ┴ ┴└─┘┴─┘└─┘
+
+-- Eliminar las tablas si ya existen (para evitar errores al crear las tablas)
+DROP TABLE IF EXISTS ;
+
+--  ╔═╗┬─┐┌─┐┌─┐┌┬┐┌─┐  ╔╦╗┌─┐┌┐ ┬  ┌─┐
+--  ║  ├┬┘├┤ ├─┤ │ ├┤    ║ ├─┤├┴┐│  ├┤ 
+--  ╚═╝┴└─└─┘┴ ┴ ┴ └─┘   ╩ ┴ ┴└─┘┴─┘└─┘
+
+-- Crear tabla 
+CREATE TABLE  ();
+
+--  ╦┌┐┌┌─┐┌─┐┬─┐┌┬┐  ╦  ╦┌─┐┬  ┬ ┬┌─┐┌─┐
+--  ║│││└─┐├┤ ├┬┘ │   ╚╗╔╝├─┤│  │ │├┤ └─┐
+--  ╩┘└┘└─┘└─┘┴└─ ┴    ╚╝ ┴ ┴┴─┘└─┘└─┘└─┘
+
+-- Insertar en la tabla 
+INSERT INTO  ()
+VALUES
+    ();
+```
 </details>
 
 ---
 
 #### **Ejercicio 10**: Gestión de Proyectos
 
-- Aplicar **1FN**, eliminando valores multivaluados en "Miembros".
+- Aplicar **1FN**, eliminando valores multivaluados en la columna "miembro".
 - Aplicar **2FN**, asegurando que cada atributo dependa completamente de la clave primaria.
 
 <details>
 <summary>Tabla</summary>
 
-| ID_Proyecto | Nombre     | Miembros     | Presupuesto |
+| id_proyecto | nombre     | miembro      | presupuesto |
 | :---------: | :--------- | :----------- | :---------: |
 | 7001        | Web App    | Juan, Ana    | 5000        |
 | 7002        | E-commerce | Pedro, María | 10000       |
 </details>
 <details>
-<summary>Solución</summary>
+<summary>Solución 1FN</summary>
 
-| ID_Vehículo | Marca  | Modelos        | Año  |
-| :---------: | :----- | :------------- | :--: |
-| 5001        | Toyota | Corolla, Yaris | 2022 |
-| 5002        | Honda  | Civic          | 2023 |
+| id_proyecto | nombre     | miembro      | presupuesto |
+| :---------: | :--------- | :----------- | :---------: |
+| 7001        | Web App    | Juan, Ana    | 5000        |
+| 7002        | E-commerce | Pedro, María | 10000       |
 </details>
 <details>
-<summary>E/R</summary>
-<img src="https://raw.githubusercontent.com/FJrodafo/University/main/DAW/BAE/Unidad-2/Tarea-6/Assets/Diagrams/9.drawio.svg">
+<summary>Solución 2FN</summary>
+
+| id_proyecto | nombre     | miembro      | presupuesto |
+| :---------: | :--------- | :----------- | :---------: |
+| 7001        | Web App    | Juan, Ana    | 5000        |
+| 7002        | E-commerce | Pedro, María | 10000       |
+</details>
+<details>
+<summary>Diagrama</summary>
+<img src="https://raw.githubusercontent.com/FJrodafo/University/main/DAW/BAE/Unidad-2/Tarea-6/Assets/Diagrams/gestion_de_proyectos.drawio.svg">
+</details>
+<details>
+<summary>SQL</summary>
+
+```sql
+--  ╔╗ ┌─┐┌─┐┌─┐  ┌┬┐┌─┐  ╔╦╗┌─┐┌┬┐┌─┐┌─┐
+--  ╠╩╗├─┤└─┐├┤    ││├┤    ║║├─┤ │ │ │└─┐
+--  ╚═╝┴ ┴└─┘└─┘  ─┴┘└─┘  ═╩╝┴ ┴ ┴ └─┘└─┘
+
+-- Eliminar la base de datos si ya existe
+DROP DATABASE IF EXISTS gestion_de_proyectos_db;
+
+-- Crear la base de datos
+CREATE DATABASE gestion_de_proyectos_db;
+
+-- Seleccionar la base de datos a usar
+USE gestion_de_proyectos_db;
+
+--  ╔╦╗┬─┐┌─┐┌─┐  ╔╦╗┌─┐┌┐ ┬  ┌─┐
+--   ║║├┬┘│ │├─┘   ║ ├─┤├┴┐│  ├┤ 
+--  ═╩╝┴└─└─┘┴     ╩ ┴ ┴└─┘┴─┘└─┘
+
+-- Eliminar las tablas si ya existen (para evitar errores al crear las tablas)
+DROP TABLE IF EXISTS ;
+
+--  ╔═╗┬─┐┌─┐┌─┐┌┬┐┌─┐  ╔╦╗┌─┐┌┐ ┬  ┌─┐
+--  ║  ├┬┘├┤ ├─┤ │ ├┤    ║ ├─┤├┴┐│  ├┤ 
+--  ╚═╝┴└─└─┘┴ ┴ ┴ └─┘   ╩ ┴ ┴└─┘┴─┘└─┘
+
+-- Crear tabla 
+CREATE TABLE  ();
+
+--  ╦┌┐┌┌─┐┌─┐┬─┐┌┬┐  ╦  ╦┌─┐┬  ┬ ┬┌─┐┌─┐
+--  ║│││└─┐├┤ ├┬┘ │   ╚╗╔╝├─┤│  │ │├┤ └─┐
+--  ╩┘└┘└─┘└─┘┴└─ ┴    ╚╝ ┴ ┴┴─┘└─┘└─┘└─┘
+
+-- Insertar en la tabla 
+INSERT INTO  ()
+VALUES
+    ();
+```
 </details>
 
 ---

@@ -1,4 +1,7 @@
 ```
+* Commit: 5fbc890 - Deleted <br />
+| Author: fjrodafo - Thu, 13 Feb 2025 19:56:34 +0000
+| 
 * Commit: 7f48c28 - DAW/BAE/Unidad-2/Tarea-6
 | Author: fjrodafo - Thu, 13 Feb 2025 19:43:02 +0000
 | 
