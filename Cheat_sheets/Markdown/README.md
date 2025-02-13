@@ -85,7 +85,7 @@
             <td>Table</td>
             <td>
                 <code>| Syntax      | Description |</code><br />
-                <code>| ----------- | ----------- |</code><br />
+                <code>| :---------: | :---------- |</code><br />
                 <code>| Header      | Title       |</code><br />
                 <code>| Paragraph   | Text        |</code>
             </td>
