@@ -1,6 +1,6 @@
 // Modules
 const express = require('express')
-const { findAvailablePort } = require('@fjrodafo/free-port')
+const { findAvailablePort } = require('@fjrodafo/port-finder')
 const routes = require('./routes')
 const routesApi = require('./routes-api')
 

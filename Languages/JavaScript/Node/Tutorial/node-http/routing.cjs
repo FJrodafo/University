@@ -1,6 +1,6 @@
 const http = require('node:http') // HTTP - Hypertext Transfer Protocol
 const dittoJSON = require('./pokemon/ditto.json')
-const { findAvailablePort } = require('@fjrodafo/free-port')
+const { findAvailablePort } = require('@fjrodafo/port-finder')
 
 const desiredPort = process.env.PORT ?? 3000
 
