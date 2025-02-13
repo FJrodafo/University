@@ -25,19 +25,19 @@ function abrirFormulario() {
                                 <form id="formulario" onsubmit="enviarDatos()">
                                     <label for="nombre">Nombre:</label>
                                     <input type="text" id="nombre" name="nombre" required>
-                                    <br><br>
+                                    <br /><br />
                                     <label for="apellidos">Apellidos:</label>
                                     <input type="text" id="apellidos" name="apellidos" required>
-                                    <br><br>
+                                    <br /><br />
                                     <label for="direccion">Dirección:</label>
                                     <input type="text" id="direccion" name="direccion" required>
-                                    <br><br>
+                                    <br /><br />
                                     <label for="telefono">Teléfono:</label>
                                     <input type="tel" id="telefono" name="telefono" required>
-                                    <br><br>
+                                    <br /><br />
                                     <label for="correo">Correo electrónico:</label>
                                     <input type="email" id="correo" name="correo" required>
-                                    <br><br>
+                                    <br /><br />
                                     <input type="submit" value="Enviar">
                                 </form>
                             </body>

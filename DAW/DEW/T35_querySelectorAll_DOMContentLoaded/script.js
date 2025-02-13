@@ -23,18 +23,18 @@ document.addEventListener('DOMContentLoaded', function () {
     // Número de enlaces de la página
     var numeroEnlaces = document.getElementsByTagName('a').length;
     // var numeroEnlaces = document.querySelectorAll('a').length;
-    nuevoParrafo.innerHTML += 'Número de enlaces de la página: <span style="color: green;">' + numeroEnlaces + '</span><br>';
+    nuevoParrafo.innerHTML += 'Número de enlaces de la página: <span style="color: green;">' + numeroEnlaces + '</span><br />';
     console.log('Número de enlaces de la página:', numeroEnlaces);
 
     // Dirección a la que enlaza el penúltimo enlace
     var penultimoEnlace = document.getElementsByTagName('a')[numeroEnlaces - 2];
     // var penultimoEnlace = document.querySelectorAll('a')[numeroEnlaces - 2];
-    nuevoParrafo.innerHTML += 'Dirección del penúltimo enlace: <span style="color: green;">' + penultimoEnlace.href + '</span><br>';
+    nuevoParrafo.innerHTML += 'Dirección del penúltimo enlace: <span style="color: green;">' + penultimoEnlace.href + '</span><br />';
     console.log('Dirección del penúltimo enlace:', penultimoEnlace.href);
 
     // Número de enlaces que enlazan a http://prueba
     var enlacesAHttpPrueba = document.querySelectorAll('a[href="http://prueba"]').length;
-    nuevoParrafo.innerHTML += 'Número de enlaces que enlazan a http://prueba: <span style="color: green;">' + enlacesAHttpPrueba + '</span><br>';
+    nuevoParrafo.innerHTML += 'Número de enlaces que enlazan a http://prueba: <span style="color: green;">' + enlacesAHttpPrueba + '</span><br />';
     console.log('Número de enlaces que enlazan a http://prueba:', enlacesAHttpPrueba);
 
     // Número de enlaces del tercer párrafo

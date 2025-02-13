@@ -33,7 +33,7 @@
 | 13  | Brave               | Brenda Chapman | 2012 | 102            |
 | 14  | Monsters University | Dan Scanlon    | 2013 | 110            |
 </details>
-</br>
+<br />
 
 ```sql
 -- Find the title of each film
@@ -87,7 +87,7 @@ SELECT * FROM movies;
 | 13  | Brave               | Brenda Chapman | 2012 | 102            |
 | 14  | Monsters University | Dan Scanlon    | 2013 | 110            |
 </details>
-</br>
+<br />
 
 ```sql
 -- Find the movie with a row id of 6
@@ -136,7 +136,7 @@ SELECT * FROM movies WHERE id BETWEEN 1 AND 5;
 | 14  | Monsters University | Dan Scanlon    | 2013 | 110            |
 | 87  | WALL-G              | Brenda Chapman | 2042 | 97             |
 </details>
-</br>
+<br />
 
 ```sql
 -- Find all the Toy Story movies
@@ -188,7 +188,7 @@ SELECT * FROM movies WHERE title LIKE 'WALL-_';
 | 13  | Toy Story 3         | Lee Unkrich    | 2010 | 103            |
 | 14  | The Incredibles     | Brad Bird      | 2004 | 116            |
 </details>
-</br>
+<br />
 
 ```sql
 -- List all directors of Pixar movies (alphabetically), without duplicates

@@ -2,14 +2,14 @@ function abrirNuevaVentana() {
     var nuevaVentana = window.open('', 'Nueva_ventana', 'width=800,height=600,resizable=no');
 
     nuevaVentana.document.write('<h3>Ejemplo de Ventana Nueva</h3>');
-    nuevaVentana.document.write('URL Completa: ' + nuevaVentana.location.href + '<br>');
-    nuevaVentana.document.write('Protocolo utilizado: ' + nuevaVentana.location.protocol + '<br>');
-    nuevaVentana.document.write('Nombre en código del navegador: ' + navigator.appCodeName + '<br>');
+    nuevaVentana.document.write('URL Completa: ' + nuevaVentana.location.href + '<br />');
+    nuevaVentana.document.write('Protocolo utilizado: ' + nuevaVentana.location.protocol + '<br />');
+    nuevaVentana.document.write('Nombre en código del navegador: ' + navigator.appCodeName + '<br />');
 
     if (navigator.javaEnabled()) {
-        nuevaVentana.document.write('Java SI está disponible en esta ventana<br>');
+        nuevaVentana.document.write('Java SI está disponible en esta ventana<br />');
     } else {
-        nuevaVentana.document.write('Java NO está disponible en esta ventana<br>');
+        nuevaVentana.document.write('Java NO está disponible en esta ventana<br />');
     }
 
     nuevaVentana.document.write('<iframe src="https://www.bing.com" width="800" height="600"></iframe>');
@@ -51,14 +51,14 @@ var numeroAzar = Math.floor(Math.random() * 1_000_000_000);
 
 // Imprimir los resultados en la ventana principal
 document.write('<h1>TAREA</h1><hr />');
-document.write('Buenos días ' + nombreCompleto + '<br>');
-document.write('Tu nombre tiene ' + nombreCompleto.length + ' caracteres, incluidos espacios.<br>');
-document.write('La primera letra A de tu nombre está en la posición: ' + primeraA + '<br>');
-document.write('La última letra A de tu nombre está en la posición: ' + ultimaA + '<br>');
-document.write('Tu nombre menos las 3 primeras letras es: ' + nombreCompleto.slice(3) + '<br>');
-document.write('Tu nombre todo en mayúsculas es: ' + nombreCompleto.toUpperCase() + '<br>');
-document.write('Tu edad es: ' + edad + ' años.<br>');
-document.write('Naciste un feliz ' + diaNacimiento + ' del mes ' + mesNacimiento + ' del año ' + anioNacimiento + '.<br>');
-document.write('El coseno de 180 es: ' + coseno180 + '<br>');
-document.write('El número mayor de (34,67,23,75,35,19) es: ' + numeroMayor + '<br>');
+document.write('Buenos días ' + nombreCompleto + '<br />');
+document.write('Tu nombre tiene ' + nombreCompleto.length + ' caracteres, incluidos espacios.<br />');
+document.write('La primera letra A de tu nombre está en la posición: ' + primeraA + '<br />');
+document.write('La última letra A de tu nombre está en la posición: ' + ultimaA + '<br />');
+document.write('Tu nombre menos las 3 primeras letras es: ' + nombreCompleto.slice(3) + '<br />');
+document.write('Tu nombre todo en mayúsculas es: ' + nombreCompleto.toUpperCase() + '<br />');
+document.write('Tu edad es: ' + edad + ' años.<br />');
+document.write('Naciste un feliz ' + diaNacimiento + ' del mes ' + mesNacimiento + ' del año ' + anioNacimiento + '.<br />');
+document.write('El coseno de 180 es: ' + coseno180 + '<br />');
+document.write('El número mayor de (34,67,23,75,35,19) es: ' + numeroMayor + '<br />');
 document.write('Ejemplo de número al azar: ' + numeroAzar);

@@ -8,7 +8,7 @@ function dibujarRombo(filas) {
         for (let j = 1; j <= 2 * i - 1; j++) {
             linea += '*';
         }
-        output += linea + '<br>';
+        output += linea + '<br />';
     }
 
     //Parte decreciente del rombo:
@@ -17,7 +17,7 @@ function dibujarRombo(filas) {
         for (let j = 1; j <= 2 * i - 1; j++) {
             linea += '*';
         }
-        output += linea + '<br>';
+        output += linea + '<br />';
     }
     document.getElementById('rombo').innerHTML = output;
 }
