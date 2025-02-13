@@ -41,14 +41,6 @@
 | 1           | 1            |
 | 1           | 2            |
 | 2           | 3            |
-
-> [!IMPORTANT]
-> 
-> Se ha creado la tabla intermedia `Producto_Proveedor` para gestionar la relación de muchos a muchos entre productos y proveedores, asumiendo que un proveedor puede suministrar varios productos distintos.
-
-> [!NOTE]
-> 
-> Otra opción válida, considerando los datos proporcionados en este ejercicio, sería una relación **1:N**, donde cada proveedor solo pudiera suministrar productos de una categoría específica.
 </details>
 <details>
 <summary>Diagrama</summary>
@@ -136,6 +128,14 @@ VALUES
     (2, 3); -- Mouse suministrado por Logitech.
 ```
 </details>
+
+> [!IMPORTANT]
+> 
+> Se ha creado la tabla intermedia `Producto_Proveedor` para gestionar la relación de muchos a muchos entre productos y proveedores, asumiendo que un proveedor puede suministrar varios productos distintos.
+
+> [!NOTE]
+> 
+> Otra opción válida, considerando los datos proporcionados en este ejercicio, sería una relación **1:N**, donde cada proveedor solo pudiera suministrar productos de una categoría específica.
 
 ---
 
