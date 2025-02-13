@@ -37,7 +37,7 @@ vercel -h
 ╭╴fjrodafo@linux[FJrodafo](main)
 ╰─╴$ vercel
 Vercel CLI 33.6.1
-? Set up and deploy “~/Documents/Repos/FJrodafo”? [Y/n] Y
+? Set up and deploy “~/Documents/Dev/FJrodafo”? [Y/n] Y
 ? Which scope do you want to deploy to? FJrodafo's projects
 ? Link to existing project? [y/N] N
 ? What’s your project’s name? fjrodafo
