@@ -45,10 +45,8 @@ CREATE TABLE Producto_Proveedor (
     id_producto INT,
     id_proveedor INT,
     PRIMARY KEY (id_producto, id_proveedor),
-    FOREIGN KEY (id_producto) REFERENCES Productos(id_producto)
-        ON DELETE CASCADE, -- Si se elimina un producto, también se eliminan sus relaciones.
-    FOREIGN KEY (id_proveedor) REFERENCES Proveedores(id_proveedor)
-        ON DELETE CASCADE -- Si se elimina un proveedor, también se eliminan sus relaciones.
+    FOREIGN KEY (id_producto) REFERENCES Productos(id_producto) ON DELETE CASCADE, -- Si se elimina un producto, también se eliminan sus relaciones.
+    FOREIGN KEY (id_proveedor) REFERENCES Proveedores(id_proveedor) ON DELETE CASCADE -- Si se elimina un proveedor, también se eliminan sus relaciones.
 );
 
 --  ╦┌┐┌┌─┐┌─┐┬─┐┌┬┐  ╦  ╦┌─┐┬  ┬ ┬┌─┐┌─┐
