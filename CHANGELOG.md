@@ -1,4 +1,7 @@
 ```
+* Commit: a6122b8 - Update DAW/BAE/Unidad-2/Tarea-6
+| Author: fjrodafo - Fri, 14 Feb 2025 18:36:36 +0000
+| 
 * Commit: 4dc35c6 - Update Blockquotes
 | Author: fjrodafo - Fri, 14 Feb 2025 17:09:47 +0000
 | 

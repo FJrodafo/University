@@ -65,7 +65,7 @@ VALUES
     ('Laptop', 1000.00),
     ('Teclado', 50.00);
 
--- Insertar datos en la tabla "Pedidos".
+-- Insertar en la tabla "Pedidos".
 INSERT INTO Pedidos (id_cliente, id_producto, cantidad)
 VALUES
     (1, 1, 1), -- Juan Pérez pide 1 Laptop.
