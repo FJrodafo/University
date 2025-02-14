@@ -129,11 +129,11 @@ VALUES
 ```
 </details>
 
-> [!IMPORTANT]
+> [!NOTE]
 > 
 > Se ha creado la tabla intermedia `Producto_Proveedor` para gestionar la relación de muchos a muchos entre productos y proveedores, asumiendo que un proveedor puede suministrar varios productos pertenecientes a distintas categorías.
 
-> [!NOTE]
+> [!TIP]
 > 
 > Otra opción válida, considerando los datos proporcionados en este ejercicio, sería una relación **1:N**, donde cada proveedor solo pudiera suministrar productos de una categoría específica.
 
