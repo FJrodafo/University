@@ -1,6 +1,6 @@
---  ╔╗ ┌─┐┌─┐┌─┐  ┌┬┐┌─┐  ╔╦╗┌─┐┌┬┐┌─┐┌─┐
---  ╠╩╗├─┤└─┐├┤    ││├┤    ║║├─┤ │ │ │└─┐
---  ╚═╝┴ ┴└─┘└─┘  ─┴┘└─┘  ═╩╝┴ ┴ ┴ └─┘└─┘
+--  ╔╦╗┌─┐┌┬┐┌─┐┌┐ ┌─┐┌─┐┌─┐
+--   ║║├─┤ │ ├─┤├┴┐├─┤└─┐├┤ 
+--  ═╩╝┴ ┴ ┴ ┴ ┴└─┘┴ ┴└─┘└─┘
 
 -- Eliminar la base de datos si ya existe.
 DROP DATABASE IF EXISTS pedidos_de_clientes_db;
@@ -53,20 +53,20 @@ CREATE TABLE Pedidos (
 --  ║│││└─┐├┤ ├┬┘ │   ╚╗╔╝├─┤│  │ │├┤ └─┐
 --  ╩┘└┘└─┘└─┘┴└─ ┴    ╚╝ ┴ ┴┴─┘└─┘└─┘└─┘
 
--- Insertar en la tabla "Clientes" (sin especificar id_cliente, ya que es auto incrementable).
-INSERT INTO Clientes (nombre_cliente, direccion)
+-- Insertar en la tabla "Clientes".
+INSERT INTO Clientes (id_cliente, nombre_cliente, direccion)
 VALUES
-    ('Juan Pérez', 'Calle 123'),
-    ('Ana López', 'Av. Central');
+    (1, 'Juan Pérez', 'Calle 123'),
+    (2, 'Ana López', 'Av. Central');
 
--- Insertar en la tabla "Productos" (sin especificar id_producto, ya que es auto incrementable).
-INSERT INTO Productos (nombre_producto, precio)
+-- Insertar en la tabla "Productos".
+INSERT INTO Productos (id_producto, nombre_producto, precio)
 VALUES
-    ('Laptop', 1000.00),
-    ('Teclado', 50.00);
+    (1, 'Laptop', 1000.00),
+    (2, 'Teclado', 50.00);
 
 -- Insertar en la tabla "Pedidos".
 INSERT INTO Pedidos (id_cliente, id_producto, cantidad)
 VALUES
-    (1, 1, 1), -- Juan Pérez pide 1 Laptop.
-    (2, 2, 2); -- Ana López pide 2 Teclados.
+    (1, 1, 1), -- Juan Pérez pide un Laptop.
+    (2, 2, 2); -- Ana López pide dos Teclados.

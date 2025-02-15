@@ -1,6 +1,6 @@
---  ╔╗ ┌─┐┌─┐┌─┐  ┌┬┐┌─┐  ╔╦╗┌─┐┌┬┐┌─┐┌─┐
---  ╠╩╗├─┤└─┐├┤    ││├┤    ║║├─┤ │ │ │└─┐
---  ╚═╝┴ ┴└─┘└─┘  ─┴┘└─┘  ═╩╝┴ ┴ ┴ └─┘└─┘
+--  ╔╦╗┌─┐┌┬┐┌─┐┌┐ ┌─┐┌─┐┌─┐
+--   ║║├─┤ │ ├─┤├┴┐├─┤└─┐├┤ 
+--  ═╩╝┴ ┴ ┴ ┴ ┴└─┘┴ ┴└─┘└─┘
 
 -- Eliminar la base de datos si ya existe.
 DROP DATABASE IF EXISTS registro_de_empleados_db;
@@ -42,10 +42,10 @@ CREATE TABLE Telefonos (
 --  ╩┘└┘└─┘└─┘┴└─ ┴    ╚╝ ┴ ┴┴─┘└─┘└─┘└─┘
 
 -- Insertar en la tabla "Empleados".
-INSERT INTO Empleados (nombre, departamento)
+INSERT INTO Empleados (id_empleado, nombre, departamento)
 VALUES
-    ('Carlos R.', 'Ventas'),
-    ('Laura M.', 'Finanzas');
+    (1, 'Carlos R.', 'Ventas'),
+    (2, 'Laura M.', 'Finanzas');
 
 -- Insertar en la tabla "Telefonos".
 INSERT INTO Telefonos (telefono, id_empleado)

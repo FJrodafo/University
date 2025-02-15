@@ -1,6 +1,6 @@
---  ╔╗ ┌─┐┌─┐┌─┐  ┌┬┐┌─┐  ╔╦╗┌─┐┌┬┐┌─┐┌─┐
---  ╠╩╗├─┤└─┐├┤    ││├┤    ║║├─┤ │ │ │└─┐
---  ╚═╝┴ ┴└─┘└─┘  ─┴┘└─┘  ═╩╝┴ ┴ ┴ └─┘└─┘
+--  ╔╦╗┌─┐┌┬┐┌─┐┌┐ ┌─┐┌─┐┌─┐
+--   ║║├─┤ │ ├─┤├┴┐├─┤└─┐├┤ 
+--  ═╩╝┴ ┴ ┴ ┴ ┴└─┘┴ ┴└─┘└─┘
 
 -- Eliminar la base de datos si ya existe.
 DROP DATABASE IF EXISTS lista_de_productos_db;
@@ -53,18 +53,18 @@ CREATE TABLE Producto_Proveedor (
 --  ║│││└─┐├┤ ├┬┘ │   ╚╗╔╝├─┤│  │ │├┤ └─┐
 --  ╩┘└┘└─┘└─┘┴└─ ┴    ╚╝ ┴ ┴┴─┘└─┘└─┘└─┘
 
--- Insertar en la tabla "Productos" (sin especificar id_producto, ya que es auto incrementable).
-INSERT INTO Productos (nombre_producto, categoria, precio)
+-- Insertar en la tabla "Productos".
+INSERT INTO Productos (id_producto, nombre_producto, categoria, precio)
 VALUES
-    ('Laptop', 'Tecnología', 1000.00),
-    ('Mouse', 'Accesorios', 25.00);
+    (1, 'Laptop', 'Tecnología', 1000.00),
+    (2, 'Mouse', 'Accesorios', 25.00);
 
--- Insertar en la tabla "Proveedores" (sin especificar id_proveedor, ya que es auto incrementable).
-INSERT INTO Proveedores (nombre_proveedor)
+-- Insertar en la tabla "Proveedores".
+INSERT INTO Proveedores (id_proveedor, nombre_proveedor)
 VALUES
-    ('Dell'),
-    ('HP'),
-    ('Logitech');
+    (1, 'Dell'),
+    (2, 'HP'),
+    (3, 'Logitech');
 
 -- Insertar en la tabla intermedia "Producto_Proveedor".
 INSERT INTO Producto_Proveedor (id_producto, id_proveedor)

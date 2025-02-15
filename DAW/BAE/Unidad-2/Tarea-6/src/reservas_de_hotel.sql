@@ -1,6 +1,6 @@
---  ╔╗ ┌─┐┌─┐┌─┐  ┌┬┐┌─┐  ╔╦╗┌─┐┌┬┐┌─┐┌─┐
---  ╠╩╗├─┤└─┐├┤    ││├┤    ║║├─┤ │ │ │└─┐
---  ╚═╝┴ ┴└─┘└─┘  ─┴┘└─┘  ═╩╝┴ ┴ ┴ └─┘└─┘
+--  ╔╦╗┌─┐┌┬┐┌─┐┌┐ ┌─┐┌─┐┌─┐
+--   ║║├─┤ │ ├─┤├┴┐├─┤└─┐├┤ 
+--  ═╩╝┴ ┴ ┴ ┴ ┴└─┘┴ ┴└─┘└─┘
 
 -- Eliminar la base de datos si ya existe.
 DROP DATABASE IF EXISTS reservas_de_hotel_db;
@@ -52,22 +52,22 @@ CREATE TABLE Fechas (
 --  ╩┘└┘└─┘└─┘┴└─ ┴    ╚╝ ┴ ┴┴─┘└─┘└─┘└─┘
 
 -- Insertar en la tabla "Clientes".
-INSERT INTO Clientes (nombre_cliente)
+INSERT INTO Clientes (id_cliente, nombre_cliente)
 VALUES
-    ('Pedro G.'),
-    ('María T.');
+    (1, 'Pedro G.'),
+    (2, 'María T.');
 
 -- Insertar en la tabla "Reservas".
-INSERT INTO Reservas (id_cliente, habitacion, precio)
+INSERT INTO Reservas (id_reserva, id_cliente, habitacion, precio)
 VALUES
-    (1, 101, 300), -- Pedro G. ha reservado la habitación 101 por 300 euros.
-    (2, 202, 200); -- María T. ha reservado la habitación 202 por 200 euros.
+    (5001, 1, 101, 300), -- Pedro G. ha reservado la habitación 101 por 300 euros.
+    (5002, 2, 202, 200); -- María T. ha reservado la habitación 202 por 200 euros.
 
 -- Insertar en la tabla "Fechas".
 INSERT INTO Fechas (fecha, id_reserva)
 VALUES
-    ('2025-02-01', 1),
-    ('2025-02-02', 1),
-    ('2025-02-03', 1),
-    ('2025-03-10', 2),
-    ('2025-03-11', 2);
+    ('2025-02-01', 5001),
+    ('2025-02-02', 5001),
+    ('2025-02-03', 5001),
+    ('2025-03-10', 5002),
+    ('2025-03-11', 5002);

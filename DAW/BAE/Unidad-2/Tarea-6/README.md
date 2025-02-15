@@ -50,9 +50,9 @@
 <summary>SQL</summary>
 
 ```sql
---  ╔╗ ┌─┐┌─┐┌─┐  ┌┬┐┌─┐  ╔╦╗┌─┐┌┬┐┌─┐┌─┐
---  ╠╩╗├─┤└─┐├┤    ││├┤    ║║├─┤ │ │ │└─┐
---  ╚═╝┴ ┴└─┘└─┘  ─┴┘└─┘  ═╩╝┴ ┴ ┴ └─┘└─┘
+--  ╔╦╗┌─┐┌┬┐┌─┐┌┐ ┌─┐┌─┐┌─┐
+--   ║║├─┤ │ ├─┤├┴┐├─┤└─┐├┤ 
+--  ═╩╝┴ ┴ ┴ ┴ ┴└─┘┴ ┴└─┘└─┘
 
 -- Eliminar la base de datos si ya existe.
 DROP DATABASE IF EXISTS lista_de_productos_db;
@@ -105,18 +105,18 @@ CREATE TABLE Producto_Proveedor (
 --  ║│││└─┐├┤ ├┬┘ │   ╚╗╔╝├─┤│  │ │├┤ └─┐
 --  ╩┘└┘└─┘└─┘┴└─ ┴    ╚╝ ┴ ┴┴─┘└─┘└─┘└─┘
 
--- Insertar en la tabla "Productos" (sin especificar id_producto, ya que es auto incrementable).
-INSERT INTO Productos (nombre_producto, categoria, precio)
+-- Insertar en la tabla "Productos".
+INSERT INTO Productos (id_producto, nombre_producto, categoria, precio)
 VALUES
-    ('Laptop', 'Tecnología', 1000.00),
-    ('Mouse', 'Accesorios', 25.00);
+    (1, 'Laptop', 'Tecnología', 1000.00),
+    (2, 'Mouse', 'Accesorios', 25.00);
 
--- Insertar en la tabla "Proveedores" (sin especificar id_proveedor, ya que es auto incrementable).
-INSERT INTO Proveedores (nombre_proveedor)
+-- Insertar en la tabla "Proveedores".
+INSERT INTO Proveedores (id_proveedor, nombre_proveedor)
 VALUES
-    ('Dell'),
-    ('HP'),
-    ('Logitech');
+    (1, 'Dell'),
+    (2, 'HP'),
+    (3, 'Logitech');
 
 -- Insertar en la tabla intermedia "Producto_Proveedor".
 INSERT INTO Producto_Proveedor (id_producto, id_proveedor)
@@ -184,9 +184,9 @@ VALUES
 <summary>SQL</summary>
 
 ```sql
---  ╔╗ ┌─┐┌─┐┌─┐  ┌┬┐┌─┐  ╔╦╗┌─┐┌┬┐┌─┐┌─┐
---  ╠╩╗├─┤└─┐├┤    ││├┤    ║║├─┤ │ │ │└─┐
---  ╚═╝┴ ┴└─┘└─┘  ─┴┘└─┘  ═╩╝┴ ┴ ┴ └─┘└─┘
+--  ╔╦╗┌─┐┌┬┐┌─┐┌┐ ┌─┐┌─┐┌─┐
+--   ║║├─┤ │ ├─┤├┴┐├─┤└─┐├┤ 
+--  ═╩╝┴ ┴ ┴ ┴ ┴└─┘┴ ┴└─┘└─┘
 
 -- Eliminar la base de datos si ya existe.
 DROP DATABASE IF EXISTS pedidos_de_clientes_db;
@@ -239,23 +239,23 @@ CREATE TABLE Pedidos (
 --  ║│││└─┐├┤ ├┬┘ │   ╚╗╔╝├─┤│  │ │├┤ └─┐
 --  ╩┘└┘└─┘└─┘┴└─ ┴    ╚╝ ┴ ┴┴─┘└─┘└─┘└─┘
 
--- Insertar en la tabla "Clientes" (sin especificar id_cliente, ya que es auto incrementable).
-INSERT INTO Clientes (nombre_cliente, direccion)
+-- Insertar en la tabla "Clientes".
+INSERT INTO Clientes (id_cliente, nombre_cliente, direccion)
 VALUES
-    ('Juan Pérez', 'Calle 123'),
-    ('Ana López', 'Av. Central');
+    (1, 'Juan Pérez', 'Calle 123'),
+    (2, 'Ana López', 'Av. Central');
 
--- Insertar en la tabla "Productos" (sin especificar id_producto, ya que es auto incrementable).
-INSERT INTO Productos (nombre_producto, precio)
+-- Insertar en la tabla "Productos".
+INSERT INTO Productos (id_producto, nombre_producto, precio)
 VALUES
-    ('Laptop', 1000.00),
-    ('Teclado', 50.00);
+    (1, 'Laptop', 1000.00),
+    (2, 'Teclado', 50.00);
 
 -- Insertar en la tabla "Pedidos".
 INSERT INTO Pedidos (id_cliente, id_producto, cantidad)
 VALUES
-    (1, 1, 1), -- Juan Pérez pide 1 Laptop.
-    (2, 2, 2); -- Ana López pide 2 Teclados.
+    (1, 1, 1), -- Juan Pérez pide un Laptop.
+    (2, 2, 2); -- Ana López pide dos Teclados.
 ```
 </details>
 
@@ -309,9 +309,9 @@ VALUES
 <summary>SQL</summary>
 
 ```sql
---  ╔╗ ┌─┐┌─┐┌─┐  ┌┬┐┌─┐  ╔╦╗┌─┐┌┬┐┌─┐┌─┐
---  ╠╩╗├─┤└─┐├┤    ││├┤    ║║├─┤ │ │ │└─┐
---  ╚═╝┴ ┴└─┘└─┘  ─┴┘└─┘  ═╩╝┴ ┴ ┴ └─┘└─┘
+--  ╔╦╗┌─┐┌┬┐┌─┐┌┐ ┌─┐┌─┐┌─┐
+--   ║║├─┤ │ ├─┤├┴┐├─┤└─┐├┤ 
+--  ═╩╝┴ ┴ ┴ ┴ ┴└─┘┴ ┴└─┘└─┘
 
 -- Eliminar la base de datos si ya existe.
 DROP DATABASE IF EXISTS registro_de_empleados_db;
@@ -353,10 +353,10 @@ CREATE TABLE Telefonos (
 --  ╩┘└┘└─┘└─┘┴└─ ┴    ╚╝ ┴ ┴┴─┘└─┘└─┘└─┘
 
 -- Insertar en la tabla "Empleados".
-INSERT INTO Empleados (nombre, departamento)
+INSERT INTO Empleados (id_empleado, nombre, departamento)
 VALUES
-    ('Carlos R.', 'Ventas'),
-    ('Laura M.', 'Finanzas');
+    (1, 'Carlos R.', 'Ventas'),
+    (2, 'Laura M.', 'Finanzas');
 
 -- Insertar en la tabla "Telefonos".
 INSERT INTO Telefonos (telefono, id_empleado)
@@ -426,9 +426,9 @@ VALUES
 <summary>SQL</summary>
 
 ```sql
---  ╔╗ ┌─┐┌─┐┌─┐  ┌┬┐┌─┐  ╔╦╗┌─┐┌┬┐┌─┐┌─┐
---  ╠╩╗├─┤└─┐├┤    ││├┤    ║║├─┤ │ │ │└─┐
---  ╚═╝┴ ┴└─┘└─┘  ─┴┘└─┘  ═╩╝┴ ┴ ┴ └─┘└─┘
+--  ╔╦╗┌─┐┌┬┐┌─┐┌┐ ┌─┐┌─┐┌─┐
+--   ║║├─┤ │ ├─┤├┴┐├─┤└─┐├┤ 
+--  ═╩╝┴ ┴ ┴ ┴ ┴└─┘┴ ┴└─┘└─┘
 
 -- Eliminar la base de datos si ya existe.
 DROP DATABASE IF EXISTS reservas_de_hotel_db;
@@ -455,7 +455,7 @@ DROP TABLE IF EXISTS Fechas;
 -- Crear tabla "Clientes".
 CREATE TABLE Clientes (
     id_cliente INT AUTO_INCREMENT PRIMARY KEY,
-    nombre VARCHAR(100) NOT NULL
+    nombre_cliente VARCHAR(100) NOT NULL
 );
 
 -- Crear tabla "Reservas".
@@ -480,25 +480,25 @@ CREATE TABLE Fechas (
 --  ╩┘└┘└─┘└─┘┴└─ ┴    ╚╝ ┴ ┴┴─┘└─┘└─┘└─┘
 
 -- Insertar en la tabla "Clientes".
-INSERT INTO Clientes (nombre)
+INSERT INTO Clientes (id_cliente, nombre_cliente)
 VALUES
-    ('Pedro G.'),
-    ('María T.');
+    (1, 'Pedro G.'),
+    (2, 'María T.');
 
 -- Insertar en la tabla "Reservas".
-INSERT INTO Reservas (id_cliente, habitacion, precio)
+INSERT INTO Reservas (id_reserva, id_cliente, habitacion, precio)
 VALUES
-    (1, 101, 300), -- Pedro G. ha reservado la habitación 101 por 300 euros.
-    (2, 202, 200); -- María T. ha reservado la habitación 202 por 200 euros.
+    (5001, 1, 101, 300), -- Pedro G. ha reservado la habitación 101 por 300 euros.
+    (5002, 2, 202, 200); -- María T. ha reservado la habitación 202 por 200 euros.
 
 -- Insertar en la tabla "Fechas".
 INSERT INTO Fechas (fecha, id_reserva)
 VALUES
-    ('2025-02-01', 1),
-    ('2025-02-02', 1),
-    ('2025-02-03', 1),
-    ('2025-03-10', 2),
-    ('2025-03-11', 2);
+    ('2025-02-01', 5001),
+    ('2025-02-02', 5001),
+    ('2025-02-03', 5001),
+    ('2025-03-10', 5002),
+    ('2025-03-11', 5002);
 ```
 </details>
 
@@ -520,18 +520,35 @@ VALUES
 <details>
 <summary>Solución 1FN</summary>
 
-| id_inscripcion | estudiante | curso       | profesor    | horario                   |
-| :------------: | :--------- | :---------- | :---------- | :------------------------ |
-| 3001           | Luis R.    | Matemáticas | Prof. Pérez | Lunes 10AM, Miércoles 2PM |
-| 3002           | Ana S.     | Física      | Prof. Gómez | Martes 3PM                |
+| id_inscripcion | estudiante | curso       | profesor    | horario       |
+| :------------: | :--------- | :---------- | :---------- | :------------ |
+| 3001           | Luis R.    | Matemáticas | Prof. Pérez | Lunes 10AM    |
+| 3001           | Luis R.    | Matemáticas | Prof. Pérez | Miércoles 2PM |
+| 3002           | Ana S.     | Física      | Prof. Gómez | Martes 3PM    |
 </details>
 <details>
 <summary>Solución 2FN</summary>
 
-| id_inscripcion | estudiante | curso       | profesor    | horario                   |
-| :------------: | :--------- | :---------- | :---------- | :------------------------ |
-| 3001           | Luis R.    | Matemáticas | Prof. Pérez | Lunes 10AM, Miércoles 2PM |
-| 3002           | Ana S.     | Física      | Prof. Gómez | Martes 3PM                |
+| id_estudiante | nombre_estudiante |
+| :-----------: | :---------------- |
+| 1             | Luis R.           |
+| 2             | Ana S.            |
+
+| id_curso | nombre_curso | nombre_profesor |
+| :------: | :----------- | :-------------- |
+| 1        | Matemáticas  | Prof. Pérez     |
+| 2        | Física       | Prof. Gómez     |
+
+| id_inscripcion | id_estudiante | id_curso |
+| :------------: | :-----------: | :------: |
+| 3001           | 1             | 1        |
+| 3002           | 2             | 2        |
+
+| dia       | hora     | id_inscripcion |
+| :-------- | :------: | :------------: |
+| Lunes     | 10:00:00 | 3001           |
+| Miércoles | 14:00:00 | 3001           |
+| Martes    | 15:00:00 | 3002           |
 </details>
 <details>
 <summary>Diagrama</summary>
@@ -541,9 +558,9 @@ VALUES
 <summary>SQL</summary>
 
 ```sql
---  ╔╗ ┌─┐┌─┐┌─┐  ┌┬┐┌─┐  ╔╦╗┌─┐┌┬┐┌─┐┌─┐
---  ╠╩╗├─┤└─┐├┤    ││├┤    ║║├─┤ │ │ │└─┐
---  ╚═╝┴ ┴└─┘└─┘  ─┴┘└─┘  ═╩╝┴ ┴ ┴ └─┘└─┘
+--  ╔╦╗┌─┐┌┬┐┌─┐┌┐ ┌─┐┌─┐┌─┐
+--   ║║├─┤ │ ├─┤├┴┐├─┤└─┐├┤ 
+--  ═╩╝┴ ┴ ┴ ┴ ┴└─┘┴ ┴└─┘└─┘
 
 -- Eliminar la base de datos si ya existe.
 DROP DATABASE IF EXISTS inscripciones_a_cursos_db;
@@ -559,23 +576,74 @@ USE inscripciones_a_cursos_db;
 --  ═╩╝┴└─└─┘┴     ╩ ┴ ┴└─┘┴─┘└─┘
 
 -- Eliminar las tablas si ya existen (para evitar errores al crear las tablas).
-DROP TABLE IF EXISTS ;
+DROP TABLE IF EXISTS Estudiantes;
+DROP TABLE IF EXISTS Cursos;
+DROP TABLE IF EXISTS Inscripciones;
+DROP TABLE IF EXISTS Horarios;
 
 --  ╔═╗┬─┐┌─┐┌─┐┌┬┐┌─┐  ╔╦╗┌─┐┌┐ ┬  ┌─┐
 --  ║  ├┬┘├┤ ├─┤ │ ├┤    ║ ├─┤├┴┐│  ├┤ 
 --  ╚═╝┴└─└─┘┴ ┴ ┴ └─┘   ╩ ┴ ┴└─┘┴─┘└─┘
 
--- Crear tabla "".
-CREATE TABLE  ();
+-- Crear tabla "Estudiantes".
+CREATE TABLE Estudiantes (
+    id_estudiante INT AUTO_INCREMENT PRIMARY KEY,
+    nombre_estudiante VARCHAR(100) NOT NULL
+);
+
+-- Crear tabla "Cursos".
+CREATE TABLE Cursos (
+    id_curso INT AUTO_INCREMENT PRIMARY KEY,
+    nombre_curso VARCHAR(100) NOT NULL,
+    nombre_profesor VARCHAR(100) NOT NULL
+);
+
+-- Crear tabla "Inscripciones".
+CREATE TABLE Inscripciones (
+    id_inscripcion INT AUTO_INCREMENT PRIMARY KEY,
+    id_estudiante INT,
+    id_curso INT,
+    FOREIGN KEY (id_estudiante) REFERENCES Estudiantes(id_estudiante),
+    FOREIGN KEY (id_curso) REFERENCES Cursos(id_curso)
+);
+
+-- Crear tabla "Horarios".
+CREATE TABLE Horarios (
+    dia VARCHAR(20) NOT NULL,
+    hora TIME NOT NULL,
+    id_inscripcion INT,
+    PRIMARY KEY (dia, hora, id_inscripcion),
+    FOREIGN KEY (id_inscripcion) REFERENCES Inscripciones(id_inscripcion)
+);
 
 --  ╦┌┐┌┌─┐┌─┐┬─┐┌┬┐  ╦  ╦┌─┐┬  ┬ ┬┌─┐┌─┐
 --  ║│││└─┐├┤ ├┬┘ │   ╚╗╔╝├─┤│  │ │├┤ └─┐
 --  ╩┘└┘└─┘└─┘┴└─ ┴    ╚╝ ┴ ┴┴─┘└─┘└─┘└─┘
 
--- Insertar en la tabla "".
-INSERT INTO  ()
+-- Insertar en la tabla "Estudiantes".
+INSERT INTO Estudiantes (id_estudiante, nombre_estudiante)
 VALUES
-    ();
+    (1, 'Luis R.'),
+    (2, 'Ana S.');
+
+-- Insertar en la tabla "Cursos".
+INSERT INTO Cursos (id_curso, nombre_curso, nombre_profesor)
+VALUES
+    (1, 'Matemáticas', 'Prof. Pérez'),
+    (2, 'Física', 'Prof. Gómez');
+
+-- Insertar en la tabla "Inscripciones".
+INSERT INTO Inscripciones (id_inscripcion, id_estudiante, id_curso)
+VALUES
+    (3001, 1, 1), -- Luis R. se inscribe en Matemáticas con Prof. Pérez.
+    (3002, 2, 2); -- Ana S. se inscribe en Física con Prof. Gómez.
+
+-- Insertar en la tabla "Horarios".
+INSERT INTO Horarios (dia, hora, id_inscripcion)
+VALUES
+    ('Lunes', '10:00:00', 3001),
+    ('Miércoles', '14:00:00', 3001),
+    ('Martes', '15:00:00', 3002);
 ```
 </details>
 
@@ -618,9 +686,9 @@ VALUES
 <summary>SQL</summary>
 
 ```sql
---  ╔╗ ┌─┐┌─┐┌─┐  ┌┬┐┌─┐  ╔╦╗┌─┐┌┬┐┌─┐┌─┐
---  ╠╩╗├─┤└─┐├┤    ││├┤    ║║├─┤ │ │ │└─┐
---  ╚═╝┴ ┴└─┘└─┘  ─┴┘└─┘  ═╩╝┴ ┴ ┴ └─┘└─┘
+--  ╔╦╗┌─┐┌┬┐┌─┐┌┐ ┌─┐┌─┐┌─┐
+--   ║║├─┤ │ ├─┤├┴┐├─┤└─┐├┤ 
+--  ═╩╝┴ ┴ ┴ ┴ ┴└─┘┴ ┴└─┘└─┘
 
 -- Eliminar la base de datos si ya existe.
 DROP DATABASE IF EXISTS ventas_de_tienda_db;
@@ -695,9 +763,9 @@ VALUES
 <summary>SQL</summary>
 
 ```sql
---  ╔╗ ┌─┐┌─┐┌─┐  ┌┬┐┌─┐  ╔╦╗┌─┐┌┬┐┌─┐┌─┐
---  ╠╩╗├─┤└─┐├┤    ││├┤    ║║├─┤ │ │ │└─┐
---  ╚═╝┴ ┴└─┘└─┘  ─┴┘└─┘  ═╩╝┴ ┴ ┴ └─┘└─┘
+--  ╔╦╗┌─┐┌┬┐┌─┐┌┐ ┌─┐┌─┐┌─┐
+--   ║║├─┤ │ ├─┤├┴┐├─┤└─┐├┤ 
+--  ═╩╝┴ ┴ ┴ ┴ ┴└─┘┴ ┴└─┘└─┘
 
 -- Eliminar la base de datos si ya existe.
 DROP DATABASE IF EXISTS biblioteca_de_libros_db;
@@ -772,9 +840,9 @@ VALUES
 <summary>SQL</summary>
 
 ```sql
---  ╔╗ ┌─┐┌─┐┌─┐  ┌┬┐┌─┐  ╔╦╗┌─┐┌┬┐┌─┐┌─┐
---  ╠╩╗├─┤└─┐├┤    ││├┤    ║║├─┤ │ │ │└─┐
---  ╚═╝┴ ┴└─┘└─┘  ─┴┘└─┘  ═╩╝┴ ┴ ┴ └─┘└─┘
+--  ╔╦╗┌─┐┌┬┐┌─┐┌┐ ┌─┐┌─┐┌─┐
+--   ║║├─┤ │ ├─┤├┴┐├─┤└─┐├┤ 
+--  ═╩╝┴ ┴ ┴ ┴ ┴└─┘┴ ┴└─┘└─┘
 
 -- Eliminar la base de datos si ya existe.
 DROP DATABASE IF EXISTS facturacion_de_servicios_db;
@@ -849,9 +917,9 @@ VALUES
 <summary>SQL</summary>
 
 ```sql
---  ╔╗ ┌─┐┌─┐┌─┐  ┌┬┐┌─┐  ╔╦╗┌─┐┌┬┐┌─┐┌─┐
---  ╠╩╗├─┤└─┐├┤    ││├┤    ║║├─┤ │ │ │└─┐
---  ╚═╝┴ ┴└─┘└─┘  ─┴┘└─┘  ═╩╝┴ ┴ ┴ └─┘└─┘
+--  ╔╦╗┌─┐┌┬┐┌─┐┌┐ ┌─┐┌─┐┌─┐
+--   ║║├─┤ │ ├─┤├┴┐├─┤└─┐├┤ 
+--  ═╩╝┴ ┴ ┴ ┴ ┴└─┘┴ ┴└─┘└─┘
 
 -- Eliminar la base de datos si ya existe.
 DROP DATABASE IF EXISTS gestion_de_vehiculos_db;
@@ -926,9 +994,9 @@ VALUES
 <summary>SQL</summary>
 
 ```sql
---  ╔╗ ┌─┐┌─┐┌─┐  ┌┬┐┌─┐  ╔╦╗┌─┐┌┬┐┌─┐┌─┐
---  ╠╩╗├─┤└─┐├┤    ││├┤    ║║├─┤ │ │ │└─┐
---  ╚═╝┴ ┴└─┘└─┘  ─┴┘└─┘  ═╩╝┴ ┴ ┴ └─┘└─┘
+--  ╔╦╗┌─┐┌┬┐┌─┐┌┐ ┌─┐┌─┐┌─┐
+--   ║║├─┤ │ ├─┤├┴┐├─┤└─┐├┤ 
+--  ═╩╝┴ ┴ ┴ ┴ ┴└─┘┴ ┴└─┘└─┘
 
 -- Eliminar la base de datos si ya existe.
 DROP DATABASE IF EXISTS gestion_de_proyectos_db;
