@@ -45,8 +45,8 @@ CREATE TABLE Pedidos (
     id_cliente INT,
     id_producto INT,
     cantidad INT NOT NULL,
-    FOREIGN KEY (id_cliente) REFERENCES Clientes(id_cliente) ON DELETE CASCADE, -- Si se elimina un cliente, también se eliminan sus relaciones.
-    FOREIGN KEY (id_producto) REFERENCES Productos(id_producto) ON DELETE CASCADE -- Si se elimina un producto, también se eliminan sus relaciones.
+    FOREIGN KEY (id_cliente) REFERENCES Clientes(id_cliente),
+    FOREIGN KEY (id_producto) REFERENCES Productos(id_producto)
 );
 
 --  ╦┌┐┌┌─┐┌─┐┬─┐┌┬┐  ╦  ╦┌─┐┬  ┬ ┬┌─┐┌─┐

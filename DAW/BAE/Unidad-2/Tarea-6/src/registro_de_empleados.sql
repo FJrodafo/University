@@ -34,7 +34,7 @@ CREATE TABLE Empleados (
 CREATE TABLE Telefonos (
     telefono VARCHAR(20) PRIMARY KEY,
     id_empleado INT,
-    FOREIGN KEY (id_empleado) REFERENCES Empleados(id_empleado) ON DELETE CASCADE -- Si se elimina un empleado, también se eliminan sus relaciones.
+    FOREIGN KEY (id_empleado) REFERENCES Empleados(id_empleado)
 );
 
 --  ╦┌┐┌┌─┐┌─┐┬─┐┌┬┐  ╦  ╦┌─┐┬  ┬ ┬┌─┐┌─┐

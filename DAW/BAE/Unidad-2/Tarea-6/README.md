@@ -97,8 +97,8 @@ CREATE TABLE Producto_Proveedor (
     id_producto INT,
     id_proveedor INT,
     PRIMARY KEY (id_producto, id_proveedor),
-    FOREIGN KEY (id_producto) REFERENCES Productos(id_producto) ON DELETE CASCADE, -- Si se elimina un producto, también se eliminan sus relaciones.
-    FOREIGN KEY (id_proveedor) REFERENCES Proveedores(id_proveedor) ON DELETE CASCADE -- Si se elimina un proveedor, también se eliminan sus relaciones.
+    FOREIGN KEY (id_producto) REFERENCES Productos(id_producto),
+    FOREIGN KEY (id_proveedor) REFERENCES Proveedores(id_proveedor)
 );
 
 --  ╦┌┐┌┌─┐┌─┐┬─┐┌┬┐  ╦  ╦┌─┐┬  ┬ ┬┌─┐┌─┐
@@ -231,8 +231,8 @@ CREATE TABLE Pedidos (
     id_cliente INT,
     id_producto INT,
     cantidad INT NOT NULL,
-    FOREIGN KEY (id_cliente) REFERENCES Clientes(id_cliente) ON DELETE CASCADE, -- Si se elimina un cliente, también se eliminan sus relaciones.
-    FOREIGN KEY (id_producto) REFERENCES Productos(id_producto) ON DELETE CASCADE -- Si se elimina un producto, también se eliminan sus relaciones.
+    FOREIGN KEY (id_cliente) REFERENCES Clientes(id_cliente),
+    FOREIGN KEY (id_producto) REFERENCES Productos(id_producto)
 );
 
 --  ╦┌┐┌┌─┐┌─┐┬─┐┌┬┐  ╦  ╦┌─┐┬  ┬ ┬┌─┐┌─┐
@@ -345,7 +345,7 @@ CREATE TABLE Empleados (
 CREATE TABLE Telefonos (
     telefono VARCHAR(20) PRIMARY KEY,
     id_empleado INT,
-    FOREIGN KEY (id_empleado) REFERENCES Empleados(id_empleado) ON DELETE CASCADE -- Si se elimina un empleado, también se eliminan sus relaciones.
+    FOREIGN KEY (id_empleado) REFERENCES Empleados(id_empleado)
 );
 
 --  ╦┌┐┌┌─┐┌─┐┬─┐┌┬┐  ╦  ╦┌─┐┬  ┬ ┬┌─┐┌─┐
@@ -369,7 +369,7 @@ VALUES
 
 > [!NOTE]
 > 
-> Se ha establecido que los números de teléfono deben ser únicos y que cada empleado, sin importar su relación con otros, debe contar con su propio número de teléfono. Además, estos números no podrán ser compartidos entre empleados.
+> Se ha establecido que los números de teléfono deben ser únicos y que cada empleado debe contar con su propio número de teléfono.
 
 ---
 
@@ -389,18 +389,34 @@ VALUES
 <details>
 <summary>Solución 1FN</summary>
 
-| id_reserva | cliente  | habitacion | fecha               | precio |
-| :--------: | :------- | :--------: | :-----------------: | :----: |
-| 5001       | Pedro G. | 101        | 01/02, 02/02, 03/02 | 300    |
-| 5002       | María T. | 202        | 10/03, 11/03        | 200    |
+| id_reserva | cliente  | habitacion | fecha | precio |
+| :--------: | :------- | :--------: | :---: | :----: |
+| 5001       | Pedro G. | 101        | 01/02 | 300    |
+| 5001       | Pedro G. | 101        | 02/02 | 300    |
+| 5001       | Pedro G. | 101        | 03/02 | 300    |
+| 5002       | María T. | 202        | 10/03 | 200    |
+| 5002       | María T. | 202        | 11/03 | 200    |
 </details>
 <details>
 <summary>Solución 2FN</summary>
 
-| id_reserva | cliente  | habitacion | fecha               | precio |
-| :--------: | :------- | :--------: | :-----------------: | :----: |
-| 5001       | Pedro G. | 101        | 01/02, 02/02, 03/02 | 300    |
-| 5002       | María T. | 202        | 10/03, 11/03        | 200    |
+| id_cliente | nombre_cliente |
+| :--------: | :------------- |
+| 1          | Pedro G.       |
+| 2          | María T.       |
+
+| id_reserva | id_cliente | habitacion | precio |
+| :--------: | :--------: | :--------: | :----: |
+| 5001       | 1          | 101        | 300    |
+| 5002       | 2          | 202        | 200    |
+
+| fecha | id_reserva |
+| :---: | :--------: |
+| 01/02 | 5001       |
+| 02/02 | 5001       |
+| 03/02 | 5001       |
+| 10/03 | 5002       |
+| 11/03 | 5002       |
 </details>
 <details>
 <summary>Diagrama</summary>
@@ -428,21 +444,49 @@ USE reservas_de_hotel_db;
 --  ═╩╝┴└─└─┘┴     ╩ ┴ ┴└─┘┴─┘└─┘
 
 -- Eliminar las tablas si ya existen (para evitar errores al crear las tablas).
-DROP TABLE IF EXISTS ;
+DROP TABLE IF EXISTS Clientes;
+DROP TABLE IF EXISTS Reservas;
+DROP TABLE IF EXISTS Fechas;
 
 --  ╔═╗┬─┐┌─┐┌─┐┌┬┐┌─┐  ╔╦╗┌─┐┌┐ ┬  ┌─┐
 --  ║  ├┬┘├┤ ├─┤ │ ├┤    ║ ├─┤├┴┐│  ├┤ 
 --  ╚═╝┴└─└─┘┴ ┴ ┴ └─┘   ╩ ┴ ┴└─┘┴─┘└─┘
 
--- Crear tabla "".
-CREATE TABLE  ();
+-- Crear tabla "Clientes".
+CREATE TABLE Clientes (
+    id_cliente INT AUTO_INCREMENT PRIMARY KEY,
+    nombre_cliente VARCHAR(100) NOT NULL
+);
+
+-- Crear tabla "Reservas".
+CREATE TABLE Reservas (
+    id_reserva INT AUTO_INCREMENT PRIMARY KEY,
+    id_cliente INT,
+    habitacion INT NOT NULL,
+    precio DECIMAL(10, 2) NOT NULL,
+    FOREIGN KEY (id_cliente) REFERENCES Clientes(id_cliente)
+);
+
+-- Crear tabla "Fechas".
+CREATE TABLE Fechas ();
 
 --  ╦┌┐┌┌─┐┌─┐┬─┐┌┬┐  ╦  ╦┌─┐┬  ┬ ┬┌─┐┌─┐
 --  ║│││└─┐├┤ ├┬┘ │   ╚╗╔╝├─┤│  │ │├┤ └─┐
 --  ╩┘└┘└─┘└─┘┴└─ ┴    ╚╝ ┴ ┴┴─┘└─┘└─┘└─┘
 
--- Insertar en la tabla "".
-INSERT INTO  ()
+-- Insertar en la tabla "Clientes".
+INSERT INTO Clientes (nombre_cliente)
+VALUES
+    ('Pedro G.'),
+    ('María T.');
+
+-- Insertar en la tabla "Reservas".
+INSERT INTO Reservas (id_cliente, habitacion, precio)
+VALUES
+    ();
+
+-- Insertar en la tabla "Fechas".
+INSERT INTO Fechas ()
 VALUES
     ();
 ```
