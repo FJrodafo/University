@@ -400,10 +400,10 @@ VALUES
 <details>
 <summary>Solución 2FN</summary>
 
-| id_cliente | nombre_cliente |
-| :--------: | :------------- |
-| 1          | Pedro G.       |
-| 2          | María T.       |
+| id_cliente | nombre   |
+| :--------: | :------- |
+| 1          | Pedro G. |
+| 2          | María T. |
 
 | id_reserva | id_cliente | habitacion | precio |
 | :--------: | :--------: | :--------: | :----: |
@@ -455,7 +455,7 @@ DROP TABLE IF EXISTS Fechas;
 -- Crear tabla "Clientes".
 CREATE TABLE Clientes (
     id_cliente INT AUTO_INCREMENT PRIMARY KEY,
-    nombre_cliente VARCHAR(100) NOT NULL
+    nombre VARCHAR(100) NOT NULL
 );
 
 -- Crear tabla "Reservas".
@@ -480,7 +480,7 @@ CREATE TABLE Fechas (
 --  ╩┘└┘└─┘└─┘┴└─ ┴    ╚╝ ┴ ┴┴─┘└─┘└─┘└─┘
 
 -- Insertar en la tabla "Clientes".
-INSERT INTO Clientes (nombre_cliente)
+INSERT INTO Clientes (nombre)
 VALUES
     ('Pedro G.'),
     ('María T.');
