@@ -5,7 +5,7 @@
     <br />
     <details>
     <summary>Solución</summary>
-    <img src="https://raw.githubusercontent.com/FJrodafo/University/main/DAW/BAE/Unidad-2/Tarea-3/Assets/Images/1.drawio.png">
+    <img src="https://raw.githubusercontent.com/FJrodafo/University/main/DAW/BAE/Unidad-2/Tarea-3/Assets/Diagrams/Exported/1.drawio.png">
     </details>
 
 ---
@@ -15,7 +15,7 @@
     <br />
     <details>
     <summary>Solución</summary>
-    <img src="https://raw.githubusercontent.com/FJrodafo/University/main/DAW/BAE/Unidad-2/Tarea-3/Assets/Images/2.drawio.png">
+    <img src="https://raw.githubusercontent.com/FJrodafo/University/main/DAW/BAE/Unidad-2/Tarea-3/Assets/Diagrams/Exported/2.drawio.png">
     </details>
 
 ---
@@ -25,7 +25,7 @@
     <br />
     <details>
     <summary>Solución</summary>
-    <img src="https://raw.githubusercontent.com/FJrodafo/University/main/DAW/BAE/Unidad-2/Tarea-3/Assets/Images/3.drawio.png">
+    <img src="https://raw.githubusercontent.com/FJrodafo/University/main/DAW/BAE/Unidad-2/Tarea-3/Assets/Diagrams/Exported/3.drawio.png">
     </details>
 
 ---
@@ -35,7 +35,7 @@
     <br />
     <details>
     <summary>Solución</summary>
-    <img src="https://raw.githubusercontent.com/FJrodafo/University/main/DAW/BAE/Unidad-2/Tarea-3/Assets/Images/4.drawio.png">
+    <img src="https://raw.githubusercontent.com/FJrodafo/University/main/DAW/BAE/Unidad-2/Tarea-3/Assets/Diagrams/Exported/4.drawio.png">
     </details>
 
 ---
@@ -45,7 +45,7 @@
     <br />
     <details>
     <summary>Solución</summary>
-    <img src="https://raw.githubusercontent.com/FJrodafo/University/main/DAW/BAE/Unidad-2/Tarea-3/Assets/Images/5.drawio.png">
+    <img src="https://raw.githubusercontent.com/FJrodafo/University/main/DAW/BAE/Unidad-2/Tarea-3/Assets/Diagrams/Exported/5.drawio.png">
     </details>
 
 ---
@@ -55,7 +55,7 @@
     <br />
     <details>
     <summary>Solución</summary>
-    <img src="https://raw.githubusercontent.com/FJrodafo/University/main/DAW/BAE/Unidad-2/Tarea-3/Assets/Images/6.drawio.png">
+    <img src="https://raw.githubusercontent.com/FJrodafo/University/main/DAW/BAE/Unidad-2/Tarea-3/Assets/Diagrams/Exported/6.drawio.png">
     </details>
 
 ---
@@ -65,7 +65,7 @@
     <br />
     <details>
     <summary>Solución</summary>
-    <img src="https://raw.githubusercontent.com/FJrodafo/University/main/DAW/BAE/Unidad-2/Tarea-3/Assets/Images/7.drawio.png">
+    <img src="https://raw.githubusercontent.com/FJrodafo/University/main/DAW/BAE/Unidad-2/Tarea-3/Assets/Diagrams/Exported/7.drawio.png">
     </details>
 
 ---
@@ -75,7 +75,7 @@
     <br />
     <details>
     <summary>Solución</summary>
-    <img src="https://raw.githubusercontent.com/FJrodafo/University/main/DAW/BAE/Unidad-2/Tarea-3/Assets/Images/8.drawio.png">
+    <img src="https://raw.githubusercontent.com/FJrodafo/University/main/DAW/BAE/Unidad-2/Tarea-3/Assets/Diagrams/Exported/8.drawio.png">
     </details>
 
 ---
@@ -85,7 +85,7 @@
     <br />
     <details>
     <summary>Solución</summary>
-    <img src="https://raw.githubusercontent.com/FJrodafo/University/main/DAW/BAE/Unidad-2/Tarea-3/Assets/Images/9.drawio.png">
+    <img src="https://raw.githubusercontent.com/FJrodafo/University/main/DAW/BAE/Unidad-2/Tarea-3/Assets/Diagrams/Exported/9.drawio.png">
     </details>
 
 ---
@@ -95,7 +95,7 @@
     <br />
     <details>
     <summary>Solución</summary>
-    <img src="https://raw.githubusercontent.com/FJrodafo/University/main/DAW/BAE/Unidad-2/Tarea-3/Assets/Images/10.drawio.png">
+    <img src="https://raw.githubusercontent.com/FJrodafo/University/main/DAW/BAE/Unidad-2/Tarea-3/Assets/Diagrams/Exported/10.drawio.png">
     </details>
 
 ---
@@ -105,7 +105,7 @@
     <br />
     <details>
     <summary>Solución</summary>
-    <img src="https://raw.githubusercontent.com/FJrodafo/University/main/DAW/BAE/Unidad-2/Tarea-3/Assets/Images/11.drawio.png">
+    <img src="https://raw.githubusercontent.com/FJrodafo/University/main/DAW/BAE/Unidad-2/Tarea-3/Assets/Diagrams/Exported/11.drawio.png">
     </details>
 
 ---
@@ -115,7 +115,7 @@
     <br />
     <details>
     <summary>Solución</summary>
-    <img src="https://raw.githubusercontent.com/FJrodafo/University/main/DAW/BAE/Unidad-2/Tarea-3/Assets/Images/12.drawio.png">
+    <img src="https://raw.githubusercontent.com/FJrodafo/University/main/DAW/BAE/Unidad-2/Tarea-3/Assets/Diagrams/Exported/12.drawio.png">
     </details>
 
 ---
@@ -125,7 +125,7 @@
     <br />
     <details>
     <summary>Solución</summary>
-    <img src="https://raw.githubusercontent.com/FJrodafo/University/main/DAW/BAE/Unidad-2/Tarea-3/Assets/Images/13.drawio.png">
+    <img src="https://raw.githubusercontent.com/FJrodafo/University/main/DAW/BAE/Unidad-2/Tarea-3/Assets/Diagrams/Exported/13.drawio.png">
     </details>
 
 ---
@@ -135,7 +135,7 @@
     <br />
     <details>
     <summary>Solución</summary>
-    <img src="https://raw.githubusercontent.com/FJrodafo/University/main/DAW/BAE/Unidad-2/Tarea-3/Assets/Images/14.drawio.png">
+    <img src="https://raw.githubusercontent.com/FJrodafo/University/main/DAW/BAE/Unidad-2/Tarea-3/Assets/Diagrams/Exported/14.drawio.png">
     </details>
 
 ---
@@ -145,7 +145,7 @@
     <br />
     <details>
     <summary>Solución</summary>
-    <img src="https://raw.githubusercontent.com/FJrodafo/University/main/DAW/BAE/Unidad-2/Tarea-3/Assets/Images/15.drawio.png">
+    <img src="https://raw.githubusercontent.com/FJrodafo/University/main/DAW/BAE/Unidad-2/Tarea-3/Assets/Diagrams/Exported/15.drawio.png">
     </details>
 
 ---
@@ -155,7 +155,7 @@
     <br />
     <details>
     <summary>Solución</summary>
-    <img src="https://raw.githubusercontent.com/FJrodafo/University/main/DAW/BAE/Unidad-2/Tarea-3/Assets/Images/16.drawio.png">
+    <img src="https://raw.githubusercontent.com/FJrodafo/University/main/DAW/BAE/Unidad-2/Tarea-3/Assets/Diagrams/Exported/16.drawio.png">
     </details>
 
 ---
@@ -165,7 +165,7 @@
     <br />
     <details>
     <summary>Solución</summary>
-    <img src="https://raw.githubusercontent.com/FJrodafo/University/main/DAW/BAE/Unidad-2/Tarea-3/Assets/Images/17.drawio.png">
+    <img src="https://raw.githubusercontent.com/FJrodafo/University/main/DAW/BAE/Unidad-2/Tarea-3/Assets/Diagrams/Exported/17.drawio.png">
     </details>
 
 ---
@@ -175,7 +175,7 @@
     <br />
     <details>
     <summary>Solución</summary>
-    <img src="https://raw.githubusercontent.com/FJrodafo/University/main/DAW/BAE/Unidad-2/Tarea-3/Assets/Images/18.drawio.png">
+    <img src="https://raw.githubusercontent.com/FJrodafo/University/main/DAW/BAE/Unidad-2/Tarea-3/Assets/Diagrams/Exported/18.drawio.png">
     </details>
 
 ---
@@ -185,7 +185,7 @@
     <br />
     <details>
     <summary>Solución</summary>
-    <img src="https://raw.githubusercontent.com/FJrodafo/University/main/DAW/BAE/Unidad-2/Tarea-3/Assets/Images/19.drawio.png">
+    <img src="https://raw.githubusercontent.com/FJrodafo/University/main/DAW/BAE/Unidad-2/Tarea-3/Assets/Diagrams/Exported/19.drawio.png">
     </details>
 
 ---
@@ -195,7 +195,7 @@
     <br />
     <details>
     <summary>Solución</summary>
-    <img src="https://raw.githubusercontent.com/FJrodafo/University/main/DAW/BAE/Unidad-2/Tarea-3/Assets/Images/20.drawio.png">
+    <img src="https://raw.githubusercontent.com/FJrodafo/University/main/DAW/BAE/Unidad-2/Tarea-3/Assets/Diagrams/Exported/20.drawio.png">
     </details>
 
 ---
@@ -205,7 +205,7 @@
     <br />
     <details>
     <summary>Solución</summary>
-    <img src="https://raw.githubusercontent.com/FJrodafo/University/main/DAW/BAE/Unidad-2/Tarea-3/Assets/Images/21.drawio.png">
+    <img src="https://raw.githubusercontent.com/FJrodafo/University/main/DAW/BAE/Unidad-2/Tarea-3/Assets/Diagrams/Exported/21.drawio.png">
     </details>
 
 ---
@@ -215,7 +215,7 @@
     <br />
     <details>
     <summary>Solución</summary>
-    <img src="https://raw.githubusercontent.com/FJrodafo/University/main/DAW/BAE/Unidad-2/Tarea-3/Assets/Images/22.drawio.png">
+    <img src="https://raw.githubusercontent.com/FJrodafo/University/main/DAW/BAE/Unidad-2/Tarea-3/Assets/Diagrams/Exported/22.drawio.png">
     </details>
 
 ---
@@ -225,7 +225,7 @@
     <br />
     <details>
     <summary>Solución</summary>
-    <img src="https://raw.githubusercontent.com/FJrodafo/University/main/DAW/BAE/Unidad-2/Tarea-3/Assets/Images/23.drawio.png">
+    <img src="https://raw.githubusercontent.com/FJrodafo/University/main/DAW/BAE/Unidad-2/Tarea-3/Assets/Diagrams/Exported/23.drawio.png">
     </details>
 
 ---

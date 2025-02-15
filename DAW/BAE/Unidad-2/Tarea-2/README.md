@@ -10,7 +10,7 @@ Se desea realizar una base de datos que permita apoyar la gestión de un sistema
 
 <details>
 <summary>Solución</summary>
-<img src="https://raw.githubusercontent.com/FJrodafo/University/main/DAW/BAE/Unidad-2/Tarea-2/Assets/Images/Diagram.drawio.png">
+<img src="https://raw.githubusercontent.com/FJrodafo/University/main/DAW/BAE/Unidad-2/Tarea-2/Assets/Diagrams/Exported/Diagram.drawio.png">
 </details>
 
 <link rel="stylesheet" href="./../../../../README.css">

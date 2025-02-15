@@ -44,7 +44,7 @@
 </details>
 <details>
 <summary>Diagrama</summary>
-<img src="https://raw.githubusercontent.com/FJrodafo/University/main/DAW/BAE/Unidad-2/Tarea-6/Assets/Diagrams/lista_de_productos.drawio.svg">
+<img src="https://raw.githubusercontent.com/FJrodafo/University/main/DAW/BAE/Unidad-2/Tarea-6/Assets/Diagrams/Exported/lista_de_productos.drawio.svg">
 </details>
 <details>
 <summary>SQL</summary>
@@ -178,7 +178,7 @@ VALUES
 </details>
 <details>
 <summary>Diagrama</summary>
-<img src="https://raw.githubusercontent.com/FJrodafo/University/main/DAW/BAE/Unidad-2/Tarea-6/Assets/Diagrams/pedidos_de_clientes.drawio.svg">
+<img src="https://raw.githubusercontent.com/FJrodafo/University/main/DAW/BAE/Unidad-2/Tarea-6/Assets/Diagrams/Exported/pedidos_de_clientes.drawio.svg">
 </details>
 <details>
 <summary>SQL</summary>
@@ -303,7 +303,7 @@ VALUES
 </details>
 <details>
 <summary>Diagrama</summary>
-<img src="https://raw.githubusercontent.com/FJrodafo/University/main/DAW/BAE/Unidad-2/Tarea-6/Assets/Diagrams/registro_de_empleados.drawio.svg">
+<img src="https://raw.githubusercontent.com/FJrodafo/University/main/DAW/BAE/Unidad-2/Tarea-6/Assets/Diagrams/Exported/registro_de_empleados.drawio.svg">
 </details>
 <details>
 <summary>SQL</summary>
@@ -420,7 +420,7 @@ VALUES
 </details>
 <details>
 <summary>Diagrama</summary>
-<img src="https://raw.githubusercontent.com/FJrodafo/University/main/DAW/BAE/Unidad-2/Tarea-6/Assets/Diagrams/reservas_de_hotel.drawio.svg">
+<img src="https://raw.githubusercontent.com/FJrodafo/University/main/DAW/BAE/Unidad-2/Tarea-6/Assets/Diagrams/Exported/reservas_de_hotel.drawio.svg">
 </details>
 <details>
 <summary>SQL</summary>
@@ -535,7 +535,7 @@ VALUES
 </details>
 <details>
 <summary>Diagrama</summary>
-<img src="https://raw.githubusercontent.com/FJrodafo/University/main/DAW/BAE/Unidad-2/Tarea-6/Assets/Diagrams/inscripciones_a_cursos.drawio.svg">
+<img src="https://raw.githubusercontent.com/FJrodafo/University/main/DAW/BAE/Unidad-2/Tarea-6/Assets/Diagrams/Exported/inscripciones_a_cursos.drawio.svg">
 </details>
 <details>
 <summary>SQL</summary>
@@ -612,7 +612,7 @@ VALUES
 </details>
 <details>
 <summary>Diagrama</summary>
-<img src="https://raw.githubusercontent.com/FJrodafo/University/main/DAW/BAE/Unidad-2/Tarea-6/Assets/Diagrams/ventas_de_tienda.drawio.svg">
+<img src="https://raw.githubusercontent.com/FJrodafo/University/main/DAW/BAE/Unidad-2/Tarea-6/Assets/Diagrams/Exported/ventas_de_tienda.drawio.svg">
 </details>
 <details>
 <summary>SQL</summary>
@@ -689,7 +689,7 @@ VALUES
 </details>
 <details>
 <summary>Diagrama</summary>
-<img src="https://raw.githubusercontent.com/FJrodafo/University/main/DAW/BAE/Unidad-2/Tarea-6/Assets/Diagrams/biblioteca_de_libros.drawio.svg">
+<img src="https://raw.githubusercontent.com/FJrodafo/University/main/DAW/BAE/Unidad-2/Tarea-6/Assets/Diagrams/Exported/biblioteca_de_libros.drawio.svg">
 </details>
 <details>
 <summary>SQL</summary>
@@ -766,7 +766,7 @@ VALUES
 </details>
 <details>
 <summary>Diagrama</summary>
-<img src="https://raw.githubusercontent.com/FJrodafo/University/main/DAW/BAE/Unidad-2/Tarea-6/Assets/Diagrams/facturacion_de_servicios.drawio.svg">
+<img src="https://raw.githubusercontent.com/FJrodafo/University/main/DAW/BAE/Unidad-2/Tarea-6/Assets/Diagrams/Exported/facturacion_de_servicios.drawio.svg">
 </details>
 <details>
 <summary>SQL</summary>
@@ -843,7 +843,7 @@ VALUES
 </details>
 <details>
 <summary>Diagrama</summary>
-<img src="https://raw.githubusercontent.com/FJrodafo/University/main/DAW/BAE/Unidad-2/Tarea-6/Assets/Diagrams/gestion_de_vehiculos.drawio.svg">
+<img src="https://raw.githubusercontent.com/FJrodafo/University/main/DAW/BAE/Unidad-2/Tarea-6/Assets/Diagrams/Exported/gestion_de_vehiculos.drawio.svg">
 </details>
 <details>
 <summary>SQL</summary>
@@ -920,7 +920,7 @@ VALUES
 </details>
 <details>
 <summary>Diagrama</summary>
-<img src="https://raw.githubusercontent.com/FJrodafo/University/main/DAW/BAE/Unidad-2/Tarea-6/Assets/Diagrams/gestion_de_proyectos.drawio.svg">
+<img src="https://raw.githubusercontent.com/FJrodafo/University/main/DAW/BAE/Unidad-2/Tarea-6/Assets/Diagrams/Exported/gestion_de_proyectos.drawio.svg">
 </details>
 <details>
 <summary>SQL</summary>
