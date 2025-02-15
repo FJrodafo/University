@@ -381,21 +381,21 @@ VALUES
 <details>
 <summary>Tabla</summary>
 
-| id_reserva | cliente  | habitacion | fecha               | precio |
-| :--------: | :------- | :--------: | :-----------------: | :----: |
-| 5001       | Pedro G. | 101        | 01/02, 02/02, 03/02 | 300    |
-| 5002       | María T. | 202        | 10/03, 11/03        | 200    |
+| id_reserva | cliente  | habitacion | fecha                              | precio |
+| :--------: | :------- | :--------: | :--------------------------------: | :----: |
+| 5001       | Pedro G. | 101        | 2025-02-01, 2025-02-02, 2025-02-03 | 300    |
+| 5002       | María T. | 202        | 2025-03-10, 2025-03-11             | 200    |
 </details>
 <details>
 <summary>Solución 1FN</summary>
 
-| id_reserva | cliente  | habitacion | fecha | precio |
-| :--------: | :------- | :--------: | :---: | :----: |
-| 5001       | Pedro G. | 101        | 01/02 | 300    |
-| 5001       | Pedro G. | 101        | 02/02 | 300    |
-| 5001       | Pedro G. | 101        | 03/02 | 300    |
-| 5002       | María T. | 202        | 10/03 | 200    |
-| 5002       | María T. | 202        | 11/03 | 200    |
+| id_reserva | cliente  | habitacion | fecha      | precio |
+| :--------: | :------- | :--------: | :--------: | :----: |
+| 5001       | Pedro G. | 101        | 2025-02-01 | 300    |
+| 5001       | Pedro G. | 101        | 2025-02-02 | 300    |
+| 5001       | Pedro G. | 101        | 2025-02-03 | 300    |
+| 5002       | María T. | 202        | 2025-03-10 | 200    |
+| 5002       | María T. | 202        | 2025-03-11 | 200    |
 </details>
 <details>
 <summary>Solución 2FN</summary>
@@ -410,13 +410,13 @@ VALUES
 | 5001       | 1          | 101        | 300    |
 | 5002       | 2          | 202        | 200    |
 
-| fecha | id_reserva |
-| :---: | :--------: |
-| 01/02 | 5001       |
-| 02/02 | 5001       |
-| 03/02 | 5001       |
-| 10/03 | 5002       |
-| 11/03 | 5002       |
+| fecha      | id_reserva |
+| :--------: | :--------: |
+| 2025-02-01 | 5001       |
+| 2025-02-02 | 5001       |
+| 2025-02-03 | 5001       |
+| 2025-03-10 | 5002       |
+| 2025-03-11 | 5002       |
 </details>
 <details>
 <summary>Diagrama</summary>
@@ -468,7 +468,12 @@ CREATE TABLE Reservas (
 );
 
 -- Crear tabla "Fechas".
-CREATE TABLE Fechas ();
+CREATE TABLE Fechas (
+    fecha DATE,
+    id_reserva INT,
+    PRIMARY KEY (fecha, id_reserva),
+    FOREIGN KEY (id_reserva) REFERENCES Reservas(id_reserva)
+);
 
 --  ╦┌┐┌┌─┐┌─┐┬─┐┌┬┐  ╦  ╦┌─┐┬  ┬ ┬┌─┐┌─┐
 --  ║│││└─┐├┤ ├┬┘ │   ╚╗╔╝├─┤│  │ │├┤ └─┐
@@ -483,12 +488,17 @@ VALUES
 -- Insertar en la tabla "Reservas".
 INSERT INTO Reservas (id_cliente, habitacion, precio)
 VALUES
-    ();
+    (1, 101, 300), -- Pedro G. ha reservado la habitación 101 por 300 euros.
+    (2, 202, 200); -- María T. ha reservado la habitación 202 por 200 euros.
 
 -- Insertar en la tabla "Fechas".
-INSERT INTO Fechas ()
+INSERT INTO Fechas (fecha, id_reserva)
 VALUES
-    ();
+    ('2025-02-01', 1),
+    ('2025-02-02', 1),
+    ('2025-02-03', 1),
+    ('2025-03-10', 2),
+    ('2025-03-11', 2);
 ```
 </details>
 

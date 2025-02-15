@@ -1,4 +1,7 @@
 ```
+* Commit: cb69666 - Deleted ON DELETE CASCADE
+| Author: fjrodafo - Sat, 15 Feb 2025 12:35:11 +0000
+| 
 * Commit: acded73 - Update DAW/BAE/Unidad-2/Tarea-6
 | Author: fjrodafo - Fri, 14 Feb 2025 19:11:47 +0000
 | 
