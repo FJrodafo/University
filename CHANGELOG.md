@@ -1,4 +1,7 @@
 ```
+* Commit: 6ee19f1 - Update workflows runner to ubuntu-latest
+| Author: fjrodafo - Sun, 16 Feb 2025 18:45:43 +0000
+| 
 * Commit: b74a8c7 - Update Index
 | Author: fjrodafo - Sun, 16 Feb 2025 14:37:47 +0000
 | 
