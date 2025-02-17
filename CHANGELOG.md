@@ -1,4 +1,7 @@
 ```
+* Commit: 0aa8f8f - Update DAW/BAE/Unidad-2/Tarea-6
+| Author: fjrodafo - Sun, 16 Feb 2025 23:58:46 +0000
+| 
 * Commit: 8045dbd - Update DAW/BAE/Unidad-2/Tarea-6
 | Author: fjrodafo - Sun, 16 Feb 2025 20:13:41 +0000
 | 
