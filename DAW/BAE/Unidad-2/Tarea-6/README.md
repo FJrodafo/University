@@ -1,7 +1,5 @@
 ## <img src="https://raw.githubusercontent.com/FJrodafo/University/main/DAW/BAE/Unidad-2/Tarea-5/Assets/Images/Computer.png" height="24"> Ejercicios de Normalización de Bases de Datos
 
-## Índice
-
 1. [Ejercicio 1: Lista de Productos](#ejercicio-1-lista-de-productos)
 2. [Ejercicio 2: Pedidos de Clientes](#ejercicio-2-pedidos-de-clientes)
 3. [Ejercicio 3: Registro de Empleados](#ejercicio-3-registro-de-empleados)
@@ -800,9 +798,9 @@ VALUES
 -- Insertar en la tabla "Venta_Producto".
 INSERT INTO Venta_Producto (id_venta, id_producto)
 VALUES
-    (8001, 1), -- Juan P. compra un Celular
-    (8001, 2), -- Juan P. compra una Funda
-    (8002, 3); -- Andrea M. compra un Laptop
+    (8001, 1), -- Juan P. compra un Celular.
+    (8001, 2), -- Juan P. compra una Funda.
+    (8002, 3); -- Andrea M. compra un Laptop.
 ```
 </details>
 
@@ -922,8 +920,8 @@ VALUES
 -- Insertar en la tabla "Libro_Autor".
 INSERT INTO Libro_Autor (id_libro, id_autor) 
 VALUES 
-    (101, 1),  -- El Quijote tiene como autor a Cervantes
-    (102, 2);  -- 1984 tiene como autor a Orwell
+    (101, 1),  -- El Quijote tiene como autor a Cervantes.
+    (102, 2);  -- 1984 tiene como autor a Orwell.
 ```
 </details>
 
@@ -1048,8 +1046,8 @@ CREATE TABLE Factura_Servicio (
 -- Insertar en la tabla "Clientes".
 INSERT INTO Clientes (id_cliente, nombre_cliente)
 VALUES
-    (1, "Juan P."),
-    (2, "Ana M.");
+    (1, 'Juan P.'),
+    (2, 'Ana M.');
 
 -- Insertar en la tabla "Facturas".
 INSERT INTO Facturas (id_factura, id_cliente, costo_total)
@@ -1067,9 +1065,9 @@ VALUES
 -- Insertar en la tabla "Factura_Servicio".
 INSERT INTO Factura_Servicio (id_factura, id_servicio)
 VALUES
-    (9001, 1), -- Juan P. tiene el servicio: Internet
-    (9001, 2), -- Juan P. tiene el servicio: TV
-    (9002, 3); -- Ana M. tiene el servicio: Teléfono
+    (9001, 1), -- Juan P. tiene el servicio: Internet.
+    (9001, 2), -- Juan P. tiene el servicio: TV.
+    (9002, 3); -- Ana M. tiene el servicio: Teléfono.
 ```
 </details>
 
@@ -1091,18 +1089,31 @@ VALUES
 <details>
 <summary>Solución 1FN</summary>
 
-| id_vehiculo | marca  | modelo         | anio  |
-| :---------: | :----- | :------------- | :---: |
-| 5001        | Toyota | Corolla, Yaris | 2022  |
-| 5002        | Honda  | Civic          | 2023  |
+| id_vehiculo | marca  | modelo  | anio  |
+| :---------: | :----- | :------ | :---: |
+| 5001        | Toyota | Corolla | 2022  |
+| 5002        | Toyota | Yaris   | 2022  |
+| 5003        | Honda  | Civic   | 2023  |
 </details>
 <details>
 <summary>Solución 2FN</summary>
 
-| id_vehiculo | marca  | modelo         | anio  |
-| :---------: | :----- | :------------- | :---: |
-| 5001        | Toyota | Corolla, Yaris | 2022  |
-| 5002        | Honda  | Civic          | 2023  |
+| id_marca | nombre_marca |
+| :------: | :----------- |
+| 1        | Toyota       |
+| 2        | Honda        |
+
+| id_modelo | id_marca | nombre_modelo |
+| :-------: | :------- | :------------ |
+| 1         | 1        | Corolla       |
+| 2         | 1        | Yaris         |
+| 3         | 2        | Civic         |
+
+| id_vehiculo | id_modelo | anio  |
+| :---------: | :-------: | :---: |
+| 5001        | 1         | 2022  |
+| 5002        | 2         | 2022  |
+| 5003        | 3         | 2023  |
 </details>
 <details>
 <summary>Diagrama</summary>
@@ -1130,23 +1141,59 @@ USE gestion_de_vehiculos_db;
 --  ═╩╝┴└─└─┘┴     ╩ ┴ ┴└─┘┴─┘└─┘
 
 -- Eliminar las tablas si ya existen (para evitar errores al crear las tablas).
-DROP TABLE IF EXISTS ;
+DROP TABLE IF EXISTS Marcas;
+DROP TABLE IF EXISTS Modelos;
+DROP TABLE IF EXISTS Vehiculos;
 
 --  ╔═╗┬─┐┌─┐┌─┐┌┬┐┌─┐  ╔╦╗┌─┐┌┐ ┬  ┌─┐
 --  ║  ├┬┘├┤ ├─┤ │ ├┤    ║ ├─┤├┴┐│  ├┤ 
 --  ╚═╝┴└─└─┘┴ ┴ ┴ └─┘   ╩ ┴ ┴└─┘┴─┘└─┘
 
--- Crear tabla "".
-CREATE TABLE  ();
+-- Crear tabla "Marcas".
+CREATE TABLE Marcas (
+    id_marca INT AUTO_INCREMENT PRIMARY KEY,
+    nombre_marca VARCHAR(100) NOT NULL
+);
+
+-- Crear tabla "Modelos".
+CREATE TABLE Modelos (
+    id_modelo INT AUTO_INCREMENT PRIMARY KEY,
+    id_marca INT,
+    nombre_modelo VARCHAR(100) NOT NULL,
+    FOREIGN KEY (id_marca) REFERENCES Marcas(id_marca)
+);
+
+-- Crear tabla "Vehiculos".
+CREATE TABLE Vehiculos (
+    id_vehiculo INT AUTO_INCREMENT PRIMARY KEY,
+    id_modelo INT,
+    anio INT NOT NULL,
+    FOREIGN KEY (id_modelo) REFERENCES Modelos(id_modelo)
+);
 
 --  ╦┌┐┌┌─┐┌─┐┬─┐┌┬┐  ╦  ╦┌─┐┬  ┬ ┬┌─┐┌─┐
 --  ║│││└─┐├┤ ├┬┘ │   ╚╗╔╝├─┤│  │ │├┤ └─┐
 --  ╩┘└┘└─┘└─┘┴└─ ┴    ╚╝ ┴ ┴┴─┘└─┘└─┘└─┘
 
--- Insertar en la tabla "".
-INSERT INTO  ()
+-- Insertar en la tabla "Marcas".
+INSERT INTO Marcas (id_marca, nombre_marca)
 VALUES
-    ();
+    (1, 'Toyota'),
+    (2, 'Honda');
+
+-- Insertar en la tabla "Modelos".
+INSERT INTO Modelos (id_modelo, id_marca, nombre_modelo)
+VALUES
+    (1, 1, 'Corolla'),
+    (2, 1, 'Yaris'),
+    (3, 2, 'Civic');
+
+-- Insertar en la tabla "Vehiculos".
+INSERT INTO Vehiculos (id_vehiculo, id_modelo, anio)
+VALUES
+    (5001, 1, 2022), -- Toyota Corolla del 2022.
+    (5002, 2, 2022), -- Toyota Yaris del 2022.
+    (5003, 3, 2023); -- Honda Civic del 2023.
 ```
 </details>
 

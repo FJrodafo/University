@@ -81,6 +81,6 @@ VALUES
 -- Insertar en la tabla "Factura_Servicio".
 INSERT INTO Factura_Servicio (id_factura, id_servicio)
 VALUES
-    (9001, 1), -- Juan P. tiene el servicio: Internet
-    (9001, 2), -- Juan P. tiene el servicio: TV
-    (9002, 3); -- Ana M. tiene el servicio: Teléfono
+    (9001, 1), -- Juan P. tiene el servicio: Internet.
+    (9001, 2), -- Juan P. tiene el servicio: TV.
+    (9002, 3); -- Ana M. tiene el servicio: Teléfono.

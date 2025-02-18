@@ -65,5 +65,5 @@ VALUES
 -- Insertar en la tabla "Libro_Autor".
 INSERT INTO Libro_Autor (id_libro, id_autor) 
 VALUES 
-    (101, 1),  -- El Quijote tiene como autor a Cervantes
-    (102, 2);  -- 1984 tiene como autor a Orwell
+    (101, 1),  -- El Quijote tiene como autor a Cervantes.
+    (102, 2);  -- 1984 tiene como autor a Orwell.

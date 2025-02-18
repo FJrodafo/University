@@ -1,4 +1,7 @@
 ```
+* Commit: 0f04e4c - Update DAW/BAE/Unidad-2/Tarea-6
+| Author: fjrodafo - Tue, 18 Feb 2025 13:55:25 +0000
+| 
 * Commit: 532e1c6 - Update .yaml
 | Author: fjrodafo - Mon, 17 Feb 2025 20:55:45 +0000
 | 

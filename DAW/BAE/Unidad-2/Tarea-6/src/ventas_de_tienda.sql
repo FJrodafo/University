@@ -81,6 +81,6 @@ VALUES
 -- Insertar en la tabla "Venta_Producto".
 INSERT INTO Venta_Producto (id_venta, id_producto)
 VALUES
-    (8001, 1), -- Juan P. compra un Celular
-    (8001, 2), -- Juan P. compra una Funda
-    (8002, 3); -- Andrea M. compra un Laptop
+    (8001, 1), -- Juan P. compra un Celular.
+    (8001, 2), -- Juan P. compra una Funda.
+    (8002, 3); -- Andrea M. compra un Laptop.
