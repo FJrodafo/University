@@ -947,16 +947,34 @@ VALUES
 
 | id_factura | cliente | servicio_contratado | costo_total |
 | :--------: | :------ | :------------------ | :---------: |
-| 9001       | Juan P. | Internet, TV        | 50          |
+| 9001       | Juan P. | Internet            | 10          |
+| 9001       | Juan P. | TV                  | 40          |
 | 9002       | Ana M.  | Teléfono            | 20          |
 </details>
 <details>
 <summary>Solución 2FN</summary>
 
-| id_factura | cliente | servicio_contratado | costo_total |
-| :--------: | :------ | :------------------ | :---------: |
-| 9001       | Juan P. | Internet, TV        | 50          |
-| 9002       | Ana M.  | Teléfono            | 20          |
+| id_cliente | nombre_cliente |
+| :--------: | :------------- |
+| 1          | Juan P.        |
+| 2          | Ana M.         |
+
+| id_factura | id_cliente | costo_total |
+| :--------: | :--------: | :---------: |
+| 9001       | 1          | 50          |
+| 9002       | 2          | 20          |
+
+| id_servicio | nombre_servicio | precio |
+| :---------: | :-------------- | :----: |
+| 1           | Internet        | 10     |
+| 2           | TV              | 40     |
+| 3           | Teléfono        | 20     |
+
+| id_factura | id_servicio |
+| :--------: | :---------: |
+| 9001       | 1           |
+| 9001       | 2           |
+| 9002       | 3           |
 </details>
 <details>
 <summary>Diagrama</summary>
@@ -984,23 +1002,74 @@ USE facturacion_de_servicios_db;
 --  ═╩╝┴└─└─┘┴     ╩ ┴ ┴└─┘┴─┘└─┘
 
 -- Eliminar las tablas si ya existen (para evitar errores al crear las tablas).
-DROP TABLE IF EXISTS ;
+DROP TABLE IF EXISTS Clientes;
+DROP TABLE IF EXISTS Facturas;
+DROP TABLE IF EXISTS Servicios;
+DROP TABLE IF EXISTS Factura_Servicio;
 
 --  ╔═╗┬─┐┌─┐┌─┐┌┬┐┌─┐  ╔╦╗┌─┐┌┐ ┬  ┌─┐
 --  ║  ├┬┘├┤ ├─┤ │ ├┤    ║ ├─┤├┴┐│  ├┤ 
 --  ╚═╝┴└─└─┘┴ ┴ ┴ └─┘   ╩ ┴ ┴└─┘┴─┘└─┘
 
--- Crear tabla "".
-CREATE TABLE  ();
+-- Crear tabla "Clientes".
+CREATE TABLE Clientes (
+    id_cliente INT AUTO_INCREMENT PRIMARY KEY,
+    nombre_cliente VARCHAR(100) NOT NULL
+);
+
+-- Crear tabla "Facturas".
+CREATE TABLE Facturas (
+    id_factura INT AUTO_INCREMENT PRIMARY KEY,
+    id_cliente INT,
+    costo_total DECIMAL(10, 2) NOT NULL,
+    FOREIGN KEY (id_cliente) REFERENCES Clientes(id_cliente)
+);
+
+-- Crear tabla "Servicios".
+CREATE TABLE Servicios (
+    id_servicio INT AUTO_INCREMENT PRIMARY KEY,
+    nombre_servicio VARCHAR(100) NOT NULL,
+    precio DECIMAL(10, 2) NOT NULL
+);
+
+-- Crear tabla "Factura_Servicio".
+CREATE TABLE Factura_Servicio (
+    id_factura INT,
+    id_servicio INT,
+    PRIMARY KEY (id_factura, id_servicio),
+    FOREIGN KEY (id_factura) REFERENCES Facturas(id_factura),
+    FOREIGN KEY (id_servicio) REFERENCES Servicios(id_servicio)
+);
 
 --  ╦┌┐┌┌─┐┌─┐┬─┐┌┬┐  ╦  ╦┌─┐┬  ┬ ┬┌─┐┌─┐
 --  ║│││└─┐├┤ ├┬┘ │   ╚╗╔╝├─┤│  │ │├┤ └─┐
 --  ╩┘└┘└─┘└─┘┴└─ ┴    ╚╝ ┴ ┴┴─┘└─┘└─┘└─┘
 
--- Insertar en la tabla "".
-INSERT INTO  ()
+-- Insertar en la tabla "Clientes".
+INSERT INTO Clientes (id_cliente, nombre_cliente)
 VALUES
-    ();
+    (1, "Juan P."),
+    (2, "Ana M.");
+
+-- Insertar en la tabla "Facturas".
+INSERT INTO Facturas (id_factura, id_cliente, costo_total)
+VALUES
+    (9001, 1, 50),
+    (9002, 2, 20);
+
+-- Insertar en la tabla "Servicios".
+INSERT INTO Servicios (id_servicio, nombre_servicio, precio)
+VALUES
+    (1, 'Internet', 10),
+    (2, 'TV', 40),
+    (3, 'Teléfono', 20);
+
+-- Insertar en la tabla "Factura_Servicio".
+INSERT INTO Factura_Servicio (id_factura, id_servicio)
+VALUES
+    (9001, 1), -- Juan P. tiene el servicio: Internet
+    (9001, 2), -- Juan P. tiene el servicio: TV
+    (9002, 3); -- Ana M. tiene el servicio: Teléfono
 ```
 </details>
 
