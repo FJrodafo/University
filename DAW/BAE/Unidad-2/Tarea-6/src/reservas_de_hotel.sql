@@ -60,8 +60,8 @@ VALUES
 -- Insertar en la tabla "Reservas".
 INSERT INTO Reservas (id_reserva, id_cliente, habitacion, precio)
 VALUES
-    (5001, 1, 101, 300), -- Pedro G. ha reservado la habitación 101 por 300 euros.
-    (5002, 2, 202, 200); -- María T. ha reservado la habitación 202 por 200 euros.
+    (5001, 1, 101, 300.00), -- Pedro G. ha reservado la habitación 101 por 300.00 euros.
+    (5002, 2, 202, 200.00); -- María T. ha reservado la habitación 202 por 200.00 euros.
 
 -- Insertar en la tabla "Fechas".
 INSERT INTO Fechas (fecha, id_reserva)

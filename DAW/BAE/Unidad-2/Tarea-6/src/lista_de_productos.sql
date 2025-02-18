@@ -29,15 +29,14 @@ CREATE TABLE Productos (
     id_producto INT AUTO_INCREMENT PRIMARY KEY,
     nombre_producto VARCHAR(100) NOT NULL,
     categoria VARCHAR(50) NOT NULL,
-    precio DECIMAL(10, 2) NOT NULL,
-    CONSTRAINT Unico_Producto UNIQUE (nombre_producto) -- Aseguramos que no haya duplicados en productos (si aplica).
+    precio DECIMAL(10, 2) NOT NULL
 );
 
 -- Crear tabla "Proveedores".
 CREATE TABLE Proveedores (
     id_proveedor INT AUTO_INCREMENT PRIMARY KEY,
     nombre_proveedor VARCHAR(100) NOT NULL,
-    CONSTRAINT Unico_Proveedor UNIQUE (nombre_proveedor)
+    CONSTRAINT Unico_Proveedor UNIQUE (nombre_proveedor) -- Aseguramos que no haya duplicados en proveedores.
 );
 
 -- Crear tabla intermedia "Producto_Proveedor".
@@ -69,6 +68,6 @@ VALUES
 -- Insertar en la tabla intermedia "Producto_Proveedor".
 INSERT INTO Producto_Proveedor (id_producto, id_proveedor)
 VALUES
-    (1, 1), -- Laptop suministrada por Dell.
-    (1, 2), -- Laptop suministrada por HP.
-    (2, 3); -- Mouse suministrado por Logitech.
+    (1, 1), -- Laptop de 1000.00 euros suministrada por Dell.
+    (1, 2), -- Laptop de 1000.00 euros suministrada por HP.
+    (2, 3); -- Mouse de 25.00 euros suministrado por Logitech.

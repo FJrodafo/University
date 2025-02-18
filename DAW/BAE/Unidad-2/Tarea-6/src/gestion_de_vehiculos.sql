@@ -27,7 +27,8 @@ DROP TABLE IF EXISTS Vehiculos;
 -- Crear tabla "Marcas".
 CREATE TABLE Marcas (
     id_marca INT AUTO_INCREMENT PRIMARY KEY,
-    nombre_marca VARCHAR(100) NOT NULL
+    nombre_marca VARCHAR(100) NOT NULL,
+    CONSTRAINT Unica_Marca UNIQUE (nombre_marca)
 );
 
 -- Crear tabla "Modelos".
@@ -35,7 +36,8 @@ CREATE TABLE Modelos (
     id_modelo INT AUTO_INCREMENT PRIMARY KEY,
     id_marca INT,
     nombre_modelo VARCHAR(100) NOT NULL,
-    FOREIGN KEY (id_marca) REFERENCES Marcas(id_marca)
+    FOREIGN KEY (id_marca) REFERENCES Marcas(id_marca),
+    CONSTRAINT Unico_Modelo UNIQUE (nombre_modelo)
 );
 
 -- Crear tabla "Vehiculos".

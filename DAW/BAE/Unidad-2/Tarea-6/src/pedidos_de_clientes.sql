@@ -35,8 +35,7 @@ CREATE TABLE Clientes (
 CREATE TABLE Productos (
     id_producto INT AUTO_INCREMENT PRIMARY KEY,
     nombre_producto VARCHAR(100) NOT NULL,
-    precio DECIMAL(10, 2) NOT NULL,
-    CONSTRAINT Unico_Producto UNIQUE (nombre_producto) -- Aseguramos que no haya duplicados en productos (si aplica).
+    precio DECIMAL(10, 2) NOT NULL
 );
 
 -- Crear tabla "Pedidos".
@@ -68,5 +67,5 @@ VALUES
 -- Insertar en la tabla "Pedidos".
 INSERT INTO Pedidos (id_cliente, id_producto, cantidad)
 VALUES
-    (1, 1, 1), -- Juan Pérez pide un Laptop.
-    (2, 2, 2); -- Ana López pide dos Teclados.
+    (1, 1, 1), -- Juan Pérez pide un Laptop por 1000.00 euros.
+    (2, 2, 2); -- Ana López pide dos Teclados por 100.00 euros.

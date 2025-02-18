@@ -92,15 +92,14 @@ CREATE TABLE Productos (
     id_producto INT AUTO_INCREMENT PRIMARY KEY,
     nombre_producto VARCHAR(100) NOT NULL,
     categoria VARCHAR(50) NOT NULL,
-    precio DECIMAL(10, 2) NOT NULL,
-    CONSTRAINT Unico_Producto UNIQUE (nombre_producto) -- Aseguramos que no haya duplicados en productos (si aplica).
+    precio DECIMAL(10, 2) NOT NULL
 );
 
 -- Crear tabla "Proveedores".
 CREATE TABLE Proveedores (
     id_proveedor INT AUTO_INCREMENT PRIMARY KEY,
     nombre_proveedor VARCHAR(100) NOT NULL,
-    CONSTRAINT Unico_Proveedor UNIQUE (nombre_proveedor)
+    CONSTRAINT Unico_Proveedor UNIQUE (nombre_proveedor) -- Aseguramos que no haya duplicados en proveedores.
 );
 
 -- Crear tabla intermedia "Producto_Proveedor".
@@ -132,9 +131,9 @@ VALUES
 -- Insertar en la tabla intermedia "Producto_Proveedor".
 INSERT INTO Producto_Proveedor (id_producto, id_proveedor)
 VALUES
-    (1, 1), -- Laptop suministrada por Dell.
-    (1, 2), -- Laptop suministrada por HP.
-    (2, 3); -- Mouse suministrado por Logitech.
+    (1, 1), -- Laptop de 1000.00 euros suministrada por Dell.
+    (1, 2), -- Laptop de 1000.00 euros suministrada por HP.
+    (2, 3); -- Mouse de 25.00 euros suministrado por Logitech.
 ```
 </details>
 
@@ -232,8 +231,7 @@ CREATE TABLE Clientes (
 CREATE TABLE Productos (
     id_producto INT AUTO_INCREMENT PRIMARY KEY,
     nombre_producto VARCHAR(100) NOT NULL,
-    precio DECIMAL(10, 2) NOT NULL,
-    CONSTRAINT Unico_Producto UNIQUE (nombre_producto) -- Aseguramos que no haya duplicados en productos (si aplica).
+    precio DECIMAL(10, 2) NOT NULL
 );
 
 -- Crear tabla "Pedidos".
@@ -265,8 +263,8 @@ VALUES
 -- Insertar en la tabla "Pedidos".
 INSERT INTO Pedidos (id_cliente, id_producto, cantidad)
 VALUES
-    (1, 1, 1), -- Juan Pérez pide un Laptop.
-    (2, 2, 2); -- Ana López pide dos Teclados.
+    (1, 1, 1), -- Juan Pérez pide un Laptop por 1000.00 euros.
+    (2, 2, 2); -- Ana López pide dos Teclados por 100.00 euros.
 ```
 </details>
 
@@ -285,7 +283,7 @@ VALUES
 <summary>Tabla</summary>
 
 | id_empleado | nombre    | telefono     | departamento |
-| :---------: | :-------: | :----------: | :----------: |
+| :---------: | :-------- | :----------: | :----------- |
 | 1           | Carlos R. | 12345, 67890 | Ventas       |
 | 2           | Laura M.  | 54321        | Finanzas     |
 </details>
@@ -293,7 +291,7 @@ VALUES
 <summary>Solución 1FN</summary>
 
 | id_empleado | nombre    | telefono | departamento |
-| :---------: | :-------: | :------: | :----------: |
+| :---------: | :-------- | :------: | :----------- |
 | 1           | Carlos R. | 12345    | Ventas       |
 | 1           | Carlos R. | 67890    | Ventas       |
 | 2           | Laura M.  | 54321    | Finanzas     |
@@ -301,10 +299,15 @@ VALUES
 <details>
 <summary>Solución 2FN</summary>
 
-| id_empleado | nombre    | departamento |
-| :---------: | :-------: | :----------: |
-| 1           | Carlos R. | Ventas       |
-| 2           | Laura M.  | Finanzas     |
+| id_departamento | nombre_departamento |
+| :-------------: | :------------------ |
+| 1               | Ventas              |
+| 2               | Finanzas            |
+
+| id_empleado | id_departamento | nombre_empleado |
+| :---------: | :-------------: | :-------------- |
+| 1           | 1               | Carlos R.       |
+| 2           | 2               | Laura M.        |
 
 | telefono | id_empleado |
 | :------: | :---------: |
@@ -338,6 +341,7 @@ USE registro_de_empleados_db;
 --  ═╩╝┴└─└─┘┴     ╩ ┴ ┴└─┘┴─┘└─┘
 
 -- Eliminar las tablas si ya existen (para evitar errores al crear las tablas).
+DROP TABLE IF EXISTS Departamentos;
 DROP TABLE IF EXISTS Empleados;
 DROP TABLE IF EXISTS Telefonos;
 
@@ -345,11 +349,19 @@ DROP TABLE IF EXISTS Telefonos;
 --  ║  ├┬┘├┤ ├─┤ │ ├┤    ║ ├─┤├┴┐│  ├┤ 
 --  ╚═╝┴└─└─┘┴ ┴ ┴ └─┘   ╩ ┴ ┴└─┘┴─┘└─┘
 
+-- Crear tabla "Departamentos".
+CREATE TABLE Departamentos (
+    id_departamento INT AUTO_INCREMENT PRIMARY KEY,
+    nombre_departamento VARCHAR(50) NOT NULL,
+    CONSTRAINT Unico_Departamento UNIQUE (nombre_departamento)
+);
+
 -- Crear tabla "Empleados".
 CREATE TABLE Empleados (
     id_empleado INT AUTO_INCREMENT PRIMARY KEY,
-    nombre VARCHAR(100) NOT NULL,
-    departamento VARCHAR(50) NOT NULL
+    id_departamento INT,
+    nombre_empleado VARCHAR(100) NOT NULL,
+    FOREIGN KEY (id_departamento) REFERENCES Departamentos(id_departamento)
 );
 
 -- Crear tabla "Telefonos".
@@ -363,11 +375,17 @@ CREATE TABLE Telefonos (
 --  ║│││└─┐├┤ ├┬┘ │   ╚╗╔╝├─┤│  │ │├┤ └─┐
 --  ╩┘└┘└─┘└─┘┴└─ ┴    ╚╝ ┴ ┴┴─┘└─┘└─┘└─┘
 
--- Insertar en la tabla "Empleados".
-INSERT INTO Empleados (id_empleado, nombre, departamento)
+-- Insertar en la tabla "Departamentos".
+INSERT INTO Departamentos (id_departamento, nombre_departamento)
 VALUES
-    (1, 'Carlos R.', 'Ventas'),
-    (2, 'Laura M.', 'Finanzas');
+    (1, 'Ventas'),
+    (2, 'Finanzas');
+
+-- Insertar en la tabla "Empleados".
+INSERT INTO Empleados (id_empleado, id_departamento, nombre_empleado)
+VALUES
+    (1, 1, 'Carlos R.'),
+    (2, 2, 'Laura M.');
 
 -- Insertar en la tabla "Telefonos".
 INSERT INTO Telefonos (telefono, id_empleado)
@@ -499,8 +517,8 @@ VALUES
 -- Insertar en la tabla "Reservas".
 INSERT INTO Reservas (id_reserva, id_cliente, habitacion, precio)
 VALUES
-    (5001, 1, 101, 300), -- Pedro G. ha reservado la habitación 101 por 300 euros.
-    (5002, 2, 202, 200); -- María T. ha reservado la habitación 202 por 200 euros.
+    (5001, 1, 101, 300.00), -- Pedro G. ha reservado la habitación 101 por 300.00 euros.
+    (5002, 2, 202, 200.00); -- María T. ha reservado la habitación 202 por 200.00 euros.
 
 -- Insertar en la tabla "Fechas".
 INSERT INTO Fechas (fecha, id_reserva)
@@ -785,22 +803,22 @@ VALUES
 -- Insertar en la tabla "Ventas".
 INSERT INTO Ventas (id_venta, id_cliente, costo_total)
 VALUES
-    (8001, 1, 500),
-    (8002, 2, 1000);
+    (8001, 1, 500.00),
+    (8002, 2, 1000.00);
 
 -- Insertar en la tabla "Productos".
 INSERT INTO Productos (id_producto, nombre_producto, precio)
 VALUES
-    (1, 'Celular', 490),
-    (2, 'Funda', 10),
-    (3, 'Laptop', 1000);
+    (1, 'Celular', 490.00),
+    (2, 'Funda', 10.00),
+    (3, 'Laptop', 1000.00);
 
 -- Insertar en la tabla "Venta_Producto".
 INSERT INTO Venta_Producto (id_venta, id_producto)
 VALUES
-    (8001, 1), -- Juan P. compra un Celular.
-    (8001, 2), -- Juan P. compra una Funda.
-    (8002, 3); -- Andrea M. compra un Laptop.
+    (8001, 1), -- Juan P. compra un Celular por 490.00 euros.
+    (8001, 2), -- Juan P. compra una Funda por 10.00 euros.
+    (8002, 3); -- Andrea M. compra un Laptop por 1000.00 euros.
 ```
 </details>
 
@@ -920,8 +938,8 @@ VALUES
 -- Insertar en la tabla "Libro_Autor".
 INSERT INTO Libro_Autor (id_libro, id_autor) 
 VALUES 
-    (101, 1),  -- El Quijote tiene como autor a Cervantes.
-    (102, 2);  -- 1984 tiene como autor a Orwell.
+    (101, 1),  -- La novela El Quijote tiene como autor a Cervantes.
+    (102, 2);  -- El libro de ciencia ficción 1984 tiene como autor a Orwell.
 ```
 </details>
 
@@ -1027,7 +1045,8 @@ CREATE TABLE Facturas (
 CREATE TABLE Servicios (
     id_servicio INT AUTO_INCREMENT PRIMARY KEY,
     nombre_servicio VARCHAR(100) NOT NULL,
-    precio DECIMAL(10, 2) NOT NULL
+    precio DECIMAL(10, 2) NOT NULL,
+    CONSTRAINT Unico_Servicio UNIQUE (nombre_servicio)
 );
 
 -- Crear tabla "Factura_Servicio".
@@ -1052,22 +1071,22 @@ VALUES
 -- Insertar en la tabla "Facturas".
 INSERT INTO Facturas (id_factura, id_cliente, costo_total)
 VALUES
-    (9001, 1, 50),
-    (9002, 2, 20);
+    (9001, 1, 50.00),
+    (9002, 2, 20.00);
 
 -- Insertar en la tabla "Servicios".
 INSERT INTO Servicios (id_servicio, nombre_servicio, precio)
 VALUES
-    (1, 'Internet', 10),
-    (2, 'TV', 40),
-    (3, 'Teléfono', 20);
+    (1, 'Internet', 10.00),
+    (2, 'TV', 40.00),
+    (3, 'Teléfono', 20.00);
 
 -- Insertar en la tabla "Factura_Servicio".
 INSERT INTO Factura_Servicio (id_factura, id_servicio)
 VALUES
-    (9001, 1), -- Juan P. tiene el servicio: Internet.
-    (9001, 2), -- Juan P. tiene el servicio: TV.
-    (9002, 3); -- Ana M. tiene el servicio: Teléfono.
+    (9001, 1), -- Juan P. ha pagado 10.00 euros por el servicio: Internet.
+    (9001, 2), -- Juan P. ha pagado 40.00 euros por el servicio: TV.
+    (9002, 3); -- Ana M. ha pagado 20.00 euros por el servicio: Teléfono.
 ```
 </details>
 
@@ -1152,7 +1171,8 @@ DROP TABLE IF EXISTS Vehiculos;
 -- Crear tabla "Marcas".
 CREATE TABLE Marcas (
     id_marca INT AUTO_INCREMENT PRIMARY KEY,
-    nombre_marca VARCHAR(100) NOT NULL
+    nombre_marca VARCHAR(100) NOT NULL,
+    CONSTRAINT Unica_Marca UNIQUE (nombre_marca)
 );
 
 -- Crear tabla "Modelos".
@@ -1160,7 +1180,8 @@ CREATE TABLE Modelos (
     id_modelo INT AUTO_INCREMENT PRIMARY KEY,
     id_marca INT,
     nombre_modelo VARCHAR(100) NOT NULL,
-    FOREIGN KEY (id_marca) REFERENCES Marcas(id_marca)
+    FOREIGN KEY (id_marca) REFERENCES Marcas(id_marca),
+    CONSTRAINT Unico_Modelo UNIQUE (nombre_modelo)
 );
 
 -- Crear tabla "Vehiculos".
@@ -1217,16 +1238,32 @@ VALUES
 
 | id_proyecto | nombre     | miembro      | presupuesto |
 | :---------: | :--------- | :----------- | :---------: |
-| 7001        | Web App    | Juan, Ana    | 5000        |
-| 7002        | E-commerce | Pedro, María | 10000       |
+| 7001        | Web App    | Juan         | 5000        |
+| 7001        | Web App    | Ana          | 5000        |
+| 7002        | E-commerce | Pedro        | 10000       |
+| 7002        | E-commerce | María        | 10000       |
 </details>
 <details>
 <summary>Solución 2FN</summary>
 
-| id_proyecto | nombre     | miembro      | presupuesto |
-| :---------: | :--------- | :----------- | :---------: |
-| 7001        | Web App    | Juan, Ana    | 5000        |
-| 7002        | E-commerce | Pedro, María | 10000       |
+| id_proyecto | nombre_proyecto | presupuesto |
+| :---------: | :-------------- | :---------: |
+| 7001        | Web App         | 5000        |
+| 7002        | E-commerce      | 10000       |
+
+| id_miembro | nombre_miembro |
+| :--------: | :------------- |
+| 1          | Juan           |
+| 2          | Ana            |
+| 3          | Pedro          |
+| 4          | María          |
+
+| id_proyecto | id_miembro |
+| :---------: | :--------: |
+| 7001        | 1          |
+| 7001        | 2          |
+| 7002        | 3          |
+| 7002        | 4          |
 </details>
 <details>
 <summary>Diagrama</summary>
@@ -1254,23 +1291,61 @@ USE gestion_de_proyectos_db;
 --  ═╩╝┴└─└─┘┴     ╩ ┴ ┴└─┘┴─┘└─┘
 
 -- Eliminar las tablas si ya existen (para evitar errores al crear las tablas).
-DROP TABLE IF EXISTS ;
+DROP TABLE IF EXISTS Proyectos;
+DROP TABLE IF EXISTS Miembros;
+DROP TABLE IF EXISTS Proyecto_Miembro;
 
 --  ╔═╗┬─┐┌─┐┌─┐┌┬┐┌─┐  ╔╦╗┌─┐┌┐ ┬  ┌─┐
 --  ║  ├┬┘├┤ ├─┤ │ ├┤    ║ ├─┤├┴┐│  ├┤ 
 --  ╚═╝┴└─└─┘┴ ┴ ┴ └─┘   ╩ ┴ ┴└─┘┴─┘└─┘
 
--- Crear tabla "".
-CREATE TABLE  ();
+-- Crear tabla "Proyectos".
+CREATE TABLE Proyectos (
+    id_proyecto INT AUTO_INCREMENT PRIMARY KEY,
+    nombre_proyecto VARCHAR(100) NOT NULL,
+    presupuesto DECIMAL(10, 2) NOT NULL
+);
+
+-- Crear tabla "Miembros".
+CREATE TABLE Miembros (
+    id_miembro INT AUTO_INCREMENT PRIMARY KEY,
+    nombre_miembro VARCHAR(100) NOT NULL
+);
+
+-- Crear tabla "Proyecto_Miembro".
+CREATE TABLE Proyecto_Miembro (
+    id_proyecto INT,
+    id_miembro INT,
+    PRIMARY KEY (id_proyecto, id_miembro),
+    FOREIGN KEY (id_proyecto) REFERENCES Proyectos(id_proyecto),
+    FOREIGN KEY (id_miembro) REFERENCES Miembros(id_miembro)
+);
 
 --  ╦┌┐┌┌─┐┌─┐┬─┐┌┬┐  ╦  ╦┌─┐┬  ┬ ┬┌─┐┌─┐
 --  ║│││└─┐├┤ ├┬┘ │   ╚╗╔╝├─┤│  │ │├┤ └─┐
 --  ╩┘└┘└─┘└─┘┴└─ ┴    ╚╝ ┴ ┴┴─┘└─┘└─┘└─┘
 
--- Insertar en la tabla "".
-INSERT INTO  ()
+-- Insertar en la tabla "Proyectos".
+INSERT INTO Proyectos (id_proyecto, nombre_proyecto, presupuesto)
 VALUES
-    ();
+    (7001, 'Web App', 5000.00),
+    (7002, 'E-commerce', 10000.00);
+
+-- Insertar en la tabla "Miembros".
+INSERT INTO Miembros (id_miembro, nombre_miembro)
+VALUES
+    (1, 'Juan'),
+    (2, 'Ana'),
+    (3, 'Pedro'),
+    (4, 'María');
+
+-- Insertar en la tabla "Proyecto_Miembro".
+INSERT INTO Proyecto_Miembro (id_proyecto, id_miembro)
+VALUES
+    (7001, 1), -- Juan forma parte del proyecto Web App con un presupuesto de 5000.00 euros.
+    (7001, 2), -- Ana forma parte del proyecto Web App con un presupuesto de 5000.00 euros.
+    (7002, 3), -- Pedro forma parte del proyecto E-commerce con un presupuesto de 10000.00 euros.
+    (7002, 4); -- María forma parte del proyecto E-commerce con un presupuesto de 10000.00 euros.
 ```
 </details>
 

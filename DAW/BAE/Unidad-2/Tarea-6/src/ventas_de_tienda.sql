@@ -68,19 +68,19 @@ VALUES
 -- Insertar en la tabla "Ventas".
 INSERT INTO Ventas (id_venta, id_cliente, costo_total)
 VALUES
-    (8001, 1, 500),
-    (8002, 2, 1000);
+    (8001, 1, 500.00),
+    (8002, 2, 1000.00);
 
 -- Insertar en la tabla "Productos".
 INSERT INTO Productos (id_producto, nombre_producto, precio)
 VALUES
-    (1, 'Celular', 490),
-    (2, 'Funda', 10),
-    (3, 'Laptop', 1000);
+    (1, 'Celular', 490.00),
+    (2, 'Funda', 10.00),
+    (3, 'Laptop', 1000.00);
 
 -- Insertar en la tabla "Venta_Producto".
 INSERT INTO Venta_Producto (id_venta, id_producto)
 VALUES
-    (8001, 1), -- Juan P. compra un Celular.
-    (8001, 2), -- Juan P. compra una Funda.
-    (8002, 3); -- Andrea M. compra un Laptop.
+    (8001, 1), -- Juan P. compra un Celular por 490.00 euros.
+    (8001, 2), -- Juan P. compra una Funda por 10.00 euros.
+    (8002, 3); -- Andrea M. compra un Laptop por 1000.00 euros.

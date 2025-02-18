@@ -43,7 +43,8 @@ CREATE TABLE Facturas (
 CREATE TABLE Servicios (
     id_servicio INT AUTO_INCREMENT PRIMARY KEY,
     nombre_servicio VARCHAR(100) NOT NULL,
-    precio DECIMAL(10, 2) NOT NULL
+    precio DECIMAL(10, 2) NOT NULL,
+    CONSTRAINT Unico_Servicio UNIQUE (nombre_servicio)
 );
 
 -- Crear tabla "Factura_Servicio".
@@ -62,25 +63,25 @@ CREATE TABLE Factura_Servicio (
 -- Insertar en la tabla "Clientes".
 INSERT INTO Clientes (id_cliente, nombre_cliente)
 VALUES
-    (1, "Juan P."),
-    (2, "Ana M.");
+    (1, 'Juan P.'),
+    (2, 'Ana M.');
 
 -- Insertar en la tabla "Facturas".
 INSERT INTO Facturas (id_factura, id_cliente, costo_total)
 VALUES
-    (9001, 1, 50),
-    (9002, 2, 20);
+    (9001, 1, 50.00),
+    (9002, 2, 20.00);
 
 -- Insertar en la tabla "Servicios".
 INSERT INTO Servicios (id_servicio, nombre_servicio, precio)
 VALUES
-    (1, 'Internet', 10),
-    (2, 'TV', 40),
-    (3, 'Teléfono', 20);
+    (1, 'Internet', 10.00),
+    (2, 'TV', 40.00),
+    (3, 'Teléfono', 20.00);
 
 -- Insertar en la tabla "Factura_Servicio".
 INSERT INTO Factura_Servicio (id_factura, id_servicio)
 VALUES
-    (9001, 1), -- Juan P. tiene el servicio: Internet.
-    (9001, 2), -- Juan P. tiene el servicio: TV.
-    (9002, 3); -- Ana M. tiene el servicio: Teléfono.
+    (9001, 1), -- Juan P. ha pagado 10.00 euros por el servicio: Internet.
+    (9001, 2), -- Juan P. ha pagado 40.00 euros por el servicio: TV.
+    (9002, 3); -- Ana M. ha pagado 20.00 euros por el servicio: Teléfono.
