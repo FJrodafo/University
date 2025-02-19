@@ -56,10 +56,10 @@
 <details>
 <summary>Solución 3FN</summary>
 
-| id_categoria | categoria  |
-| :----------: | :--------- |
-| 1            | Tecnología |
-| 2            | Accesorios |
+| id_categoria | nombre_categoria |
+| :----------: | :--------------- |
+| 1            | Tecnología       |
+| 2            | Accesorios       |
 
 | id_producto | id_categoria | nombre_producto | precio |
 | :---------: | :----------: | :-------------- | :----: |
@@ -104,27 +104,36 @@ USE lista_de_productos_db;
 --  ═╩╝┴└─└─┘┴     ╩ ┴ ┴└─┘┴─┘└─┘
 
 -- Eliminar las tablas si ya existen (para evitar errores al crear las tablas).
+DROP TABLE IF EXISTS Producto_Proveedor;
 DROP TABLE IF EXISTS Productos;
 DROP TABLE IF EXISTS Proveedores;
-DROP TABLE IF EXISTS Producto_Proveedor;
+DROP TABLE IF EXISTS Categorias;
 
 --  ╔═╗┬─┐┌─┐┌─┐┌┬┐┌─┐  ╔╦╗┌─┐┌┐ ┬  ┌─┐
 --  ║  ├┬┘├┤ ├─┤ │ ├┤    ║ ├─┤├┴┐│  ├┤ 
 --  ╚═╝┴└─└─┘┴ ┴ ┴ └─┘   ╩ ┴ ┴└─┘┴─┘└─┘
 
+-- Crear tabla "Categorias".
+CREATE TABLE Categorias (
+    id_categoria INT AUTO_INCREMENT PRIMARY KEY,
+    nombre_categoria VARCHAR(50) NOT NULL,
+    CONSTRAINT Unica_Categoria UNIQUE (nombre_categoria) -- Aseguramos que no haya duplicados.
+);
+
 -- Crear tabla "Productos".
 CREATE TABLE Productos (
     id_producto INT AUTO_INCREMENT PRIMARY KEY,
+    id_categoria INT,
     nombre_producto VARCHAR(100) NOT NULL,
-    categoria VARCHAR(50) NOT NULL,
-    precio DECIMAL(10, 2) NOT NULL
+    precio DECIMAL(10, 2) NOT NULL,
+    FOREIGN KEY (id_categoria) REFERENCES Categorias(id_categoria)
 );
 
 -- Crear tabla "Proveedores".
 CREATE TABLE Proveedores (
     id_proveedor INT AUTO_INCREMENT PRIMARY KEY,
     nombre_proveedor VARCHAR(100) NOT NULL,
-    CONSTRAINT Unico_Proveedor UNIQUE (nombre_proveedor) -- Aseguramos que no haya duplicados en proveedores.
+    CONSTRAINT Unico_Proveedor UNIQUE (nombre_proveedor)
 );
 
 -- Crear tabla intermedia "Producto_Proveedor".
@@ -140,18 +149,24 @@ CREATE TABLE Producto_Proveedor (
 --  ║│││└─┐├┤ ├┬┘ │   ╚╗╔╝├─┤│  │ │├┤ └─┐
 --  ╩┘└┘└─┘└─┘┴└─ ┴    ╚╝ ┴ ┴┴─┘└─┘└─┘└─┘
 
--- Insertar en la tabla "Productos".
-INSERT INTO Productos (id_producto, nombre_producto, categoria, precio)
+-- Insertar en la tabla "Categorias".
+INSERT INTO Categorias (nombre_categoria)
 VALUES
-    (1, 'Laptop', 'Tecnología', 1000.00),
-    (2, 'Mouse', 'Accesorios', 25.00);
+    ("Tecnología"),
+    ("Accesorios");
+
+-- Insertar en la tabla "Productos".
+INSERT INTO Productos (id_categoria, nombre_producto, precio)
+VALUES
+    (1, 'Laptop', 1000.00),
+    (2, 'Mouse', 25.00);
 
 -- Insertar en la tabla "Proveedores".
-INSERT INTO Proveedores (id_proveedor, nombre_proveedor)
+INSERT INTO Proveedores (nombre_proveedor)
 VALUES
-    (1, 'Dell'),
-    (2, 'HP'),
-    (3, 'Logitech');
+    ('Dell'),
+    ('HP'),
+    ('Logitech');
 
 -- Insertar en la tabla intermedia "Producto_Proveedor".
 INSERT INTO Producto_Proveedor (id_producto, id_proveedor)
