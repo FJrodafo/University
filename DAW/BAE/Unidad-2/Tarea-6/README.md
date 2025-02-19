@@ -54,6 +54,31 @@
 | 2           | 3            |
 </details>
 <details>
+<summary>Solución 3FN</summary>
+
+| id_categoria | categoria  |
+| :----------: | :--------- |
+| 1            | Tecnología |
+| 2            | Accesorios |
+
+| id_producto | id_categoria | nombre_producto | precio |
+| :---------: | :----------: | :-------------- | :----: |
+| 1           | 1            | Laptop          | 1000   |
+| 2           | 2            | Mouse           | 25     |
+
+| id_proveedor | nombre_proveedor |
+| :----------: | :--------------- |
+| 1            | Dell             |
+| 2            | HP               |
+| 3            | Logitech         |
+
+| id_producto | id_proveedor |
+| :---------: | :----------: |
+| 1           | 1            |
+| 1           | 2            |
+| 2           | 3            |
+</details>
+<details>
 <summary>Diagrama</summary>
 <img src="https://raw.githubusercontent.com/FJrodafo/University/main/DAW/BAE/Unidad-2/Tarea-6/Assets/Diagrams/Exported/lista_de_productos.drawio.svg">
 </details>
@@ -139,11 +164,7 @@ VALUES
 
 > [!NOTE]
 > 
-> Se ha creado la tabla intermedia `Producto_Proveedor` para gestionar la relación de muchos a muchos entre productos y proveedores, asumiendo que un proveedor puede suministrar varios productos pertenecientes a distintas categorías.
-
-> [!TIP]
-> 
-> Otra opción válida, considerando los datos proporcionados en este ejercicio, sería una relación **1:N**, donde cada proveedor solo pudiera suministrar productos de una categoría específica.
+> Se ha creado la tabla intermedia `Producto_Proveedor` para gestionar la relación de muchos a muchos (**N:M**) entre productos y proveedores, asumiendo que un proveedor puede suministrar múltiples productos de distintas categorías, y que un producto puede ser suministrado por varios proveedores.
 
 ---
 
