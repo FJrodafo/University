@@ -29,7 +29,7 @@ DROP TABLE IF EXISTS Categorias;
 CREATE TABLE Categorias (
     id_categoria INT AUTO_INCREMENT PRIMARY KEY,
     nombre_categoria VARCHAR(50) NOT NULL,
-    CONSTRAINT Unica_Categoria UNIQUE (nombre_categoria) -- Aseguramos que no haya duplicados.
+    CONSTRAINT Unica_Categoria UNIQUE (nombre_categoria) -- Aseguramos que no haya duplicados en la columna "nombre_categoria".
 );
 
 -- Crear tabla "Productos".
@@ -43,7 +43,7 @@ CREATE TABLE Productos (
 
 -- Crear tabla "Proveedores".
 CREATE TABLE Proveedores (
-    id_proveedor INT AUTO_INCREMENT PRIMARY KEY,
+    nif_proveedor VARCHAR(9) PRIMARY KEY,
     nombre_proveedor VARCHAR(100) NOT NULL,
     CONSTRAINT Unico_Proveedor UNIQUE (nombre_proveedor)
 );
@@ -51,10 +51,10 @@ CREATE TABLE Proveedores (
 -- Crear tabla intermedia "Producto_Proveedor".
 CREATE TABLE Producto_Proveedor (
     id_producto INT,
-    id_proveedor INT,
-    PRIMARY KEY (id_producto, id_proveedor),
+    nif_proveedor VARCHAR(9),
+    PRIMARY KEY (id_producto, nif_proveedor),
     FOREIGN KEY (id_producto) REFERENCES Productos(id_producto),
-    FOREIGN KEY (id_proveedor) REFERENCES Proveedores(id_proveedor)
+    FOREIGN KEY (nif_proveedor) REFERENCES Proveedores(nif_proveedor)
 );
 
 --  ╦┌┐┌┌─┐┌─┐┬─┐┌┬┐  ╦  ╦┌─┐┬  ┬ ┬┌─┐┌─┐
@@ -64,8 +64,8 @@ CREATE TABLE Producto_Proveedor (
 -- Insertar en la tabla "Categorias".
 INSERT INTO Categorias (nombre_categoria)
 VALUES
-    ("Tecnología"),
-    ("Accesorios");
+    ('Tecnología'),
+    ('Accesorios');
 
 -- Insertar en la tabla "Productos".
 INSERT INTO Productos (id_categoria, nombre_producto, precio)
@@ -74,15 +74,15 @@ VALUES
     (2, 'Mouse', 25.00);
 
 -- Insertar en la tabla "Proveedores".
-INSERT INTO Proveedores (nombre_proveedor)
+INSERT INTO Proveedores (nif_proveedor, nombre_proveedor)
 VALUES
-    ('Dell'),
-    ('HP'),
-    ('Logitech');
+    ('12345678A', 'Dell'),
+    ('23456789B', 'HP'),
+    ('34567890C', 'Logitech');
 
 -- Insertar en la tabla intermedia "Producto_Proveedor".
-INSERT INTO Producto_Proveedor (id_producto, id_proveedor)
+INSERT INTO Producto_Proveedor (id_producto, nif_proveedor)
 VALUES
-    (1, 1), -- Laptop de 1000.00 euros suministrada por Dell.
-    (1, 2), -- Laptop de 1000.00 euros suministrada por HP.
-    (2, 3); -- Mouse de 25.00 euros suministrado por Logitech.
+    (1, '12345678A'), -- Laptop de 1000.00 euros suministrada por Dell.
+    (1, '23456789B'), -- Laptop de 1000.00 euros suministrada por HP.
+    (2, '34567890C'); -- Mouse de 25.00 euros suministrado por Logitech.

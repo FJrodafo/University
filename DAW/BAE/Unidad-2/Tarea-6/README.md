@@ -15,6 +15,7 @@
 
 - Aplicar **1FN**, separando valores multivaluados en la columna "proveedor".
 - Aplicar **2FN**, asegurando que cada campo dependa completamente de la clave primaria.
+- Aplicar **3FN**, únicamente si es necesario.
 
 <details>
 <summary>Tabla</summary>
@@ -25,7 +26,7 @@
 | 2           | Mouse           | Logitech  | Accesorios | 25     |
 </details>
 <details>
-<summary>Solución 1FN</summary>
+<summary>1FN</summary>
 
 | id_producto | nombre_producto | proveedor | categoria  | precio |
 | :---------: | :-------------- | :-------- | :--------- | :----: |
@@ -34,27 +35,27 @@
 | 2           | Mouse           | Logitech  | Accesorios | 25     |
 </details>
 <details>
-<summary>Solución 2FN</summary>
+<summary>2FN</summary>
 
 | id_producto | nombre_producto | categoria  | precio |
 | :---------: | :-------------- | :--------- | :----: |
 | 1           | Laptop          | Tecnología | 1000   |
 | 2           | Mouse           | Accesorios | 25     |
 
-| id_proveedor | nombre_proveedor |
-| :----------: | :--------------- |
-| 1            | Dell             |
-| 2            | HP               |
-| 3            | Logitech         |
+| nif_proveedor | nombre_proveedor |
+| :-----------: | :--------------- |
+| 12345678A     | Dell             |
+| 23456789B     | HP               |
+| 34567890C     | Logitech         |
 
-| id_producto | id_proveedor |
-| :---------: | :----------: |
-| 1           | 1            |
-| 1           | 2            |
-| 2           | 3            |
+| id_producto | nif_proveedor |
+| :---------: | :-----------: |
+| 1           | 12345678A     |
+| 1           | 23456789B     |
+| 2           | 34567890C     |
 </details>
 <details>
-<summary>Solución 3FN</summary>
+<summary>3FN</summary>
 
 | id_categoria | nombre_categoria |
 | :----------: | :--------------- |
@@ -66,17 +67,17 @@
 | 1           | 1            | Laptop          | 1000   |
 | 2           | 2            | Mouse           | 25     |
 
-| id_proveedor | nombre_proveedor |
-| :----------: | :--------------- |
-| 1            | Dell             |
-| 2            | HP               |
-| 3            | Logitech         |
+| nif_proveedor | nombre_proveedor |
+| :-----------: | :--------------- |
+| 12345678A     | Dell             |
+| 23456789B     | HP               |
+| 34567890C     | Logitech         |
 
-| id_producto | id_proveedor |
-| :---------: | :----------: |
-| 1           | 1            |
-| 1           | 2            |
-| 2           | 3            |
+| id_producto | nif_proveedor |
+| :---------: | :-----------: |
+| 1           | 12345678A     |
+| 1           | 23456789B     |
+| 2           | 34567890C     |
 </details>
 <details>
 <summary>Diagrama</summary>
@@ -117,7 +118,7 @@ DROP TABLE IF EXISTS Categorias;
 CREATE TABLE Categorias (
     id_categoria INT AUTO_INCREMENT PRIMARY KEY,
     nombre_categoria VARCHAR(50) NOT NULL,
-    CONSTRAINT Unica_Categoria UNIQUE (nombre_categoria) -- Aseguramos que no haya duplicados.
+    CONSTRAINT Unica_Categoria UNIQUE (nombre_categoria) -- Aseguramos que no haya duplicados en la columna "nombre_categoria".
 );
 
 -- Crear tabla "Productos".
@@ -131,7 +132,7 @@ CREATE TABLE Productos (
 
 -- Crear tabla "Proveedores".
 CREATE TABLE Proveedores (
-    id_proveedor INT AUTO_INCREMENT PRIMARY KEY,
+    nif_proveedor VARCHAR(9) PRIMARY KEY,
     nombre_proveedor VARCHAR(100) NOT NULL,
     CONSTRAINT Unico_Proveedor UNIQUE (nombre_proveedor)
 );
@@ -139,10 +140,10 @@ CREATE TABLE Proveedores (
 -- Crear tabla intermedia "Producto_Proveedor".
 CREATE TABLE Producto_Proveedor (
     id_producto INT,
-    id_proveedor INT,
-    PRIMARY KEY (id_producto, id_proveedor),
+    nif_proveedor VARCHAR(9),
+    PRIMARY KEY (id_producto, nif_proveedor),
     FOREIGN KEY (id_producto) REFERENCES Productos(id_producto),
-    FOREIGN KEY (id_proveedor) REFERENCES Proveedores(id_proveedor)
+    FOREIGN KEY (nif_proveedor) REFERENCES Proveedores(nif_proveedor)
 );
 
 --  ╦┌┐┌┌─┐┌─┐┬─┐┌┬┐  ╦  ╦┌─┐┬  ┬ ┬┌─┐┌─┐
@@ -152,8 +153,8 @@ CREATE TABLE Producto_Proveedor (
 -- Insertar en la tabla "Categorias".
 INSERT INTO Categorias (nombre_categoria)
 VALUES
-    ("Tecnología"),
-    ("Accesorios");
+    ('Tecnología'),
+    ('Accesorios');
 
 -- Insertar en la tabla "Productos".
 INSERT INTO Productos (id_categoria, nombre_producto, precio)
@@ -162,24 +163,20 @@ VALUES
     (2, 'Mouse', 25.00);
 
 -- Insertar en la tabla "Proveedores".
-INSERT INTO Proveedores (nombre_proveedor)
+INSERT INTO Proveedores (nif_proveedor, nombre_proveedor)
 VALUES
-    ('Dell'),
-    ('HP'),
-    ('Logitech');
+    ('12345678A', 'Dell'),
+    ('23456789B', 'HP'),
+    ('34567890C', 'Logitech');
 
 -- Insertar en la tabla intermedia "Producto_Proveedor".
-INSERT INTO Producto_Proveedor (id_producto, id_proveedor)
+INSERT INTO Producto_Proveedor (id_producto, nif_proveedor)
 VALUES
-    (1, 1), -- Laptop de 1000.00 euros suministrada por Dell.
-    (1, 2), -- Laptop de 1000.00 euros suministrada por HP.
-    (2, 3); -- Mouse de 25.00 euros suministrado por Logitech.
+    (1, '12345678A'), -- Laptop de 1000.00 euros suministrada por Dell.
+    (1, '23456789B'), -- Laptop de 1000.00 euros suministrada por HP.
+    (2, '34567890C'); -- Mouse de 25.00 euros suministrado por Logitech.
 ```
 </details>
-
-> [!NOTE]
-> 
-> Se ha creado la tabla intermedia `Producto_Proveedor` para gestionar la relación de muchos a muchos (**N:M**) entre productos y proveedores, asumiendo que un proveedor puede suministrar múltiples productos de distintas categorías, y que un producto puede ser suministrado por varios proveedores.
 
 ---
 
@@ -187,40 +184,64 @@ VALUES
 
 - Aplicar **1FN**, separando valores multivaluados.
 - Aplicar **2FN**, asegurando que cada campo dependa completamente de la clave primaria.
+- Aplicar **3FN**, únicamente si es necesario.
 
 <details>
 <summary>Tabla</summary>
 
-| id_pedido | cliente    | direccion   | producto | cantidad | precio |
-| :-------: | :--------- | :---------- | :------- | :------: | :----: |
-| 101       | Juan Pérez | Calle 123   | Laptop   | 1        | 1000   |
-| 102       | Ana López  | Av. Central | Teclado  | 2        | 50     |
+| id_pedido | cliente    | direccion   | producto | precio | cantidad | costo_total |
+| :-------: | :--------- | :---------- | :------- | :----: | :------: | :---------: |
+| 1         | Juan Pérez | Calle 123   | Laptop   | 1000   | 1        | 1000        |
+| 2         | Ana López  | Av. Central | Teclado  | 25     | 2        | 50          |
 </details>
 <details>
-<summary>Solución 1FN</summary>
+<summary>1FN</summary>
 
-| id_pedido | cliente    | direccion   | producto | cantidad | precio |
-| :-------: | :--------- | :---------- | :------- | :------: | :----: |
-| 101       | Juan Pérez | Calle 123   | Laptop   | 1        | 1000   |
-| 102       | Ana López  | Av. Central | Teclado  | 2        | 50     |
+| id_pedido | nombre_cliente | apellido_cliente | direccion   | producto | precio | cantidad | costo_total |
+| :-------: | :------------- | :--------------- | :---------- | :------- | :----: | :------: | :---------: |
+| 1         | Juan           | Pérez            | Calle 123   | Laptop   | 1000   | 1        | 1000        |
+| 2         | Ana            | López            | Av. Central | Teclado  | 25     | 2        | 50          |
 </details>
 <details>
-<summary>Solución 2FN</summary>
+<summary>2FN</summary>
 
-| id_cliente | nombre_cliente | direccion   |
-| :--------: | :------------- | :---------- |
-| 1          | Juan Pérez     | Calle 123   |
-| 2          | Ana López      | Av. Central |
+| dni_cliente | nombre_cliente | apellido_cliente | direccion   |
+| :---------: | :------------- | :--------------- | :---------- |
+| 12345678A   | Juan           | Pérez            | Calle 123   |
+| 23456789B   | Ana            | López            | Av. Central |
 
 | id_producto | nombre_producto | precio |
 | :---------: | :-------------- | :----: |
 | 1           | Laptop          | 1000   |
-| 2           | Teclado         | 50     |
+| 2           | Teclado         | 25     |
 
-| id_pedido | id_cliente | id_producto | cantidad |
-| :-------: | :--------: | :---------: | :------: |
-| 101       | 1          | 1           | 1        |
-| 102       | 2          | 2           | 2        |
+| id_pedido | dni_cliente | id_producto | cantidad | costo_total |
+| :-------: | :---------: | :---------: | :------: | :---------: |
+| 1         | 12345678A   | 1           | 1        | 1000        |
+| 2         | 23456789B   | 2           | 2        | 50          |
+</details>
+<details>
+<summary>3FN</summary>
+
+| id_direccion | nombre_direccion |
+| :----------: | :--------------- |
+| 1            | Calle 123        |
+| 2            | Av. Central      |
+
+| dni_cliente | id_direccion | nombre_cliente | apellido_cliente |
+| :---------: | :----------: | :------------- | :--------------- |
+| 12345678A   | 1            | Juan           | Pérez            |
+| 23456789B   | 2            | Ana            | López            |
+
+| id_producto | nombre_producto | precio |
+| :---------: | :-------------- | :----: |
+| 1           | Laptop          | 1000   |
+| 2           | Teclado         | 25     |
+
+| id_pedido | dni_cliente | id_producto | cantidad | costo_total |
+| :-------: | :---------: | :---------: | :------: | :---------: |
+| 1         | 12345678A   | 1           | 1        | 1000        |
+| 2         | 23456789B   | 2           | 2        | 50          |
 </details>
 <details>
 <summary>Diagrama</summary>
@@ -248,19 +269,29 @@ USE pedidos_de_clientes_db;
 --  ═╩╝┴└─└─┘┴     ╩ ┴ ┴└─┘┴─┘└─┘
 
 -- Eliminar las tablas si ya existen (para evitar errores al crear las tablas).
+DROP TABLE IF EXISTS Pedidos;
 DROP TABLE IF EXISTS Clientes;
 DROP TABLE IF EXISTS Productos;
-DROP TABLE IF EXISTS Pedidos;
+DROP TABLE IF EXISTS Direcciones;
 
 --  ╔═╗┬─┐┌─┐┌─┐┌┬┐┌─┐  ╔╦╗┌─┐┌┐ ┬  ┌─┐
 --  ║  ├┬┘├┤ ├─┤ │ ├┤    ║ ├─┤├┴┐│  ├┤ 
 --  ╚═╝┴└─└─┘┴ ┴ ┴ └─┘   ╩ ┴ ┴└─┘┴─┘└─┘
 
+-- Crear tabla "Direcciones".
+CREATE TABLE Direcciones (
+    id_direccion INT AUTO_INCREMENT PRIMARY KEY,
+    nombre_direccion VARCHAR(255) NOT NULL,
+    CONSTRAINT Unica_Direccion UNIQUE (nombre_direccion)
+);
+
 -- Crear tabla "Clientes".
 CREATE TABLE Clientes (
-    id_cliente INT AUTO_INCREMENT PRIMARY KEY,
+    dni_cliente VARCHAR(9) PRIMARY KEY,
+    id_direccion INT,
     nombre_cliente VARCHAR(100) NOT NULL,
-    direccion VARCHAR(255) NOT NULL
+    apellido_cliente VARCHAR(100) NOT NULL,
+    FOREIGN KEY (id_direccion) REFERENCES Direcciones(id_direccion)
 );
 
 -- Crear tabla "Productos".
@@ -273,10 +304,11 @@ CREATE TABLE Productos (
 -- Crear tabla "Pedidos".
 CREATE TABLE Pedidos (
     id_pedido INT AUTO_INCREMENT PRIMARY KEY,
-    id_cliente INT,
+    dni_cliente VARCHAR(9),
     id_producto INT,
     cantidad INT NOT NULL,
-    FOREIGN KEY (id_cliente) REFERENCES Clientes(id_cliente),
+    costo_total DECIMAL(10, 2) NOT NULL,
+    FOREIGN KEY (dni_cliente) REFERENCES Clientes(dni_cliente),
     FOREIGN KEY (id_producto) REFERENCES Productos(id_producto)
 );
 
@@ -284,29 +316,51 @@ CREATE TABLE Pedidos (
 --  ║│││└─┐├┤ ├┬┘ │   ╚╗╔╝├─┤│  │ │├┤ └─┐
 --  ╩┘└┘└─┘└─┘┴└─ ┴    ╚╝ ┴ ┴┴─┘└─┘└─┘└─┘
 
--- Insertar en la tabla "Clientes".
-INSERT INTO Clientes (id_cliente, nombre_cliente, direccion)
+-- Insertar en la tabla "Direcciones".
+INSERT INTO Direcciones (nombre_direccion)
 VALUES
-    (1, 'Juan Pérez', 'Calle 123'),
-    (2, 'Ana López', 'Av. Central');
+    ('Calle 123'),
+    ('Av. Central');
+
+-- Insertar en la tabla "Clientes".
+INSERT INTO Clientes (dni_cliente, id_direccion, nombre_cliente, apellido_cliente)
+VALUES
+    ('12345678A', 1, 'Juan', 'Pérez'),
+    ('23456789B', 2, 'Ana', 'López');
 
 -- Insertar en la tabla "Productos".
-INSERT INTO Productos (id_producto, nombre_producto, precio)
+INSERT INTO Productos (nombre_producto, precio)
 VALUES
-    (1, 'Laptop', 1000.00),
-    (2, 'Teclado', 50.00);
+    ('Laptop', 1000.00),
+    ('Teclado', 25.00);
+
+-- Crear disparador para calcular el costo total del pedido antes de insertar en la tabla "Pedidos".
+DELIMITER $$
+
+CREATE TRIGGER Calcular_Costo_Total
+BEFORE INSERT ON Pedidos
+FOR EACH ROW
+BEGIN
+    DECLARE temp_precio DECIMAL(10,2);
+    
+    -- Obtenemos el precio del producto.
+    SELECT precio INTO temp_precio
+    FROM Productos
+    WHERE id_producto = NEW.id_producto;
+
+    -- Calculamos el costo total del pedido.
+    SET NEW.costo_total = NEW.cantidad * temp_precio;
+END $$
+
+DELIMITER ;
 
 -- Insertar en la tabla "Pedidos".
-INSERT INTO Pedidos (id_cliente, id_producto, cantidad)
+INSERT INTO Pedidos (dni_cliente, id_producto, cantidad)
 VALUES
-    (1, 1, 1), -- Juan Pérez pide un Laptop por 1000.00 euros.
-    (2, 2, 2); -- Ana López pide dos Teclados por 100.00 euros.
+    ('12345678A', 1, 1), -- Juan Pérez pide un Laptop por 1000.00 euros.
+    ('23456789B', 2, 2); -- Ana López pide dos Teclados por 50.00 euros.
 ```
 </details>
-
-> [!TIP]
-> 
-> Aunque, considerando los datos proporcionados en este ejercicio, no hay valores multivaluados que deban separarse, se podría dividir el nombre y el apellido del cliente, y además, se podría crear una tabla adicional para las direcciones en caso de que se repitan.
 
 ---
 
@@ -324,7 +378,7 @@ VALUES
 | 2           | Laura M.  | 54321        | Finanzas     |
 </details>
 <details>
-<summary>Solución 1FN</summary>
+<summary>1FN</summary>
 
 | id_empleado | nombre    | telefono | departamento |
 | :---------: | :-------- | :------: | :----------- |
@@ -333,7 +387,7 @@ VALUES
 | 2           | Laura M.  | 54321    | Finanzas     |
 </details>
 <details>
-<summary>Solución 2FN</summary>
+<summary>2FN</summary>
 
 | id_departamento | nombre_departamento |
 | :-------------: | :------------------ |
@@ -452,7 +506,7 @@ VALUES
 | 5002       | María T. | 202        | 2025-03-10, 2025-03-11             | 200    |
 </details>
 <details>
-<summary>Solución 1FN</summary>
+<summary>1FN</summary>
 
 | id_reserva | cliente  | habitacion | fecha      | precio |
 | :--------: | :------- | :--------: | :--------: | :----: |
@@ -463,7 +517,7 @@ VALUES
 | 5002       | María T. | 202        | 2025-03-11 | 200    |
 </details>
 <details>
-<summary>Solución 2FN</summary>
+<summary>2FN</summary>
 
 | id_cliente | nombre   |
 | :--------: | :------- |
@@ -583,7 +637,7 @@ VALUES
 | 3002           | Ana S.     | Física      | Prof. Gómez | Martes 3PM                |
 </details>
 <details>
-<summary>Solución 1FN</summary>
+<summary>1FN</summary>
 
 | id_inscripcion | estudiante | curso       | profesor    | horario       |
 | :------------: | :--------- | :---------- | :---------- | :------------ |
@@ -592,7 +646,7 @@ VALUES
 | 3002           | Ana S.     | Física      | Prof. Gómez | Martes 3PM    |
 </details>
 <details>
-<summary>Solución 2FN</summary>
+<summary>2FN</summary>
 
 | id_estudiante | nombre_estudiante |
 | :-----------: | :---------------- |
@@ -728,7 +782,7 @@ VALUES
 | 8002     | Andrea M. | Laptop            | 1000        |
 </details>
 <details>
-<summary>Solución 1FN</summary>
+<summary>1FN</summary>
 
 | id_venta | cliente   | producto_comprado | costo_total |
 | :------: | :-------- | :---------------- | :---------: |
@@ -737,7 +791,7 @@ VALUES
 | 8002     | Andrea M. | Laptop            | 1000        |
 </details>
 <details>
-<summary>Solución 2FN</summary>
+<summary>2FN</summary>
 
 | id_cliente | nombre_cliente |
 | :--------: | :------------- |
@@ -874,7 +928,7 @@ VALUES
 | 102      | 1984       | Orwell    | Ciencia Ficción |
 </details>
 <details>
-<summary>Solución 1FN</summary>
+<summary>1FN</summary>
 
 | id_libro | titulo     | autor     | genero          |
 | :------: | :--------- | :-------- | :-------------- |
@@ -882,7 +936,7 @@ VALUES
 | 102      | 1984       | Orwell    | Ciencia Ficción |
 </details>
 <details>
-<summary>Solución 2FN</summary>
+<summary>2FN</summary>
 
 | id_libro | titulo     | genero          |
 | :------: | :--------- | :-------------- |
@@ -995,7 +1049,7 @@ VALUES
 | 9002       | Ana M.  | Teléfono            | 20          |
 </details>
 <details>
-<summary>Solución 1FN</summary>
+<summary>1FN</summary>
 
 | id_factura | cliente | servicio_contratado | costo_total |
 | :--------: | :------ | :------------------ | :---------: |
@@ -1004,7 +1058,7 @@ VALUES
 | 9002       | Ana M.  | Teléfono            | 20          |
 </details>
 <details>
-<summary>Solución 2FN</summary>
+<summary>2FN</summary>
 
 | id_cliente | nombre_cliente |
 | :--------: | :------------- |
@@ -1142,7 +1196,7 @@ VALUES
 | 5002        | Honda  | Civic          | 2023  |
 </details>
 <details>
-<summary>Solución 1FN</summary>
+<summary>1FN</summary>
 
 | id_vehiculo | marca  | modelo  | anio  |
 | :---------: | :----- | :------ | :---: |
@@ -1151,7 +1205,7 @@ VALUES
 | 5003        | Honda  | Civic   | 2023  |
 </details>
 <details>
-<summary>Solución 2FN</summary>
+<summary>2FN</summary>
 
 | id_marca | nombre_marca |
 | :------: | :----------- |
@@ -1270,7 +1324,7 @@ VALUES
 | 7002        | E-commerce | Pedro, María | 10000       |
 </details>
 <details>
-<summary>Solución 1FN</summary>
+<summary>1FN</summary>
 
 | id_proyecto | nombre     | miembro      | presupuesto |
 | :---------: | :--------- | :----------- | :---------: |
@@ -1280,7 +1334,7 @@ VALUES
 | 7002        | E-commerce | María        | 10000       |
 </details>
 <details>
-<summary>Solución 2FN</summary>
+<summary>2FN</summary>
 
 | id_proyecto | nombre_proyecto | presupuesto |
 | :---------: | :-------------- | :---------: |
