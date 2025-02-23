@@ -22,7 +22,7 @@ Vercel is a cloud platform for static sites and serverless functions. It enables
 To install Vercel globally, run the following command:
 
 ```shell
-npm install -g vercel
+npm install -g vercel@latest
 ```
 
 Once you have installed Vercel globally, you can check out a list of commands as follows:

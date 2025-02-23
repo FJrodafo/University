@@ -18,7 +18,7 @@
 7. [Synchronize Changes](#synchronize-changes)
 8. [Revert commits](#revert-commits)
 9. [Go back and merge](#go-back-and-merge)
-10. [Create a Test repo](#create-a-test-repo)
+10. [Create a Test repository](#create-a-test-repository)
 11. [Glossary](#glossary)
 
 ## Install
@@ -289,7 +289,7 @@ git merge <name_of_new_branch_from_previous_commit>
 
 It's important to note that by going back to a previous commit and creating a new branch from that point, you are creating a fork in your repository history. This can be useful for experimenting or fixing bugs, but keep in mind that it can complicate project history if not handled properly.
 
-## Create a Test repo
+## Create a Test repository
 
 ```shell
 cd Documents/Dev/FJrodafo/Repositories/
@@ -299,9 +299,35 @@ touch README.md
 git init
 git branch -M main
 git add -A
-git commit -m "Initial commit"
+git commit -m "Initial Commit"
 git remote add origin git@github.com:FJrodafo/Test.git
 git push -u origin main
+```
+
+```shell
+# MOVE .git FOLDER TO TEST REPOSITORY
+git branch
+git branch -m main master
+git branch
+git checkout --orphan main
+git branch
+git add -A
+git commit -m "Initial Commit"
+git remote
+git remote remove bitbucket
+git remote remove github
+git remote remove gitlab
+git remote
+git remote add origin git@github.com:FJrodafo/Test.git
+git push origin main --force
+git log --pretty=format:'%h %an %ae'
+git branch
+git branch -D master
+# CHANGE .git FOLDER TO ORIGINAL REPOSITORY
+git add -A
+git commit -m "Initial Update"
+git push -u origin main
+git log --pretty=format:'%h %an %ae'
 ```
 
 ## Glossary
