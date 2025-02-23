@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="agenda.xsl"?>
+<agenda xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="agenda.xsd">
+    <contacto>
+        <nombre>Luisa</nombre>
+        <ap1>Fernández</ap1>
+        <ap2>Gutiérrez</ap2>
+        <movil>637223344</movil>
+    </contacto>
+    <contacto>
+        <nombre>Felipe</nombre>
+        <ap1>Martínez</ap1>
+        <ap2>López</ap2>
+        <movil>625334455</movil>
+    </contacto>
+    <contacto>
+        <nombre>María</nombre>
+        <ap1>Pérez</ap1>
+        <ap2>Ramírez</ap2>
+        <movil>633556677</movil>
+    </contacto>
+    <contacto>
+        <nombre>Pedro</nombre>
+        <ap1>García</ap1>
+        <ap2>Sánchez</ap2>
+        <movil>655337788</movil>
+    </contacto>
+</agenda>

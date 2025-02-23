@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<BDferreteria xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="BDferreteria.xsd">
+    <PIEZAS Código="1" nombre="Tuercas" />
+    <PROVEEDOR id="1" nombre="Manolo" />
+    <SUMINISTRA Código_Pieza="1" idProveedor="1" precio="5" />
+</BDferreteria>

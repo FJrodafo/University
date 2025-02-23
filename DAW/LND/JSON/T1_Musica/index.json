@@ -1,0 +1,14 @@
+{
+    "titulo": "Our House",
+    "grupo": "Madness",
+    "autores": [
+        {
+            "autor": "John Mad"
+        },
+        {
+            "autor": "Peter Ness"
+        }
+    ],
+    "publicacion": 2005,
+    "album": "It must be love"
+}

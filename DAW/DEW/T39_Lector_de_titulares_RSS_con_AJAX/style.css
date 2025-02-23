@@ -1,0 +1,68 @@
+body {
+    background-color: #000000;
+}
+
+#principal {
+    width: 1024px;
+    padding: 3px;
+    border: 4px solid white;
+    margin: 0 auto;
+}
+
+#cabecera {
+    height: 32px;
+    line-height: 26px;
+    background-color: #1677ED;
+    font-size: 20px;
+    padding: 2px;
+}
+
+#indicador {
+    float: right;
+    font-size: 15px;
+    padding-right: 10px;
+}
+
+/* Noticias RSS */
+#seccionFeeds {
+    height: 600px;
+    position: relative;
+    background: #48B3F2;
+    padding: 0 0 0 10px;
+}
+
+#noticias,
+#pie {
+    width: 100%;
+    height: 600px;
+    position: relative;
+    overflow: auto;
+    left: 0px;
+}
+
+#noticias {
+    top: 0px;
+}
+
+#pie {
+    top: -600px;
+}
+
+/* Pie de la página */
+#controles {
+    padding-top: 4px;
+    padding-bottom: 4px;
+    background-color: #1677ED;
+    text-align: center;
+}
+
+#controles input {
+    width: 100px;
+    color: #000000;
+    font-size: 10px;
+    background-color: #89D393;
+}
+
+#controles select {
+    background-color: #89D393;
+}

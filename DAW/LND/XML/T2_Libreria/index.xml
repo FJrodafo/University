@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<libros>
+    <libro>
+        <titulo>Logik der Forschung</titulo>
+        <autor>Karl Popper</autor>
+        <editorial>Mohr Siebeck</editorial>
+        <fecha_de_publicacion>2005</fecha_de_publicacion>
+        <isbn>9783161484100</isbn>
+    </libro>
+    <libro>
+        <titulo>El Principito</titulo>
+        <autor>Antoine de Saint-Exupéry</autor>
+        <editorial>Reynal &amp; Hitchcock</editorial>
+        <fecha_de_publicacion>1943</fecha_de_publicacion>
+        <isbn>2900013107124</isbn>
+    </libro>
+</libros>

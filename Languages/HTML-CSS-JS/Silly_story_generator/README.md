@@ -1,0 +1,1 @@
+![Preview](https://raw.githubusercontent.com/FJrodafo/University/main/Languages/HTML-CSS-JS/Silly_story_generator/Assets/Preview.png)

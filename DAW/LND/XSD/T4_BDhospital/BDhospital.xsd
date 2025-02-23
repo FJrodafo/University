@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" xml:lang="es">
+    <xs:element name="BDhospital">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="Hospital">
+                    <xs:complexType>
+                        <xs:attribute type="xs:integer" name="hospital_cod" use="required" />
+                        <xs:attribute type="xs:string" name="nombre" use="required" />
+                        <xs:attribute type="xs:string" name="direccion" use="required" />
+                        <xs:attribute name="telefono" use="required">
+                            <xs:simpleType>
+                                <xs:restriction base="xs:integer">
+                                    <xs:pattern value="[1-9][0-9]{0,8}" />
+                                </xs:restriction>
+                            </xs:simpleType>
+                        </xs:attribute>
+                        <xs:attribute type="xs:integer" name="num_camas" use="required" />
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="Sala">
+                    <xs:complexType>
+                        <xs:attribute type="xs:integer" name="hospital_cod" use="required" />
+                        <xs:attribute type="xs:integer" name="sala_cod" use="required" />
+                        <xs:attribute type="xs:string" name="nombre" use="required" />
+                        <xs:attribute type="xs:integer" name="num_cama" use="required" />
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="Plantilla">
+                    <xs:complexType>
+                        <xs:attribute type="xs:integer" name="hospital_cod" use="required" />
+                        <xs:attribute type="xs:integer" name="sala_cod" use="required" />
+                        <xs:attribute type="xs:integer" name="empleado_num" use="required" />
+                        <xs:attribute type="xs:string" name="apellido" use="required" />
+                        <xs:attribute type="xs:string" name="funcion" use="required" />
+                        <xs:attribute type="xs:string" name="turno" use="required" />
+                        <xs:attribute type="xs:integer" name="Salario" use="required" />
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="Ocupacion">
+                    <xs:complexType>
+                        <xs:attribute type="xs:integer" name="inscripcion" use="required" />
+                        <xs:attribute type="xs:integer" name="hospital_cod" use="required" />
+                        <xs:attribute type="xs:integer" name="sala_cod" use="required" />
+                        <xs:attribute type="xs:integer" name="cama" use="required" />
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="Doctor">
+                    <xs:complexType>
+                        <xs:attribute type="xs:integer" name="hospital_cod" use="required" />
+                        <xs:attribute type="xs:integer" name="doctor_num" use="required" />
+                        <xs:attribute type="xs:string" name="apellido" use="required" />
+                        <xs:attribute type="xs:string" name="especialidad" use="required" />
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="enfermo">
+                    <xs:complexType>
+                        <xs:attribute type="xs:integer" name="inscripcion" use="required" />
+                        <xs:attribute type="xs:string" name="apellido" use="required" />
+                        <xs:attribute type="xs:string" name="direccion" use="required" />
+                        <xs:attribute type="xs:date" name="fecha_nac" use="required" />
+                        <xs:attribute type="xs:string" name="s" use="required" />
+                        <xs:attribute type="xs:integer" name="nss" use="required" />
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

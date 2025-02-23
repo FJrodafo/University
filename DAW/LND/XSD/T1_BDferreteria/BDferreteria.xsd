@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" xml:lang="es">
+    <xs:element name="BDferreteria">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="PIEZAS">
+                    <xs:complexType>
+                        <xs:attribute type="xs:integer" name="Código" use="required" />
+                        <xs:attribute type="xs:string" name="nombre" use="required" />
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="PROVEEDOR">
+                    <xs:complexType>
+                        <xs:attribute type="xs:integer" name="id" use="required" />
+                        <xs:attribute type="xs:string" name="nombre" use="required" />
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="SUMINISTRA">
+                    <xs:complexType>
+                        <xs:attribute type="xs:integer" name="Código_Pieza" use="required" />
+                        <xs:attribute type="xs:integer" name="idProveedor" use="required" />
+                        <xs:attribute type="xs:integer" name="precio" use="required" />
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

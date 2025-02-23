@@ -1,0 +1,27 @@
+body {
+    /*
+    background: url("./Pics/Cup.png") no-repeat center fixed;
+    */
+    background-image: url("../Assets/Cup.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+div {
+    /*
+    background-color: rgba(255, 127, 80, 40%);
+    */
+    background-image: url(../Assets/Linear_gradient.png);
+    background-position: center;
+
+    text-align: center;
+}
+
+h1 {
+    color: #ffffff;
+}
+
+p {
+    color: #ffffff;
+}

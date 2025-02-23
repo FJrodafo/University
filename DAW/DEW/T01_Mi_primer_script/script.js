@@ -1,0 +1,3 @@
+function diAlgo() {
+    alert("Hola!")
+}

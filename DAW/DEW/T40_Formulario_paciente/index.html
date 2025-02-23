@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documento</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <!-- Bloque 1: Paciente nuevo -->
+            <div class="create-patient-form">
+                <h2>Paciente nuevo</h2>
+                <form>
+                    <label for="nombre">Nombre:</label>
+                    <input type="text" id="nombre" name="nombre" placeholder="Nombre" required>
+                    <label for="apellidos">Apellidos:</label>
+                    <input type="text" id="apellidos" name="apellidos" placeholder="Apellidos" required>
+                    <label for="nhc">NHC:</label>
+                    <input type="text" id="nhc" name="nhc" placeholder="NHC" required>
+                    <label for="sexo">Sexo:</label>
+                    <input type="text" id="sexo" name="sexo" placeholder="Sexo" required>
+                    <label for="fechaNacimiento">Fecha de Nacimiento:</label>
+                    <input type="date" id="fechaNacimiento" name="fechaNacimiento" required>
+                    <button id="crearnuevo">Crear paciente</button><!-- Recuerda bloquear su acción por defecto -->
+                </form>
+            </div>
+        </div>
+        <div class="main-content">
+            <!-- Bloque 2: Visualizar y Modificar Paciente -->
+            <div>
+                <div class="section-header">
+                    <h2>Paciente actual</h2>
+                </div>
+                <form>
+                    <textarea readonly id="datospaciente" name="datospaciente" rows="8"
+                        placeholder="Paciente actual"></textarea>
+                    <!-- Contenedor para los botones de modificación -->
+                    <div class="modification-buttons">
+                        <h2 style="font-size: 16px;">Modificar:</h2>
+                        <button type="button" id="modificarNombre">Nombre</button>
+                        <button type="button" id="modificarApellidos">Apellidos</button>
+                        <button type="button" id="modificarNhc">NHC</button>
+                        <button type="button" id="modificarSexo">Sexo</button>
+                        <button type="button" id="modificarFechaNacimiento">Fecha de Nacimiento</button>
+                    </div>
+                </form>
+            </div>
+            <!-- Bloque 3: Historial completo -->
+            <div>
+                <div class="section-header">
+                    <h2>Historial completo</h2>
+                </div>
+                <textarea readonly id="historial" name="historial" rows="10"
+                    placeholder="Historial completo"></textarea>
+                <!-- Botones para el historial -->
+                <div>
+                    <button type="button" id="agregarDxyTto">Agregar diagnóstico y tratamiento</button>
+                    <button type="button" id="modificarEpisodio">Modificar Episodio</button>
+                    <button type="button" id="limpiar">Limpiar ventana</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Scripts -->
+    <script src="./paciente.js"></script>
+    <script src="./script.js"></script>
+</body>
+
+</html>

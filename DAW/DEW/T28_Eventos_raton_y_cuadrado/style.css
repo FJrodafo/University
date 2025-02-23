@@ -1,0 +1,6 @@
+/* Estilo para el cuadrado */
+#miCuadrado {
+    width: 100px;
+    height: 100px;
+    background-color: red;
+}

@@ -1,0 +1,80 @@
+0) {
+
+    //country[@name='Brazil']/city[population=max(../city/population)]
+}
+
+1) Area de Mongolia {
+
+    /countries/country[@name="Mongolia"]/@area
+
+    //country[@name="Mongolia"]/@area
+}
+
+2) Países con más de 100 millones de habitantes {
+
+    /countries/country[@population>100000000]/@name
+}
+
+3) Nombre de las ciudades que tienen el mismo nombre del país al que pertenecen {
+
+    /countries/country[city/name=//country/@name]/@name
+    /countries/country/city[name=../@name]
+}
+
+4) Nombre de los países que tienen ciudades de más de 8 millones de habitantes {
+
+    /countries/country[city/population>8000000]/@name
+}
+
+5) Nombre de los países en los que se habla más de 2 lenguas {
+
+    /countries/country[count(language)>2]/@name
+}
+
+6) Nombre de los países que tengan más de 2 ciudades de más de 4 millones de habitantes {
+
+    /countries/country[count(city[population>4000000])>2]/@name
+    /countries/country[count(city)>2 and /countries/country[@population>4000000]]/@name
+}
+
+7) Población media de los países en los que se habla ruso {
+
+    avg(/countries/country[language="Russian"]/@population)
+}
+
+8) Nombre de los países donde más del 50% de la población habla alemán {
+
+    /countries/country/language[@percentage>50 and .="German"]/../@name
+}
+
+9) Nombre del país más poblado y del menos poblado {
+
+    /countries/country[@population=max(//country/@population)]/@name|/countries/country[@population=min(//country/@population)]/@name
+}
+
+10) Nombre y Población de los países cuya población sea superior a 5 veces la de Andorra {
+
+    /countries/country[@population > (//country[@name="Andorra"]/@population * 5)]/@name | //country[@population > (//country[@name="Andorra"]/@population * 5)]/@population
+}
+
+11) Ciudades más pobladas de cada país, que empiecen por la letra B y el país al que pertenecen {
+
+    /countries/country/city[population=max(../city/population)][starts-with(name,"B")]/(.|../@name)
+    /countries/country/city[population=//country/city/max(population) and starts-with(name,"B")]/name | //country/city[population=//country/city/max(population) and starts-with(name,"B")]/../@name
+}
+
+12) Nombre de los países y ciudades dentro del país donde la población de dichas ciudades supere 1/3 de la población del país {}
+
+13) Nombre de los países y densidad de población (densidad=poblacion/area) de aquellos cuya densidad supere 800 {}
+
+14) País con la máxima densidad de población {}
+
+15) Nombre de los Países que tienen ciudades con el mismo nombre que las ciudades de otro país y nombre de estas ciudades (habría que usar los ejes following y preceding) {}
+
+16) Nombre de los países y lengua que se hable que contenga al nombre del país (p.Ej. Japanese Japan) {}
+
+17) Nombre de los países que tengan más de tres ciudades que empiecen por la letra K y de dichas ciudades {}
+
+18) Nombre de los países que tengan más de 2 ciudades y que una de ellas tenga más población que la suma de las demás {}
+
+19) Nombre de los países en que se hablen más de 3 lenguas y que alguna de ellas se hable en otro país (habría que usar los ejes following y preceding) {}

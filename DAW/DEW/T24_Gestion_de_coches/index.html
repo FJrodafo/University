@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documento</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+
+    <h2>Gestión de Coches</h2>
+
+    <!-- Formulario para agregar coches -->
+    <form id="agregarCocheForm">
+        <label for="modelo">Modelo:</label>
+        <input type="text" id="modelo" name="modelo" required>
+        <br /><br />
+        <label for="color">Color:</label>
+        <input type="text" id="color" name="color" required>
+        <br /><br />
+        <label for="matricula">Matrícula:</label>
+        <input type="text" id="matricula" name="matricula" required>
+        <br /><br />
+        <label for="anio">Año:</label>
+        <input type="number" id="anio" name="anio" required>
+        <br /><br />
+        <button type="button" onclick="agregarCoche()">Agregar Coche</button>
+    </form>
+
+    <!-- Formulario para eliminar coches por matrícula -->
+    <form id="eliminarCocheForm">
+        <label for="eliminarCoche">Eliminar Coche (Matrícula):</label>
+        <input type="text" id="eliminarCoche">
+        <br /><br />
+        <button type="button" onclick="eliminarCochePorMatricula()">Eliminar Coche</button>
+    </form>
+
+    <!-- Tabla para mostrar la lista de coches -->
+    <table id="cochesTable">
+        <thead>
+            <tr>
+                <th>Modelo</th>
+                <th>Color</th>
+                <th>Matrícula</th>
+                <th>Año</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Aquí se mostrarán los coches -->
+        </tbody>
+    </table>
+
+    <script src="./script.js"></script>
+
+</body>
+
+</html>

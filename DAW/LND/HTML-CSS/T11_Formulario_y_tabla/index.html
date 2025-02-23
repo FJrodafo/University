@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documento</title>
+</head>
+
+<body>
+    <h1>Entrega de prácticas</h1>
+    <form action="http://infociclos.rf.gd/PHP/datos.php" method="get" enctype="multipart/form-data">
+        <table border="1px">
+            <tr>
+                <td>
+                    <label for="alumno1">Alumno 1</label>
+                    <table>
+                        <tr>
+                            <td><label for="nombre1">Nombre:</label></td>
+                            <td><input type="text" name="nombre1" id="nombre1" /></td>
+                        </tr>
+                        <tr>
+                            <td><label for="apellidos1">Apellidos:</label></td>
+                            <td><input type="text" name="apellidos1" id="apellidos1" /></td>
+                        </tr>
+                    </table>
+                </td>
+                <td>
+                    <label for="alumno2">Alumno 2</label>
+                    <table>
+                        <tr>
+                            <td><label for="nombre2">Nombre:</label></td>
+                            <td><input type="text" name="nombre2" id="nombre2" /></td>
+                        </tr>
+                        <tr>
+                            <td><label for="apellidos2">Apellidos:</label></td>
+                            <td><input type="text" name="apellidos2" id="apellidos2" /></td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <table>
+                        <tr>
+                            <td><label for="password">Password:</label></td>
+                            <td><input type="password" name="password" id="password" /></td>
+                        </tr>
+                    </table>
+                </td>
+                <td>
+                    <input type="radio" name="grupo" id="grupo1" value="Grupo 1" />
+                    <label for="grupo1">Grupo 1</label>
+
+                    <input type="radio" name="grupo" id="grupo2" value="Grupo 2" />
+                    <label for="grupo2">Grupo 2</label>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="lng_de_prog_usado">Lenguaje(s) de programación usado(s):</label>
+                    <br />
+                    <input type="checkbox" name="lngc" id="lngc" value="lngc" />
+                    <label for="lngc">C</label>
+
+                    <input type="checkbox" name="lngcc" id="lngcc" value="lngcc" />
+                    <label for="lngcc">C++</label>
+
+                    <input type="checkbox" name="lngjava" id="lngjava" value="lngjava" />
+                    <label for="lngjava">Java</label>
+
+                    <input type="checkbox" name="lngperl" id="lngperl" value="lngperl" />
+                    <label for="lngperl">Perl</label>
+
+                    <input type="checkbox" name="lngotros" id="lngotros" value="lngotros" />
+                    <label for="lngotros">Otros</label>
+                </td>
+                <td>
+                    <select name="fotos_carnet" id="fotos_carnet">
+                        <option>Fotos Carnet</option>
+                        <optgroup label="Práctica 1">
+                            <option>prac 1: fichero HTML</option>
+                            <option>prac 1: fuente CGI</option>
+                            <option>prac 1: todo</option>
+                        </optgroup>
+                        <optgroup label="Práctica 2">
+                            <option>prac 2: fichero HTML</option>
+                            <option>prac 2: memoria</option>
+                            <option>prac 2: todo</option>
+                        </optgroup>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <label for="comentarios">Comentarios:</label><br />
+                    <textarea rows="6" cols="46" type="text" name="comentarios" id="comentarios"></textarea>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <input type="submit" name="submit" id="submit" value="Enviar">
+                    <input type="reset" name="reset" id="reset" value="Restablecer">
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+
+</html>

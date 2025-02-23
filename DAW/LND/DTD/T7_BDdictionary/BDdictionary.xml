@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE BDdictionary [
+    <!ELEMENT BDdictionary (definition*)>
+    <!ELEMENT definition (#PCDATA | term)*>
+    <!ELEMENT term (#PCDATA)>
+]>
+<BDdictionary>
+    <definition>
+        A
+        <term>Turing Machine</term>
+        refers to a finite automaton with infinite memory that can be proved equivalent to any other finite automaton with an arbitrary large amount of memory.
+        So what is valid for a Turing Machine is valid for all Turing Machines regardless of how they are implemented.
+    </definition>
+</BDdictionary>

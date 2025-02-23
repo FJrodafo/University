@@ -1,0 +1,40 @@
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+}
+
+#contenedor {
+    text-align: center;
+}
+
+.tablerodibujo {
+    border: thin solid;
+    width: auto;
+    margin: 0 auto;
+}
+
+.tablerodibujo td {
+    width: 10px;
+    height: 10px;
+    margin: 0;
+    padding: 0;
+    border: 1px solid grey;
+}
+
+#paleta {
+    width: auto;
+    margin: 0 auto;
+}
+
+.color {
+    width: 35px;
+    height: 20px;
+    cursor: pointer;
+}
+
+.seleccionado {
+    border: medium solid #939;
+}

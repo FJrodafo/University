@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE BDferreteria [
+    <!ELEMENT BDferreteria (PIEZAS,PROVEEDOR,SUMINISTRA)>
+    <!ELEMENT PIEZAS EMPTY>
+    <!ATTLIST PIEZAS
+        Código CDATA #REQUIRED
+        nombre CDATA #REQUIRED
+    >
+    <!ELEMENT PROVEEDOR EMPTY>
+    <!ATTLIST PROVEEDOR
+        id CDATA #REQUIRED
+        nombre CDATA #REQUIRED
+    >
+    <!ELEMENT SUMINISTRA EMPTY>
+    <!ATTLIST SUMINISTRA
+        Código_Pieza CDATA #REQUIRED
+        idProveedor CDATA #REQUIRED
+        precio CDATA #REQUIRED
+    >
+]>
+<BDferreteria>
+    <PIEZAS Código="1" nombre="Tuercas" />
+    <PROVEEDOR id="1" nombre="Manolo" />
+    <SUMINISTRA Código_Pieza="1" idProveedor="1" precio="5" />
+</BDferreteria>

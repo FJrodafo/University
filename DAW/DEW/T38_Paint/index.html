@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documento</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <div id="contenedor">
+        <p>TABLERO DE DIBUJO EN JAVASCRIPT</p>
+
+        <table border="1" id="paleta" summary="Tabla de selección de colores">
+            <caption>Haga clic en un color para comenzar a pintar</caption>
+            <tr>
+                <td class="color seleccionado" style="background-color: #FF0"></td>
+                <td class="color" style="background-color: #0F0"></td>
+                <td class="color" style="background-color: #000"></td>
+                <td class="color" style="background-color: #F00"></td>
+                <td class="color" style="background-color: #06C"></td>
+                <td class="color" style="background-color: #FFF"></td>
+            </tr>
+            <tr>
+                <td colspan="6" id="pincel"><span id="estadoPincel">PINCEL DESACTIVADO</span></td>
+            </tr>
+        </table>
+
+        <p></p>
+
+        <div id="zonadibujo"></div>
+    </div>
+
+    <script src="./script.js"></script>
+</body>
+
+</html>

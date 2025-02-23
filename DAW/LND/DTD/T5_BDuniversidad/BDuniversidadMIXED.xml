@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE BDuniversidad [
+    <!ELEMENT BDuniversidad (FACULTAD,INVESTIGADORES,EQUIPOS,RESERVA)>
+    <!ELEMENT FACULTAD EMPTY>
+    <!ATTLIST FACULTAD
+        Código CDATA #REQUIRED
+        nombre CDATA #REQUIRED
+    >
+    <!ELEMENT INVESTIGADORES EMPTY>
+    <!ATTLIST INVESTIGADORES
+        DNI CDATA #REQUIRED
+        NomApell CDATA #REQUIRED
+        facultad CDATA #REQUIRED
+    >
+    <!ELEMENT EQUIPOS EMPTY>
+    <!ATTLIST EQUIPOS
+        NumSerie CDATA #REQUIRED
+        Nombre CDATA #REQUIRED
+        facultad CDATA #REQUIRED
+    >
+    <!ELEMENT RESERVA EMPTY>
+    <!ATTLIST RESERVA
+        DNI CDATA #REQUIRED
+        NumSerie CDATA #REQUIRED
+        comienzo CDATA #REQUIRED
+        fin CDATA #REQUIRED
+    >
+]>
+<BDuniversidad>
+    <FACULTAD Código="1" nombre="Psicologia" />
+    <INVESTIGADORES DNI="12345678T" NomApell="Henar Jorge" facultad="Psicologia" />
+    <EQUIPOS NumSerie="1" Nombre="Neuronas" facultad="Psicologia" />
+    <RESERVA DNI="87654321T" NumSerie="2" comienzo="2022-07-14" fin="2022-12-12" />
+</BDuniversidad>

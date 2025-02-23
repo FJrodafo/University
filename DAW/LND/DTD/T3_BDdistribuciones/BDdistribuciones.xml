@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE BDdistribuciones SYSTEM "BDdistribuciones.dtd">
+<BDdistribuciones>
+    <proveedores nro_pro="1" nom_p="Manolo" categoria="comida" ciud_p="" />
+    <items nro_i="1" descripcion_i="Sushi japonés" ciudad_i="La Laguna" />
+    <pedidos nro_pe="1" nro_c="1" nro_i="1" nro_pro="1" cantidad="1" precio="10" />
+    <clientes nro_c="1" nom_c="Pepe" ciudad_c="Santa Cruz de Tenerife" />
+</BDdistribuciones>

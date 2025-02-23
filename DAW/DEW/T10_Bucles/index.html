@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documento</title>
+    <script src="./script.js"></script>
+</head>
+
+<body>
+    <h2>Resultados</h2>
+
+    <h3>Primer Bucle (for...of):</h3>
+    <div id="forOfResult"></div>
+
+    <h3>Segundo Bucle (for...in):</h3>
+    <div id="forInResult"></div>
+
+    <h4>a. ¿Muestran la misma información el primer y el segundo bucle?</h4>
+    <p>No, el primer bucle <mark>for (i of arr)</mark> muestra los valores de arr (1, 2, 3, 4) mientras que el segundo bucle <mark>for (i in arr)</mark> muestra los índices del array (0, 1, 2, 3).</p>
+
+    <h4>b. ¿Cuál es la diferencia entre los mismos?</h4>
+    <p>El primer bucle <mark>for (i of arr)</mark> itera sobre los valores de arr. i toma el valor de cada elemento en cada iteración.<br />El segundo bucle <mark>for (i in arr)</mark> itera sobre los índices del array. i toma el valor de cada índice en cada iteración.</p>
+
+    <h4>c. ¿Qué muestra el siguiente código: "arr.forEach(function(i){console.log(i)});"?</h4>
+    <p>Utilizando <mark>forEach()</mark>, se aplica la función proporcionada a cada elemento del array. En este caso, se imprimirán los valores del array en la consola. La salida sería similar a la del primer bucle.</p>
+
+    <h2>Función forEach:</h2>
+    <div id="forEachResult"></div>
+</body>
+
+</html>

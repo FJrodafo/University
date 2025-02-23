@@ -1,0 +1,41 @@
+{
+  "name": "tutorial",
+  "version": "1.0.0",
+  "description": "Nodejs basic tutorial",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev:1": "nodemon ./node-http/index.cjs",
+    "dev:2": "nodemon ./node-http/routing.cjs",
+    "dev:3": "node --watch ./express/index.cjs",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FJrodafo/University.git"
+  },
+  "keywords": [
+    "node",
+    "nodejs",
+    "basic",
+    "tutorial",
+    "fjrodafo"
+  ],
+  "author": "FJrodafo - Francisco José Rodríguez Afonso",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/FJrodafo/University/issues"
+  },
+  "homepage": "https://github.com/FJrodafo/University#readme",
+  "dependencies": {
+    "@fjrodafo/port-finder": "^2.0.0",
+    "express": "4.18.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1",
+    "standard": "^17.1.0"
+  },
+  "eslintConfig": {
+    "extends": "standard"
+  }
+}

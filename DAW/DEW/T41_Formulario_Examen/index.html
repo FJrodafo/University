@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documento</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <!-- Bloque 1: Persona nueva -->
+            <div class="create-person-form">
+                <h2>Persona nueva</h2>
+                <form>
+                    <!-- Nombre --><label for="nombre">Nombre:</label>
+                    <input type="text" name="nombre" id="nombre" placeholder="Nombre" required />
+
+                    <!-- Apellidos --><label for="apellidos">Apellidos:</label>
+                    <input type="text" name="apellidos" id="apellidos" placeholder="Apellidos" required />
+
+                    <!-- Sexo --><label for="sexo">Sexo:</label>
+                    <input type="text" name="sexo" id="sexo" placeholder="Sexo H/M" required />
+
+                    <!-- Edad --><label for="edad">Edad:</label>
+                    <input type="text" name="edad" id="edad" placeholder="Edad" required />
+
+                    <!-- DNI --><label for="dni">DNI:</label>
+                    <input type="text" name="dni" id="dni" placeholder="DNI Español" required />
+
+                    <!-- Teléfono --><label for="telefono">Teléfono:</label>
+                    <input type="text" name="telefono" id="telefono" placeholder="+(0) 123 45 67 89" required />
+
+                    <!-- Email --><label for="email">Email:</label>
+                    <input type="email" name="email" id="email" placeholder="Email" required />
+
+                    <!-- Fecha de nacimiento --><label for="fdn">Fecha de nacimiento:</label>
+                    <input type="date" name="fdn" id="fdn" required />
+
+                    <!-- Provincia --><label for="provincia">Provincia:</label>
+                    <select name="provincia" id="provincia" required>
+                        <option value="" selected="selected">Seleccione Provincia</option>
+                        <option value="Santa Cruz de Tenerife">Santa Cruz de Tenerife</option>
+                        <option value="Las Palmas de Gran Canaria">Las Palmas de Gran Canaria</option>
+                    </select>
+
+                    <button type="button" id="crearPersona">Crear persona</button>
+                    <button type="button" id="limpiarFormulario">Limpiar formulario</button>
+                </form>
+            </div>
+        </div>
+        <div class="main-content">
+            <!-- Bloque 2: Visualizar y Modificar datos de la persona -->
+            <div>
+                <div class="section-header">
+                    <h2>Datos de la persona</h2>
+                </div>
+                <textarea readonly name="datos" id="datos" rows="8" placeholder="..."></textarea>
+                <!-- Botones de modificación -->
+                <div>
+                    <h2 style="font-size: 16px;">Modificar:</h2>
+                    <button type="button" id="modificarNombre">Nombre</button>
+                    <button type="button" id="modificarApellidos">Apellidos</button>
+                    <button type="button" id="modificarSexo">Sexo</button>
+                    <button type="button" id="modificarEdad">Edad</button>
+                    <button type="button" id="modificarDni">DNI</button>
+                    <button type="button" id="modificarTelefono">Teléfono</button>
+                    <button type="button" id="modificarEmail">Email</button>
+                    <button type="button" id="modificarFdn">Fecha de nacimiento</button>
+                    <button type="button" id="modificarProvincia">Provincia</button>
+                </div>
+            </div>
+            <!-- Bloque 3: Historial completo -->
+            <div>
+                <div class="section-header">
+                    <h2>Historial completo</h2>
+                </div>
+                <textarea readonly name="historial" id="historial" rows="10" placeholder="..."></textarea>
+                <!-- Botones para el historial -->
+                <div>
+                    <button type="button" id="agregarHistorial">Agregar historial</button>
+                    <button type="button" id="eliminarHistorial">Eliminar historial</button>
+                    <button type="button" id="modificarHistorial">Modificar historial</button>
+                    <button type="button" id="resetear">Resetear</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Scripts -->
+    <script src="./Persona.js"></script>
+    <script src="./script.js"></script>
+    <script src="./validaciones.js"></script>
+</body>
+
+</html>

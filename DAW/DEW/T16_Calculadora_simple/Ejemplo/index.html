@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documento</title>
+</head>
+
+<body>
+    <h2>Calculadora Simple</h2>
+    <br />
+    <form>
+        <label for="numero1">Número 1:
+            <input type="number" style="text-align:center" id="numero1" name="numero1" required>
+        </label>
+        <br /><br />
+        <label for="numero2">Número 2:
+            <input type="number" style="text-align:center" id="numero2" name="numero2" required>
+        </label>
+        <br /><br />
+        <div>
+            <button type="button" onclick="sumar()">+</button>
+            <button type="button" onclick="restar()">-</button>
+            <button type="button" onclick="multiplicar()">&times;</button>
+            <button type="button" onclick="dividir()">÷</button>
+        </div>
+    </form>
+    <p>Resultado: <input type="text" style="text-align:center" id="resultado" readonly></p>
+    <script src="./script.js"></script>
+</body>
+
+</html>

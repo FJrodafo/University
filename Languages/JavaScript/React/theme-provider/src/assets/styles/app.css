@@ -1,0 +1,15 @@
+:root {
+    /* Light Theme */
+    --body-color: #ffffff;
+    --text-color: #000000;
+}
+
+/* Dark Mode */
+[data-theme='dark'] {
+    --body-color: #000000;
+    --text-color: #ffffff;
+}
+
+body {
+    background-color: var(--body-color);
+}

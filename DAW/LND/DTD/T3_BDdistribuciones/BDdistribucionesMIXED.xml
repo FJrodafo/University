@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE BDdistribuciones [
+    <!ELEMENT BDdistribuciones (proveedores,items,pedidos,clientes)>
+    <!ELEMENT proveedores EMPTY>
+    <!ATTLIST proveedores
+        nro_pro CDATA #REQUIRED
+        nom_p CDATA #REQUIRED
+        categoria CDATA #REQUIRED
+        ciud_p CDATA #IMPLIED
+    >
+    <!ELEMENT items EMPTY>
+    <!ATTLIST items
+        nro_i CDATA #REQUIRED
+        descripcion_i CDATA #REQUIRED
+        ciudad_i CDATA #REQUIRED
+    >
+    <!ELEMENT pedidos EMPTY>
+    <!ATTLIST pedidos
+        nro_pe CDATA #REQUIRED
+        nro_c CDATA #REQUIRED
+        nro_i CDATA #REQUIRED
+        nro_pro CDATA #REQUIRED
+        cantidad CDATA #REQUIRED
+        precio CDATA #REQUIRED
+    >
+    <!ELEMENT clientes EMPTY>
+    <!ATTLIST clientes
+        nro_c CDATA #REQUIRED
+        nom_c CDATA #REQUIRED
+        ciudad_c CDATA #REQUIRED
+    >
+]>
+<BDdistribuciones>
+    <proveedores nro_pro="1" nom_p="Manolo" categoria="comida" ciud_p="" />
+    <items nro_i="1" descripcion_i="Sushi japonés" ciudad_i="La Laguna" />
+    <pedidos nro_pe="1" nro_c="1" nro_i="1" nro_pro="1" cantidad="1" precio="10" />
+    <clientes nro_c="1" nom_c="Pepe" ciudad_c="Santa Cruz de Tenerife" />
+</BDdistribuciones>

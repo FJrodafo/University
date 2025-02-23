@@ -1,0 +1,20 @@
+{
+    "header": {
+        "title": "Cabecera",
+        "sentence": "Frase",
+        "texts": {
+            "nested": {
+                "even_more": "Anidado"
+            },
+            "word": "Palabra"
+        }
+    },
+    "footer": {
+        "title": "Pié de página",
+        "texts": {
+            "language": "Español",
+            "copyright": "Derechos de autor"
+        }
+    },
+    "translate": "Traducir"
+}

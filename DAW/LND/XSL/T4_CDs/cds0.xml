@@ -1,0 +1,310 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cds>
+   <cd>
+      <titulo_album>Nevermind</titulo_album>
+      <año_publicacion>1991</año_publicacion>
+      <artista>Nirvana</artista>
+      <canciones>
+         <cancion>
+            <duracion>00:05:01</duracion>
+            <titulo>Smells Like Teen Spirit</titulo>
+         </cancion>
+         <cancion>
+            <duracion>00:04:14</duracion>
+            <titulo>In Bloom</titulo>
+         </cancion>
+         <cancion>
+            <duracion>00:03:39</duracion>
+            <titulo>Come As You Are</titulo>
+         </cancion>
+         <cancion>
+            <duracion>00:03:03</duracion>
+            <titulo>Breed</titulo>
+         </cancion>
+         <cancion>
+            <duracion>00:04:17</duracion>
+            <titulo>Lithium</titulo>
+         </cancion>
+      </canciones>
+      <sellos_discograficos>
+         <sello_discografico>DGC Records</sello_discografico>
+         <sello_discografico>Virgin Records</sello_discografico>
+      </sellos_discograficos>
+   </cd>
+   <cd>
+      <titulo_album>Demon Days</titulo_album>
+      <año_publicacion>2005</año_publicacion>
+      <artista>Nirvana</artista>
+      <canciones>
+         <cancion>
+            <duracion>00:01:03</duracion>
+            <titulo>Intro</titulo>
+         </cancion>
+         <cancion>
+            <duracion>00:03:10</duracion>
+            <titulo>Last Living Souls</titulo>
+         </cancion>
+         <cancion>
+            <duracion>00:04:31</duracion>
+            <titulo>Kids With Guns</titulo>
+         </cancion>
+         <cancion>
+            <duracion>00:03:43</duracion>
+            <titulo>O Green World</titulo>
+         </cancion>
+         <cancion>
+            <duracion>00:04:53</duracion>
+            <titulo>Dirty Harry</titulo>
+         </cancion>
+      </canciones>
+      <sellos_discograficos>
+         <sello_discografico>Parlophone</sello_discografico>
+         <sello_discografico>Virgin Records</sello_discografico>
+      </sellos_discograficos>
+   </cd>
+   <cd>
+      <titulo_album>Goblin</titulo_album>
+      <año_publicacion>2011</año_publicacion>
+      <artista>Tyler, The Creator</artista>
+      <canciones>
+         <cancion>
+            <duracion>00:04:11</duracion>
+            <titulo>Goblin</titulo>
+         </cancion>
+         <cancion>
+            <duracion>00:07:18</duracion>
+            <titulo>Yonkers</titulo>
+         </cancion>
+         <cancion>
+            <duracion>00:04:13</duracion>
+            <titulo>Radicals</titulo>
+         </cancion>
+         <cancion>
+            <duracion>00:03:12</duracion>
+            <titulo>She</titulo>
+         </cancion>
+         <cancion>
+            <duracion>00:05:22</duracion>
+            <titulo>Transylvania</titulo>
+         </cancion>
+      </canciones>
+      <sellos_discograficos>
+         <sello_discografico>XL Recordings</sello_discografico>
+      </sellos_discograficos>
+   </cd>
+   <cd>
+      <titulo_album>Madvillainy</titulo_album>
+      <año_publicacion>2004</año_publicacion>
+      <artista>MF Doom Madlib</artista>
+      <canciones>
+         <cancion>
+            <duracion>00:01:55</duracion>
+            <titulo>The Illest Villains</titulo>
+         </cancion>
+         <cancion>
+            <duracion>00:01:58</duracion>
+            <titulo>Accordion</titulo>
+         </cancion>
+         <cancion>
+            <duracion>00:02:11</duracion>
+            <titulo>Meat Grinder</titulo>
+         </cancion>
+         <cancion>
+            <duracion>00:02:35</duracion>
+            <titulo>Bistro</titulo>
+         </cancion>
+         <cancion>
+            <duracion>00:03:54</duracion>
+            <titulo>Raid</titulo>
+         </cancion>
+      </canciones>
+      <sellos_discograficos>
+         <sello_discografico>Stones Throw Records</sello_discografico>
+      </sellos_discograficos>
+   </cd>
+   <cd>
+      <titulo_album>My Beautiful Dark Twisted Fantasy</titulo_album>
+      <año_publicacion>2010</año_publicacion>
+      <artista>Kanye West</artista>
+      <canciones>
+         <cancion>
+            <duracion>00:04:40</duracion>
+            <titulo>Dark Fantasy</titulo>
+         </cancion>
+         <cancion>
+            <duracion>00:05:57</duracion>
+            <titulo>Gorgeous</titulo>
+         </cancion>
+         <cancion>
+            <duracion>00:04:52</duracion>
+            <titulo>Power</titulo>
+         </cancion>
+         <cancion>
+            <duracion>00:01:02</duracion>
+            <titulo>All Of The Lights (Interlude)</titulo>
+         </cancion>
+         <cancion>
+            <duracion>00:04:59</duracion>
+            <titulo>All Of The Lights</titulo>
+         </cancion>
+      </canciones>
+      <sellos_discograficos>
+         <sello_discografico>Roc-A-Fella Records</sello_discografico>
+      </sellos_discograficos>
+   </cd>
+   <cd>
+      <titulo_album>Random Access Memories</titulo_album>
+      <año_publicacion>2013</año_publicacion>
+      <artista>Daft Punk</artista>
+      <canciones>
+         <cancion>
+            <duracion>00:04:35</duracion>
+            <titulo>Give Life Back To Music</titulo>
+         </cancion>
+         <cancion>
+            <duracion>00:05:22</duracion>
+            <titulo>The Game Of Love</titulo>
+         </cancion>
+         <cancion>
+            <duracion>00:09:04</duracion>
+            <titulo>Giorgio By Moroder</titulo>
+         </cancion>
+         <cancion>
+            <duracion>00:03:48</duracion>
+            <titulo>Within</titulo>
+         </cancion>
+         <cancion>
+            <duracion>00:05:37</duracion>
+            <titulo>Instant Crush</titulo>
+         </cancion>
+      </canciones>
+      <sellos_discograficos>
+         <sello_discografico>Columbia</sello_discografico>
+         <sello_discografico>Sony Music</sello_discografico>
+      </sellos_discograficos>
+   </cd>
+   <cd>
+      <titulo_album>Good Kid, M.A.A.d City</titulo_album>
+      <año_publicacion>2012</año_publicacion>
+      <artista>Kendrick Lamar</artista>
+      <canciones>
+         <cancion>
+            <duracion>00:03:48</duracion>
+            <titulo>Sherane a.k.a Master Splinter's Daughter</titulo>
+         </cancion>
+         <cancion>
+            <duracion>00:05:37</duracion>
+            <titulo>Bitch, Don't Kill My Vibe</titulo>
+         </cancion>
+         <cancion>
+            <duracion>00:05:53</duracion>
+            <titulo>Backseat Freestyle</titulo>
+         </cancion>
+         <cancion>
+            <duracion>00:08:18</duracion>
+            <titulo>The Art Of Peer Pressure</titulo>
+         </cancion>
+         <cancion>
+            <duracion>00:06:09</duracion>
+            <titulo>Money Trees</titulo>
+         </cancion>
+      </canciones>
+      <sellos_discograficos>
+         <sello_discografico>Top Dawg Entertainment</sello_discografico>
+      </sellos_discograficos>
+   </cd>
+   <cd>
+      <titulo_album>XX</titulo_album>
+      <año_publicacion>2009</año_publicacion>
+      <artista>The XX</artista>
+      <canciones>
+         <cancion>
+            <duracion>00:02:08</duracion>
+            <titulo>Intro</titulo>
+         </cancion>
+         <cancion>
+            <duracion>00:02:57</duracion>
+            <titulo>VCR</titulo>
+         </cancion>
+         <cancion>
+            <duracion>00:02:41</duracion>
+            <titulo>Crystalised</titulo>
+         </cancion>
+         <cancion>
+            <duracion>00:04:02</duracion>
+            <titulo>Islands</titulo>
+         </cancion>
+         <cancion>
+            <duracion>00:03:34</duracion>
+            <titulo>Heart Skipped A Beat</titulo>
+         </cancion>
+      </canciones>
+      <sellos_discograficos>
+         <sello_discografico>XL Recordings</sello_discografico>
+         <sello_discografico>Young Turks</sello_discografico>
+      </sellos_discograficos>
+   </cd>
+   <cd>
+      <titulo_album>The Suburbs</titulo_album>
+      <año_publicacion>2010</año_publicacion>
+      <artista>Arcade Fire</artista>
+      <canciones>
+         <cancion>
+            <duracion>00:05:15</duracion>
+            <titulo>The Suburbs</titulo>
+         </cancion>
+         <cancion>
+            <duracion>00:04:16</duracion>
+            <titulo>Ready To Start</titulo>
+         </cancion>
+         <cancion>
+            <duracion>00:04:40</duracion>
+            <titulo>Modern Man</titulo>
+         </cancion>
+         <cancion>
+            <duracion>00:03:57</duracion>
+            <titulo>Rococo</titulo>
+         </cancion>
+         <cancion>
+            <duracion>00:02:52</duracion>
+            <titulo>Empty Room</titulo>
+         </cancion>
+      </canciones>
+      <sellos_discograficos>
+         <sello_discografico>Merge Records</sello_discografico>
+         <sello_discografico>Sonovox Records</sello_discografico>
+      </sellos_discograficos>
+   </cd>
+   <cd>
+      <titulo_album>In Rainbows</titulo_album>
+      <año_publicacion>2008</año_publicacion>
+      <artista>Radiohead</artista>
+      <canciones>
+         <cancion>
+            <duracion>00:03:57</duracion>
+            <titulo>15 Step</titulo>
+         </cancion>
+         <cancion>
+            <duracion>00:04:02</duracion>
+            <titulo>Bodysnatchers</titulo>
+         </cancion>
+         <cancion>
+            <duracion>00:04:15</duracion>
+            <titulo>Nude</titulo>
+         </cancion>
+         <cancion>
+            <duracion>00:05:18</duracion>
+            <titulo>Weird Fishes/Arpeggi</titulo>
+         </cancion>
+         <cancion>
+            <duracion>00:03:49</duracion>
+            <titulo>All I Need</titulo>
+         </cancion>
+      </canciones>
+      <sellos_discograficos>
+         <sello_discografico>TBD Records</sello_discografico>
+         <sello_discografico>RED Distribution</sello_discografico>
+         <sello_discografico>Virgin Records</sello_discografico>
+      </sellos_discograficos>
+   </cd>
+</cds>

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE BDdistribuciones [
+    <!ELEMENT BDdistribuciones (CLIENTES,ITEMS,PROVEEDORES,PEDIDOS)>
+    <!ELEMENT CLIENTES (cliente*)>
+    <!ELEMENT cliente (nomClien,ciudClien)>
+    <!ATTLIST cliente numClien ID #REQUIRED>
+    <!ELEMENT nomClien (#PCDATA)>
+    <!ELEMENT ciudClien (#PCDATA)>
+    <!ELEMENT ITEMS (item*)>
+    <!ELEMENT item (#PCDATA)>
+    <!ATTLIST item numItem ID #REQUIRED>
+    <!ELEMENT PROVEEDORES (proveedor*)>
+    <!ELEMENT proveedor (nomProv,categProv,ciudProv)>
+    <!ATTLIST proveedor numProv ID #REQUIRED>
+    <!ELEMENT nomProv (#PCDATA)>
+    <!ELEMENT categProv (#PCDATA)>
+    <!ELEMENT ciudProv (#PCDATA)>
+    <!ELEMENT PEDIDOS (pedido*)>
+    <!ELEMENT pedido EMPTY>
+    <!ATTLIST pedido numPedido ID #REQUIRED>
+    <!ATTLIST pedido numClien CDATA #REQUIRED>
+    <!ATTLIST pedido numItem CDATA #REQUIRED>
+    <!ATTLIST pedido numProv CDATA #REQUIRED>
+    <!ATTLIST pedido cantidad CDATA #REQUIRED>
+    <!ATTLIST pedido precio CDATA #REQUIRED>
+]>
+<BDdistribuciones>
+    <CLIENTES>
+        <cliente numClien="Cliente1">
+            <nomClien>Paco</nomClien>
+            <ciudClien>El Sauzal</ciudClien>
+        </cliente>
+        <cliente numClien="Cliente2">
+            <nomClien>Alba</nomClien>
+            <ciudClien>Arafo</ciudClien>
+        </cliente>
+        <cliente numClien="Cliente3">
+            <nomClien>Diego</nomClien>
+            <ciudClien>Los Cristianos</ciudClien>
+        </cliente>
+        <cliente numClien="Cliente4">
+            <nomClien>Merixel</nomClien>
+            <ciudClien>La Laguna</ciudClien>
+        </cliente>
+    </CLIENTES>
+    <ITEMS>
+        <item numItem="Item1">Rollitos de primavera Chinos</item>
+        <item numItem="Item2">Fideos Chinos</item>
+        <item numItem="Item3">Pasta Italiana</item>
+        <item numItem="Item4">Pizza Italiana</item>
+        <item numItem="Item5">Kofte Turco</item>
+        <item numItem="Item6">Solomillo Turco</item>
+        <item numItem="Item7">Hamburguesa Americana</item>
+        <item numItem="Item8">Barbacoa Americana</item>
+    </ITEMS>
+    <PROVEEDORES>
+        <proveedor numProv="Proveedor1">
+            <nomProv>Xin Hao</nomProv>
+            <categProv>Restaurante Chino</categProv>
+            <ciudProv>La Orotava</ciudProv>
+        </proveedor>
+        <proveedor numProv="Proveedor2">
+            <nomProv>Tutto Prestanicci</nomProv>
+            <categProv>Restaurante Italiano</categProv>
+            <ciudProv>Buenavista del Norte</ciudProv>
+        </proveedor>
+        <proveedor numProv="Proveedor3">
+            <nomProv>Münhasir</nomProv>
+            <categProv>Restaurante Turco</categProv>
+            <ciudProv>Santa Cruz de Tenerife</ciudProv>
+        </proveedor>
+        <proveedor numProv="Proveedor4">
+            <nomProv>BBQ Now</nomProv>
+            <categProv>Barbacoa Americana</categProv>
+            <ciudProv>Guía de Isora</ciudProv>
+        </proveedor>
+    </PROVEEDORES>
+    <PEDIDOS>
+        <pedido numPedido="Pedido1" numClien="2" numItem="5" numProv="3" cantidad="4" precio="16€" />
+        <pedido numPedido="Pedido2" numClien="1" numItem="3" numProv="2" cantidad="2" precio="12€" />
+        <pedido numPedido="Pedido3" numClien="3" numItem="8" numProv="4" cantidad="1" precio="25€" />
+        <pedido numPedido="Pedido4" numClien="4" numItem="2" numProv="1" cantidad="2" precio="14€" />
+    </PEDIDOS>
+</BDdistribuciones>

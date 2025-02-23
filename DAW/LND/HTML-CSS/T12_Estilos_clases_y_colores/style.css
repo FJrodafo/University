@@ -1,0 +1,17 @@
+table,
+td {
+    border: 1px solid black;
+    border-collapse: collapse;
+    padding: 5px;
+    margin: 0 auto;
+}
+
+.orange {
+    background-color: orange;
+    color: cyan;
+}
+
+.cyan {
+    background-color: cyan;
+    color: orange;
+}

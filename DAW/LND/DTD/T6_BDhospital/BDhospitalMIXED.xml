@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE BDhospital [
+    <!ELEMENT BDhospital (Hospital,Sala,Plantilla,Ocupacion,Doctor,enfermo)>
+    <!ELEMENT Hospital EMPTY>
+    <!ATTLIST Hospital
+        hospital_cod CDATA #REQUIRED
+        nombre CDATA #REQUIRED
+        direccion CDATA #REQUIRED
+        telefono CDATA #REQUIRED
+        num_camas CDATA #REQUIRED
+    >
+    <!ELEMENT Sala EMPTY>
+    <!ATTLIST Sala
+        hospital_cod CDATA #REQUIRED
+        sala_cod CDATA #REQUIRED
+        nombre CDATA #REQUIRED
+        num_cama CDATA #REQUIRED
+    >
+    <!ELEMENT Plantilla EMPTY>
+    <!ATTLIST Plantilla
+        hospital_cod CDATA #REQUIRED
+        sala_cod CDATA #REQUIRED
+        empleado_num CDATA #REQUIRED
+        apellido CDATA #REQUIRED
+        funcion CDATA #REQUIRED
+        turno CDATA #REQUIRED
+        Salario CDATA #REQUIRED
+    >
+    <!ELEMENT Ocupacion EMPTY>
+    <!ATTLIST Ocupacion
+        inscripcion CDATA #REQUIRED
+        hospital_cod CDATA #REQUIRED
+        sala_cod CDATA #REQUIRED
+        cama CDATA #REQUIRED
+    >
+    <!ELEMENT Doctor EMPTY>
+    <!ATTLIST Doctor
+        hospital_cod CDATA #REQUIRED
+        doctor_num CDATA #REQUIRED
+        apellido CDATA #REQUIRED
+        especialidad CDATA #REQUIRED
+    >
+    <!ELEMENT enfermo EMPTY>
+    <!ATTLIST enfermo
+        inscripcion CDATA #REQUIRED
+        apellido CDATA #REQUIRED
+        direccion CDATA #REQUIRED
+        fecha_nac CDATA #REQUIRED
+        s CDATA #REQUIRED
+        nss CDATA #REQUIRED
+    >
+]>
+<BDhospital>
+    <Hospital hospital_cod="1" nombre="San Juan" direccion="Santa Cruz de Tenerife" telefono="922123456" num_camas="4" />
+    <Sala hospital_cod="1" sala_cod="23" nombre="Urgencias" num_cama="3" />
+    <Plantilla hospital_cod="1" sala_cod="23" empleado_num="30" apellido="Nieto" funcion="Ayudante" turno="Nocturno" Salario="1500" />
+    <Ocupacion inscripcion="415" hospital_cod="1" sala_cod="23" cama="2" />
+    <Doctor hospital_cod="1" doctor_num="16" apellido="Alfaro" especialidad="Cirujano" />
+    <enfermo inscripcion="216" apellido="Vidal" direccion="La Laguna" fecha_nac="2000-05-02" s="s" nss="1234567890" />
+</BDhospital>

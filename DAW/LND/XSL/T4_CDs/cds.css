@@ -1,0 +1,19 @@
+li {
+    list-style-type: none;
+}
+
+.enunciado {
+    text-align: center;
+    text-decoration: underline;
+    color: green;
+}
+
+tr:nth-child(even) {
+    background-color: darkgreen;
+    text-align: left;
+}
+
+tr:nth-child(odd) {
+    background-color: lightgreen;
+    text-align: left;
+}

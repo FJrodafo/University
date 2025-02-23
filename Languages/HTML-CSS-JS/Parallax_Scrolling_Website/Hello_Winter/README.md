@@ -1,0 +1,1 @@
+![Preview](https://raw.githubusercontent.com/FJrodafo/University/main/Languages/HTML-CSS-JS/Parallax_Scrolling_Website/Hello_Winter/Assets/Preview.png)
