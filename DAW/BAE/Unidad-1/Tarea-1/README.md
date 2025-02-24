@@ -1,4 +1,4 @@
-## <img src="https://raw.githubusercontent.com/FJrodafo/University/main/DAW/BAE/Unidad-1/Tarea-1/Assets/Images/Computer.png" height="24"> Exploración de SGBD (Sistemas Gestores de Bases de Datos)
+## <img src="https://raw.githubusercontent.com/FJrodafo/University/main/DAW/BAE/Unidad-1/Tarea-1/Assets/Images/Computer.png" width="24"> Exploración de SGBD (Sistemas Gestores de Bases de Datos)
 
 1. [Objetivo](#objetivo)
 2. [Instrucciones](#instrucciones)

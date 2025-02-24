@@ -2,7 +2,7 @@
     <a href="https://www.markdownguide.org/" target="_blank">
         <picture>
             <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/FJrodafo/University/main/Cheat_sheets/Markdown/Assets/Dark.png">
-            <img alt="logo" height="46" src="https://raw.githubusercontent.com/FJrodafo/University/main/Cheat_sheets/Markdown/Assets/Light.png" />
+            <img alt="logo" width="74" src="https://raw.githubusercontent.com/FJrodafo/University/main/Cheat_sheets/Markdown/Assets/Light.png" />
         </picture>
     </a>
 </div>

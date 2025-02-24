@@ -1,4 +1,4 @@
-## <img src="https://raw.githubusercontent.com/FJrodafo/University/main/DAW/BAE/Unidad-2/Tarea-5/Assets/Images/Computer.png" height="24"> Ejercicios de Normalización de Bases de Datos
+## <img src="https://raw.githubusercontent.com/FJrodafo/University/main/DAW/BAE/Unidad-2/Tarea-5/Assets/Images/Computer.png" width="24"> Ejercicios de Normalización de Bases de Datos
 
 1. [Ejercicio 1: Lista de Productos](#ejercicio-1-lista-de-productos)
 2. [Ejercicio 2: Pedidos de Clientes](#ejercicio-2-pedidos-de-clientes)

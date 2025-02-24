@@ -1,6 +1,6 @@
 <div align="center">
     <a href="https://www.mysql.com/" target="_blank">
-        <img alt="logo" height="86" src="https://raw.githubusercontent.com/FJrodafo/University/main/Cheat_sheets/MySQL/Assets/Logo.png" />
+        <img alt="logo" width="125" src="https://raw.githubusercontent.com/FJrodafo/University/main/Cheat_sheets/MySQL/Assets/Logo.png" />
     </a>
 </div>
 

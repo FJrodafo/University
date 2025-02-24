@@ -1,6 +1,6 @@
 <div align="center">
     <a href="https://www.npmjs.com/" target="_blank">
-        <img alt="logo" height="46" src="https://raw.githubusercontent.com/FJrodafo/University/main/Cheat_sheets/npm/Assets/Logo.png" />
+        <img alt="logo" width="118" src="https://raw.githubusercontent.com/FJrodafo/University/main/Cheat_sheets/npm/Assets/Logo.png" />
     </a>
 </div>
 

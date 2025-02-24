@@ -2,7 +2,7 @@
     <a href="https://vercel.com/" target="_blank">
         <picture>
             <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/FJrodafo/University/main/Cheat_sheets/Vercel/Assets/Dark.svg">
-            <img alt="logo" height="46" src="https://raw.githubusercontent.com/FJrodafo/University/main/Cheat_sheets/Vercel/Assets/Light.svg" />
+            <img alt="logo" width="200" src="https://raw.githubusercontent.com/FJrodafo/University/main/Cheat_sheets/Vercel/Assets/Light.svg" />
         </picture>
     </a>
 </div>

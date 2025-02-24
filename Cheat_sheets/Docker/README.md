@@ -1,6 +1,6 @@
 <div align="center">
     <a href="https://www.docker.com/" target="_blank">
-        <img alt="logo" height="46" src="https://raw.githubusercontent.com/FJrodafo/University/main/Cheat_sheets/Docker/Assets/Logo.png" />
+        <img alt="logo" width="182" src="https://raw.githubusercontent.com/FJrodafo/University/main/Cheat_sheets/Docker/Assets/Logo.png" />
     </a>
 </div>
 

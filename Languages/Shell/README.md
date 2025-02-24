@@ -1,5 +1,5 @@
 <div align="center">
-    <img alt="logo" height="46" src="https://raw.githubusercontent.com/FJrodafo/University/main/Languages/Shell/Assets/Logo.png" />
+    <img alt="logo" width="110" src="https://raw.githubusercontent.com/FJrodafo/University/main/Languages/Shell/Assets/Logo.png" />
 </div>
 
 ## Getting Started

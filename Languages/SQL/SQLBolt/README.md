@@ -1,6 +1,6 @@
 <div align="center">
     <a href="https://sqlbolt.com/" target="_blank">
-        <img alt="logo" height="45" src="https://raw.githubusercontent.com/FJrodafo/University/main/Languages/SQL/SQLBolt/Assets/Logo.png" />
+        <img alt="logo" width="45" height="45" src="https://raw.githubusercontent.com/FJrodafo/University/main/Languages/SQL/SQLBolt/Assets/Logo.png" />
     </a>
 </div>
 

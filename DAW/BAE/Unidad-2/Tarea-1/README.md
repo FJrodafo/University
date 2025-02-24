@@ -1,4 +1,4 @@
-## <img src="https://raw.githubusercontent.com/FJrodafo/University/main/DAW/BAE/Unidad-2/Tarea-1/Assets/Images/Computer.png" height="24"> Ejercicios básicos de E/R (Entidad/Relación)
+## <img src="https://raw.githubusercontent.com/FJrodafo/University/main/DAW/BAE/Unidad-2/Tarea-1/Assets/Images/Computer.png" width="24"> Ejercicios básicos de E/R (Entidad/Relación)
 
 Representa las entidades, relaciones y cardinalidades mínimas y máximas para cada uno de los siguientes supuestos:
 

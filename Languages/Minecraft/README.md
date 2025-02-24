@@ -1,6 +1,6 @@
 <div align="center">
     <a href="https://www.minecraft.net/" target="_blank">
-        <img alt="logo" height="46" src="https://raw.githubusercontent.com/FJrodafo/University/main/Languages/Minecraft/Assets/Logo.svg" />
+        <img alt="logo" width="270" src="https://raw.githubusercontent.com/FJrodafo/University/main/Languages/Minecraft/Assets/Logo.svg" />
     </a>
 </div>
 

@@ -1,6 +1,6 @@
 <div align="center">
     <a href="https://mermaid.js.org/" target="_blank">
-        <img alt="logo" height="46" src="https://raw.githubusercontent.com/FJrodafo/University/main/Cheat_sheets/Markdown/Assets/Mermaid.png" />
+        <img alt="logo" width="46" src="https://raw.githubusercontent.com/FJrodafo/University/main/Cheat_sheets/Markdown/Assets/Mermaid.png" />
     </a>
 </div>
 
