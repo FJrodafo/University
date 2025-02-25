@@ -1,4 +1,4 @@
-## <img src="https://raw.githubusercontent.com/FJrodafo/University/main/DAW/BAE/T08_Gestion_de_tienda/Computer.png" width="24"> Gestión de tienda
+## <img src="https://raw.githubusercontent.com/FJrodafo/University/main/DAW/BAE/T08_Gestion_de_tienda/Computer.png" width="24" height="24"> Gestión de tienda
 
 <details>
 <summary>Tabla</summary>

@@ -1,4 +1,4 @@
-## <img src="https://raw.githubusercontent.com/FJrodafo/University/main/DAW/BAE/T04_Ejercicios_de_ER/Assets/Images/Computer.png" width="24"> Ejercicios de E/R (Entidad/Relación)
+## <img src="https://raw.githubusercontent.com/FJrodafo/University/main/DAW/BAE/T04_Ejercicios_de_ER/Assets/Images/Computer.png" width="24" height="24"> Ejercicios de E/R (Entidad/Relación)
 
 1. En un sistema de biblioteca, cada libro tiene un número único de identificación (ID). Se requiere almacenar información adicional sobre la ubicación de cada libro (como la estantería), y esta información solo se puede asociar con un libro en particular. Diseña las tablas y define la relación entre ellas.
     <br />
