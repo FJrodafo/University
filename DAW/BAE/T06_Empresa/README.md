@@ -1,4 +1,4 @@
-## <img src="https://raw.githubusercontent.com/FJrodafo/University/main/DAW/BAE/Unidad-2/Tarea-5/Assets/Images/Computer.png" width="24"> MR: Construye el modelo relacional basado en la descripción que se aporta
+## <img src="https://raw.githubusercontent.com/FJrodafo/University/main/DAW/BAE/T06_Empresa/Assets/Images/Computer.png" width="24"> MR: Construye el modelo relacional basado en la descripción que se aporta
 
 Una empresa necesita organizar la siguiente información referente a su organización interna. La empresa está organizada en una serie de departamentos. Cada departamento tiene un código, nombre y presupuesto anual. Cada departamento está ubicado en un centro de trabajo. La información que se desea guardar del centro de trabajo es el código de centro, nombre, población y dirección del centro. La empresa tiene una serie de empleados. Cada empleado tiene un teléfono, fecha de alta en la empresa, NIF y nombre. De cada empleado también interesa saber el número de hijos que tiene y el salario de cada empleado. A esta empresa también le interesa tener guardada información sobre los hijos de los empleados. Cada hijo de un empleado tendrá un código, nombre y fecha de nacimiento. Se desea mantener también información sobre las habilidades de los empleados (por ejemplo, mercadotecnia, trato con el cliente, fresador, operador de telefonía, etc…). Cada habilidad tendrá una descripción y un código”. Se pretende diseñar el modelo E/R y el modelo relacional teniendo en cuenta los siguientes aspectos:
 
@@ -10,7 +10,7 @@ Una empresa necesita organizar la siguiente información referente a su organiza
 
 <details>
 <summary>Solución</summary>
-<img src="https://raw.githubusercontent.com/FJrodafo/University/main/DAW/BAE/Unidad-2/Tarea-5/Assets/Diagrams/Exported/Diagram.drawio.svg">
+<img src="https://raw.githubusercontent.com/FJrodafo/University/main/DAW/BAE/T06_Empresa/Assets/Diagrams/Exported/Diagram.drawio.svg">
 </details>
 
 <link rel="stylesheet" href="./../../../../README.css">

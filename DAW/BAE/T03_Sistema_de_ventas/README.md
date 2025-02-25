@@ -1,4 +1,4 @@
-## <img src="https://raw.githubusercontent.com/FJrodafo/University/main/DAW/BAE/Unidad-2/Tarea-2/Assets/Images/Computer.png" width="24"> Sistema de ventas
+## <img src="https://raw.githubusercontent.com/FJrodafo/University/main/DAW/BAE/T03_Sistema_de_ventas/Assets/Images/Computer.png" width="24"> Sistema de ventas
 
 Se desea realizar una base de datos que permita apoyar la gestión de un sistema de ventas. La empresa necesita llevar un control de proveedores, clientes, productos y ventas.
 
@@ -10,7 +10,7 @@ Se desea realizar una base de datos que permita apoyar la gestión de un sistema
 
 <details>
 <summary>Solución</summary>
-<img src="https://raw.githubusercontent.com/FJrodafo/University/main/DAW/BAE/Unidad-2/Tarea-2/Assets/Diagrams/Exported/Diagram.drawio.png">
+<img src="https://raw.githubusercontent.com/FJrodafo/University/main/DAW/BAE/T03_Sistema_de_ventas/Assets/Diagrams/Exported/Diagram.drawio.png">
 </details>
 
 <link rel="stylesheet" href="./../../../../README.css">

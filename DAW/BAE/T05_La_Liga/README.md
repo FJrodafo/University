@@ -1,4 +1,4 @@
-## <img src="https://raw.githubusercontent.com/FJrodafo/University/main/DAW/BAE/Unidad-2/Tarea-4/Assets/Images/LaLiga.png" width="24"> E/R: Construye el diagrama basado en la descripción que se aporta
+## <img src="https://raw.githubusercontent.com/FJrodafo/University/main/DAW/BAE/T05_La_Liga/Assets/Images/LaLiga.png" width="24"> E/R: Construye el diagrama basado en la descripción que se aporta
 
 La liga de fútbol profesional ha decidido informatizar sus instalaciones creando una base de datos para guardar la información de los partidos que se juegan en la liga.
 
@@ -12,7 +12,7 @@ Por último se quiere almacenar, en la base de datos, los datos de los president
 
 <details>
 <summary>Solución</summary>
-<img src="https://raw.githubusercontent.com/FJrodafo/University/main/DAW/BAE/Unidad-2/Tarea-4/Assets/Diagrams/Exported/Diagram.drawio.png">
+<img src="https://raw.githubusercontent.com/FJrodafo/University/main/DAW/BAE/T05_La_Liga/Assets/Diagrams/Exported/Diagram.drawio.png">
 </details>
 
 <link rel="stylesheet" href="./../../../../README.css">

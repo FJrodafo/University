@@ -1,4 +1,4 @@
-## <img src="https://raw.githubusercontent.com/FJrodafo/University/main/DAW/BAE/Unidad-2/Tarea-5/Assets/Images/Computer.png" width="24"> Ejercicios de Normalización de Bases de Datos
+## <img src="https://raw.githubusercontent.com/FJrodafo/University/main/DAW/BAE/T07_Ejercicios_de_normalizacion/Assets/Images/Computer.png" width="24"> Ejercicios de Normalización de Bases de Datos
 
 1. [Ejercicio 1: Lista de Productos](#ejercicio-1-lista-de-productos)
 2. [Ejercicio 2: Pedidos de Clientes](#ejercicio-2-pedidos-de-clientes)
@@ -81,7 +81,7 @@
 </details>
 <details>
 <summary>Diagrama</summary>
-<img src="https://raw.githubusercontent.com/FJrodafo/University/main/DAW/BAE/Unidad-2/Tarea-6/Assets/Diagrams/Exported/lista_de_productos.drawio.svg">
+<img src="https://raw.githubusercontent.com/FJrodafo/University/main/DAW/BAE/T07_Ejercicios_de_normalizacion/Assets/Diagrams/Exported/lista_de_productos.drawio.svg">
 </details>
 <details>
 <summary>SQL</summary>
@@ -245,7 +245,7 @@ VALUES
 </details>
 <details>
 <summary>Diagrama</summary>
-<img src="https://raw.githubusercontent.com/FJrodafo/University/main/DAW/BAE/Unidad-2/Tarea-6/Assets/Diagrams/Exported/pedidos_de_clientes.drawio.svg">
+<img src="https://raw.githubusercontent.com/FJrodafo/University/main/DAW/BAE/T07_Ejercicios_de_normalizacion/Assets/Diagrams/Exported/pedidos_de_clientes.drawio.svg">
 </details>
 <details>
 <summary>SQL</summary>
@@ -408,7 +408,7 @@ VALUES
 </details>
 <details>
 <summary>Diagrama</summary>
-<img src="https://raw.githubusercontent.com/FJrodafo/University/main/DAW/BAE/Unidad-2/Tarea-6/Assets/Diagrams/Exported/registro_de_empleados.drawio.svg">
+<img src="https://raw.githubusercontent.com/FJrodafo/University/main/DAW/BAE/T07_Ejercicios_de_normalizacion/Assets/Diagrams/Exported/registro_de_empleados.drawio.svg">
 </details>
 <details>
 <summary>SQL</summary>
@@ -541,7 +541,7 @@ VALUES
 </details>
 <details>
 <summary>Diagrama</summary>
-<img src="https://raw.githubusercontent.com/FJrodafo/University/main/DAW/BAE/Unidad-2/Tarea-6/Assets/Diagrams/Exported/reservas_de_hotel.drawio.svg">
+<img src="https://raw.githubusercontent.com/FJrodafo/University/main/DAW/BAE/T07_Ejercicios_de_normalizacion/Assets/Diagrams/Exported/reservas_de_hotel.drawio.svg">
 </details>
 <details>
 <summary>SQL</summary>
@@ -673,7 +673,7 @@ VALUES
 </details>
 <details>
 <summary>Diagrama</summary>
-<img src="https://raw.githubusercontent.com/FJrodafo/University/main/DAW/BAE/Unidad-2/Tarea-6/Assets/Diagrams/Exported/inscripciones_a_cursos.drawio.svg">
+<img src="https://raw.githubusercontent.com/FJrodafo/University/main/DAW/BAE/T07_Ejercicios_de_normalizacion/Assets/Diagrams/Exported/inscripciones_a_cursos.drawio.svg">
 </details>
 <details>
 <summary>SQL</summary>
@@ -819,7 +819,7 @@ VALUES
 </details>
 <details>
 <summary>Diagrama</summary>
-<img src="https://raw.githubusercontent.com/FJrodafo/University/main/DAW/BAE/Unidad-2/Tarea-6/Assets/Diagrams/Exported/ventas_de_tienda.drawio.svg">
+<img src="https://raw.githubusercontent.com/FJrodafo/University/main/DAW/BAE/T07_Ejercicios_de_normalizacion/Assets/Diagrams/Exported/ventas_de_tienda.drawio.svg">
 </details>
 <details>
 <summary>SQL</summary>
@@ -957,7 +957,7 @@ VALUES
 </details>
 <details>
 <summary>Diagrama</summary>
-<img src="https://raw.githubusercontent.com/FJrodafo/University/main/DAW/BAE/Unidad-2/Tarea-6/Assets/Diagrams/Exported/biblioteca_de_libros.drawio.svg">
+<img src="https://raw.githubusercontent.com/FJrodafo/University/main/DAW/BAE/T07_Ejercicios_de_normalizacion/Assets/Diagrams/Exported/biblioteca_de_libros.drawio.svg">
 </details>
 <details>
 <summary>SQL</summary>
@@ -1086,7 +1086,7 @@ VALUES
 </details>
 <details>
 <summary>Diagrama</summary>
-<img src="https://raw.githubusercontent.com/FJrodafo/University/main/DAW/BAE/Unidad-2/Tarea-6/Assets/Diagrams/Exported/facturacion_de_servicios.drawio.svg">
+<img src="https://raw.githubusercontent.com/FJrodafo/University/main/DAW/BAE/T07_Ejercicios_de_normalizacion/Assets/Diagrams/Exported/facturacion_de_servicios.drawio.svg">
 </details>
 <details>
 <summary>SQL</summary>
@@ -1228,7 +1228,7 @@ VALUES
 </details>
 <details>
 <summary>Diagrama</summary>
-<img src="https://raw.githubusercontent.com/FJrodafo/University/main/DAW/BAE/Unidad-2/Tarea-6/Assets/Diagrams/Exported/gestion_de_vehiculos.drawio.svg">
+<img src="https://raw.githubusercontent.com/FJrodafo/University/main/DAW/BAE/T07_Ejercicios_de_normalizacion/Assets/Diagrams/Exported/gestion_de_vehiculos.drawio.svg">
 </details>
 <details>
 <summary>SQL</summary>
@@ -1359,7 +1359,7 @@ VALUES
 </details>
 <details>
 <summary>Diagrama</summary>
-<img src="https://raw.githubusercontent.com/FJrodafo/University/main/DAW/BAE/Unidad-2/Tarea-6/Assets/Diagrams/Exported/gestion_de_proyectos.drawio.svg">
+<img src="https://raw.githubusercontent.com/FJrodafo/University/main/DAW/BAE/T07_Ejercicios_de_normalizacion/Assets/Diagrams/Exported/gestion_de_proyectos.drawio.svg">
 </details>
 <details>
 <summary>SQL</summary>
