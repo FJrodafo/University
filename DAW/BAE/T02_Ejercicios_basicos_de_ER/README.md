@@ -75,5 +75,5 @@ Representa las entidades, relaciones y cardinalidades mínimas y máximas para c
     </details>
     <br />
 
-<link rel="stylesheet" href="./../../../../README.css">
+<link rel="stylesheet" href="./../../../README.css">
 <a class="scrollup" href="#top">&#x1F53C</a>

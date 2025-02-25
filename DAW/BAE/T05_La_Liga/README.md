@@ -15,5 +15,5 @@ Por último se quiere almacenar, en la base de datos, los datos de los president
 <img src="https://raw.githubusercontent.com/FJrodafo/University/main/DAW/BAE/T05_La_Liga/Assets/Diagrams/Exported/Diagram.drawio.png">
 </details>
 
-<link rel="stylesheet" href="./../../../../README.css">
+<link rel="stylesheet" href="./../../../README.css">
 <a class="scrollup" href="#top">&#x1F53C</a>

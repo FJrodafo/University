@@ -13,5 +13,5 @@ Una empresa necesita organizar la siguiente información referente a su organiza
 <img src="https://raw.githubusercontent.com/FJrodafo/University/main/DAW/BAE/T06_Empresa/Assets/Diagrams/Exported/Diagram.drawio.svg">
 </details>
 
-<link rel="stylesheet" href="./../../../../README.css">
+<link rel="stylesheet" href="./../../../README.css">
 <a class="scrollup" href="#top">&#x1F53C</a>
