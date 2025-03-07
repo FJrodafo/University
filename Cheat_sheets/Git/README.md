@@ -19,7 +19,8 @@
 8. [Revert commits](#revert-commits)
 9. [Go back and merge](#go-back-and-merge)
 10. [Create a Test repository](#create-a-test-repository)
-11. [Glossary](#glossary)
+11. [Working with Issues and Pull Requests](#working-with-issues-and-pull-requests)
+12. [Glossary](#glossary)
 
 ## Install
 
@@ -328,6 +329,70 @@ git add -A
 git commit -m "Initial Update"
 git push -u origin main
 git log --pretty=format:'%h %an %ae'
+```
+
+## Working with Issues and Pull Requests
+
+```shell
+# Make sure you are on the main branch before creating a new branch.
+git checkout main
+
+# Make sure you have the latest changes in the main branch.
+git pull origin main
+
+# Create a branch with the lowercase name of the issue you created earlier in the remote repository.
+git checkout -b test
+
+# Push the new branch to the remote repository.
+git push origin test
+
+#
+# Create an Issue in the remote repository you want to work on.
+#
+
+# Check which branch you are working on (the asterisk shows your current position).
+git branch
+
+# Navigate between branches.
+git checkout main
+git checkout test
+
+# Make your first changes to this new branch and push it to your remote repository.
+git add -A
+git commit -m "Update README.md"
+git push origin test
+
+# Go back to the main branch and make/push changes.
+git checkout main
+git add -A
+git commit -m "Update README.md"
+git push origin main
+
+# Update the test branch with the latest changes from the main branch.
+git checkout test
+git fetch origin
+git merge origin/main
+
+# If there are conflicts during the merge, Git will warn you and you will have to resolve them manually. After resolving the conflicts, commit and push the merge:
+git add -A
+git commit -m "Resolving conflicts when merging main with test"
+git push origin test
+
+#
+# Finally, create a Pull Request in the remote repository (Base: main / Compare: test).
+#
+
+# Once the Pull Request is merged, you can delete the branch either locally or remotely to keep the repository clean.
+git checkout main
+git pull origin main
+git branch -d test
+git push origin --delete test
+
+# In addition to downloading updates, it removes references to remote branches that no longer exist in the remote repository.
+git fetch --prune
+
+# Show remote branches.
+git branch -r
 ```
 
 ## Glossary
