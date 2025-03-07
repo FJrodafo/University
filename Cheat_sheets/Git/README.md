@@ -386,6 +386,7 @@ git push origin test
 git checkout main
 git pull origin main
 git branch -d test
+# It may fail if the branch has already been safely deleted right after merging from the Pull Request to the remote repository.
 git push origin --delete test
 
 # In addition to downloading updates, it removes references to remote branches that no longer exist in the remote repository.
