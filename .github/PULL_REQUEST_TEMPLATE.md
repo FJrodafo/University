@@ -14,3 +14,7 @@ _Add more context to describe the changes..._
 
 - [ ] Tested changes
 - [ ] Stakeholder approval
+
+## Issues
+
+Closes #
