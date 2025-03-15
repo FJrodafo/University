@@ -1,12 +1,3 @@
-<div align="center">
-    <a href="https://git-scm.com/" target="_blank">
-        <picture>
-            <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/FJrodafo/University/main/Cheat_sheets/Git/Assets/Dark.png">
-            <img alt="logo" width="110" src="https://raw.githubusercontent.com/FJrodafo/University/main/Cheat_sheets/Git/Assets/Light.png" />
-        </picture>
-    </a>
-</div>
-
 ## Index
 
 1. [Install](#install)

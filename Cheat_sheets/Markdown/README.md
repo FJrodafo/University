@@ -1,13 +1,12 @@
-<div align="center">
-    <a href="https://www.markdownguide.org/" target="_blank">
-        <picture>
-            <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/FJrodafo/University/main/Cheat_sheets/Markdown/Assets/Dark.png">
-            <img alt="logo" width="74" src="https://raw.githubusercontent.com/FJrodafo/University/main/Cheat_sheets/Markdown/Assets/Light.png" />
-        </picture>
-    </a>
-</div>
-<br />
-<table align="center">
+## Index
+
+1. [Table](#table)
+2. [Alerts](#alerts)
+3. [Tools](#tools)
+
+## Table
+
+<table>
     <thead>
         <tr>
             <th>Element</th>
@@ -163,7 +162,8 @@
         </tr>
     </tbody>
 </table>
-<br />
+
+## Alerts
 
 > [!NOTE]
 > 

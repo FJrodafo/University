@@ -1,9 +1,3 @@
-<div align="center">
-    <a href="https://www.mysql.com/" target="_blank">
-        <img alt="logo" width="125" src="https://raw.githubusercontent.com/FJrodafo/University/main/Cheat_sheets/MySQL/Assets/Logo.png" />
-    </a>
-</div>
-
 ## Index
 
 1. [How To Install MySQL on Ubuntu 22.04](#how-to-install-mysql-on-ubuntu-2204)
