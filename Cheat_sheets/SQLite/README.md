@@ -7,14 +7,21 @@
 
 ### APT repository
 
+Update the repositories to ensure you have the latest versions of the packages.
+
 ```shell
-# Update the repositories to ensure you have the latest versions of the packages.
 sudo apt update
+```
 
-# Install SQLite with the following command.
+Install SQLite with the following command.
+
+```shell
 sudo apt install sqlite3
+```
 
-# Check the installation to make sure everything went well.
+Check the installation to make sure everything went well.
+
+```shell
 sqlite3 --version
 ```
 
