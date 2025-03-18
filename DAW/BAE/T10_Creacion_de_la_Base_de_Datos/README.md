@@ -1,6 +1,6 @@
 ## Creación de la Base de Datos
 
-1. Crear una tabla con un campo de cada tipo.
+1. Crear las tablas con sus respectivos campos.
     1. Utilizando la terminal o línea de comandos, abre SQLite3 y crea una base de datos llamada `tarea.db`.
         ```shell
         
