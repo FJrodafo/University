@@ -1,7 +1,7 @@
 ## Primeros pasos en SQLite
 
 1. Crear una tabla con un campo de cada tipo.
-    1. Utilizando la terminal o línea de comandos, abre SQLite3 y crea una base de datos llamada `tarea.db`.
+    1. Utilizando la terminal o línea de comandos, abre SQLite y crea una base de datos llamada `tarea.db`.
         ```shell
         
         ```
@@ -15,7 +15,7 @@
         ```shell
         
         ```
-2. Insertar los siguientes campos en la tabla `Ejemplos`:
+2. Insertar los siguientes datos en la tabla `Ejemplos`:
     <details>
     <summary>Ejemplos</summary>
 
