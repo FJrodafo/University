@@ -2,6 +2,7 @@
 
 1. Crear una tabla con un campo de cada tipo.
     1. Utilizando la terminal o línea de comandos, abre SQLite y crea una base de datos llamada `tarea.db`.
+        
         ```shell
         
         ```
@@ -12,6 +13,7 @@
         * `decimal` (tipo REAL)
         * `fecha` (tipo DATE)
         * `booleano` (tipo BOOLEAN)
+
         ```shell
         
         ```
@@ -78,35 +80,43 @@
     ```
 3. Realizar las siguientes consultas de datos:
     1. Obtén todas las entradas de la tabla `Ejemplos`.
+
         ```sql
         
         ```
     2. Obtén las entradas con el campo `entero` mayor a 50.
+
         ```sql
         
         ```
 4. Realizar 3 eliminaciones y 3 modificaciones.
     1. Elimina las entradas donde el campo `booleano` es igual a `True`.
+
         ```sql
         
         ```
     2. Modifica el campo `texto` de las entradas donde el campo `entero` es menor a 30 y establece el texto como "Modificado".
+
         ```sql
         
         ```
     3. Elimina las entradas donde el campo `entero` es igual a 50.
+
         ```sql
         
         ```
     4. Incrementa en 10 el valor del campo `entero` para las entradas donde el campo `booleano` es igual a `False`.
+
         ```sql
         
         ```
     5. Elimina las entradas donde el campo `decimal` es menor a 50.
+
         ```sql
         
         ```
     6. Actualiza el campo `fecha` de todas las entradas a la fecha actual.
+
         ```sql
         
         ```
