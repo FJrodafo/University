@@ -2,6 +2,7 @@
 
 1. Crear las tablas con sus respectivos campos.
     1. Utilizando la terminal o línea de comandos, abre SQLite3 y crea una base de datos llamada `tarea.db`.
+
         ```shell
         
         ```
@@ -11,6 +12,7 @@
             * `nombre` (tipo TEXT, no nulo)
             * `apellido` (tipo TEXT, no nulo)
             * `dni` (tipo TEXT, Valor único)
+
             ```shell
             
             ```
@@ -20,6 +22,7 @@
             * `modelo` (tipo TEXT, no nulo)
             * `anio` (tipo INTEGER, no nulo)
             * `id_propietario` (tipo INTEGER, FK Propietarios(id))
+
             ```shell
             
             ```
@@ -56,63 +59,78 @@
     ```
 3. Realizar las siguientes consultas de datos:
     1. Seleccionar todos los propietarios.
+
         ```sql
         
         ```
     2. Listar todos los vehículos.
+
         ```sql
         
         ```
     3. Seleccionar solo los nombres y apellidos de los propietarios.
+
         ```sql
         
         ```
     4. Listar todas las marcas y modelos de los vehículos.
+
         ```sql
         
         ```
     5. Seleccionar solo los propietarios con apellido "Perez".
+
         ```sql
         
         ```
     6. Listar todos los vehículos con año 2019.
+
         ```sql
         
         ```
     7. Seleccionar propietarios que tienen vehículos de la marca "Toyota".
+
         ```sql
         
         ```
     8. Listar vehículos con marca "Ford" y modelo "Fiesta".
+
         ```sql
         
         ```
     9. Seleccionar propietarios con DNI "12345678A".
+
         ```sql
         
         ```
     10. Listar vehículos que pertenecen al propietario con ID 5.
+
         ```sql
         
         ```
 4. Realizar los siguientes updates:
     1. Actualizar el nombre de un propietario con DNI "12345678A".
+
         ```sql
         
         ```
     2. Modificar el año de un vehículo con ID 3 a 2022.
+
         ```sql
         
         ```
     3. Cambiar el modelo de todos los vehículos Nissan a "Micra".
+
         ```sql
         
         ```
     4. Actualizar el apellido de un propietario con ID 7 a "Gomez".
+
         ```sql
         
         ```
     5. Modificar la marca de un vehículo con modelo "Fiesta" a "Renault".
+
         ```sql
         
         ```
