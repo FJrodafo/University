@@ -3,6 +3,7 @@
 1. [Install](#install)
     1. [APT repository](#apt-repository)
     2. [Manual installation](#manual-installation)
+2. [First steps](#first-steps)
 
 ## Install
 
@@ -68,6 +69,79 @@ To ensure that SQLite is installed correctly, check the installed version.
 
 ```shell
 sqlite3 --version
+```
+
+## First steps
+
+Create a file called `example.sql` to start writing the database. Create a table with an example of each data type:
+
+```sql
+-- Create table "Examples"
+CREATE TABLE Examples (
+    id_eg INTEGER PRIMARY KEY,
+    text_eg TEXT,
+    integer_eg INTEGER,
+    decimal_eg REAL,
+    date_eg DATE,
+    boolean_eg BOOLEAN
+);
+```
+
+Insert some data:
+
+```sql
+INSERT INTO Ejemplos (texto, entero, decimal, fecha, booleano) 
+VALUES 
+('Hello, World!', 42, 3.14, '2025-03-22', 1),
+('Another text...', 100, 2.718, '2024-12-31', 0);
+```
+
+Open SQLite and create the database. This will create and open the database `example.db`
+
+```shell
+sqlite3 example.db
+```
+
+Check the open database:
+
+```shell
+PRAGMA database_list;
+```
+
+Import the database:
+
+```shell
+.read /home/user/path/to/example.sql
+```
+
+To see all the tables you have in the current database, use:
+
+```shell
+.tables
+```
+
+If you want to see the structure (columns and data types) of a specific table, use:
+
+```shell
+.schema Examples
+```
+
+Consult the inserted data:
+
+```sql
+SELECT * FROM Examples;
+```
+
+Exit SQLite
+
+```shell
+.exit
+```
+
+Open a terminal and use the following command to dump the database directly to a `.sql` file:
+
+```shell
+sqlite3 example.db .dump > example-dump.sql
 ```
 
 <link rel="stylesheet" href="./../../README.css">
