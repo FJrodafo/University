@@ -118,19 +118,19 @@
             ```sql
             SELECT departamento, COUNT(*) FROM Empleados GROUP BY departamento;
             ```
-    12. Funciones de Conversión (CAST):
+    11. Funciones de Conversión (CAST):
         * Convierte el salario a un valor de punto flotante.
 
             ```sql
             SELECT CAST(salario AS REAL) FROM Empleados;
             ```
-    13. Funciones de Manipulación de Cadenas (SUBSTR):
+    12. Funciones de Manipulación de Cadenas (SUBSTR):
         * Muestra los primeros tres caracteres de cada nombre de empleado.
 
             ```sql
             SELECT nombre, SUBSTR(nombre, 1, 3) FROM Empleados;
             ```
-    14. Order By and Like.
+    13. Order By and Like.
         * Muestra los empleados en el departamento de "Ventas" con salarios superiores a 52000.
 
             ```sql
