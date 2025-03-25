@@ -84,7 +84,7 @@
     </details>
 
     ```sql
-    -- Insertar dato en la tabla "Ejemplos"
+    -- Insertar datos en la tabla "Ejemplos"
     INSERT INTO Ejemplos (id, texto, n_entero, n_decimal, fecha, booleano)
     VALUES
     (1, 'Ejemplo1', 25, 10.5, '2022-05-15', 0),
