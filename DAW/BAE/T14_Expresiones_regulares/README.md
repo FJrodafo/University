@@ -5,20 +5,20 @@
 --  ║  ├┬┘├┤ ├─┤ │ ├┤    ║ ├─┤├┴┐│  ├┤ 
 --  ╚═╝┴└─└─┘┴ ┴ ┴ └─┘   ╩ ┴ ┴└─┘┴─┘└─┘
 
-CREATE TABLE IF NOT EXISTS Clientes (
-    id INTEGER PRIMARY KEY,
+CREATE TABLE Clientes (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
     nombre TEXT NOT NULL,
     email TEXT UNIQUE
 );
 
-CREATE TABLE IF NOT EXISTS Productos (
-    id INTEGER PRIMARY KEY,
+CREATE TABLE Productos (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
     nombre TEXT NOT NULL,
     precio REAL
 );
 
-CREATE TABLE IF NOT EXISTS Pedidos (
-    id_pedido INTEGER PRIMARY KEY,
+CREATE TABLE Pedidos (
+    id_pedido INTEGER PRIMARY KEY AUTOINCREMENT,
     id_cliente INTEGER,
     id_producto INTEGER,
     cantidad INTEGER,
