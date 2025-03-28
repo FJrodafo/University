@@ -113,74 +113,74 @@
 4. Indica si la BBDD esta normalizada hasta la 3ª forma normal, justificando la respuesta.
 
     ```txt
-    Para que la base de datos esté completamente normalizada hasta la 3ª Forma Normal (3FN), es necesario eliminar la redundancia en la columna categoria de la tabla Productos.
+    Para que la base de datos esté completamente normalizada hasta la 3ª Forma Normal (3FN), es necesario eliminar la redundancia en la columna categoria de la tabla "Productos".
     Esto se logra creando una nueva tabla para las categorías y estableciendo una relación entre ambas tablas.
     ```
 5. Realizar las siguientes consultas de datos:
     1. Mostrar todos los productos de la categoría "Bebidas".
 
         ```sql
-        
+        SELECT P.nombre FROM Productos P JOIN Categorias C ON P.id_categoria = C.id WHERE C.nombre = 'Bebidas';
         ```
     2. Listar los productos ordenados por precio de forma descendente.
 
         ```sql
-        
+        SELECT nombre, precio FROM Productos ORDER BY precio DESC;
         ```
     3. Calcular el precio total de todos los productos en la tabla "Productos".
 
         ```sql
-        
+        SELECT SUM(precio) AS precio_total FROM Productos;
         ```
     4. Encontrar los productos con un nombre que contenga la letra 'a'.
 
         ```sql
-        
+        SELECT nombre FROM Productos WHERE nombre LIKE '%a%';
         ```
     5. Obtener la cantidad total de productos vendidos en todas las fechas.
 
         ```sql
-        
+        SELECT SUM(cantidad) AS total_vendidos FROM Producto_Pedido;
         ```
     6. Encontrar el producto más caro en cada categoría.
 
         ```sql
-        
+        SELECT C.nombre AS categoria, P.nombre AS producto, MAX(P.precio) AS precio FROM Productos P JOIN Categorias C ON P.id_categoria = C.id GROUP BY C.id;
         ```
     7. Listar los productos que no han sido vendidos.
 
         ```sql
-        
+        SELECT P.nombre FROM Productos P LEFT JOIN Producto_Pedido PP ON P.id = PP.id_producto WHERE PP.id_producto IS NULL;
         ```
     8. Calcular el precio promedio de los productos en la categoría "Snacks".
 
         ```sql
-        
+        SELECT AVG(P.precio) AS precio_promedio FROM Productos P JOIN Categorias C ON P.id_categoria = C.id WHERE C.nombre = 'Snacks';
         ```
     9. Encontrar los productos que han sido vendidos más de 5 veces.
 
         ```sql
-        
+        SELECT P.nombre, SUM(PP.cantidad) AS total_vendidos FROM Productos P JOIN Producto_Pedido PP ON P.id = PP.id_producto GROUP BY P.id HAVING total_vendidos > 5;
         ```
     10. Mostrar la fecha y la cantidad de pedidos para cada producto.
 
         ```sql
-        
+        SELECT Pr.nombre, Pd.fecha, PrPd.cantidad FROM Productos Pr JOIN Producto_Pedido PrPd ON Pr.id = PrPd.id_producto JOIN Pedidos Pd ON PrPd.id_pedido = Pd.id ORDER BY Pd.fecha ASC;
         ```
     11. Encontrar los productos que tienen un precio menor o igual a 2.
 
         ```sql
-        
+        SELECT P.nombre, P.precio FROM Productos P WHERE P.precio <= 2;
         ```
     12. Calcular la cantidad total de pedidos para cada fecha.
 
         ```sql
-        
+        SELECT P.fecha, SUM(PP.cantidad) AS total_pedidos FROM Pedidos P JOIN Producto_Pedido PP ON PP.id_pedido = P.id GROUP BY P.fecha;
         ```
     13. Listar los productos cuyo nombre comienza con la letra 'P'.
 
         ```sql
-        
+        SELECT nombre FROM Productos WHERE nombre LIKE 'P%';
         ```
     14. Obtener el producto más vendido en términos de cantidad.
 
