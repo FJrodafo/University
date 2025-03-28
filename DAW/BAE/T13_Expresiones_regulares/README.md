@@ -5,13 +5,13 @@
 --  ║  ├┬┘├┤ ├─┤ │ ├┤    ║ ├─┤├┴┐│  ├┤ 
 --  ╚═╝┴└─└─┘┴ ┴ ┴ └─┘   ╩ ┴ ┴└─┘┴─┘└─┘
 
-CREATE TABLE IF NOT EXISTS Autores (
-    id INTEGER PRIMARY KEY,
+CREATE TABLE Autores (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
     nombre TEXT
 );
 
-CREATE TABLE IF NOT EXISTS Libros (
-    codigo INTEGER PRIMARY KEY,
+CREATE TABLE Libros (
+    codigo INTEGER PRIMARY KEY AUTOINCREMENT,
     titulo TEXT,
     autor_id INTEGER,
     editorial TEXT,
