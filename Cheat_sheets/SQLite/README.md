@@ -126,6 +126,14 @@ If you want to see the structure (columns and data types) of a specific table, u
 .schema Examples
 ```
 
+Changing Output Formats:
+
+```shell
+.mode markdown
+.mode table
+.mode box
+```
+
 Consult the inserted data:
 
 ```sql
