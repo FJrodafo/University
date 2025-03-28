@@ -16,7 +16,7 @@
     );
 
     CREATE TABLE Ventas (
-        id INTEGER PRIMARY KEY,
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
         id_producto INTEGER,
         cantidad INTEGER,
         fecha DATE,
