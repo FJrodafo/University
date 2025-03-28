@@ -71,10 +71,10 @@
         ```sqlite3
         .read supermercado.sql
         ```
-3. Realiza el diagrama MR y ER de la BBDD supermercado.
+3. Realiza el diagrama MR/ER de la BBDD supermercado.
     <details>
-    <summary>Diagramas</summary>
-    <img src="https://raw.githubusercontent.com/FJrodafo/University/main/DAW/BAE/T12_Supermercado/Diagram.drawio.svg">
+    <summary>Diagrama</summary>
+    <img src="https://raw.githubusercontent.com/FJrodafo/University/main/DAW/BAE/T12_Supermercado/Supermercado.drawio.svg">
     </details>
 4. Indica si la BBDD esta normalizada hasta la 3ª forma normal, justificando la respuesta.
 5. Realizar las siguientes consultas de datos:
