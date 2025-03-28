@@ -132,10 +132,16 @@
         ```sql
         SELECT SUM(precio) AS precio_total FROM Productos;
         ```
-    4. Encontrar los productos con un nombre que contenga la letra 'a'.
+    4. Encontrar los productos con un nombre que contenga la letra 'A' o 'a'.
 
         ```sql
-        SELECT nombre FROM Productos WHERE nombre LIKE '%a%';
+        -- LIKE
+        SELECT nombre FROM Productos WHERE nombre LIKE '%A%' OR nombre LIKE '%a%';
+        ```
+
+        ```sql
+        -- REGEXP
+        SELECT nombre FROM Productos WHERE nombre REGEXP '[Aa]';
         ```
     5. Obtener la cantidad total de productos vendidos en todas las fechas.
 
@@ -180,7 +186,13 @@
     13. Listar los productos cuyo nombre comienza con la letra 'P'.
 
         ```sql
+        -- LIKE
         SELECT nombre FROM Productos WHERE nombre LIKE 'P%';
+        ```
+
+        ```sql
+        -- REGEXP
+        SELECT nombre FROM Productos WHERE nombre REGEXP '^P';
         ```
     14. Obtener el producto más vendido en términos de cantidad.
 
@@ -235,7 +247,13 @@
     24. Mostrar los productos con un nombre que termina con la letra 'o'.
 
         ```sql
+        -- LIKE
         SELECT nombre FROM Productos WHERE nombre LIKE '%o';
+        ```
+
+        ```sql
+        -- REGEXP
+        SELECT nombre FROM Productos WHERE nombre REGEXP 'o$';
         ```
     25. Encontrar los productos que han sido vendidos en más de una fecha.
 
@@ -245,7 +263,13 @@
     26. Listar los productos cuya categoría comienza con la letra 'L'.
 
         ```sql
+        -- LIKE
         SELECT C.nombre AS categoria, P.nombre AS producto FROM Categorias C JOIN Productos P ON C.id = P.id_categoria WHERE C.nombre LIKE 'L%';
+        ```
+
+        ```sql
+        -- REGEXP
+        SELECT C.nombre AS categoria, P.nombre AS producto FROM Categorias C JOIN Productos P ON C.id = P.id_categoria WHERE C.nombre REGEXP '^L';
         ```
     27. Calcular el total de pedidos para cada producto en la fecha '2024-01-17'.
 
@@ -255,7 +279,13 @@
     28. Mostrar los productos cuyo nombre tiene al menos 7 caracteres.
 
         ```sql
+        -- LENGTH
         SELECT nombre FROM Productos WHERE LENGTH(nombre) >= 7;
+        ```
+
+        ```sql
+        -- REGEXP
+        SELECT nombre FROM Productos WHERE nombre REGEXP '^.{7,}$';
         ```
     29. Encontrar los productos que tienen un precio superior al precio máximo en la tabla "Productos".
 
