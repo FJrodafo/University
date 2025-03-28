@@ -165,7 +165,7 @@
     10. Mostrar la fecha y la cantidad de pedidos para cada producto.
 
         ```sql
-        SELECT Pr.nombre, Pd.fecha, PrPd.cantidad FROM Productos Pr JOIN Producto_Pedido PrPd ON Pr.id = PrPd.id_producto JOIN Pedidos Pd ON PrPd.id_pedido = Pd.id ORDER BY Pd.fecha ASC;
+        SELECT Pr.nombre, Pd.fecha, PP.cantidad FROM Productos Pr JOIN Producto_Pedido PP ON Pr.id = PP.id_producto JOIN Pedidos Pd ON PP.id_pedido = Pd.id ORDER BY Pd.fecha ASC;
         ```
     11. Encontrar los productos que tienen un precio menor o igual a 2.
 
@@ -185,82 +185,83 @@
     14. Obtener el producto más vendido en términos de cantidad.
 
         ```sql
-        
+        SELECT P.nombre, SUM(PP.cantidad) AS total_vendidos FROM Productos P JOIN Producto_Pedido PP ON P.id = PP.id_producto GROUP BY P.id ORDER BY total_vendidos DESC LIMIT 1;
         ```
     15. Mostrar los productos que fueron vendidos en la fecha '2024-01-18'.
 
         ```sql
-        
+        SELECT Pr.nombre, Pr.precio, Pd.fecha FROM Productos Pr JOIN Producto_Pedido PP ON Pr.id = PP.id_producto JOIN Pedidos Pd ON PP.id_pedido = Pd.id WHERE Pd.fecha = '2024-01-18';
         ```
     16. Calcular el total de pedidos para cada producto.
 
         ```sql
-        
+        SELECT P.nombre, SUM(PP.cantidad) AS total_pedidos FROM Productos P JOIN Producto_Pedido PP ON P.id = PP.id_producto GROUP BY P.id;
         ```
     17. Encontrar los productos con un precio entre 3 y 4.
 
         ```sql
-        
+        SELECT nombre, precio FROM Productos WHERE precio BETWEEN 3 AND 4;
         ```
     18. Listar los productos y sus categorías ordenados alfabéticamente por categoría.
 
         ```sql
-        
+        SELECT C.nombre AS categoria, P.nombre AS producto FROM Productos P JOIN Categorias C ON P.id_categoria = C.id ORDER BY C.nombre, P.nombre; 
         ```
     19. Calcular el precio total de los productos vendidos en la fecha '2024-01-19'.
 
         ```sql
-        
+        SELECT Pr.nombre, SUM(Pr.precio * PP.cantidad) AS total_precio FROM Productos Pr JOIN Producto_Pedido PP ON Pr.id = PP.id_producto JOIN Pedidos Pd ON PP.id_pedido = Pd.id WHERE Pd.fecha = '2024-01-19' GROUP BY Pr.nombre;
         ```
     20. Mostrar los productos que no pertenecen a la categoría "Higiene".
 
         ```sql
-        
+        SELECT C.nombre AS categoria, P.nombre AS producto, P.precio FROM Productos P JOIN Categorias C ON P.id_categoria = C.id WHERE C.nombre != 'Higiene';
         ```
     21. Encontrar la cantidad total de productos en cada categoría.
 
         ```sql
-        
+        SELECT C.nombre AS categoria, COUNT(P.id) AS total_productos FROM Productos P JOIN Categorias C ON P.id_categoria = C.id GROUP BY C.id;
         ```
     22. Listar los productos que tienen un precio igual a la media de precios.
 
         ```sql
-        
+        SELECT nombre, precio FROM Productos WHERE precio = (SELECT AVG(precio) FROM Productos);
         ```
     23. Calcular el precio total de los productos vendidos en cada fecha.
 
         ```sql
-        
+        SELECT SUM(Pr.precio * PP.cantidad) AS total_precio, Pd.fecha FROM Productos Pr JOIN Producto_Pedido PP ON Pr.id = PP.id_producto JOIN Pedidos Pd ON PP.id_pedido = Pd.id GROUP BY Pd.fecha;
         ```
     24. Mostrar los productos con un nombre que termina con la letra 'o'.
 
         ```sql
-        
+        SELECT nombre FROM Productos WHERE nombre LIKE '%o';
         ```
     25. Encontrar los productos que han sido vendidos en más de una fecha.
 
         ```sql
-        
+        SELECT Pr.nombre, Pd.fecha FROM Productos Pr JOIN Producto_Pedido PP ON Pr.id = PP.id_producto JOIN Pedidos Pd ON PP.id_pedido = Pd.id GROUP BY Pr.id HAVING COUNT(DISTINCT Pd.fecha) > 1;
         ```
     26. Listar los productos cuya categoría comienza con la letra 'L'.
 
         ```sql
-        
+        SELECT C.nombre AS categoria, P.nombre AS producto FROM Categorias C JOIN Productos P ON C.id = P.id_categoria WHERE C.nombre LIKE 'L%';
         ```
     27. Calcular el total de pedidos para cada producto en la fecha '2024-01-17'.
 
         ```sql
-        
+        SELECT Pr.nombre, SUM(PP.cantidad) AS total_pedidos, Pd.fecha FROM Productos Pr JOIN Producto_Pedido PP ON Pr.id = PP.id_producto JOIN Pedidos Pd ON PP.id_pedido = Pd.id WHERE Pd.fecha = '2024-01-17' GROUP BY Pr.id ORDER BY Pr.nombre ASC;
         ```
-    28. Mostrar los productos cuyo nombre tiene al menos 5 caracteres.
+    28. Mostrar los productos cuyo nombre tiene al menos 7 caracteres.
 
         ```sql
-        
+        SELECT nombre FROM Productos WHERE LENGTH(nombre) >= 7;
         ```
     29. Encontrar los productos que tienen un precio superior al precio máximo en la tabla "Productos".
 
         ```sql
-        
+        -- Esto no es posible, ya que ningún producto puede tener un precio superior al máximo.
+        SELECT nombre FROM Productos WHERE precio > (SELECT MAX(precio) FROM Productos);
         ```
 
 <link rel="stylesheet" href="./../../../README.css">
