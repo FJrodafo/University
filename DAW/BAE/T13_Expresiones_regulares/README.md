@@ -1,32 +1,36 @@
 ## Expresiones regulares
 
 ```sql
--- Elimino la tabla autor si exite
-DROP TABLE if EXISTS autor;
-CREATE TABLE IF NOT EXISTS autor (
+--  ╔═╗┬─┐┌─┐┌─┐┌┬┐┌─┐  ╔╦╗┌─┐┌┐ ┬  ┌─┐
+--  ║  ├┬┘├┤ ├─┤ │ ├┤    ║ ├─┤├┴┐│  ├┤ 
+--  ╚═╝┴└─└─┘┴ ┴ ┴ └─┘   ╩ ┴ ┴└─┘┴─┘└─┘
+
+CREATE TABLE IF NOT EXISTS Autores (
     id INTEGER PRIMARY KEY,
     nombre TEXT
 );
 
--- Elimino la tabla libro si existe
-DROP table if EXISTS libro;
-CREATE TABLE IF NOT EXISTS libro (
+CREATE TABLE IF NOT EXISTS Libros (
     codigo INTEGER PRIMARY KEY,
     titulo TEXT,
     autor_id INTEGER,
     editorial TEXT,
     precio REAL,
-    FOREIGN KEY (autor_id) REFERENCES autor(id)
+    FOREIGN KEY (autor_id) REFERENCES Autores(id)
 );
 
-INSERT INTO autor (nombre) VALUES
+--  ╦┌┐┌┌─┐┌─┐┬─┐┌┬┐  ╦  ╦┌─┐┬  ┬ ┬┌─┐┌─┐
+--  ║│││└─┐├┤ ├┬┘ │   ╚╗╔╝├─┤│  │ │├┤ └─┐
+--  ╩┘└┘└─┘└─┘┴└─ ┴    ╚╝ ┴ ┴┴─┘└─┘└─┘└─┘
+
+INSERT INTO Autores (nombre) VALUES
     ('J.K. Rowling'),
     ('Stephen King'),
     ('George Orwell'),
     ('Jane Austen'),
     ('Agatha Christie');
 
-INSERT INTO libro (titulo, autor_id, editorial, precio) VALUES
+INSERT INTO Libros (titulo, autor_id, editorial, precio) VALUES
     ('The Great Gatsby', 6, 'Charles Scribner''s Sons', 20.99),
     ('To Kill a Mockingbird', 7, 'J.B. Lippincott & Co.', 15.95),
     ('The Catcher in the Rye', 8, 'Little, Brown and Company', 18.75),
@@ -57,130 +61,162 @@ INSERT INTO libro (titulo, autor_id, editorial, precio) VALUES
     ('War and Peace', 26, 'The Russian Messenger', 33.25),
     ('Crime and Punishment', 30, 'The Russian Messenger', 19.99);
 ```
+
 ```sql
 -- Selección de libros cuyo título comienza con "H".
 
 ```
+
 ```sql
 -- Libros escritos por autores cuyos nombres terminan con "ing".
 
 ```
+
 ```sql
 -- Libros con títulos que contienen la palabra "and" en cualquier posición.
 
 ```
+
 ```sql
 -- Libros cuyo título comienza con una vocal.
 
 ```
+
 ```sql
 -- Libros cuyo autor tiene al menos una vocal repetida.
 
 ```
+
 ```sql
 -- Libros con precios que tienen dos dígitos decimales exactos.
 
 ```
+
 ```sql
 -- Libros cuyos títulos tienen al menos tres palabras.
 
 ```
+
 ```sql
 -- Obtener todos los autores cuyo nombre empieza con la letra "A":
 
 ```
+
 ```sql
 -- Seleccionar los libros cuyo título contiene la palabra "SQL":
 
 ```
+
 ```sql
 -- Obtener todos los autores cuyo nombre termina con "ez":
 
 ```
+
 ```sql
 -- Obtener todos los autores cuyo nombre tiene al menos 5 caracteres:
 
 ```
+
 ```sql
 -- Seleccionar los libros cuya editorial es diferente de "EditorialX":
 
 ```
+
 ```sql
 -- Obtener todos los autores cuyo nombre contiene al menos una vocal:
 
 ```
+
 ```sql
 -- Seleccionar los libros cuyo título comienza con una letra mayúscula:
 
 ```
+
 ```sql
 -- Obtener todos los autores cuyo nombre no contiene la letra "r":
 
 ```
+
 ```sql
 -- Seleccionar los libros cuya editorial empieza con la letra "P":
 
 ```
+
 ```sql
 -- Obtener todos los autores cuyo nombre tiene exactamente 6 caracteres:
 
 ```
+
 ```sql
 -- Seleccionar los libros cuyo título contiene al menos un número:
 
 ```
+
 ```sql
 -- Obtener todos los autores cuyo nombre inicia con una vocal:
 
 ```
+
 ```sql
 -- Obtener todos los autores cuyo nombre no contiene espacios en blanco:
 
 ```
+
 ```sql
 -- Seleccionar los libros cuyo título termina con una vocal:
 
 ```
+
 ```sql
 -- Obtener todos los autores cuyo nombre contiene la secuencia "er":
 
 ```
+
 ```sql
 -- Seleccionar los libros cuyo título empieza con la palabra "The":
 
 ```
+
 ```sql
 -- Obtener todos los autores cuyo nombre tiene al menos una letra mayúscula:
 
 ```
+
 ```sql
 -- Seleccionar los libros cuyo precio es un número decimal con exactamente dos decimales:
 
 ```
+
 ```sql
 -- Obtener todos los autores cuyo nombre no contiene números:
 
 ```
+
 ```sql
 -- Seleccionar los libros cuyo título contiene al menos tres vocales:
 
 ```
+
 ```sql
 -- Obtener todos los autores cuyo nombre inicia con una consonante:
 
 ```
+
 ```sql
 -- Seleccionar los libros cuyo título no contiene la palabra "Science":
 
 ```
+
 ```sql
 -- Obtener todos los autores cuyo nombre tiene al menos una letra repetida consecutivamente:
 
 ```
+
 ```sql
 -- Obtener todos los autores cuyo nombre empieza con "M" o termina con "n":
 
 ```
+
 ```sql
 -- Obtener todos los autores cuyo nombre no contiene caracteres especiales:
 
