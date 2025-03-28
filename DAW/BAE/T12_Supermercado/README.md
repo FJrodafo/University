@@ -64,8 +64,12 @@
 2. Lectura del fichero SQL.
     * Realiza un `.read` del fichero sql, de nombre `supermercado.sql`, realiza la creación e inserción de información de la BBDD.
 
-        ```sql
-        
+        ```shell
+        sqlite3 supermercado.db
+        ```
+
+        ```sqlite3
+        .read supermercado.sql
         ```
 3. Realiza el diagrama MR y ER de la BBDD supermercado.
     <details>
