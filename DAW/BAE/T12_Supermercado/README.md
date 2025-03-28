@@ -4,44 +4,52 @@
     Crea con el siguente contenido el fichero `supermercado.sql`.
 
     ```sql
-    CREATE TABLE productos (
-        id INTEGER PRIMARY KEY,
+    --  ╔═╗┬─┐┌─┐┌─┐┌┬┐┌─┐  ╔╦╗┌─┐┌┐ ┬  ┌─┐
+    --  ║  ├┬┘├┤ ├─┤ │ ├┤    ║ ├─┤├┴┐│  ├┤ 
+    --  ╚═╝┴└─└─┘┴ ┴ ┴ └─┘   ╩ ┴ ┴└─┘┴─┘└─┘
+
+    CREATE TABLE Productos (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
         nombre TEXT,
         categoria TEXT,
         precio REAL
     );
 
-    CREATE TABLE ventas (
+    CREATE TABLE Ventas (
         id INTEGER PRIMARY KEY,
         id_producto INTEGER,
         cantidad INTEGER,
         fecha DATE,
-        FOREIGN KEY (id_producto) REFERENCES productos(id)
+        FOREIGN KEY (id_producto) REFERENCES Productos(id)
     );
 
-    INSERT INTO productos (id, nombre, categoria, precio) VALUES 
-        (1, 'Arroz', 'Alimentos', 2.5),
-        (2, 'Leche', 'Lácteos', 1.8),
-        (3, 'Pan', 'Panadería', 1.2),
-        (4, 'Manzanas', 'Frutas', 3.0),
-        (5, 'Pollo', 'Carnes', 5.5),
-        (6, 'Huevos', 'Lácteos', 1.0),
-        (7, 'Yogurt', 'Lácteos', 2.0),
-        (8, 'Tomates', 'Verduras', 2.2),
-        (9, 'Queso', 'Lácteos', 4.0),
-        (10, 'Cereal', 'Desayuno', 3.5),
-        (11, 'Papel Higiénico', 'Hogar', 1.5),
-        (12, 'Cepillo de Dientes', 'Higiene', 2.0),
-        (13, 'Detergente', 'Limpieza', 2.8),
-        (14, 'Galletas', 'Snacks', 1.7),
-        (15, 'Aceite de Oliva', 'Cocina', 4.5),
-        (16, 'Café', 'Bebidas', 5.0),
-        (17, 'Sopa enlatada', 'Conservas', 2.3),
-        (18, 'Jabón de Baño', 'Higiene', 1.2),
-        (19, 'Botellas de Agua', 'Bebidas', 1.0),
-        (20, 'Cerveza', 'Bebidas', 3.8);
+    --  ╦┌┐┌┌─┐┌─┐┬─┐┌┬┐  ╦  ╦┌─┐┬  ┬ ┬┌─┐┌─┐
+    --  ║│││└─┐├┤ ├┬┘ │   ╚╗╔╝├─┤│  │ │├┤ └─┐
+    --  ╩┘└┘└─┘└─┘┴└─ ┴    ╚╝ ┴ ┴┴─┘└─┘└─┘└─┘
 
-    INSERT INTO ventas (id_producto, cantidad, fecha) VALUES 
+    INSERT INTO Productos (nombre, categoria, precio) VALUES 
+        ('Arroz', 'Alimentos', 2.5),
+        ('Leche', 'Lácteos', 1.8),
+        ('Pan', 'Panadería', 1.2),
+        ('Manzanas', 'Frutas', 3.0),
+        ('Pollo', 'Carnes', 5.5),
+        ('Huevos', 'Lácteos', 1.0),
+        ('Yogurt', 'Lácteos', 2.0),
+        ('Tomates', 'Verduras', 2.2),
+        ('Queso', 'Lácteos', 4.0),
+        ('Cereal', 'Desayuno', 3.5),
+        ('Papel Higiénico', 'Hogar', 1.5),
+        ('Cepillo de Dientes', 'Higiene', 2.0),
+        ('Detergente', 'Limpieza', 2.8),
+        ('Galletas', 'Snacks', 1.7),
+        ('Aceite de Oliva', 'Cocina', 4.5),
+        ('Café', 'Bebidas', 5.0),
+        ('Sopa enlatada', 'Conservas', 2.3),
+        ('Jabón de Baño', 'Higiene', 1.2),
+        ('Botellas de Agua', 'Bebidas', 1.0),
+        ('Cerveza', 'Bebidas', 3.8);
+
+    INSERT INTO Ventas (id_producto, cantidad, fecha) VALUES 
         (1, 5, '2024-01-17'),
         (2, 3, '2024-01-17'),
         (4, 2, '2024-01-17'),
@@ -76,7 +84,7 @@
         ```sql
         
         ```
-    3. Calcular el precio total de todos los productos en la tabla "productos".
+    3. Calcular el precio total de todos los productos en la tabla "Productos".
 
         ```sql
         
@@ -206,7 +214,7 @@
         ```sql
         
         ```
-    29. Encontrar los productos que tienen un precio superior al precio máximo en la tabla "productos".
+    29. Encontrar los productos que tienen un precio superior al precio máximo en la tabla "Productos".
 
         ```sql
         
