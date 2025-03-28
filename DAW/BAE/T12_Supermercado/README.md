@@ -8,18 +8,30 @@
     --  ║  ├┬┘├┤ ├─┤ │ ├┤    ║ ├─┤├┴┐│  ├┤ 
     --  ╚═╝┴└─└─┘┴ ┴ ┴ └─┘   ╩ ┴ ┴└─┘┴─┘└─┘
 
-    CREATE TABLE Productos (
+    CREATE TABLE Categorias (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
-        nombre TEXT,
-        categoria TEXT,
-        precio REAL
+        nombre TEXT UNIQUE
     );
 
-    CREATE TABLE Ventas (
+    CREATE TABLE Productos (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
+        id_categoria INTEGER,
+        nombre TEXT,
+        precio REAL,
+        FOREIGN KEY (id_categoria) REFERENCES Categorias(id)
+    );
+
+    CREATE TABLE Pedidos (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        fecha DATE
+    );
+
+    CREATE TABLE Producto_Pedido (
+        id_pedido INTEGER,
         id_producto INTEGER,
         cantidad INTEGER,
-        fecha DATE,
+        PRIMARY KEY (id_pedido, id_producto),
+        FOREIGN KEY (id_pedido) REFERENCES Pedidos(id),
         FOREIGN KEY (id_producto) REFERENCES Productos(id)
     );
 
@@ -27,39 +39,61 @@
     --  ║│││└─┐├┤ ├┬┘ │   ╚╗╔╝├─┤│  │ │├┤ └─┐
     --  ╩┘└┘└─┘└─┘┴└─ ┴    ╚╝ ┴ ┴┴─┘└─┘└─┘└─┘
 
-    INSERT INTO Productos (nombre, categoria, precio) VALUES 
-        ('Arroz', 'Alimentos', 2.5),
-        ('Leche', 'Lácteos', 1.8),
-        ('Pan', 'Panadería', 1.2),
-        ('Manzanas', 'Frutas', 3.0),
-        ('Pollo', 'Carnes', 5.5),
-        ('Huevos', 'Lácteos', 1.0),
-        ('Yogurt', 'Lácteos', 2.0),
-        ('Tomates', 'Verduras', 2.2),
-        ('Queso', 'Lácteos', 4.0),
-        ('Cereal', 'Desayuno', 3.5),
-        ('Papel Higiénico', 'Hogar', 1.5),
-        ('Cepillo de Dientes', 'Higiene', 2.0),
-        ('Detergente', 'Limpieza', 2.8),
-        ('Galletas', 'Snacks', 1.7),
-        ('Aceite de Oliva', 'Cocina', 4.5),
-        ('Café', 'Bebidas', 5.0),
-        ('Sopa enlatada', 'Conservas', 2.3),
-        ('Jabón de Baño', 'Higiene', 1.2),
-        ('Botellas de Agua', 'Bebidas', 1.0),
-        ('Cerveza', 'Bebidas', 3.8);
+    INSERT INTO Categorias (nombre) VALUES 
+        ('Alimentos'),
+        ('Lácteos'),
+        ('Panadería'),
+        ('Frutas'),
+        ('Carnes'),
+        ('Verduras'),
+        ('Desayuno'),
+        ('Hogar'),
+        ('Higiene'),
+        ('Limpieza'),
+        ('Snacks'),
+        ('Cocina'),
+        ('Bebidas'),
+        ('Conservas');
 
-    INSERT INTO Ventas (id_producto, cantidad, fecha) VALUES 
-        (1, 5, '2024-01-17'),
-        (2, 3, '2024-01-17'),
-        (4, 2, '2024-01-17'),
-        (5, 1, '2024-01-17'),
-        (6, 10, '2024-01-18'),
-        (8, 4, '2024-01-18'),
-        (10, 2, '2024-01-18'),
-        (14, 7, '2024-01-19'),
-        (16, 3, '2024-01-19'),
-        (18, 6, '2024-01-20');
+    INSERT INTO Productos (nombre, id_categoria, precio) VALUES 
+        ('Arroz', 1, 2.5),
+        ('Leche', 2, 1.8),
+        ('Pan', 3, 1.2),
+        ('Manzanas', 4, 3.0),
+        ('Pollo', 5, 5.5),
+        ('Huevos', 2, 1.0),
+        ('Yogurt', 2, 2.0),
+        ('Tomates', 6, 2.2),
+        ('Queso', 2, 4.0),
+        ('Cereal', 7, 3.5),
+        ('Papel Higiénico', 8, 1.5),
+        ('Cepillo de Dientes', 9, 2.0),
+        ('Detergente', 10, 2.8),
+        ('Galletas', 11, 1.7),
+        ('Aceite de Oliva', 12, 4.5),
+        ('Café', 13, 5.0),
+        ('Sopa enlatada', 14, 2.3),
+        ('Jabón de Baño', 9, 1.2),
+        ('Botellas de Agua', 13, 1.0),
+        ('Cerveza', 13, 3.8);
+
+    INSERT INTO Pedidos (fecha) VALUES 
+        ('2024-01-17'),
+        ('2024-01-18'),
+        ('2024-01-19'),
+        ('2024-01-20');
+
+    INSERT INTO Producto_Pedido (id_pedido, id_producto, cantidad) VALUES 
+        (1, 1, 5),
+        (1, 2, 3),
+        (1, 4, 2),
+        (1, 5, 1),
+        (2, 6, 10),
+        (2, 8, 4),
+        (2, 10, 2),
+        (3, 14, 7),
+        (3, 16, 3),
+        (4, 18, 6);
     ```
 2. Lectura del fichero SQL.
     * Realiza un `.read` del fichero sql, de nombre `supermercado.sql`, realiza la creación e inserción de información de la BBDD.
@@ -74,9 +108,13 @@
 3. Realiza el diagrama MR/ER de la BBDD supermercado.
     <details>
     <summary>Diagrama</summary>
-    <img src="https://raw.githubusercontent.com/FJrodafo/University/main/DAW/BAE/T12_Supermercado/Supermercado.drawio.svg">
+    <img src="https://raw.githubusercontent.com/FJrodafo/University/main/DAW/BAE/T12_Supermercado/Assets/Supermercado.drawio.svg">
     </details>
 4. Indica si la BBDD esta normalizada hasta la 3ª forma normal, justificando la respuesta.
+
+    ```txt
+    Para que la base de datos esté completamente normalizada hasta la 3ª Forma Normal (3FN), es necesario eliminar la redundancia en la columna categoria de la tabla Productos. Esto se logra creando una nueva tabla para las categorías y estableciendo una relación entre ambas tablas.
+    ```
 5. Realizar las siguientes consultas de datos:
     1. Mostrar todos los productos de la categoría "Bebidas".
 
@@ -123,7 +161,7 @@
         ```sql
         
         ```
-    10. Mostrar la fecha y la cantidad de ventas para cada producto.
+    10. Mostrar la fecha y la cantidad de pedidos para cada producto.
 
         ```sql
         
@@ -133,7 +171,7 @@
         ```sql
         
         ```
-    12. Calcular la cantidad total de ventas para cada fecha.
+    12. Calcular la cantidad total de pedidos para cada fecha.
 
         ```sql
         
@@ -153,7 +191,7 @@
         ```sql
         
         ```
-    16. Calcular el total de ventas para cada producto.
+    16. Calcular el total de pedidos para cada producto.
 
         ```sql
         
@@ -208,7 +246,7 @@
         ```sql
         
         ```
-    27. Calcular el total de ventas para cada producto en la fecha '2024-01-17'.
+    27. Calcular el total de pedidos para cada producto en la fecha '2024-01-17'.
 
         ```sql
         
