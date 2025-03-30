@@ -67,38 +67,30 @@ INSERT INTO Libros (titulo, autor_id, editorial, precio) VALUES
     ```sql
     SELECT titulo FROM Libros WHERE titulo REGEXP '^H';
     ```
-
-    ```sql
-    SELECT titulo FROM Libros WHERE titulo LIKE 'H%';
-    ```
 2. Libros escritos por autores cuyos nombres terminan con "ing".
 
     ```sql
     SELECT L.titulo, A.nombre FROM Libros L JOIN Autores A ON L.autor_id = A.id WHERE A.nombre REGEXP 'ing$';
     ```
-
-    ```sql
-    SELECT L.titulo, A.nombre FROM Libros L JOIN Autores A ON L.autor_id = A.id WHERE A.nombre LIKE '%ing';
-    ```
 3. Libros con títulos que contienen la palabra "and" en cualquier posición.
 
     ```sql
-    
+    SELECT titulo FROM Libros WHERE titulo REGEXP 'and';
     ```
 4. Libros cuyo título comienza con una vocal.
 
     ```sql
-    
+    SELECT titulo FROM Libros WHERE titulo REGEXP '^[AEIOUaeiou]';
     ```
 5. Libros cuyo autor tiene al menos una vocal repetida.
 
     ```sql
-    
+    SELECT L.titulo, A.nombre FROM Libros L JOIN Autores A ON L.autor_id = A.id WHERE A.nombre REGEXP '.*[AEIOUaeiou]';
     ```
 6. Libros con precios que tienen dos dígitos decimales exactos.
 
     ```sql
-    
+    SELECT titulo, precio FROM Libros WHERE precio REGEXP '\.\d{2}$';
     ```
 7. Libros cuyos títulos tienen al menos tres palabras.
 
