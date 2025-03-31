@@ -65,7 +65,7 @@ INSERT INTO Libros (titulo, autor_id, editorial, precio) VALUES
 1. Selección de libros cuyo título comienza con "H".
 
     ```sql
-    -- ^  → Comienzo de la cadena.
+    -- ^  → Inicio de la cadena.
     -- H  → Indica que buscamos una "H".
     -- ^H → Indica que buscamos una "H" al comienzo de la cadena.
     SELECT titulo FROM Libros WHERE titulo REGEXP '^H';
@@ -87,7 +87,7 @@ INSERT INTO Libros (titulo, autor_id, editorial, precio) VALUES
 4. Libros cuyo título comienza con una vocal.
 
     ```sql
-    -- ^             → Comienzo de la cadena.
+    -- ^             → Inicio de la cadena.
     -- [AEIOUaeiou]  → Indica que buscamos una vocal.
     -- ^[AEIOUaeiou] → Indica que buscamos una vocal al comienzo de la cadena.
     SELECT titulo FROM Libros WHERE titulo REGEXP '^[AEIOUaeiou]';
@@ -95,7 +95,7 @@ INSERT INTO Libros (titulo, autor_id, editorial, precio) VALUES
 5. Libros cuyo autor tiene al menos una vocal repetida.
 
     ```sql
-    -- .              → Representa cualquier carácter.
+    -- .              → Representa cualquier carácter (letra, número, espacio, etc.).
     -- *              → Permite que ese carácter aparezca 0 o más veces.
     -- [AEIOUaeiou]   → Indica que buscamos una vocal en cualquier parte del texto.
     -- .*[AEIOUaeiou] → Encuentra cualquier cadena que tenga al menos una vocal, sin importar qué haya antes.
@@ -113,27 +113,47 @@ INSERT INTO Libros (titulo, autor_id, editorial, precio) VALUES
 7. Libros cuyos títulos tienen al menos tres palabras.
 
     ```sql
-    
+    -- ^                 → Inicio de la cadena.
+    -- \w+               → Coincide con una palabra (una secuencia de letras, números o guiones bajos).
+    -- \s+               → Coincide con uno o más espacios (espacios, tabulaciones, saltos de línea).
+    -- (\w+\s+){2,}      → {2,} significa "al menos 2 repeticiones" de "palabra + espacio".
+    -- \w+               → Coincide con una última palabra.
+    -- $                 → Fin de la cadena.
+    -- ^(\w+\s+){2,}\w+$ → Indica que buscamos dos palabras seguidas de un espacio y finalizamos con una tercera palabra.
+    SELECT titulo FROM Libros WHERE titulo REGEXP '^(\w+\s+){2,}\w+$';
     ```
 8. Obtener todos los autores cuyo nombre empieza con la letra "A":
 
     ```sql
-    
+    -- ^  → Inicio de la cadena.
+    -- A  → Indica que buscamos una "A".
+    -- ^A → Indica que buscamos una "A" al comienzo de la cadena.
+    SELECT nombre FROM Autores WHERE nombre REGEXP '^A';
     ```
 9. Seleccionar los libros cuyo título contiene la palabra "SQL":
 
     ```sql
-    
+    -- SQL → Indica que buscamos literalmente "SQL" en cualquier parte del texto.
+    SELECT titulo FROM Libros WHERE titulo REGEXP 'SQL';
     ```
 10. Obtener todos los autores cuyo nombre termina con "ez":
 
     ```sql
-    
+    -- ez  → Indica que buscamos literalmente "ez".
+    -- $   → Fin de la cadena.
+    -- ez$ → Indica que buscamos literalmente "ez" al final de la cadena.
+    SELECT nombre FROM Autores WHERE nombre REGEXP 'ez$';
     ```
 11. Obtener todos los autores cuyo nombre tiene al menos 5 caracteres:
 
     ```sql
-    
+    SELECT nombre FROM Autores WHERE LENGTH(nombre) >= 5;
+    -- ^       → Inicio de la cadena.
+    -- .       → Representa cualquier carácter (letra, número, espacio, etc.).
+    -- {5,}    → Indica que debe haber al menos 5 caracteres.
+    -- $       → Fin de la cadena.
+    -- ^.{5,}$ → Indica que buscamos 5 caracteres de cualquier tipo.
+    SELECT nombre FROM Autores WHERE nombre REGEXP '^.{5,}$';
     ```
 12. Seleccionar los libros cuya editorial es diferente de "EditorialX":
 
