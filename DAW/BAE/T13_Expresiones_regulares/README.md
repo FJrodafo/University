@@ -65,31 +65,49 @@ INSERT INTO Libros (titulo, autor_id, editorial, precio) VALUES
 1. Selección de libros cuyo título comienza con "H".
 
     ```sql
+    -- ^  → Comienzo de la cadena.
+    -- H  → Indica que buscamos una "H".
+    -- ^H → Indica que buscamos una "H" al comienzo de la cadena.
     SELECT titulo FROM Libros WHERE titulo REGEXP '^H';
     ```
 2. Libros escritos por autores cuyos nombres terminan con "ing".
 
     ```sql
+    -- ing  → Indica que buscamos literalmente "ing".
+    -- $    → Fin de la cadena.
+    -- ing$ → Indica que buscamos literalmente "ing" al final de la cadena.
     SELECT L.titulo, A.nombre FROM Libros L JOIN Autores A ON L.autor_id = A.id WHERE A.nombre REGEXP 'ing$';
     ```
 3. Libros con títulos que contienen la palabra "and" en cualquier posición.
 
     ```sql
+    -- and → Indica que buscamos literalmente "and" en cualquier parte del texto.
     SELECT titulo FROM Libros WHERE titulo REGEXP 'and';
     ```
 4. Libros cuyo título comienza con una vocal.
 
     ```sql
+    -- ^             → Comienzo de la cadena.
+    -- [AEIOUaeiou]  → Indica que buscamos una vocal.
+    -- ^[AEIOUaeiou] → Indica que buscamos una vocal al comienzo de la cadena.
     SELECT titulo FROM Libros WHERE titulo REGEXP '^[AEIOUaeiou]';
     ```
 5. Libros cuyo autor tiene al menos una vocal repetida.
 
     ```sql
+    -- .              → Representa cualquier carácter.
+    -- *              → Permite que ese carácter aparezca 0 o más veces.
+    -- [AEIOUaeiou]   → Indica que buscamos una vocal en cualquier parte del texto.
+    -- .*[AEIOUaeiou] → Encuentra cualquier cadena que tenga al menos una vocal, sin importar qué haya antes.
     SELECT L.titulo, A.nombre FROM Libros L JOIN Autores A ON L.autor_id = A.id WHERE A.nombre REGEXP '.*[AEIOUaeiou]';
     ```
 6. Libros con precios que tienen dos dígitos decimales exactos.
 
     ```sql
+    -- \.       → Punto literal.
+    -- \d{2}    → Dos dígitos numéricos.
+    -- $        → Fin de la cadena.
+    -- \.\d{2}$ → Indica que buscamos dos dígitos numéricos precedidos de un punto al final de la cadena.
     SELECT titulo, precio FROM Libros WHERE precio REGEXP '\.\d{2}$';
     ```
 7. Libros cuyos títulos tienen al menos tres palabras.
