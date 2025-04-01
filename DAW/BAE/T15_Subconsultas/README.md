@@ -46,16 +46,16 @@ INSERT INTO Clientes (nombre, edad, direccion) VALUES
     ('Elena Torres', 29, 'Avenida J #333');
 
 INSERT INTO Coches (modelo, marca, año, precio) VALUES
-    ('Sedán 2022', 'Toyota', 2022, 25000.00),
-    ('Hatchback 2021', 'Honda', 2021, 22000.00),
-    ('SUV 2023', 'Ford', 2023, 30000.00),
-    ('Coupé 2022', 'Chevrolet', 2022, 28000.00),
-    ('Camioneta 2023', 'Nissan', 2023, 32000.00),
-    ('Compacto 2021', 'Volkswagen', 2021, 20000.00),
-    ('Híbrido 2022', 'Hyundai', 2022, 27000.00),
-    ('Deportivo 2023', 'Mazda', 2023, 35000.00),
-    ('Pickup 2022', 'Ram', 2022, 31000.00),
-    ('Eléctrico 2021', 'Tesla', 2021, 40000.00);
+    ('Sedán', 'Toyota', 2022, 25000.00),
+    ('Hatchback', 'Honda', 2021, 22000.00),
+    ('SUV', 'Ford', 2023, 30000.00),
+    ('Coupé', 'Chevrolet', 2022, 28000.00),
+    ('Camioneta', 'Nissan', 2023, 32000.00),
+    ('Compacto', 'Volkswagen', 2021, 20000.00),
+    ('Híbrido', 'Hyundai', 2022, 27000.00),
+    ('Deportivo', 'Mazda', 2023, 35000.00),
+    ('Pickup', 'Ram', 2022, 31000.00),
+    ('Eléctrico', 'Tesla', 2021, 40000.00);
 
 INSERT INTO Ventas (id_cliente, id_coche, fecha_venta) VALUES
     (1, 1, '2023-01-15'),
@@ -69,24 +69,56 @@ INSERT INTO Ventas (id_cliente, id_coche, fecha_venta) VALUES
     (10, 10, '2023-10-05');
 ```
 
-```sql
--- Listar los coches vendidos con sus modelos y precios, junto con los nombres de los clientes que los compraron.
--- Cosas que debo de tener en cuenta: ¿Qué me están pidiendo? ¿Qué es lo que no me han pedido?
+0. 
 
-```
+    ```sql
+    SELECT
+        Cl.nombre AS Cliente,
+        Co.marca AS Marca,
+        Co.precio AS Precio
+    FROM Ventas V, Clientes Cl, Coches Co
+    WHERE V.id_cliente = Cl.id_cliente
+    AND V.id_coche = Co.id_coche
+    AND Co.marca IN (
+        SELECT Co.marca
+        FROM Coches Co
+        WHERE Co.precio > (
+            SELECT AVG(precio)
+            FROM Coches
+        )
+    );
+    ```
+1. Listar los coches vendidos con sus modelos y precios, junto con los nombres de los clientes que los compraron.
 
-```sql
--- Encontrar los clientes que han comprado coches con precios superiores al promedio de todos los coches vendidos.
--- Cosas que debo de tener en cuenta: Precios superiores. Obtener la media. AVG(precio)
+    ```sql
+    -- Realizar con subconsulta.
+    SELECT
+        Cl.nombre AS Cliente,
+        Co.modelo AS Modelo,
+        Co.precio AS Precio
+    FROM Ventas V
+    JOIN Clientes Cl ON V.id_cliente = Cl.id_cliente
+    JOIN Coches Co ON V.id_cliente = Co.id_coche;
+    ```
+2. Encontrar los clientes que han comprado coches con precios superiores al promedio de todos los coches vendidos.
 
-```
+    ```sql
+    SELECT
+        Cl.nombre AS Cliente,
+        Co.precio AS Precio
+    FROM Ventas V, Clientes Cl, Coches Co
+    WHERE V.id_cliente = Cl.id_cliente
+    AND V.id_coche = Co.id_coche
+    AND Co.precio > (
+        SELECT AVG(precio)
+        FROM Coches
+    );
+    ```
+3. Mostrar los modelos de coches y sus precios que no han sido vendidos aún.
 
-```sql
--- Mostrar los modelos de coches y sus precios que no han sido vendidos aún.
--- Cosas que debo de tener en cuenta: Coches que han sido vendidos. Quiero los coches que no han sido vendidos.
-
-```
-
+    ```sql
+    SELECT 
+    ```
 ```sql
 -- Calcular el total gastado por todos los clientes en coches.
 -- Cosas que debo de tener en cuenta: Me estan pidiendo la suma total de todos los coches vendidos, NO de aquellos que aún no se han vendido.
@@ -105,12 +137,19 @@ INSERT INTO Ventas (id_cliente, id_coche, fecha_venta) VALUES
 
 ```
 
-```sql
--- Mostrar los clientes que han comprado al menos un coche (un coche o más) y la cantidad de coches comprados.
--- Cosas que debo de tener en cuenta: COUNT
+7. Mostrar los clientes que han comprado al menos un coche (un coche o más) y la cantidad de coches comprados.
 
-```
+    ```sql
+    SELECT id_cliente, COUNT(id_coche) FROM Ventas GROUP BY id_cliente;
 
+    SELECT Cl.nombre, COUNT(Cl.id_cliente) AS Compras
+    FROM Clientes Cl
+    WHERE Cl.id_cliente IN (
+        SELECT V.id_cliente
+        FROM Ventas V
+    )
+    GROUP BY Cl.id_cliente;
+    ```
 ```sql
 -- Encontrar los clientes que han comprado coches de la marca 'Toyota'.
 -- Cosas que debo de tener en cuenta: Like | regexp | =. Tabla normalizada ?.
