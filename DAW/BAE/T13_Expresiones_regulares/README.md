@@ -95,13 +95,17 @@ INSERT INTO Libros (titulo, autor_id, editorial, precio) VALUES
 5. Libros cuyo autor tiene al menos una vocal repetida.
 
     ```sql
-    -- .              → Representa cualquier carácter (letra, número, espacio, etc.).
+    -- .              → Representa cualquier carácter (letra, número, espacio, etc).
     -- *              → Permite que ese carácter aparezca 0 o más veces.
     -- [AEIOUaeiou]   → Indica que buscamos una vocal en cualquier parte del texto.
     -- .*[AEIOUaeiou] → Encuentra cualquier cadena que tenga al menos una vocal, sin importar qué haya antes.
     SELECT L.titulo, A.nombre FROM Libros L JOIN Autores A ON L.autor_id = A.id WHERE A.nombre REGEXP '.*[AEIOUaeiou]';
     ```
 6. Libros con precios que tienen dos dígitos decimales exactos.
+
+    ```sql
+    SELECT titulo, precio FROM Libros WHERE precio LIKE '%.__';
+    ```
 
     ```sql
     -- \.       → Punto literal.
@@ -114,8 +118,8 @@ INSERT INTO Libros (titulo, autor_id, editorial, precio) VALUES
 
     ```sql
     -- ^                 → Inicio de la cadena.
-    -- \w+               → Coincide con una palabra (una secuencia de letras, números o guiones bajos).
-    -- \s+               → Coincide con uno o más espacios (espacios, tabulaciones, saltos de línea).
+    -- \w+               → Coincide con una palabra, una secuencia de letras, números o guiones bajos.
+    -- \s+               → Coincide con uno o más espacios, tabulaciones o saltos de línea.
     -- (\w+\s+){2,}      → {2,} significa "al menos 2 repeticiones" de "palabra + espacio".
     -- \w+               → Coincide con una última palabra.
     -- $                 → Fin de la cadena.
@@ -148,117 +152,273 @@ INSERT INTO Libros (titulo, autor_id, editorial, precio) VALUES
 
     ```sql
     SELECT nombre FROM Autores WHERE LENGTH(nombre) >= 5;
+    ```
+
+    ```sql
     -- ^       → Inicio de la cadena.
-    -- .       → Representa cualquier carácter (letra, número, espacio, etc.).
+    -- .       → Representa cualquier carácter (letra, número, espacio, etc).
     -- {5,}    → Indica que debe haber al menos 5 caracteres.
     -- $       → Fin de la cadena.
-    -- ^.{5,}$ → Indica que buscamos 5 caracteres de cualquier tipo.
+    -- ^.{5,}$ → Indica que buscamos al menos 5 caracteres de cualquier tipo.
     SELECT nombre FROM Autores WHERE nombre REGEXP '^.{5,}$';
     ```
 12. Seleccionar los libros cuya editorial es diferente de "EditorialX":
 
     ```sql
-    
+    SELECT titulo FROM Libros WHERE editorial <> 'EditorialX';
+    ```
+
+    ```sql
+    -- ^            → Inicio de la cadena.
+    -- EditorialX   → Indica que buscamos literalmente "EditorialX".
+    -- $            → Fin de la cadena.
+    -- ^EditorialX$ → Indica que el valor debe coincidir exactamente con "EditorialX" (desde el inicio ^ hasta el final $).
+    SELECT titulo FROM Libros WHERE editorial NOT REGEXP '^EditorialX$';
     ```
 13. Obtener todos los autores cuyo nombre contiene al menos una vocal:
 
     ```sql
-    
+    SELECT nombre FROM Autores 
+     WHERE nombre LIKE '%a%' 
+        OR nombre LIKE '%e%' 
+        OR nombre LIKE '%i%' 
+        OR nombre LIKE '%o%' 
+        OR nombre LIKE '%u%' 
+        OR nombre LIKE '%A%' 
+        OR nombre LIKE '%E%' 
+        OR nombre LIKE '%I%' 
+        OR nombre LIKE '%O%' 
+        OR nombre LIKE '%U%';
+    ```
+
+    ```sql
+    -- [AEIOUaeiou] → Indica que buscamos que haya al menos una vocal, ya sea mayúscula o minúscula. (No se necesita ^ o $ porque no importa la posición, solo que exista.)
+    SELECT nombre FROM Autores WHERE nombre REGEXP '[AEIOUaeiou]';
     ```
 14. Seleccionar los libros cuyo título comienza con una letra mayúscula:
 
     ```sql
-    
+    -- ^      → Inicio de la cadena.
+    -- [A-Z]  → Indica cualquier letra mayúscula del alfabeto inglés.
+    -- ^[A-Z] → Indica que buscamos que la palabra comience con una letra mayúscula.
+    SELECT titulo FROM Libros WHERE titulo REGEXP '^[A-Z]';
     ```
 15. Obtener todos los autores cuyo nombre no contiene la letra "r":
 
     ```sql
-    
+    SELECT nombre FROM Autores WHERE nombre NOT LIKE '%r%';
+    ```
+
+    ```sql
+    -- r → Indica que buscamos literalmente "r".
+    SELECT nombre FROM Autores WHERE nombre NOT REGEXP 'r';
     ```
 16. Seleccionar los libros cuya editorial empieza con la letra "P":
 
     ```sql
-    
+    SELECT titulo, editorial FROM Libros WHERE editorial LIKE 'P%';
     ```
-17. Obtener todos los autores cuyo nombre tiene exactamente 6 caracteres:
 
     ```sql
-    
+    -- ^  → Inicio de la cadena.
+    -- P  → Indica que buscamos literalmente "P".
+    -- ^P → Indica que buscamos literalmente "P" al comienzo de la cadena.
+    SELECT titulo, editorial FROM Libros WHERE editorial REGEXP '^P';
+    ```
+17. Obtener todos los autores cuyo nombre tiene exactamente 12 caracteres:
+
+    ```sql
+    SELECT nombre FROM Autores WHERE LENGTH(nombre) = 12;
+    ```
+
+    ```sql
+    -- ^       → Inicio de la cadena.
+    -- .       → Representa cualquier carácter (letra, número, espacio, etc).
+    -- {12}    → Indica que debe haber exactamente 12 caracteres.
+    -- $       → Fin de la cadena.
+    -- ^.{12}$ → Indica que buscamos exactamente 12 caracteres de cualquier tipo.
+    SELECT nombre FROM Autores WHERE nombre REGEXP '^.{12}$';
     ```
 18. Seleccionar los libros cuyo título contiene al menos un número:
 
     ```sql
-    
+    SELECT titulo FROM Libros 
+     WHERE titulo LIKE '%0%'
+        OR titulo LIKE '%1%'
+        OR titulo LIKE '%2%'
+        OR titulo LIKE '%3%'
+        OR titulo LIKE '%4%'
+        OR titulo LIKE '%5%'
+        OR titulo LIKE '%6%'
+        OR titulo LIKE '%7%'
+        OR titulo LIKE '%8%'
+        OR titulo LIKE '%9%';
+    ```
+
+    ```sql
+    -- [0-9] → Indica que buscamos que haya al menos un número. (No se necesita ^ o $ porque no importa la posición, solo que exista.)
+    SELECT titulo FROM Libros WHERE titulo REGEXP '[0-9]';
     ```
 19. Obtener todos los autores cuyo nombre inicia con una vocal:
 
     ```sql
-    
+    SELECT nombre FROM Autores 
+     WHERE nombre LIKE 'a%' 
+        OR nombre LIKE 'e%' 
+        OR nombre LIKE 'i%' 
+        OR nombre LIKE 'o%' 
+        OR nombre LIKE 'u%' 
+        OR nombre LIKE 'A%' 
+        OR nombre LIKE 'E%' 
+        OR nombre LIKE 'I%' 
+        OR nombre LIKE 'O%' 
+        OR nombre LIKE 'U%';
+    ```
+
+    ```sql
+    -- ^             → Inicio de la cadena.
+    -- [AEIOUaeiou]  → Indica que buscamos que haya al menos una vocal, ya sea mayúscula o minúscula.
+    -- ^[AEIOUaeiou] → Indica que buscamos que haya al menos una vocal, ya sea mayúscula o minúscula, al comienzo de la cadena.
+    SELECT nombre FROM Autores WHERE nombre REGEXP '^[AEIOUaeiou]';
     ```
 20. Obtener todos los autores cuyo nombre no contiene espacios en blanco:
 
     ```sql
-    
+    SELECT nombre FROM Autores WHERE nombre NOT LIKE '% %';
+    ```
+
+    ```sql
+    -- \s → Indica espacio en blanco. (No se necesita ^ o $ porque no importa la posición, solo que exista.)
+    SELECT nombre FROM Autores WHERE nombre NOT REGEXP '\s';
     ```
 21. Seleccionar los libros cuyo título termina con una vocal:
 
     ```sql
-    
+    SELECT titulo FROM Libros 
+     WHERE titulo LIKE '%a' 
+        OR titulo LIKE '%e' 
+        OR titulo LIKE '%i' 
+        OR titulo LIKE '%o' 
+        OR titulo LIKE '%u' 
+        OR titulo LIKE '%A' 
+        OR titulo LIKE '%E' 
+        OR titulo LIKE '%I' 
+        OR titulo LIKE '%O' 
+        OR titulo LIKE '%U';
+    ```
+
+    ```sql
+    -- [AEIOUaeiou]  → Indica que buscamos que haya al menos una vocal, ya sea mayúscula o minúscula.
+    -- $             → Fin de la cadena.
+    -- [AEIOUaeiou]$ → Indica que buscamos que haya al menos una vocal, ya sea mayúscula o minúscula, al final de la cadena.
+    SELECT titulo FROM Libros WHERE titulo REGEXP '[AEIOUaeiou]$';
     ```
 22. Obtener todos los autores cuyo nombre contiene la secuencia "er":
 
     ```sql
-    
+    SELECT nombre FROM Autores WHERE nombre LIKE '%er%';
+    ```
+
+    ```sql
+    -- er → Indica que buscamos literalmente "er". (No se necesita ^ o $ porque no importa la posición, solo que exista.)
+    SELECT nombre FROM Autores WHERE nombre REGEXP 'er';
     ```
 23. Seleccionar los libros cuyo título empieza con la palabra "The":
 
     ```sql
-    
+    SELECT titulo FROM Libros WHERE titulo LIKE 'The %';
+    ```
+
+    ```sql
+    -- ^      → Inicio de la cadena.
+    -- The    → Indica que buscamos literalmente "The".
+    -- \s     → Indica espacio en blanco.
+    -- ^The\s → Indica que buscamos que la cadena comience con "The" seguido de un espacio en blanco (lo que implica que es una palabra completa).
+    SELECT titulo FROM Libros WHERE titulo REGEXP '^The\s';
     ```
 24. Obtener todos los autores cuyo nombre tiene al menos una letra mayúscula:
 
     ```sql
-    
+    -- [A-Z] → Indica que buscamos que haya al menos una letra mayúscula. (No se necesita ^ o $ porque no importa la posición, solo que exista.)
+    SELECT nombre FROM Autores WHERE nombre REGEXP '[A-Z]';
     ```
 25. Seleccionar los libros cuyo precio es un número decimal con exactamente dos decimales:
 
     ```sql
-    
+    SELECT titulo, precio FROM Libros WHERE precio LIKE '%.__';
+    ```
+
+    ```sql
+    -- \.       → Punto literal.
+    -- \d{2}    → Dos dígitos numéricos.
+    -- $        → Fin de la cadena.
+    -- \.\d{2}$ → Indica que buscamos dos dígitos numéricos precedidos de un punto al final de la cadena.
+    SELECT titulo, precio FROM Libros WHERE precio REGEXP '\.\d{2}$';
     ```
 26. Obtener todos los autores cuyo nombre no contiene números:
 
     ```sql
-    
+    SELECT nombre FROM Autores 
+     WHERE nombre NOT LIKE '%0%'
+        OR nombre NOT LIKE '%1%'
+        OR nombre NOT LIKE '%2%'
+        OR nombre NOT LIKE '%3%'
+        OR nombre NOT LIKE '%4%'
+        OR nombre NOT LIKE '%5%'
+        OR nombre NOT LIKE '%6%'
+        OR nombre NOT LIKE '%7%'
+        OR nombre NOT LIKE '%8%'
+        OR nombre NOT LIKE '%9%';
     ```
-27. Seleccionar los libros cuyo título contiene al menos tres vocales:
 
     ```sql
-    
+    -- [0-9] → Indica que buscamos que haya al menos un número. (No se necesita ^ o $ porque no importa la posición, solo que exista.)
+    SELECT nombre FROM Autores WHERE nombre NOT REGEXP '[0-9]';
+    ```
+27. Seleccionar los libros cuyo título contiene al menos nueve vocales:
+
+    ```sql
+    -- .                      → Representa cualquier carácter (letra, número, espacio, etc).
+    -- *                      → Permite que ese carácter aparezca 0 o más veces.
+    -- [AEIOUaeiou]           → Indica que buscamos una vocal en cualquier parte del texto.
+    -- {9,}                   → Indica que debe haber al menos 9 caracteres o repeticiones de la encapsulación previa ().
+    -- (.*[AEIOUaeiou].*){9,} → Indica que buscamos al menos 9 ocurrencias de una vocal.
+    SELECT titulo FROM Libros WHERE titulo REGEXP '(.*[AEIOUaeiou].*){9,}';
     ```
 28. Obtener todos los autores cuyo nombre inicia con una consonante:
 
     ```sql
-    
+    -- ^             → Inicio de la cadena.
+    -- [AEIOUaeiou]  → Indica que buscamos que haya al menos una vocal, ya sea mayúscula o minúscula.
+    -- ^[AEIOUaeiou] → Indica que buscamos que haya al menos una vocal, ya sea mayúscula o minúscula, al comienzo de la cadena.
+    SELECT nombre FROM Autores WHERE nombre NOT REGEXP '^[AEIOUaeiou]';
     ```
-29. Seleccionar los libros cuyo título no contiene la palabra "Science":
+29. Seleccionar los libros cuyo título no contiene la palabra "The":
 
     ```sql
-    
+    -- The → Indica que buscamos literalmente "The". (No se necesita ^ o $ porque no importa la posición, solo que exista.)
+    SELECT titulo FROM Libros WHERE titulo NOT REGEXP 'The';
     ```
 30. Obtener todos los autores cuyo nombre tiene al menos una letra repetida consecutivamente:
 
     ```sql
-    
+    -- (.) → Captura cualquier carácter y lo guarda en un grupo.
+    -- \\1 → Hace referencia al primer grupo capturado (es decir, repite el mismo carácter inmediatamente después).
+    SELECT nombre FROM Autores WHERE nombre REGEXP '(.)\\1';
     ```
-31. Obtener todos los autores cuyo nombre empieza con "M" o termina con "n":
+31. Obtener todos los autores cuyo nombre empieza con "J" o termina con "n":
 
     ```sql
-    
+    -- ^J → el nombre empieza con la letra J
+    -- n$ → el nombre termina con la letra n
+    -- El operador | indica una alternativa lógica (OR) entre las dos condiciones.
+    SELECT nombre FROM Autores WHERE nombre REGEXP '^J|n$';
     ```
 32. Obtener todos los autores cuyo nombre no contiene caracteres especiales:
 
     ```sql
-    
+    -- El símbolo ^ dentro de los corchetes [^...] significa "cualquier cosa que no sea" las letras o el espacio. Así, cualquier nombre que contenga caracteres no permitidos (como puntos, comas, números, etc.) será excluido.
+    SELECT nombre FROM Autores WHERE nombre NOT REGEXP '[^a-zA-Z ]';
     ```
 
 <link rel="stylesheet" href="./../../../README.css">
