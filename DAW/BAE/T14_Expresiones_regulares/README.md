@@ -128,37 +128,37 @@ INSERT INTO Pedidos (id_cliente, id_producto, cantidad, fecha_pedido) VALUES
 1. Obtener todos los clientes.
 
     ```sql
-    
+    SELECT * FROM Clientes;
     ```
 2. Obtener la cantidad total de productos en todos los pedidos.
 
     ```sql
-    
+    SELECT SUM(cantidad) AS total FROM Pedidos;
     ```
 3. Obtener el precio promedio de los productos.
 
     ```sql
-    
+    SELECT AVG(precio) AS promedio FROM Productos;
     ```
 4. Obtener los clientes que tienen un email válido (contiene "@").
 
     ```sql
-    
+    SELECT * FROM Clientes WHERE email REGEXP '^.*@.*\.com$';
     ```
 5. Obtener el producto más caro.
 
     ```sql
-    
+    SELECT * FROM Productos ORDER BY precio DESC LIMIT 1;
     ```
 6. Obtener los pedidos realizados en febrero de 2024.
 
     ```sql
-    
+    SELECT * FROM Pedidos WHERE fecha_pedido BETWEEN '2024-02-01' AND '2024-02-29';
     ```
 7. Obtener la cantidad total de productos en todos los pedidos por producto.
 
     ```sql
-    
+    SELECT id_producto, SUM(cantidad) AS total FROM Pedidos GROUP BY id_producto;
     ```
 8. Obtener los clientes que han realizado más de un pedido.
 
