@@ -69,7 +69,7 @@ INSERT INTO Ventas (id_cliente, id_coche, fecha_venta) VALUES
     (10, 10, '2023-10-05');
 ```
 
-0. 
+1. Clientes que han comprado coches de marca con un precio superior al precio promedio de los coches.
 
     ```sql
     SELECT
@@ -88,7 +88,7 @@ INSERT INTO Ventas (id_cliente, id_coche, fecha_venta) VALUES
         )
     );
     ```
-1. Listar los coches vendidos con sus modelos y precios, junto con los nombres de los clientes que los compraron.
+2. Listar los coches vendidos con sus modelos y precios, junto con los nombres de los clientes que los compraron.
 
     ```sql
     -- Realizar con subconsulta.
@@ -100,7 +100,7 @@ INSERT INTO Ventas (id_cliente, id_coche, fecha_venta) VALUES
     JOIN Clientes Cl ON V.id_cliente = Cl.id_cliente
     JOIN Coches Co ON V.id_cliente = Co.id_coche;
     ```
-2. Encontrar los clientes que han comprado coches con precios superiores al promedio de todos los coches vendidos.
+3. Encontrar los clientes que han comprado coches con precios superiores al promedio de todos los coches vendidos.
 
     ```sql
     SELECT
@@ -114,30 +114,27 @@ INSERT INTO Ventas (id_cliente, id_coche, fecha_venta) VALUES
         FROM Coches
     );
     ```
-3. Mostrar los modelos de coches y sus precios que no han sido vendidos aún.
+4. Mostrar los modelos de coches y sus precios que no han sido vendidos aún.
 
     ```sql
-    SELECT 
+    
     ```
-```sql
--- Calcular el total gastado por todos los clientes en coches.
--- Cosas que debo de tener en cuenta: Me estan pidiendo la suma total de todos los coches vendidos, NO de aquellos que aún no se han vendido.
+5. Calcular el total gastado por todos los clientes en coches.
 
-```
+    ```sql
+    
+    ```
+6. Listar los coches vendidos junto con la fecha de venta y el nombre del cliente, ordenados por fecha de venta de forma descendente.
 
-```sql
--- Listar los coches vendidos junto con la fecha de venta y el nombre del cliente, ordenados por fecha de venta de forma descendente.
--- Cosas que debo de tener en cuenta: ¿Por qué campo tengo que ordenadar? ¿Es uno o más campos?
+    ```sql
+    
+    ```
+7. Encontrar el modelo de coche más caro.
 
-```
-
-```sql
--- Encontrar el modelo de coche más caro.
--- Cosas que debo de tener en cuenta: MAX
-
-```
-
-7. Mostrar los clientes que han comprado al menos un coche (un coche o más) y la cantidad de coches comprados.
+    ```sql
+    
+    ```
+8. Mostrar los clientes que han comprado al menos un coche (un coche o más) y la cantidad de coches comprados.
 
     ```sql
     SELECT id_cliente, COUNT(id_coche) FROM Ventas GROUP BY id_cliente;
@@ -150,38 +147,36 @@ INSERT INTO Ventas (id_cliente, id_coche, fecha_venta) VALUES
     )
     GROUP BY Cl.id_cliente;
     ```
-```sql
--- Encontrar los clientes que han comprado coches de la marca 'Toyota'.
--- Cosas que debo de tener en cuenta: Like | regexp | =. Tabla normalizada ?.
+9. Encontrar los clientes que han comprado coches de la marca 'Toyota'.
 
-```
+    ```sql
+    
+    ```
+10. Calcular el promedio de edad de los clientes que han comprado coches de más de 25,000.
 
-```sql
--- Calcular el promedio de edad de los clientes que han comprado coches de más de 25,000.
+    ```sql
+    
+    ```
+11. Mostrar los modelos de coches y sus precios que fueron comprados por clientes mayores de 30 años.
 
-```
+    ```sql
+    
+    ```
+12. Encontrar los coches vendidos en el año 2022 junto con la cantidad total de ventas en ese año.
 
-```sql
--- Mostrar los modelos de coches y sus precios que fueron comprados por clientes mayores de 30 años.
+    ```sql
+    
+    ```
+13. Listar los coches cuyos precios son mayores que el precio promedio de coches vendidos a clientes menores de 30 años.
 
-```
+    ```sql
+    
+    ```
+14. Calcular el total de ventas por marca de coche, ordenado de forma descendente por el total de ventas.
 
-```sql
--- Encontrar los coches vendidos en el año 2022 junto con la cantidad total de ventas en ese año.
-
-```
-
-```sql
--- Listar los coches cuyos precios son mayores que el precio promedio de coches vendidos a clientes menores de 30 años.
--- Cosas que debo de tener en cuenta: AVG
-
-```
-
-```sql
--- Calcular el total de ventas por marca de coche, ordenado de forma descendente por el total de ventas.
--- Cosas que debo de tener en cuenta: COUNT| DESC|ASC precio
-
-```
+    ```sql
+    
+    ```
 
 <link rel="stylesheet" href="./../../../README.css">
 <a class="scrollup" href="#top">&#x1F53C</a>
