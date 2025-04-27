@@ -163,142 +163,206 @@ INSERT INTO Pedidos (id_cliente, id_producto, cantidad, fecha_pedido) VALUES
 8. Obtener los clientes que han realizado más de un pedido.
 
     ```sql
-    
+    SELECT id_cliente, COUNT(*) AS total FROM Pedidos GROUP BY id_producto HAVING total > 1;
     ```
 9. Obtener los productos que tienen un precio registrado.
 
     ```sql
-    
+    SELECT * FROM Productos WHERE precio IS NOT NULL;
     ```
 10. Obtener la fecha del primer pedido realizado.
 
     ```sql
-    
+    SELECT MIN(fecha_pedido) AS primer_pedido FROM Pedidos;
     ```
 11. Obtener los productos cuyos nombres comienzan con "A" o "B".
 
     ```sql
-    
+    SELECT * FROM Productos WHERE nombre LIKE 'A%' OR nombre LIKE 'B%';
+    ```
+
+    ```sql
+    SELECT * FROM Productos WHERE nombre REGEXP '^[AB]';
     ```
 12. Obtener la cantidad total de productos en todos los pedidos por cliente ordenado por cliente.
 
     ```sql
-    
+    SELECT id_cliente, SUM(cantidad) AS total_productos 
+    FROM Pedidos 
+    GROUP BY id_cliente 
+    ORDER BY id_cliente;
     ```
 13. Obtener los clientes que han realizado más de un pedido en febrero de 2024.
 
     ```sql
-    
+    SELECT id_cliente, COUNT(*) AS total_pedidos 
+    FROM Pedidos 
+    WHERE fecha_pedido BETWEEN '2024-02-01' AND '2024-02-29' 
+    GROUP BY id_cliente 
+    HAVING total_pedidos > 1;
     ```
 14. Obtener los productos con precio entre 100 y 500.
 
     ```sql
-    
+    SELECT * FROM Productos WHERE precio BETWEEN 100 AND 500;
     ```
 15. Obtener la cantidad total de productos en todos los pedidos por cliente ordenado por cantidad descendente.
 
     ```sql
-    
+    SELECT id_cliente, SUM(cantidad) AS total_productos 
+    FROM Pedidos 
+    GROUP BY id_cliente 
+    ORDER BY total_productos DESC;
     ```
 16. Obtener los clientes que tienen una "a" en cualquier posición de su nombre.
 
     ```sql
-    
+    SELECT * FROM Clientes WHERE nombre LIKE '%a%';
+    ```
+
+    ```sql
+    SELECT * FROM Clientes WHERE nombre REGEXP 'a';
     ```
 17. Obtener el precio máximo de los productos.
 
     ```sql
-    
+    SELECT MAX(precio) AS precio_maximo FROM Productos;
     ```
 18. Obtener los pedidos realizados por el cliente con ID 1 en febrero de 2024.
 
     ```sql
-    
+    SELECT * FROM Pedidos WHERE id_cliente = 1 AND fecha_pedido BETWEEN '2024-02-01' AND '2024-02-29';
     ```
 19. Obtener la cantidad total de productos en todos los pedidos por producto ordenado por total de productos descendente.
 
     ```sql
-    
+    SELECT id_producto, SUM(cantidad) AS total_productos 
+    FROM Pedidos 
+    GROUP BY id_producto 
+    ORDER BY total_productos DESC;
     ```
 20. Obtener los productos que no tienen un precio registrado.
 
     ```sql
-    
+    SELECT * FROM Productos WHERE precio IS NULL;
     ```
 21. Obtener la fecha del último pedido realizado.
 
     ```sql
-    
+    SELECT MAX(fecha_pedido) AS ultimo_pedido FROM Pedidos;
     ```
 22. Obtener los clientes cuyo nombre tiene al menos 5 caracteres.
 
     ```sql
-    
+    SELECT * FROM Clientes WHERE LENGTH(nombre) >= 5;
+    ```
+
+    ```sql
+    SELECT * FROM Clientes WHERE nombre REGEXP '^.{5,}$';
     ```
 23. Obtener los productos que tienen la letra "o" en cualquier posición del nombre.
 
     ```sql
-    
+    SELECT * FROM Productos WHERE nombre LIKE '%o%';
+    ```
+
+    ```sql
+    SELECT * FROM Productos WHERE nombre REGEXP 'o';
     ```
 24. Obtener la cantidad total de productos en todos los pedidos por cliente ordenado por cliente.
 
     ```sql
-    
+    SELECT id_cliente, SUM(cantidad) AS total_productos 
+    FROM Pedidos 
+    GROUP BY id_cliente 
+    ORDER BY id_cliente;
     ```
 25. Obtener los clientes cuyos nombres no contienen la letra "i".
 
     ```sql
-    
+    SELECT * FROM Clientes WHERE nombre NOT LIKE '%i%';
+    ```
+
+    ```sql
+    SELECT * FROM Clientes WHERE nombre NOT REGEXP 'i';
     ```
 26. Obtener los pedidos realizados por el cliente con ID 2 en febrero de 2024.
 
     ```sql
-    
+    SELECT * FROM Pedidos 
+    WHERE id_cliente = 2 AND fecha_pedido BETWEEN '2024-02-01' AND '2024-02-29';
     ```
 27. Obtener el precio mínimo de los productos.
 
     ```sql
-    
+    SELECT MIN(precio) AS precio_minimo FROM Productos;
     ```
 28. Obtener los clientes que han realizado al menos un pedido en febrero de 2024.
 
     ```sql
-    
+    SELECT DISTINCT id_cliente 
+    FROM Pedidos 
+    WHERE fecha_pedido BETWEEN '2024-02-01' AND '2024-02-29';
     ```
 29. Obtener la fecha del último pedido realizado por el cliente con ID 3.
 
     ```sql
-    
+    SELECT MAX(fecha_pedido) AS ultimo_pedido 
+    FROM Pedidos 
+    WHERE id_cliente = 3;
     ```
 30. Obtener los productos que tienen una "a" al final del nombre.
 
     ```sql
-    
+    SELECT * FROM Productos WHERE nombre LIKE '%a';
+    ```
+
+    ```sql
+    SELECT * FROM Productos WHERE nombre REGEXP 'a$';
     ```
 31. Obtener los clientes cuyos nombres tienen al menos 4 vocales (mayúsculas o minúsculas).
 
     ```sql
-    
+    SELECT * FROM Clientes
+    WHERE (
+        LENGTH(LOWER(nombre)) - LENGTH(REPLACE(LOWER(nombre), 'a', '')) +
+        LENGTH(LOWER(nombre)) - LENGTH(REPLACE(LOWER(nombre), 'e', '')) +
+        LENGTH(LOWER(nombre)) - LENGTH(REPLACE(LOWER(nombre), 'i', '')) +
+        LENGTH(LOWER(nombre)) - LENGTH(REPLACE(LOWER(nombre), 'o', '')) +
+        LENGTH(LOWER(nombre)) - LENGTH(REPLACE(LOWER(nombre), 'u', ''))
+    ) >= 4;
+    ```
+
+    ```sql
+    SELECT * FROM Clientes
+    WHERE nombre REGEXP '([aeiouAEIOU][^aeiouAEIOU]*){4,}';
     ```
 32. Obtener los productos cuyo precio tenga al menos 4 números sin contrar los decimales.
 
     ```sql
-    
+    SELECT * FROM Productos 
+    WHERE precio >= 1000;
     ```
 33. Obtener los clientes cuyos nombres tienen al menos una "a" seguida de una "e".
 
     ```sql
-    
+    SELECT * FROM Clientes WHERE nombre LIKE '%a%e%';
+    ```
+
+    ```sql
+    SELECT * FROM Clientes WHERE nombre REGEXP 'a.*e';
     ```
 34. Obtener los productos cuyos nombres terminan con una consonante.
 
     ```sql
-    
+    SELECT * FROM Productos 
+    WHERE nombre REGEXP '[^aeiouAEIOU]$';
     ```
 35. Obtener los productos cuyos nombres empiezan con una vocal.
 
     ```sql
-    
+    SELECT * FROM Productos 
+    WHERE nombre REGEXP '^[aeiouAEIOU]';
     ```
 
 <link rel="stylesheet" href="./../../../README.css">
