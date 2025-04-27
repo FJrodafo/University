@@ -71,52 +71,114 @@ INSERT INTO Inscripciones (id_alumno, id_clase) VALUES
 1. Obtener el nombre del alumno y el nombre de la clase en la que está inscrito.
 
     ```sql
-    
+    SELECT
+        A.nombre AS alumno,
+        C.nombre AS clase
+    FROM Inscripciones I
+    JOIN Alumnos A ON I.id_alumno = A.id_alumno
+    JOIN Clases C ON I.id_clase = C.id_clase;
     ```
 2. Obtener el nombre del alumno y la materia de las clases en las que está inscrito.
 
     ```sql
-    
+    SELECT
+        A.nombre AS alumno,
+        C.materia AS materia
+    FROM Inscripciones I
+    JOIN Alumnos A ON I.id_alumno = A.id_alumno
+    JOIN Clases C ON I.id_clase = C.id_clase;
     ```
 3. Obtener el nombre del alumno, la edad y el nombre del profesor de las clases en las que está inscrito.
 
     ```sql
-    
+    SELECT
+        A.nombre AS alumno,
+        A.edad AS edad,
+        C.profesor AS profesor
+    FROM Inscripciones I
+    JOIN Alumnos A ON I.id_alumno = A.id_alumno
+    JOIN Clases C ON I.id_clase = C.id_clase;
     ```
 4. Obtener el nombre del alumno y la dirección de las clases en las que está inscrito.
 
     ```sql
-    
+    SELECT nombre, direccion FROM Alumnos;
     ```
 5. Obtener el nombre del alumno y el nombre de la clase junto con el profesor.
 
     ```sql
-    
+    SELECT
+        A.nombre AS alumno,
+        C.nombre AS clase,
+        C.profesor AS profesor
+    FROM Inscripciones I
+    JOIN Alumnos A ON I.id_alumno = A.id_alumno
+    JOIN Clases C ON I.id_clase = C.id_clase;
     ```
 6. Obtener el nombre del alumno, la materia y el nombre del profesor de las clases en las que está inscrito.
 
     ```sql
-    
+    SELECT
+        A.nombre AS alumno,
+        C.materia AS materia,
+        C.profesor AS profesor
+    FROM Inscripciones I
+    JOIN Alumnos A ON I.id_alumno = A.id_alumno
+    JOIN Clases C ON I.id_clase = C.id_clase;
     ```
 7. Obtener el nombre del alumno, la edad y la materia de las clases en las que está inscrito.
 
     ```sql
-    
+    SELECT
+        A.nombre AS alumno,
+        A.edad AS edad,
+        C.materia AS materia
+    FROM Inscripciones I
+    JOIN Alumnos A ON I.id_alumno = A.id_alumno
+    JOIN Clases C ON I.id_clase = C.id_clase;
     ```
 8. Obtener el nombre del alumno, la dirección y el profesor de las clases en las que está inscrito.
 
     ```sql
-    
+    SELECT
+        A.nombre AS alumno,
+        A.direccion AS direccion,
+        C.profesor AS profesor
+    FROM Inscripciones I
+    JOIN Alumnos A ON I.id_alumno = A.id_alumno
+    JOIN Clases C ON I.id_clase = C.id_clase;
     ```
 9. Obtener el nombre del alumno y la materia de las clases en las que está inscrito, ordenado por el nombre del alumno.
 
     ```sql
-    
+    SELECT
+        A.nombre AS alumno,
+        C.materia AS materia
+    FROM Inscripciones I
+    JOIN Alumnos A ON I.id_alumno = A.id_alumno
+    JOIN Clases C ON I.id_clase = C.id_clase
+    ORDER BY A.nombre;
     ```
 10. Contar cuántos alumnos están inscritos en cada clase.
 
     ```sql
-    
+    SELECT
+        C.nombre AS clase,
+        COUNT(I.id_alumno) AS cantidad_alumnos
+    FROM Inscripciones I
+    JOIN Clases C ON I.id_clase = C.id_clase
+    GROUP BY C.id_clase;
+    ```
+
+11. Obtener el nombre de cada alumno y la cantidad de clases en las que está inscrito.
+
+    ```sql
+    SELECT
+        A.nombre AS alumno,
+        COUNT(I.id_clase) AS cantidad_clases
+    FROM Inscripciones I
+    JOIN Alumnos A ON I.id_alumno = A.id_alumno
+    GROUP BY A.id_alumno;
     ```
 
 <link rel="stylesheet" href="./../../../README.css">
