@@ -77,7 +77,7 @@ INSERT INTO Compras (id, total, fecha, id_consumidor, id_suministrador) VALUES
     (16, 2389.23, '2022-03-11', 1, 5);
 ```
 
-1. Consultas sobre una tabla. 0,2 puntos la correcta. Total = 1,4 puntos.
+1. Consultas sobre una tabla.
 
     1. Devuelve un listado con todos las compras que se han realizado. Las compras deben estar ordenados por la fecha de realización, mostrando en primer lugar las compras más recientes.
 
@@ -114,7 +114,7 @@ INSERT INTO Compras (id, total, fecha, id_consumidor, id_suministrador) VALUES
         ```sql
         
         ```
-2. Consultas Multitabla Where. 0,3 puntos la correcta. Total = 2,1 puntos.
+2. Consultas Multitabla Where. 0,3 puntos la correcta.
 
     1. Devuelve un listado con el identificador, nombre y los apellidos de todos los consumidores que han realizado algún compra. El listado debe estar ordenado alfabéticamente y se deben eliminar los elementos repetidos.
 
@@ -151,7 +151,7 @@ INSERT INTO Compras (id, total, fecha, id_consumidor, id_suministrador) VALUES
         ```sql
         
         ```
-3. Consultas Multitabla Join. 0,3 puntos la correcta. Total = 2,1 puntos.
+3. Consultas Multitabla Join. 0,3 puntos la correcta.
 
     1. Devuelve un listado con el identificador, nombre y los apellidos de todos los consumidores que han realizado algún compra. El listado debe estar ordenado alfabéticamente y se deben eliminar los elementos repetidos.
 
@@ -188,7 +188,7 @@ INSERT INTO Compras (id, total, fecha, id_consumidor, id_suministrador) VALUES
         ```sql
         
         ```
-4. Consultas resumen funciones. 0,2 puntos la correcta. (1-6) 1,2 puntos. 0,25 puntos la correcta. (7-10) 1 punto. Total = 2,2 puntos.
+4. Consultas resumen funciones.
 
     1. Calcula la cantidad media de todos las compras que aparecen en la tabla compra.
 
@@ -240,7 +240,7 @@ INSERT INTO Compras (id, total, fecha, id_consumidor, id_suministrador) VALUES
         ```sql
         
         ```
-5. Subconsultas con operadores básicos de comparación. 0,2 puntos la correcta (1-5). 0,3 puntos la correcta (6-9). Total = 2,2 puntos.
+5. Subconsultas con operadores básicos de comparación.
     
     1. Devuelve un listado con todos las compras que ha realizado Adela Salas Díaz. (Sin utilizar INNER JOIN).
 
