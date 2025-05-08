@@ -271,7 +271,7 @@ INSERT INTO Ventas (id, total, fecha, id_cliente, id_empleado) VALUES
     22. Máxima venta por año:
 
         ```sql
-
+        
         ```
     23. Clientes con más de 1 compra:
 
@@ -337,7 +337,7 @@ INSERT INTO Ventas (id, total, fecha, id_cliente, id_empleado) VALUES
     29. Empleados con ventas en todas las ciudades:
 
         ```sql
-
+        
         ```
     30. Ventas del cliente con más puntos de fidelidad:
 
