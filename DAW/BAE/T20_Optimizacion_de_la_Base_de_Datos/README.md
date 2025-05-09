@@ -48,22 +48,9 @@ Se pide:
     ```sqlite
     .schema Alumnos
     ```
-
-    ```txt
-    CREATE TABLE Alumnos (
-        numero_inscripcion INTEGER,
-        anio_inscripcion INTEGER,
-        nombre TEXT,
-        documento TEXT,
-        domicilio TEXT,
-        ciudad TEXT,
-        provincia TEXT,
-        PRIMARY KEY (numero_inscripcion, anio_inscripcion)
-    );
-    ```
 3. Define los siguientes indices:
 
-    1. Un índice único por el campo "documento" y un índice común por ciudad y provincia.
+    1. Un índice único por el campo "documento" y un índice común por "ciudad" y "provincia".
 
         ```sql
         CREATE UNIQUE INDEX idx_documento ON Alumnos(documento);
