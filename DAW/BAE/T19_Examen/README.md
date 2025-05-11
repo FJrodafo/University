@@ -82,105 +82,128 @@ INSERT INTO Ventas (id, total, fecha, id_cliente, id_empleado) VALUES
     1. Listar todas las ventas ordenadas por fecha (más recientes primero):
 
         ```sql
-        SELECT * FROM Ventas ORDER BY fecha DESC;
+        SELECT *
+        FROM Ventas
+        ORDER BY fecha DESC;
         ```
     2. Top 3 ventas de mayor valor:
 
         ```sql
-        SELECT * FROM Ventas ORDER BY total DESC LIMIT 3;
+        SELECT *
+        FROM Ventas
+        ORDER BY total DESC
+        LIMIT 3;
         ```
     3. Clientes con puntos de fidelidad no nulos:
 
         ```sql
-        SELECT nombre, apellido1 FROM Clientes WHERE puntos_fidelidad NOT NULL;
+        SELECT *
+        FROM Clientes
+        WHERE puntos_fidelidad IS NOT NULL;
         ```
     4. Ventas del año 2023 con total superior a 1000€:
 
         ```sql
-        SELECT * FROM Ventas WHERE total > 1000;
+        SELECT *
+        FROM Ventas
+        WHERE fecha LIKE '2023-%'
+          AND total > 1000;
         ```
     5. Empleados con comisión mayor a 0.10:
 
         ```sql
-        SELECT * FROM Empleados WHERE comision > 0.10;
+        SELECT *
+        FROM Empleados
+        WHERE comision > 0.10;
         ```
     6. Clientes de Madrid o Barcelona:
 
         ```sql
-        SELECT * FROM cliente WHERE ciudad REGEXP 'Madrid';
-        ```
-
-        ```sql
-        SELECT * FROM cliente WHERE ciudad REGEXP 'Barcelona';
+        SELECT * 
+        FROM Clientes
+        WHERE ciudad IN ('Madrid', 'Barcelona');
         ```
 2. Consultas multitabla (WHERE) (6 consultas - 1.8 puntos / 0.3 cada una)
 
-    7. Ventas con nombres de clientes, empleados y total de ventas (sin JOIN):
+    7. Ventas con nombres de clientes, empleados y total de ventas:
 
         ```sql
         SELECT
             V.id AS id_venta,
-            C.nombre AS cliente,
-            E.nombre AS empleado,
-            V.total AS total
-        FROM
-            Clientes C,
-            Empleados E,
-            Ventas V
-        WHERE C.id = V.id_cliente
-        AND E.id = V.id_empleado;
+            C.nombre || ' ' || C.apellido1 || ' ' || IFNULL(C.apellido2, '') AS nombre_cliente,
+            E.nombre || ' ' || E.apellido1 || ' ' || IFNULL(E.apellido2, '') AS nombre_empleado,
+            V.total AS total_venta,
+            V.fecha AS fecha_venta
+        FROM Ventas V, Clientes C, Empleados E
+        WHERE V.id_cliente = C.id
+          AND V.id_empleado = E.id;
         ```
-    8. Clientes que compraron en 2023 (sin JOIN):
+    8. Clientes que compraron en 2023:
 
         ```sql
-        SELECT C.nombre, C.apellido1
-        FROM Clientes C, Ventas V
-        WHERE C.id = V.id_cliente
-        AND V.fecha REGEXP '2023'
-        GROUP BY C.nombre
-        ORDER BY C.nombre ASC;
+        SELECT DISTINCT
+            C.id AS id_cliente,
+            C.nombre || ' ' || C.apellido1 || ' ' || IFNULL(C.apellido2, '') AS nombre_cliente
+        FROM Ventas V, Clientes C
+        WHERE V.id_cliente = C.id
+          AND V.fecha LIKE '2023-%'
+        ORDER BY C.id;
         ```
     9. Empleados que atendieron a clientes de Madrid:
 
         ```sql
-        SELECT E.nombre, E.apellido1
-        FROM Clientes C, Empleados E, Ventas V
-        WHERE V.id_cliente = C.id
-        AND V.id_empleado = E.id
-        AND C.ciudad REGEXP 'Madrid'
-        GROUP BY E.nombre
-        ORDER BY E.nombre ASC;
+        SELECT DISTINCT
+            E.id AS id_empleado,
+            E.nombre || ' ' || E.apellido1 || ' ' || IFNULL(E.apellido2, '') AS nombre_empleado
+        FROM Ventas V, Empleados E, Clientes C
+        WHERE V.id_empleado = E.id
+          AND V.id_cliente = C.id
+          AND C.ciudad = 'Madrid'
+        ORDER BY E.id;
         ```
     10. Ventas superiores a 2000€ con datos de clientes:
 
         ```sql
-        SELECT V.*, C.nombre, C.apellido1
+        SELECT 
+            V.id AS id_venta,
+            V.total AS total_venta,
+            V.fecha AS fecha_venta,
+            C.id AS id_cliente,
+            C.nombre || ' ' || C.apellido1 || ' ' || IFNULL(C.apellido2, '') AS nombre_cliente,
+            C.ciudad AS ciudad_cliente
         FROM Ventas V, Clientes C
         WHERE V.id_cliente = C.id
-        AND total > 2000;
+          AND V.total > 2000
+        ORDER BY V.id;
         ```
-    11. Promedio de ventas por empleado (sin JOIN):
+    11. Promedio de ventas por empleado:
 
         ```sql
-        SELECT E.nombre, AVG(V.total) AS promedio_ventas
+        SELECT 
+            E.id AS id_empleado,
+            E.nombre || ' ' || E.apellido1 || ' ' || IFNULL(E.apellido2, '') AS nombre_empleado,
+            AVG(V.total) AS promedio_ventas
         FROM Ventas V, Empleados E
         WHERE V.id_empleado = E.id
-        GROUP BY E.nombre
-        ORDER BY E.nombre ASC;
+        GROUP BY E.id;
         ```
-    12. Clientes que no han comprado (sin JOIN):
+    12. Clientes que no han comprado:
 
         ```sql
-        SELECT C.*
+        SELECT 
+            C.id AS id_cliente,
+            C.nombre || ' ' || C.apellido1 || ' ' || IFNULL(C.apellido2, '') AS nombre_cliente
         FROM Clientes C
         WHERE C.id NOT IN (
             SELECT V.id_cliente
             FROM Ventas V
-        );
+            WHERE V.id_cliente IS NOT NULL
+        )
+        GROUP BY C.id;
         ```
 3. Consultas multitabla (JOIN) (6 consultas - 1.8 puntos / 0.3 cada una)
 
-    13. Ventas con nombres de clientes ,empleados y total de ventas (CON UN TIPO DE JOIN):
+    13. Ventas con nombres de clientes ,empleados y total de ventas:
 
         ```sql
         SELECT
@@ -192,7 +215,7 @@ INSERT INTO Ventas (id, total, fecha, id_cliente, id_empleado) VALUES
         JOIN Clientes C ON V.id_cliente = C.id
         JOIN Empleados E ON V.id_empleado = E.id;
         ```
-    14. Clientes que compraron en 2023 (CON UN TIPO DE JOIN):
+    14. Clientes que compraron en 2023:
 
         ```sql
         SELECT C.nombre, C.apellido1
@@ -221,7 +244,7 @@ INSERT INTO Ventas (id, total, fecha, id_cliente, id_empleado) VALUES
         JOIN Clientes C ON V.id_cliente = C.id
         WHERE total > 2000;
         ```
-    17. Promedio de ventas por empleado (COUN TIPO DE JOIN):
+    17. Promedio de ventas por empleado:
 
         ```sql
         SELECT E.nombre, AVG(V.total) AS promedio_ventas
@@ -230,7 +253,7 @@ INSERT INTO Ventas (id, total, fecha, id_cliente, id_empleado) VALUES
         GROUP BY E.nombre
         ORDER BY E.nombre ASC;
         ```
-    18. Clientes que no han comprado (CON UN TIPO DE JOIN):
+    18. Clientes que no han comprado:
 
         ```sql
         SELECT C.*
