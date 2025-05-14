@@ -289,7 +289,7 @@ INSERT INTO Ventas (id, total, fecha, id_cliente, id_empleado) VALUES
         ```sql
         SELECT
             C.ciudad AS ciudad_cliente,
-            SUM(V.total) AS total_ventas
+            SUM(V.total) AS total_venta
         FROM Ventas V
         JOIN Clientes C ON V.id_cliente = C.id
         GROUP BY C.ciudad
@@ -360,48 +360,102 @@ INSERT INTO Ventas (id, total, fecha, id_cliente, id_empleado) VALUES
     25. Clientes con ventas superiores al promedio:
 
         ```sql
-        SELECT C.*
-        FROM Clientes C
-        JOIN Ventas V ON C.id = V.id_cliente
-        WHERE V.total > (
-            SELECT AVG(V.total) AS promedio
-            FROM Ventas V
+        SELECT
+            C.id AS id_cliente,
+            C.nombre || ' ' || C.apellido1 || ' ' || IFNULL(C.apellido2, '') AS nombre_cliente,
+            SUM(V.total) AS total_venta
+        FROM Ventas V
+        JOIN Clientes C ON V.id_cliente = C.id
+        GROUP BY C.id
+        HAVING SUM(V.total) > (
+            SELECT AVG(total)
+            FROM Ventas
         )
-        GROUP BY C.nombre
         ORDER BY C.id ASC;
         ```
     26. Empleados que no han realizado ventas:
 
         ```sql
-        SELECT E.*
+        SELECT
+            E.id AS id_empleado,
+            E.nombre || ' ' || E.apellido1 || ' ' || IFNULL(E.apellido2, '') AS nombre_empleado
         FROM Empleados E
         WHERE E.id NOT IN (
-            SELECT V.id_empleado
+            SELECT DISTINCT V.id_empleado
             FROM Ventas V
         );
         ```
     27. Ventas de clientes con puntos de fidelidad > 1000:
 
         ```sql
-        SELECT V.*
+        SELECT
+            V.id AS id_venta,
+            V.total AS total_venta,
+            V.fecha AS fecha_venta,
+            C.id AS id_cliente,
+            C.nombre || ' ' || C.apellido1 || ' ' || IFNULL(C.apellido2, '') AS nombre_cliente
         FROM Ventas V
         JOIN Clientes C ON V.id_cliente = C.id
-        WHERE C.puntos_fidelidad > 1000;
+        WHERE C.puntos_fidelidad > 1000
+        ORDER BY V.id ASC;
+        ```
+
+        ```sql
+        SELECT
+            V.id AS id_venta,
+            V.total AS total_venta,
+            V.fecha AS fecha_venta,
+            C.id AS id_cliente,
+            C.nombre || ' ' || C.apellido1 || ' ' || IFNULL(C.apellido2, '') AS nombre_cliente
+        FROM Ventas V
+        JOIN Clientes C ON V.id_cliente = C.id
+        WHERE C.id IN (
+            SELECT C.id
+            FROM Clientes C
+            WHERE C.puntos_fidelidad > 1000
+        )
+        ORDER BY V.id ASC;
         ```
     28. Clientes con al menos una venta > 2000€:
 
         ```sql
-        SELECT C.*
+        SELECT
+            C.id AS id_cliente,
+            C.nombre || ' ' || C.apellido1 || ' ' || IFNULL(C.apellido2, '') AS nombre_cliente
         FROM Clientes C
         JOIN Ventas V ON C.id = V.id_cliente
         WHERE V.total > 2000
         GROUP BY C.nombre
         ORDER BY C.id ASC;
         ```
+
+        ```sql
+        SELECT
+            C.id AS id_cliente,
+            C.nombre || ' ' || C.apellido1 || ' ' || IFNULL(C.apellido2, '') AS nombre_cliente
+        FROM Clientes C
+        WHERE C.id IN (
+            SELECT V.id_cliente
+            FROM Ventas V
+            WHERE V.total > 2000
+        );
+        ```
     29. Empleados con ventas en todas las ciudades:
 
         ```sql
-        
+        SELECT
+            E.id AS id_empleado,
+            E.nombre || ' ' || E.apellido1 || ' ' || IFNULL(E.apellido2, '') AS nombre_empleado
+        FROM Empleados E
+        WHERE NOT EXISTS (
+            SELECT 1
+            FROM Clientes C
+            WHERE NOT EXISTS (
+                SELECT 1
+                FROM Ventas V
+                WHERE V.id_empleado = E.id AND V.id_cliente = C.id
+            )
+        );
         ```
     30. Ventas del cliente con más puntos de fidelidad:
 
@@ -414,6 +468,27 @@ INSERT INTO Ventas (id, total, fecha, id_cliente, id_empleado) VALUES
             FROM Clientes C
             ORDER BY C.puntos_fidelidad DESC
             LIMIT 1
+        );
+        ```
+
+        ```sql
+        SELECT
+            V.id AS id_venta,
+            V.total AS total_venta,
+            V.fecha AS fecha_venta,
+            C.id AS id_cliente,
+            C.nombre || ' ' || C.apellido1 || ' ' || IFNULL(C.apellido2, '') AS nombre_cliente,
+            C.ciudad AS ciudad_cliente,
+            C.puntos_fidelidad AS puntos_fidelidad_cliente
+        FROM Ventas V
+        JOIN Clientes C ON V.id_cliente = C.id
+        WHERE C.id = (
+            SELECT C.id
+            FROM Clientes C
+            WHERE C.puntos_fidelidad = (
+                SELECT MAX(puntos_fidelidad)
+                FROM Clientes
+            )
         );
         ```
 ## Resumen de Puntos
