@@ -147,7 +147,7 @@ INSERT INTO Ventas (id, total, fecha, id_cliente, id_empleado) VALUES
         FROM Ventas V, Clientes C
         WHERE V.id_cliente = C.id
           AND V.fecha LIKE '2023-%'
-        ORDER BY C.id;
+        ORDER BY C.id ASC;
         ```
     9. Empleados que atendieron a clientes de Madrid:
 
@@ -159,7 +159,7 @@ INSERT INTO Ventas (id, total, fecha, id_cliente, id_empleado) VALUES
         WHERE V.id_empleado = E.id
           AND V.id_cliente = C.id
           AND C.ciudad = 'Madrid'
-        ORDER BY E.id;
+        ORDER BY E.id ASC;
         ```
     10. Ventas superiores a 2000€ con datos de clientes:
 
@@ -175,7 +175,7 @@ INSERT INTO Ventas (id, total, fecha, id_cliente, id_empleado) VALUES
         FROM Ventas V, Clientes C
         WHERE V.id_cliente = C.id
           AND V.total > 2000
-        ORDER BY V.id;
+        ORDER BY V.id ASC;
         ```
     11. Promedio de ventas por empleado:
 
@@ -228,7 +228,7 @@ INSERT INTO Ventas (id, total, fecha, id_cliente, id_empleado) VALUES
         FROM Ventas V
         JOIN Clientes C ON V.id_cliente = C.id
         WHERE V.fecha LIKE '2023-%'
-        ORDER BY C.id;
+        ORDER BY C.id ASC;
         ```
     15. Empleados que atendieron a clientes de Madrid:
 
@@ -240,7 +240,7 @@ INSERT INTO Ventas (id, total, fecha, id_cliente, id_empleado) VALUES
         JOIN Clientes C ON V.id_cliente = C.id
         JOIN Empleados E ON V.id_empleado = E.id
         WHERE C.ciudad = 'Madrid'
-        ORDER BY E.id;
+        ORDER BY E.id ASC;
         ```
     16. Ventas superiores a 2000€ con datos de clientes:
 
@@ -256,7 +256,7 @@ INSERT INTO Ventas (id, total, fecha, id_cliente, id_empleado) VALUES
         FROM Ventas V
         JOIN Clientes C ON V.id_cliente = C.id
         WHERE V.total > 2000
-        ORDER BY V.id;
+        ORDER BY V.id ASC;
         ```
     17. Promedio de ventas por empleado:
 
@@ -272,7 +272,7 @@ INSERT INTO Ventas (id, total, fecha, id_cliente, id_empleado) VALUES
     18. Clientes que no han comprado:
 
         ```sql
-        SELECT 
+        SELECT
             C.id AS id_cliente,
             C.nombre || ' ' || C.apellido1 || ' ' || IFNULL(C.apellido2, '') AS nombre_cliente,
             C.ciudad AS ciudad_cliente,
@@ -280,14 +280,16 @@ INSERT INTO Ventas (id, total, fecha, id_cliente, id_empleado) VALUES
         FROM Clientes C
         LEFT JOIN Ventas V ON C.id = V.id_cliente
         WHERE V.id_cliente IS NULL
-        GROUP BY C.id;
+        GROUP BY C.id
+        ORDER BY C.id ASC;
         ```
 4. Consultas resumen (6 consultas - 2.4 puntos / 0.4 cada una)
 
     19. Total de ventas por ciudad de cliente:
-
         ```sql
-        SELECT C.ciudad, SUM(V.total) AS total_ventas
+        SELECT
+            C.ciudad AS ciudad_cliente,
+            SUM(V.total) AS total_ventas
         FROM Ventas V
         JOIN Clientes C ON V.id_cliente = C.id
         GROUP BY C.ciudad
@@ -296,42 +298,62 @@ INSERT INTO Ventas (id, total, fecha, id_cliente, id_empleado) VALUES
     20. Número de ventas por empleado en 2023:
 
         ```sql
-        SELECT E.nombre, COUNT(V.id_empleado) AS num_ventas
+        SELECT
+            E.id AS id_empleado,
+            E.nombre || ' ' || E.apellido1 || ' ' || IFNULL(E.apellido2, '') AS nombre_empleado,
+            COUNT(V.id) AS numero_ventas_2023
         FROM Ventas V
         JOIN Empleados E ON V.id_empleado = E.id
-        GROUP BY E.nombre
-        ORDER BY E.nombre ASC;
+        WHERE V.fecha LIKE '2023-%'
+        GROUP BY E.id
+        ORDER BY E.id ASC;
         ```
     21. Promedio de puntos de fidelidad por ciudad:
 
         ```sql
-        SELECT ciudad, AVG(puntos_fidelidad) AS puntos_fidelidad
+        SELECT
+            ciudad,
+            AVG(puntos_fidelidad) AS promedio_puntos_fidelidad
         FROM Clientes
+        WHERE puntos_fidelidad IS NOT NULL
         GROUP BY ciudad
-        ORDER BY puntos_fidelidad DESC;
+        ORDER BY promedio_puntos_fidelidad DESC;
         ```
     22. Máxima venta por año:
 
         ```sql
-        
+        SELECT
+            SUBSTR(V.fecha, 1, 4) AS anio,
+            MAX(V.total) AS maxima_venta
+        FROM Ventas V
+        GROUP BY anio
+        ORDER BY anio DESC;
         ```
     23. Clientes con más de 1 compra:
 
         ```sql
-        SELECT C.nombre, COUNT(V.id_cliente) AS num_compras
+        SELECT
+            C.id AS id_cliente,
+            C.nombre || ' ' || C.apellido1 || ' ' || IFNULL(C.apellido2, '') AS nombre_cliente,
+            COUNT(V.id) AS numero_compras
         FROM Ventas V
         JOIN Clientes C ON V.id_cliente = C.id
-        GROUP BY C.nombre
-        ORDER BY C.nombre ASC;
+        GROUP BY C.id
+        HAVING COUNT(V.id) > 1
+        ORDER BY C.id ASC;
         ```
     24. Empleados con ventas promedio superiores a 1000€:
 
         ```sql
-        SELECT E.nombre, AVG(V.total) AS venta_promedio
+        SELECT
+            E.id AS id_empleado,
+            E.nombre || ' ' || E.apellido1 || ' ' || IFNULL(E.apellido2, '') AS nombre_empleado,
+            AVG(V.total) AS promedio_ventas
         FROM Ventas V
         JOIN Empleados E ON V.id_empleado = E.id
-        GROUP BY E.nombre
-        ORDER BY E.nombre ASC;
+        GROUP BY E.id
+        HAVING AVG(V.total) > 1000
+        ORDER BY E.id ASC;
         ```
 5. Subconsultas (6 consultas - 3.0 puntos / 0.5 cada una)
 
@@ -374,7 +396,7 @@ INSERT INTO Ventas (id, total, fecha, id_cliente, id_empleado) VALUES
         JOIN Ventas V ON C.id = V.id_cliente
         WHERE V.total > 2000
         GROUP BY C.nombre
-        ORDER BY C.id;
+        ORDER BY C.id ASC;
         ```
     29. Empleados con ventas en todas las ciudades:
 
@@ -390,7 +412,8 @@ INSERT INTO Ventas (id, total, fecha, id_cliente, id_empleado) VALUES
         WHERE C.puntos_fidelidad = (
             SELECT C.puntos_fidelidad
             FROM Clientes C
-            ORDER BY C.puntos_fidelidad DESC LIMIT 1
+            ORDER BY C.puntos_fidelidad DESC
+            LIMIT 1
         );
         ```
 ## Resumen de Puntos
