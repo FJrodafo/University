@@ -501,3 +501,6 @@ INSERT INTO Ventas (id, total, fecha, id_cliente, id_empleado) VALUES
 | Resumen            | 6            | 2.4 / 0.4         |
 | Subconsultas       | 6            | 3.0 / 0.5         |
 | Total              | 30           | 10.2              |
+
+<link rel="stylesheet" href="./../../../README.css">
+<a class="scrollup" href="#top">&#x1F53C</a>
