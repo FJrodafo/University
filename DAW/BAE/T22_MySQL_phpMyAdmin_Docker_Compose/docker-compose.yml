@@ -6,12 +6,13 @@ services:
     container_name: mysql_container
     restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: bae-pass       # Contraseña root personalizada
-      MYSQL_DATABASE: bae-database        # Nombre de la base de datos
-      MYSQL_USER: bae-user                # Usuario normal
-      MYSQL_PASSWORD: bae-word            # Contraseña del usuario normal
+      MYSQL_ROOT_PASSWORD: bae           # Contraseña root personalizada
+      MYSQL_DATABASE: bae       # Nombre de la base de datos
+      MYSQL_USER: bae                    # Usuario normal
+      MYSQL_PASSWORD: bae                # Contraseña del usuario normal
     volumes:
-      - ./mysql_data:/var/lib/mysql       # Persistencia de datos en host
+      - mysql_data:/var/lib/mysql        # Persistencia de datos en volumen nombrado
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
     ports:
       - "3309:3306"                       # Puerto externo 3309 -> interno 3306
     networks:
@@ -24,10 +25,10 @@ services:
     depends_on:
       - db
     environment:
-      PMA_HOST: bae-db                    # Nombre del servicio MySQL
-      MYSQL_ROOT_PASSWORD: bae-pass       # Debe coincidir con MYSQL_ROOT_PASSWORD del servicio db
+      PMA_HOST: db
+      MYSQL_ROOT_PASSWORD: bae
     ports:
-      - "8099:80"                         # Puerto externo 8099 -> interno 80
+      - "8099:80"
     networks:
       - db-network
 
@@ -36,5 +37,5 @@ networks:
     driver: bridge
 
 volumes:
-  mysql_data:                             # Volumen con nombre para mejor gestión
+  mysql_data:
     driver: local
