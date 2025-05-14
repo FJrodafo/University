@@ -130,10 +130,10 @@ INSERT INTO Ventas (id, total, fecha, id_cliente, id_empleado) VALUES
         ```sql
         SELECT
             V.id AS id_venta,
-            C.nombre || ' ' || C.apellido1 || ' ' || IFNULL(C.apellido2, '') AS nombre_cliente,
-            E.nombre || ' ' || E.apellido1 || ' ' || IFNULL(E.apellido2, '') AS nombre_empleado,
             V.total AS total_venta,
-            V.fecha AS fecha_venta
+            V.fecha AS fecha_venta,
+            C.nombre || ' ' || C.apellido1 || ' ' || IFNULL(C.apellido2, '') AS nombre_cliente,
+            E.nombre || ' ' || E.apellido1 || ' ' || IFNULL(E.apellido2, '') AS nombre_empleado
         FROM Ventas V, Clientes C, Empleados E
         WHERE V.id_cliente = C.id
           AND V.id_empleado = E.id;
@@ -164,13 +164,14 @@ INSERT INTO Ventas (id, total, fecha, id_cliente, id_empleado) VALUES
     10. Ventas superiores a 2000€ con datos de clientes:
 
         ```sql
-        SELECT 
+        SELECT
             V.id AS id_venta,
             V.total AS total_venta,
             V.fecha AS fecha_venta,
             C.id AS id_cliente,
             C.nombre || ' ' || C.apellido1 || ' ' || IFNULL(C.apellido2, '') AS nombre_cliente,
-            C.ciudad AS ciudad_cliente
+            C.ciudad AS ciudad_cliente,
+            C.puntos_fidelidad AS puntos_fidelidad_cliente
         FROM Ventas V, Clientes C
         WHERE V.id_cliente = C.id
           AND V.total > 2000
@@ -179,7 +180,7 @@ INSERT INTO Ventas (id, total, fecha, id_cliente, id_empleado) VALUES
     11. Promedio de ventas por empleado:
 
         ```sql
-        SELECT 
+        SELECT
             E.id AS id_empleado,
             E.nombre || ' ' || E.apellido1 || ' ' || IFNULL(E.apellido2, '') AS nombre_empleado,
             AVG(V.total) AS promedio_ventas
@@ -190,9 +191,11 @@ INSERT INTO Ventas (id, total, fecha, id_cliente, id_empleado) VALUES
     12. Clientes que no han comprado:
 
         ```sql
-        SELECT 
+        SELECT
             C.id AS id_cliente,
-            C.nombre || ' ' || C.apellido1 || ' ' || IFNULL(C.apellido2, '') AS nombre_cliente
+            C.nombre || ' ' || C.apellido1 || ' ' || IFNULL(C.apellido2, '') AS nombre_cliente,
+            C.ciudad AS ciudad_cliente,
+            C.puntos_fidelidad AS puntos_fidelidad_cliente
         FROM Clientes C
         WHERE C.id NOT IN (
             SELECT V.id_cliente
@@ -203,14 +206,15 @@ INSERT INTO Ventas (id, total, fecha, id_cliente, id_empleado) VALUES
         ```
 3. Consultas multitabla (JOIN) (6 consultas - 1.8 puntos / 0.3 cada una)
 
-    13. Ventas con nombres de clientes ,empleados y total de ventas:
+    13. Ventas con nombres de clientes, empleados y total de ventas:
 
         ```sql
         SELECT
             V.id AS id_venta,
-            C.nombre AS cliente,
-            E.nombre AS empleado,
-            V.total AS total
+            V.total AS total_venta,
+            V.fecha AS fecha_venta,
+            C.nombre || ' ' || C.apellido1 || ' ' || IFNULL(C.apellido2, '') AS nombre_cliente,
+            E.nombre || ' ' || E.apellido1 || ' ' || IFNULL(E.apellido2, '') AS nombre_empleado
         FROM Ventas V
         JOIN Clientes C ON V.id_cliente = C.id
         JOIN Empleados E ON V.id_empleado = E.id;
@@ -218,50 +222,65 @@ INSERT INTO Ventas (id, total, fecha, id_cliente, id_empleado) VALUES
     14. Clientes que compraron en 2023:
 
         ```sql
-        SELECT C.nombre, C.apellido1
+        SELECT DISTINCT
+            C.id AS id_cliente,
+            C.nombre || ' ' || C.apellido1 || ' ' || IFNULL(C.apellido2, '') AS nombre_cliente
         FROM Ventas V
         JOIN Clientes C ON V.id_cliente = C.id
-        WHERE V.fecha REGEXP '2023'
-        GROUP BY C.nombre
-        ORDER BY C.nombre ASC;
+        WHERE V.fecha LIKE '2023-%'
+        ORDER BY C.id;
         ```
     15. Empleados que atendieron a clientes de Madrid:
 
         ```sql
-        SELECT E.nombre, E.apellido1
+        SELECT DISTINCT
+            E.id AS id_empleado,
+            E.nombre || ' ' || E.apellido1 || ' ' || IFNULL(E.apellido2, '') AS nombre_empleado
         FROM Ventas V
         JOIN Clientes C ON V.id_cliente = C.id
         JOIN Empleados E ON V.id_empleado = E.id
-        WHERE C.ciudad REGEXP 'Madrid'
-        GROUP BY E.nombre
-        ORDER BY E.nombre ASC;
+        WHERE C.ciudad = 'Madrid'
+        ORDER BY E.id;
         ```
     16. Ventas superiores a 2000€ con datos de clientes:
 
         ```sql
-        SELECT V.*, C.nombre, C.apellido1
+        SELECT
+            V.id AS id_venta,
+            V.total AS total_venta,
+            V.fecha AS fecha_venta,
+            C.id AS id_cliente,
+            C.nombre || ' ' || C.apellido1 || ' ' || IFNULL(C.apellido2, '') AS nombre_cliente,
+            C.ciudad AS ciudad_cliente,
+            C.puntos_fidelidad AS puntos_fidelidad_cliente
         FROM Ventas V
         JOIN Clientes C ON V.id_cliente = C.id
-        WHERE total > 2000;
+        WHERE V.total > 2000
+        ORDER BY V.id;
         ```
     17. Promedio de ventas por empleado:
 
         ```sql
-        SELECT E.nombre, AVG(V.total) AS promedio_ventas
+        SELECT
+            E.id AS id_empleado,
+            E.nombre || ' ' || E.apellido1 || ' ' || IFNULL(E.apellido2, '') AS nombre_empleado,
+            AVG(V.total) AS promedio_ventas
         FROM Ventas V
         JOIN Empleados E ON V.id_empleado = E.id
-        GROUP BY E.nombre
-        ORDER BY E.nombre ASC;
+        GROUP BY E.id;
         ```
     18. Clientes que no han comprado:
 
         ```sql
-        SELECT C.*
+        SELECT 
+            C.id AS id_cliente,
+            C.nombre || ' ' || C.apellido1 || ' ' || IFNULL(C.apellido2, '') AS nombre_cliente,
+            C.ciudad AS ciudad_cliente,
+            C.puntos_fidelidad AS puntos_fidelidad_cliente
         FROM Clientes C
-        WHERE C.id NOT IN (
-            SELECT V.id_cliente
-            FROM Ventas V
-        );
+        LEFT JOIN Ventas V ON C.id = V.id_cliente
+        WHERE V.id_cliente IS NULL
+        GROUP BY C.id;
         ```
 4. Consultas resumen (6 consultas - 2.4 puntos / 0.4 cada una)
 
