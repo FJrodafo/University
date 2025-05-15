@@ -6,7 +6,7 @@ Ejecuta el siguiente comando para iniciar los contenedores (Este comando iniciar
 docker compose up -d
 ```
 
-Accede a phpMyAdmin desde tu navegador web ingresando a https://localhost:8099
+Accede a phpMyAdmin desde tu navegador web ingresando a http://127.0.0.1:8099/
 
 Puedes iniciar sesión usando las credenciales root de MySQL que proporcionaste.
 
