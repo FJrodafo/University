@@ -6,15 +6,15 @@ services:
     container_name: mysql_container
     restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: bae           # Contraseña root personalizada
-      MYSQL_DATABASE: bae       # Nombre de la base de datos
-      MYSQL_USER: bae                    # Usuario normal
-      MYSQL_PASSWORD: bae                # Contraseña del usuario normal
+      MYSQL_ROOT_PASSWORD: bae # Contraseña root personalizada
+      MYSQL_DATABASE: bae # Nombre de la base de datos
+      MYSQL_USER: bae # Usuario normal
+      MYSQL_PASSWORD: bae # Contraseña del usuario normal
     volumes:
-      - mysql_data:/var/lib/mysql        # Persistencia de datos en volumen nombrado
+      - mysql_data:/var/lib/mysql # Persistencia de datos en volumen nombrado
       - ./init.sql:/docker-entrypoint-initdb.d/init.sql
     ports:
-      - "3309:3306"                       # Puerto externo 3309 -> interno 3306
+      - "3309:3306" # Puerto externo 3309 -> interno 3306
     networks:
       - db-network
 
