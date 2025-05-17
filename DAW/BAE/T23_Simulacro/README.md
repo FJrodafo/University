@@ -275,21 +275,21 @@ INSERT INTO Ventas (id, id_cliente, id_producto, fecha, cantidad) VALUES
         ```sql
         DELIMITER //
         
-        CREATE PROCEDURE resumen_cliente_seguro(IN cliente_id INT)
+        CREATE PROCEDURE resumen_cliente_seguro(IN id_cliente INT)
         BEGIN
-            IF NOT EXISTS (SELECT 1 FROM Clientes WHERE id = cliente_id) THEN
+            IF NOT EXISTS (SELECT 1 FROM Clientes WHERE id = id_cliente) THEN
                 SELECT 'Cliente no existe' AS mensaje;
             ELSE
                 SELECT 
-                    CONCAT(c.nombre, ' ', c.apellido) AS nombre_completo_cliente,
-                    p.nombre AS nombre_producto,
-                    v.fecha AS fecha_venta,
-                    v.cantidad AS cantidad_venta,
-                    calcular_total(p.precio, v.cantidad) AS total_venta
-                FROM Ventas v
-                JOIN Clientes c ON v.id_cliente = c.id
-                JOIN Productos p ON v.id_producto = p.id
-                WHERE c.id = cliente_id;
+                    CONCAT(C.nombre, ' ', C.apellido) AS nombre_completo_cliente,
+                    P.nombre AS nombre_producto,
+                    V.fecha AS fecha_venta,
+                    V.cantidad AS cantidad_venta,
+                    calcular_total(P.precio, V.cantidad) AS total_venta
+                FROM Ventas V
+                JOIN Clientes C ON V.id_cliente = C.id
+                JOIN Productos P ON V.id_producto = P.id
+                WHERE C.id = id_cliente;
             END IF;
         END //
         
