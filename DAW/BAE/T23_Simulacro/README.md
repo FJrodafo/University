@@ -295,3 +295,6 @@ INSERT INTO Ventas (id, id_cliente, id_producto, fecha, cantidad) VALUES
         
         DELIMITER ;
         ```
+
+<link rel="stylesheet" href="./../../../README.css">
+<a class="scrollup" href="#top">&#x1F53C</a>
