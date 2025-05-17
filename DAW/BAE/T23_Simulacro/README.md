@@ -60,16 +60,29 @@ INSERT INTO Ventas (id, id_cliente, id_producto, fecha, cantidad) VALUES
 
 1. Crea los siguientes índices, muestra su rendimiento y explica si son óptimos y por qué:
 
-    1. **idx_ciudad** sobre la tabla "Clientes" y el campo "ciudad".
+    1. **idx_ciudad** sobre la tabla "Clientes" y el campo "ciudad":
 
+        ```sql
+        CREATE INDEX idx_ciudad ON Clientes(ciudad);
         ```
-        
-        ```
-    2. **idx_fecha** sobre la tabla "Ventas" y el campo "fecha".
 
+        Este índice mejora el rendimiento en consultas que filtran por ciudad:
+
+        ```sql
+        SELECT * FROM Clientes WHERE ciudad = 'La Orotava';
         ```
-        
+    2. **idx_fecha** sobre la tabla "Ventas" y el campo "fecha":
+
+        ```sql
+        CREATE INDEX idx_fecha ON Ventas(fecha);
         ```
+
+        Útil en reportes por fecha o rangos de tiempo:
+
+        ```sql
+        SELECT * FROM Ventas WHERE fecha BETWEEN '2024-05-01' AND '2024-05-31';
+        ```
+    Ambos índices son óptimos si las columnas son frecuentemente usadas en cláusulas `WHERE`, `ORDER BY` o `JOIN`.
 2. Obtén, a través de una vista, la siguiente información detallada de cada venta:
 
     1. ID de la venta.
@@ -91,6 +104,20 @@ INSERT INTO Ventas (id, id_cliente, id_producto, fecha, cantidad) VALUES
     > [!NOTE]
     > 
     > Una vista es una **consulta sql** encapsulada en una tabla ficticia.
+
+    ```sql
+    CREATE VIEW vista_resumen_ventas AS
+    SELECT 
+        V.id AS id_venta,
+        CONCAT(C.nombre, ' ', C.apellido) AS nombre_completo_cliente,
+        P.nombre AS nombre_producto,
+        V.fecha AS fecha_venta,
+        V.cantidad AS cantidad_venta,
+        P.precio * V.cantidad AS total_venta
+    FROM Ventas V
+    JOIN Clientes C ON V.id_cliente = C.id
+    JOIN Productos P ON V.id_producto = P.id;
+    ```
 3. Crea una *función almacenada* en MySQL llamada "calcular_total" que reciba los siguientes parámetros:
 
     1. **precio**: un valor decimal con dos decimales que representa el precio del producto.
@@ -99,13 +126,26 @@ INSERT INTO Ventas (id, id_cliente, id_producto, fecha, cantidad) VALUES
     La función debe devolver el resultado de multiplicar ambos valores, es decir, el **total a pagar** por esa línea de venta.
 
     ```sql
+    DELIMITER //
+    
+    CREATE FUNCTION calcular_total(precio DECIMAL(10,2), cantidad INT)
+    RETURNS DECIMAL(10,2)
+    DETERMINISTIC
+    BEGIN
+        RETURN precio * cantidad;
+    END //
+    
+    DELIMITER ;
+    ```
+
+    ```sql
     SELECT calcular_total(1200.00, 2);
     ```
 
     | calcular_total(1200.00, 2) |
     | :------------------------: |
     | 2400.00                    |
-4. Crea un *procedimiento* llamado "resumen_cliente" que reciba como parámetro el ID de un cliente ("cliente_id"), y que devuelva el historial de ventas de dicho cliente.
+4. Crea un *procedimiento* llamado "resumen_cliente" que reciba como parámetro el ID de un cliente ("id_cliente"), y que devuelva el historial de ventas de dicho cliente.
 
     El procedimiento debe mostrar los siguientes datos por cada venta realizada por ese cliente:
 
@@ -120,6 +160,26 @@ INSERT INTO Ventas (id, id_cliente, id_producto, fecha, cantidad) VALUES
     > Puedes reutilizar una función existente como "calcular_total" o calcular el total directamente en la consulta.
 
     ```sql
+    DELIMITER //
+    
+    CREATE PROCEDURE resumen_cliente(IN id_cliente INT)
+    BEGIN
+        SELECT 
+            CONCAT(C.nombre, ' ', C.apellido) AS nombre_completo_cliente,
+            P.nombre AS nombre_producto,
+            V.fecha AS fecha_venta,
+            V.cantidad AS cantidad_venta,
+            calcular_total(P.precio, V.cantidad) AS total_venta
+        FROM Ventas V
+        JOIN Clientes C ON V.id_cliente = C.id
+        JOIN Productos P ON V.id_producto = P.id
+        WHERE C.id = id_cliente;
+    END //
+    
+    DELIMITER ;
+    ```
+
+    ```sql
     CALL resumen_cliente(1);
     ```
 
@@ -131,53 +191,107 @@ INSERT INTO Ventas (id, id_cliente, id_producto, fecha, cantidad) VALUES
 
     1. ¿Qué ventajas ofrece el uso de una vista en lugar de una consulta con múltiples `JOIN`?
 
-        ```
-        
+        ```txt
+        Reutilización de lógica SQL compleja, simplificación de consultas frecuentes y mejora de seguridad al ocultar tablas reales.
         ```
     2. ¿Por qué es importante declarar una función como `DETERMINISTIC`?
 
-        ```
-        
+        ```txt
+        Indica que la función devuelve siempre el mismo resultado para los mismos parámetros. Esto ayuda al optimizador de MySQL a mejorar el rendimiento y permite el uso en índices o vistas.
         ```
     3. ¿Cuál es la diferencia entre una función y un procedimiento?
 
-        ```
-        
+        ```txt
+        Una función devuelve un valor y se usa en consultas, mientras que un procedimiento ejecuta acciones, puede retornar múltiples resultados y no siempre retorna un valor.
         ```
     4. ¿Qué impacto tienen los índices sobre el rendimiento de una base de datos?
 
-        ```
-        
+        ```txt
+        Aceleran búsquedas y filtrados pero pueden ralentizar inserciones y actualizaciones.
         ```
     5. ¿Cuándo se recomienda usar un trigger en lugar de un procedimiento?
 
-        ```
-        
+        ```txt
+        Cuando se requiere lógica automática tras una operación (INSERT, UPDATE, DELETE). Es útil para auditorías, validaciones y actualizaciones encadenadas.
         ```
 6. Preguntas prácticas:
 
-    1. Modifica el procedimiento para filtrar también por un rango de fechas.
+    1. Modifica el procedimiento para filtrar también por un rango de fechas:
 
-        ```
+        ```sql
+        DELIMITER //
         
+        CREATE PROCEDURE resumen_cliente_fecha(
+            IN id_cliente INT,
+            IN fecha_inicio DATE,
+            IN fecha_fin DATE
+        )
+        BEGIN
+            SELECT 
+                CONCAT(C.nombre, ' ', C.apellido) AS nombre_completo_cliente,
+                P.nombre AS nombre_producto,
+                V.fecha AS fecha_venta,
+                V.cantidad AS cantidad_venta,
+                calcular_total(P.precio, V.cantidad) AS total_venta
+            FROM Ventas V
+            JOIN Clientes C ON V.id_cliente = C.id
+            JOIN Productos P ON V.id_producto = P.id
+            WHERE C.id = id_cliente
+              AND V.fecha BETWEEN fecha_inicio AND fecha_fin;
+        END //
+        
+        DELIMITER ;
         ```
-    2. Crea un índice sobre la columna `producto_id` en la tabla `ventas`.
+    2. Crea un índice sobre la columna "id_producto" en la tabla "Ventas":
 
+        ```sql
+        CREATE INDEX idx_id_producto ON Ventas(id_producto);
         ```
-        
-        ```
-    3. ¿Qué ocurre si insertas una venta con un `cliente_id` inexistente?
+    3. ¿Qué ocurre si insertas una venta con un "id_cliente" inexistente?
 
-        ```
+        ```txt
+        Ocurrirá un error por violar la restricción FOREIGN KEY
         
+        ERROR 1452: Cannot add or update a child row: a foreign key constraint fails
         ```
-    4. Modifica la vista para incluir también el nombre de la ciudad del cliente.
+    4. Modifica la vista para incluir también el nombre de la ciudad del cliente:
 
+        ```sql
+        CREATE OR REPLACE VIEW vista_resumen_ventas AS
+        SELECT 
+            V.id AS id_venta,
+            CONCAT(C.nombre, ' ', C.apellido) AS nombre_completo_cliente,
+            C.ciudad AS ciudad_cliente,
+            P.nombre AS nombre_producto,
+            V.fecha AS fecha_venta,
+            V.cantidad AS cantidad_venta,
+            P.precio * V.cantidad AS total_venta
+        FROM Ventas V
+        JOIN Clientes C ON V.id_cliente = C.id
+        JOIN Productos P ON V.id_producto = P.id;
         ```
-        
-        ```
-    5. Agrega una validación en el procedimiento para evitar resultados si el cliente no existe.
+    5. Agrega una validación en el procedimiento para evitar resultados si el cliente no existe:
 
-        ```
+        ```sql
+        DELIMITER //
         
+        CREATE PROCEDURE resumen_cliente_seguro(IN cliente_id INT)
+        BEGIN
+            IF NOT EXISTS (SELECT 1 FROM Clientes WHERE id = cliente_id) THEN
+                SELECT 'Cliente no existe' AS mensaje;
+            ELSE
+                SELECT 
+                    CONCAT(c.nombre, ' ', c.apellido) AS nombre_completo_cliente,
+                    p.nombre AS nombre_producto,
+                    v.fecha AS fecha_venta,
+                    v.cantidad AS cantidad_venta,
+                    calcular_total(p.precio, v.cantidad) AS total_venta
+                FROM Ventas v
+                JOIN Clientes c ON v.id_cliente = c.id
+                JOIN Productos p ON v.id_producto = p.id
+                WHERE c.id = cliente_id;
+            END IF;
+        END //
+        
+        DELIMITER ;
         ```
