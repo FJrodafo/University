@@ -127,7 +127,7 @@ INSERT INTO Ventas (id, id_cliente, id_producto, fecha, cantidad) VALUES
 
     ```sql
     DELIMITER //
-    
+    DROP FUNCTION IF EXISTS calcular_total//
     CREATE FUNCTION calcular_total(precio DECIMAL(10,2), cantidad INT)
     RETURNS DECIMAL(10,2)
     DETERMINISTIC
@@ -136,9 +136,6 @@ INSERT INTO Ventas (id, id_cliente, id_producto, fecha, cantidad) VALUES
     END //
     
     DELIMITER ;
-    ```
-
-    ```sql
     SELECT calcular_total(1200.00, 2);
     ```
 
@@ -161,8 +158,8 @@ INSERT INTO Ventas (id, id_cliente, id_producto, fecha, cantidad) VALUES
 
     ```sql
     DELIMITER //
-    
-    CREATE PROCEDURE resumen_cliente(IN id_cliente INT)
+    DROP PROCEDURE IF EXISTS resumen_cliente//
+    CREATE PROCEDURE resumen_cliente(IN param_id_cliente INT)
     BEGIN
         SELECT 
             CONCAT(C.nombre, ' ', C.apellido) AS nombre_completo_cliente,
@@ -173,13 +170,10 @@ INSERT INTO Ventas (id, id_cliente, id_producto, fecha, cantidad) VALUES
         FROM Ventas V
         JOIN Clientes C ON V.id_cliente = C.id
         JOIN Productos P ON V.id_producto = P.id
-        WHERE C.id = id_cliente;
+        WHERE C.id = param_id_cliente;
     END //
     
     DELIMITER ;
-    ```
-
-    ```sql
     CALL resumen_cliente(1);
     ```
 
