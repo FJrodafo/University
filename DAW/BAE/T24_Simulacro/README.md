@@ -157,27 +157,32 @@ Contraseña: bae
         1. Obtener todos los cursos disponibles:
 
             ```sql
-            
+            SELECT *
+            FROM Cursos;
             ```
         2. Obtener el nombre de todos los profesores:
 
             ```sql
-            
+            SELECT nombre
+            FROM Profesores;
             ```
         3. Obtener todas las matrículas:
 
             ```sql
-            
+            SELECT *
+            FROM Matriculas;
             ```
         4. Obtener los nombres y correos de los estudiantes:
 
             ```sql
-            
+            SELECT nombre, email
+            FROM Estudiantes;
             ```
         5. Obtener los cursos y su número de créditos:
 
             ```sql
-            
+            SELECT nombre, creditos
+            FROM Cursos;
             ```
     2. Consultas `WHERE`
 
