@@ -189,27 +189,47 @@ Contraseña: bae
         1. Obtener los cursos impartidos por profesores del departamento de informática:
 
             ```sql
-            
+            SELECT
+                C.nombre AS nombre_curso,
+                C.creditos,
+                P.nombre AS nombre_profesor,
+                P.departamento
+            FROM Cursos C, Profesores P
+            WHERE C.id_profesor = P.id
+              AND P.departamento = 'Matemáticas';
             ```
         2. Obtener los estudiantes que viven en Madrid:
 
             ```sql
-            
+            SELECT *
+            FROM Estudiantes
+            WHERE Ciudad = 'Madrid';
             ```
         3. Obtener los cursos con más de 5 créditos:
 
             ```sql
-            
+            SELECT *
+            FROM Cursos
+            WHERE Creditos > 5;
             ```
         4. Obtener las matrículas realizadas después del año 2022:
 
             ```sql
-            
+            SELECT *
+            FROM Matriculas
+            WHERE fecha > '2022-12-31';
             ```
         5. Obtener los cursos impartidos por la profesora "Dra. Ana Torres":
 
             ```sql
-            
+            SELECT
+                C.nombre AS nombre_curso,
+                C.creditos,
+                P.nombre AS nombre_profesor,
+                P.departamento
+            FROM Cursos C, Profesores P
+            WHERE C.id_profesor = P.id
+              AND P.nombre = 'Dra. Ana Torres';
             ```
     3. Consultas `JOIN`
 
