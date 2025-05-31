@@ -150,7 +150,7 @@ Usuario: bae
 Contraseña: bae
 ```
 
-1. Consultas SQL
+1. Consultas
 
     1. Consultas simples
 
@@ -299,24 +299,7 @@ Contraseña: bae
         ```sql
         
         ```
-4. Procedimiento almacenado
-
-    1. Crear un procedimiento llamado "cursos_por_profesor" que reciba el nombre del profesor como parámetro y devuelva los cursos que imparte y su número de créditos:
-
-        ```sql
-        
-        ```
-    2. Ejecutar el procedimiento con el nombre "Dr. Luis Gómez":
-
-        ```sql
-        
-        ```
-    3. Eliminar el procedimiento:
-
-        ```sql
-        
-        ```
-5. Función
+4. Funciones
 
     1. Crear una función llamada "total_creditos_estudiante" que reciba el ID de un estudiante y devuelva el total de créditos que ha matriculado:
 
@@ -329,6 +312,23 @@ Contraseña: bae
         
         ```
     3. Eliminar la función:
+
+        ```sql
+        
+        ```
+5. Procedimientos
+
+    1. Crear un procedimiento llamado "cursos_por_profesor" que reciba el nombre del profesor como parámetro y devuelva los cursos que imparte y su número de créditos:
+
+        ```sql
+        
+        ```
+    2. Ejecutar el procedimiento con el nombre "Dr. Luis Gómez":
+
+        ```sql
+        
+        ```
+    3. Eliminar el procedimiento:
 
         ```sql
         
