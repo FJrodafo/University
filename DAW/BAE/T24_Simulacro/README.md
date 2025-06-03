@@ -429,17 +429,28 @@ Contraseña: bae
     1. Crear un procedimiento llamado "cursos_por_profesor" que reciba el nombre del profesor como parámetro y devuelva los cursos que imparte y su número de créditos:
 
         ```sql
-        
+        DELIMITER //
+        DROP PROCEDURE IF EXISTS cursos_por_profesor//
+        CREATE PROCEDURE cursos_por_profesor(IN param_nombre_profesor VARCHAR(100))
+        BEGIN
+            SELECT
+                C.nombre AS nombre_curso,
+                C.creditos
+            FROM Cursos C
+            JOIN Profesores P ON C.id_profesor = P.id
+            WHERE P.nombre = param_nombre_profesor;
+        END//
+        DELIMITER ;
         ```
     2. Ejecutar el procedimiento con el nombre "Dr. Luis Gómez":
 
         ```sql
-        
+        CALL cursos_por_profesor('Dr. Luis Gómez');
         ```
     3. Eliminar el procedimiento:
 
         ```sql
-        
+        DROP PROCEDURE IF EXISTS cursos_por_profesor;
         ```
 
 <link rel="stylesheet" href="./../../../README.css">
