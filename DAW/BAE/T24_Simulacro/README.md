@@ -397,17 +397,32 @@ Contraseña: bae
     1. Crear una función llamada "total_creditos_estudiante" que reciba el ID de un estudiante y devuelva el total de créditos que ha matriculado:
 
         ```sql
+        DELIMITER //
+        DROP FUNCTION IF EXISTS total_creditos_estudiante//
+        CREATE FUNCTION total_creditos_estudiante(param_id_estudiante INT)
+        RETURNS INT
+        DETERMINISTIC
+        BEGIN
+            DECLARE total INT;
         
+            SELECT SUM(C.creditos) INTO total
+            FROM Matriculas M
+            JOIN Cursos C ON M.id_curso = C.id
+            WHERE M.id_estudiante = param_id_estudiante;
+        
+            RETURN IFNULL(total, 0);
+        END//
         ```
     2. Ejecutar la función para un estudiante específico:
 
         ```sql
-        
+        DELIMITER ;
+        SELECT total_creditos_estudiante(1) AS creditos_totales;
         ```
     3. Eliminar la función:
 
         ```sql
-        
+        DROP FUNCTION IF EXISTS total_creditos_estudiante;
         ```
 5. Procedimientos
 
