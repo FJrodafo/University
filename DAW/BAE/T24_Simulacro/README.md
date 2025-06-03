@@ -203,14 +203,14 @@ Contraseña: bae
             ```sql
             SELECT *
             FROM Estudiantes
-            WHERE Ciudad = 'Madrid';
+            WHERE ciudad = 'Madrid';
             ```
         3. Obtener los cursos con más de 5 créditos:
 
             ```sql
             SELECT *
             FROM Cursos
-            WHERE Creditos > 5;
+            WHERE creditos > 5;
             ```
         4. Obtener las matrículas realizadas después del año 2022:
 
@@ -250,14 +250,14 @@ Contraseña: bae
             ```sql
             SELECT *
             FROM Estudiantes
-            WHERE Ciudad = 'Madrid';
+            WHERE ciudad = 'Madrid';
             ```
         3. Obtener los cursos con más de 5 créditos:
 
             ```sql
             SELECT *
             FROM Cursos
-            WHERE Creditos > 5;
+            WHERE creditos > 5;
             ```
         4. Obtener las matrículas realizadas después del año 2022:
 
