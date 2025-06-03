@@ -339,22 +339,30 @@ Contraseña: bae
     1. Crear un índice en la columna "ciudad" de la tabla "Estudiantes":
 
         ```sql
-        
+        CREATE INDEX idx_ciudad ON Estudiantes(ciudad);
         ```
     2. Crear un índice en la columna "departamento" de la tabla "Profesores":
 
         ```sql
-        
+        CREATE INDEX idx_departamento ON Profesores(departamento);
         ```
     3. Obtener los índices creados:
 
         ```sql
-        
+        SHOW INDEX FROM Estudiantes;
+        ```
+
+        ```sql
+        SHOW INDEX FROM Profesores;
         ```
     4. Eliminar los índices creados:
 
         ```sql
-        
+        DROP INDEX idx_ciudad ON Estudiantes;
+        ```
+
+        ```sql
+        DROP INDEX idx_departamento ON Profesores;
         ```
 3. Vistas
 
