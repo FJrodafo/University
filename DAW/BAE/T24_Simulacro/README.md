@@ -366,20 +366,31 @@ Contraseña: bae
         ```
 3. Vistas
 
-    1. Crear una vista llamada "vista_matriculas_completas" que muestre el nombre, curso y fecha de la matrícula del estudiante:
+    1. Crear una vista llamada "vista_matriculas_completas" que muestre el nombre, curso y fecha de la matrícula de cada estudiante:
 
         ```sql
-        
+        CREATE VIEW vista_matriculas_completas AS
+        SELECT
+            E.nombre AS nombre_estudiante,
+            C.nombre AS nombre_curso,
+            M.fecha AS fecha_matricula
+        FROM Matriculas M
+        JOIN Estudiantes E ON M.id_estudiante = E.id
+        JOIN Cursos C ON M.id_curso = C.id;
+
         ```
-    2. Obtener datos desde la vista mostrando el nombre y la fecha de la matrícula del estudiante:
+    2. Obtener datos desde la vista mostrando el nombre y la fecha de la matrícula de cada estudiante:
 
         ```sql
-        
+        SELECT
+            nombre_estudiante,
+            fecha_matricula
+        FROM vista_matriculas_completas;
         ```
     3. Eliminar la vista:
 
         ```sql
-        
+        DROP VIEW IF EXISTS vista_matriculas_completas;
         ```
 4. Funciones
 
