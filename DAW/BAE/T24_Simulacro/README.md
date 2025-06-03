@@ -412,11 +412,11 @@ Contraseña: bae
         
             RETURN IFNULL(total, 0);
         END//
+        DELIMITER ;
         ```
     2. Ejecutar la función para un estudiante específico:
 
         ```sql
-        DELIMITER ;
         SELECT total_creditos_estudiante(1) AS creditos_totales;
         ```
     3. Eliminar la función:
