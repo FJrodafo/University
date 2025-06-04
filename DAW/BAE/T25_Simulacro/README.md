@@ -375,17 +375,27 @@ Contraseña: bae
     1. Crear una vista llamada "resumen_matriculas" que muestra el nombre del estudiante, nombre del curso, nombre del profesor y la fecha de matrícula:
 
         ```sql
-        
+        CREATE VIEW resumen_matriculas AS
+        SELECT
+            E.nombre AS nombre_estudiante,
+            C.nombre AS nombre_curso,
+            P.nombre AS nombre_profesor,
+            M.fecha AS fecha_matricula
+        FROM Matriculas M
+        JOIN Estudiantes E ON M.id_estudiante = E.id
+        JOIN Cursos C ON M.id_curso = C.id
+        JOIN Profesores P ON C.id_profesor = P.id;
         ```
     2. Consultar los datos desde la vista mostrando el nombre del estudiante y el curso:
 
         ```sql
-        
+        SELECT nombre_estudiante, nombre_curso
+        FROM resumen_matriculas;
         ```
     3. Eliminar la vista:
 
         ```sql
-        
+        DROP VIEW IF EXISTS resumen_matriculas;
         ```
 4. Funciones
 
