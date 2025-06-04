@@ -155,102 +155,194 @@ Contraseña: bae
     1. Obtener el contenido de la tabla "Estudiantes":
 
         ```sql
-        
+        SELECT *
+        FROM Estudiantes;
         ```
     2. Obtener el contenido de la tabla "Profesores":
 
         ```sql
-        
+        SELECT *
+        FROM Profesores;
         ```
     3. Obtener el contenido de la tabla "Cursos":
 
         ```sql
-        
+        SELECT *
+        FROM Cursos;
         ```
     4. Obtener el contenido de la tabla "Matriculas":
 
         ```sql
-        
+        SELECT *
+        FROM Matriculas;
         ```
     5. Obtener cada estudiante con la cantidad de cursos en los que está matriculado:
 
         ```sql
-        
+        SELECT
+            E.nombre AS nombre_estudiante,
+            COUNT(M.id_curso) AS cantidad_cursos
+        FROM Matriculas M
+        JOIN Estudiantes E ON M.id_estudiante = E.id
+        GROUP BY E.id, E.nombre;
         ```
     6. Obtener cada estudiante con el total de créditos acumulados:
 
         ```sql
-        
+        SELECT
+            E.nombre AS nombre_estudiante,
+            IFNULL(SUM(C.creditos), 0) AS total_creditos
+        FROM Matriculas M
+        JOIN Estudiantes E ON M.id_estudiante = E.id
+        JOIN Cursos C ON M.id_curso = C.id
+        GROUP BY E.id, E.nombre;
         ```
     7. Obtener los cursos con la cantidad de estudiantes matriculados ordenados de mayor a menor:
 
         ```sql
-        
+        SELECT
+            C.nombre AS nombre_curso,
+            COUNT(M.id_estudiante) AS cantidad_estudiantes_matriculados
+        FROM Matriculas M
+        JOIN Cursos C ON M.id_curso = C.id
+        GROUP BY C.id, C.nombre
+        ORDER BY cantidad_estudiantes_matriculados DESC;
         ```
     8. Obtener la media de créditos por curso:
 
         ```sql
-        
+        SELECT AVG(creditos) AS media_creditos
+        FROM Cursos;
         ```
     9. Obtener los cursos que no tienen estudiantes matriculados:
 
         ```sql
-        
+        SELECT C.*
+        FROM Matriculas M
+        JOIN Cursos C ON M.id_curso = C.id
+        WHERE M.id IS NULL;
         ```
     10. Obtener el nombre del profesor y cuántos cursos imparte:
 
         ```sql
-        
+        SELECT
+            P.nombre AS nombre_profesor,
+            COUNT(C.id) AS cantidad_cursos
+        FROM Cursos C
+        JOIN Profesores P ON C.id_profesor = P.id
+        GROUP BY P.id, P.nombre;
         ```
     11. Obtener los profesores que no imparten ningún curso:
 
         ```sql
-        
+        SELECT P.*
+        FROM Cursos C
+        JOIN Profesores P ON C.id_profesor = P.id
+        WHERE C.id IS NULL;
         ```
     12. Obtener la ciudad con mayor número de estudiantes registrados:
 
         ```sql
-        
+        SELECT
+            ciudad,
+            COUNT(*) AS cantidad_estudiantes_registrados
+        FROM Estudiantes
+        GROUP BY ciudad
+        ORDER BY cantidad_estudiantes_registrados DESC
+        LIMIT 1;
         ```
-    13. Obtener los estudinates matriculados en más de 1 curso:
+    13. Obtener los estudiantes matriculados en más de 1 curso:
 
         ```sql
-        
+        SELECT
+            E.nombre AS nombre_estudiante,
+            COUNT(M.id_curso) AS cantidad_cursos
+        FROM Matriculas M
+        JOIN Estudiantes E ON M.id_estudiante = E.id
+        GROUP BY E.id, E.nombre
+        HAVING COUNT(M.id_curso) > 1;
         ```
     14. Obtener los cursos junto a su clasificación según créditos (6 créditos o más: "Carga alta", menos de 6 créditos: "Carga baja"):
 
         ```sql
-        
+        SELECT
+            nombre AS nombre_curso,
+            creditos,
+            CASE
+                WHEN creditos >= 6 THEN 'Carga alta'
+                ELSE 'Carga baja'
+            END AS clasificacion_creditos
+        FROM Cursos;
         ```
-    15. Obtener los estudiantes y clasificar su carga académica (Más de 12 créditos: "Carga alta", entre 6 y 12 créditos: "Carga media", menos de 6 créditos: "Carga baja"):
+    15. Obtener los estudiantes y clasificar su carga académica (12 créditos o más: "Carga alta", entre 6 y 12 créditos: "Carga media", menos de 6 créditos: "Carga baja"):
 
         ```sql
-        
+        SELECT
+            E.nombre AS nombre_estudiante,
+            IFNULL(SUM(C.creditos), 0) AS total_creditos,
+            CASE
+                WHEN IFNULL(SUM(C.creditos), 0) >= 12 THEN 'Carga alta'
+                WHEN IFNULL(SUM(C.creditos), 0) BETWEEN 6 AND 12 THEN 'Carga media'
+                ELSE 'Carga baja'
+            END AS clasificacion_creditos
+        FROM Matriculas M
+        JOIN Estudiantes E ON M.id_estudiante = E.id
+        JOIN Cursos C ON M.id_curso = C.id
+        GROUP BY E.id, E.nombre;
         ```
     16. Obtener los cursos en los que se haya matriculado al menos un estudiante de Sevilla:
 
         ```sql
-        
+        SELECT DISTINCT
+            C.nombre AS nombre_curso
+        FROM Matriculas M
+        JOIN Cursos C ON M.id_curso = C.id
+        JOIN Estudiantes E ON M.id_estudiante = E.id
+        WHERE E.ciudad = 'Sevilla';
         ```
     17. Obtener los cursos impartidos por profesores del departamento de matemáticas:
 
         ```sql
-        
+        SELECT
+            C.nombre AS nombre_curso,
+            C.creditos
+        FROM Cursos C
+        JOIN Profesores P ON C.id_profesor = P.id
+        WHERE P.departamento = 'Matemáticas';
         ```
     18. Obtener los cursos en los que se haya matriculado algún estudiante antes del año 2022:
 
         ```sql
-        
+        SELECT DISTINCT
+            C.nombre AS nombre_curso,
+            C.creditos
+        FROM Matriculas M
+        JOIN Cursos C ON M.id_curso = C.id
+        WHERE M.fecha < '2022-01-01';
         ```
     19. Obtener los estudiantes que han cursado materias impartidas por el profesor "Dr. Luis Gómez":
 
         ```sql
-        
+        SELECT DISTINCT
+            E.nombre AS nombre_estudiante,
+            E.email,
+            E.ciudad
+        FROM Matriculas M
+        JOIN Estudiantes E ON M.id_estudiante = E.id
+        JOIN Cursos C ON M.id_curso = C.id
+        JOIN Profesores P ON C.id_profesor = P.id
+        WHERE P.nombre = 'Dr. Luis Gómez';
         ```
     20. Mostrar los cursos más recientes (última matrícula por curso):
 
         ```sql
-        
+        SELECT
+            C.nombre AS nombre_curso,
+            MAX(M.fecha) AS fecha_ultima_matricula
+        FROM Matriculas M
+        JOIN Cursos C ON M.id_curso = C.id
+        GROUP BY C.id, C.nombre
+        ORDER BY fecha_ultima_matricula DESC;
         ```
 2. Índices
 
