@@ -349,22 +349,26 @@ Contraseña: bae
     1. Crear un índice en la columna "fecha" de la tabla "Matriculas":
 
         ```sql
-        
+        CREATE INDEX idx_fecha_matricula ON Matriculas(fecha);
         ```
     2. Crear un índice compuesto en la tabla "Matriculas" sobre "id_estudiante" e "id_curso":
 
         ```sql
-        
+        CREATE INDEX idx_estudiante_curso ON Matriculas(id_estudiante, id_curso);
         ```
     3. Consultar los índices de la tabla "Matriculas":
 
         ```sql
-        
+        SHOW INDEX FROM Matriculas;
         ```
     4. Eliminar ambos índices:
 
         ```sql
-        
+        DROP INDEX IF EXISTS idx_fecha_matricula ON Matriculas;
+        ```
+
+        ```sql
+        DROP INDEX IF EXISTS idx_estudiante_curso ON Matriculas;
         ```
 3. Vistas
 
