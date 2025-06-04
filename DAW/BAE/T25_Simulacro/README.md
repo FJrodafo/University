@@ -399,10 +399,39 @@ Contraseña: bae
         ```
 4. Funciones
 
-    1. Crear una función llamada "promedio_creditos_por_anio" que reciba un año como parámetro y devuelva el promedio de créditos matriculados por estudiante ese año. Ejecuta la función para el año 2023. Para finalizar elimina la función:
+    1. Crear una función llamada "promedio_creditos_por_anio" que reciba un año como parámetro y devuelva el promedio de créditos matriculados por estudiante ese año:
 
         ```sql
-        
+        DELIMITER //
+        DROP FUNCTION IF EXISTS promedio_creditos_por_anio//
+        CREATE FUNCTION promedio_creditos_por_anio(anio_param INT)
+        RETURNS DECIMAL(5,2)
+        DETERMINISTIC
+        BEGIN
+            DECLARE promedio DECIMAL(5,2);
+            
+            SELECT AVG(sub.total_creditos) INTO promedio
+            FROM (
+                SELECT M.id_estudiante, SUM(C.creditos) AS total_creditos
+                FROM Matriculas M
+                JOIN Cursos C ON M.id_curso = C.id
+                WHERE YEAR(M.fecha) = anio_param
+                GROUP BY M.id_estudiante
+            ) AS sub;
+            
+            RETURN IFNULL(promedio, 0);
+        END//
+        DELIMITER ;
+        ```
+    2. Ejecuta la función para el año 2023:
+
+        ```sql
+        SELECT promedio_creditos_por_anio(2023);
+        ```
+    3. Elimina la función:
+
+        ```sql
+        DROP FUNCTION IF EXISTS promedio_creditos_por_anio;
         ```
 5. Procedimientos
 
