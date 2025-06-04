@@ -28,7 +28,7 @@ CREATE TABLE Cursos (
 );
 
 CREATE TABLE Matriculas (
-    id INT PRIMARY KEY,
+    id INT AUTO_INCREMENT PRIMARY KEY,
     id_estudiante INT,
     id_curso INT,
     fecha DATE,

@@ -76,7 +76,7 @@ CREATE TABLE Cursos (
 );
 
 CREATE TABLE Matriculas (
-    id INT PRIMARY KEY,
+    id INT AUTO_INCREMENT PRIMARY KEY,
     id_estudiante INT,
     id_curso INT,
     fecha DATE,
@@ -435,10 +435,42 @@ Contraseña: bae
         ```
 5. Procedimientos
 
-    1. Crear un procedimiento llamado "matricular_estudiante" que reciba el ID del estudiante, el ID del curso y la fecha de matriculación. Además el procedimiento debe verificar que el estudiante ya no esté matriculado en ese curso, si no lo está, agregarlo en la tabla "Matriculas", si ya lo está, lanzar un error. Ejecutar el procedimiento para matricular al estudiante con ID 1 en el curso con ID 2. Para finalizar elimina el procedimiento:
+    1. Crear un procedimiento llamado "matricular_estudiante" que reciba el ID del estudiante, el ID del curso y la fecha de matriculación. Además el procedimiento debe verificar que el estudiante ya no esté matriculado en ese curso, si no lo está, agregarlo en la tabla "Matriculas", si ya lo está, lanzar un error:
 
         ```sql
-        
+        DELIMITER //
+        DROP PROCEDURE IF EXISTS matricular_estudiante//
+        CREATE PROCEDURE matricular_estudiante(
+            IN param_id_estudiante INT,
+            IN param_id_curso INT,
+            IN param_fecha DATE
+        )
+        BEGIN
+            DECLARE existe INT;
+            
+            SELECT COUNT(*) INTO existe
+            FROM Matriculas
+            WHERE id_estudiante = param_id_estudiante AND id_curso = param_id_curso;
+            
+            IF existe > 0 THEN
+                SIGNAL SQLSTATE '45000'
+                SET MESSAGE_TEXT = 'El estudiante ya está matriculado en ese curso';
+            ELSE
+                INSERT INTO Matriculas(id_estudiante, id_curso, fecha)
+                VALUES (param_id_estudiante, param_id_curso, param_fecha);
+            END IF;
+        END//
+        DELIMITER ;
+        ```
+    2. Ejecutar el procedimiento para matricular al estudiante con ID 1 en el curso con ID 2:
+
+        ```sql
+        CALL matricular_estudiante(1, 2, '2025-06-04');
+        ```
+    3. Elimina el procedimiento:
+
+        ```sql
+        DROP PROCEDURE IF EXISTS matricular_estudiante;
         ```
 6. Triggers
 
