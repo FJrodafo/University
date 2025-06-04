@@ -404,22 +404,22 @@ Contraseña: bae
         ```sql
         DELIMITER //
         DROP FUNCTION IF EXISTS promedio_creditos_por_anio//
-        CREATE FUNCTION promedio_creditos_por_anio(anio_param INT)
+        CREATE FUNCTION promedio_creditos_por_anio(param_anio INT)
         RETURNS DECIMAL(5,2)
         DETERMINISTIC
         BEGIN
-            DECLARE promedio DECIMAL(5,2);
+            DECLARE promedio_creditos DECIMAL(5,2);
             
-            SELECT AVG(sub.total_creditos) INTO promedio
+            SELECT AVG(sub.total_creditos) INTO promedio_creditos
             FROM (
                 SELECT M.id_estudiante, SUM(C.creditos) AS total_creditos
                 FROM Matriculas M
                 JOIN Cursos C ON M.id_curso = C.id
-                WHERE YEAR(M.fecha) = anio_param
+                WHERE YEAR(M.fecha) = param_anio
                 GROUP BY M.id_estudiante
             ) AS sub;
             
-            RETURN IFNULL(promedio, 0);
+            RETURN IFNULL(promedio_creditos, 0);
         END//
         DELIMITER ;
         ```
