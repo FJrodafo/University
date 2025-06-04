@@ -474,25 +474,68 @@ Contraseña: bae
         ```
 6. Triggers
 
-    1. Crear una tabla llamada "Auditoria_matriculas" que registre el tipo de operación (INSERT), ID del estudiante, ID del curso, fecha y hora de la operación y usuario que realizó la acción:
+    1. Crear una tabla llamada "auditoria_matriculas" que registre el tipo de operación (INSERT), ID del estudiante, ID del curso, fecha y hora de la operación y usuario que realizó la acción:
 
         ```sql
-        
+        CREATE TABLE auditoria_matriculas (
+            id INT AUTO_INCREMENT PRIMARY KEY,
+            tipo_operacion VARCHAR(10),
+            id_estudiante INT,
+            id_curso INT,
+            fecha_operacion DATETIME,
+            usuario VARCHAR(100)
+        );
         ```
-    2. Crear un trigger que inserte un registro en la tabla "Auditoria_matriculas" al insertar un registro "AFTER INSERT" en la tabla "Matriculas":
+    2. Crear un trigger que inserte un registro en la tabla "auditoria_matriculas" al insertar un registro "AFTER INSERT" en la tabla "Matriculas":
 
         ```sql
-        
+        DELIMITER //
+        DROP TRIGGER IF EXISTS after_insert_matriculas//
+        CREATE TRIGGER after_insert_matriculas
+        AFTER INSERT ON Matriculas
+        FOR EACH ROW
+        BEGIN
+            INSERT INTO auditoria_matriculas (
+                tipo_operacion,
+                id_estudiante,
+                id_curso,
+                fecha_operacion,
+                usuario
+            )
+            VALUES (
+                'INSERT',
+                NEW.id_estudiante,
+                NEW.id_curso,
+                NOW(),
+                USER()
+            );
+        END//
+        DELIMITER ;
         ```
-    3. Consultar los registros de la auditoría:
+    3. Inserta algunos datos en la tabla "Matriculas":
 
         ```sql
-        
+        INSERT INTO Matriculas (id_estudiante, id_curso, fecha)
+        VALUES (1, 3, '2025-06-04');
         ```
-    4. Eliminar el trigger y la tabla de auditoría:
 
         ```sql
-        
+        INSERT INTO Matriculas (id_estudiante, id_curso, fecha)
+        VALUES (2, 1, '2025-06-04');
+        ```
+    4. Consultar los registros de la auditoría:
+
+        ```sql
+        SELECT * FROM auditoria_matriculas;
+        ```
+    5. Eliminar el trigger y la tabla de auditoría:
+
+        ```sql
+        DROP TRIGGER IF EXISTS after_insert_matriculas;
+        ```
+
+        ```sql
+        DROP TABLE IF EXISTS auditoria_matriculas;
         ```
 
 <link rel="stylesheet" href="./../../../README.css">
