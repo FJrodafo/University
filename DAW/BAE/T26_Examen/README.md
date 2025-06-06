@@ -631,7 +631,7 @@ Contraseña: bae
         ```
 3. Vistas
 
-    1. Crear una vista llamada Vista_visitas_completas con: nombre de la mascota, cliente, veterinario, fecha y motivo:
+    1. Crear una vista "Vista_visitas_completas" con: nombre de la mascota, cliente, veterinario, fecha y motivo:
 
         ```sql
         CREATE VIEW Vista_visitas_completas AS
