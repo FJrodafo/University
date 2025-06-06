@@ -143,7 +143,7 @@ USE Universidad;
 
 También se puede acceder a través de un navegador. Para ello utilizaremos "Adminer". Una vez que accedas al localhost http://127.0.0.1:8099, Adminer te pedirá los siguientes datos:
 
-```txt
+```
 Sistema: MySQL
 Servidor: db
 Usuario: bae

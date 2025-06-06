@@ -185,27 +185,27 @@ INSERT INTO Ventas (id, id_cliente, id_producto, fecha, cantidad) VALUES
 
     1. ¿Qué ventajas ofrece el uso de una vista en lugar de una consulta con múltiples `JOIN`?
 
-        ```txt
+        ```
         Reutilización de lógica SQL compleja, simplificación de consultas frecuentes y mejora de seguridad al ocultar tablas reales.
         ```
     2. ¿Por qué es importante declarar una función como `DETERMINISTIC`?
 
-        ```txt
+        ```
         Indica que la función devuelve siempre el mismo resultado para los mismos parámetros. Esto ayuda al optimizador de MySQL a mejorar el rendimiento y permite el uso en índices o vistas.
         ```
     3. ¿Cuál es la diferencia entre una función y un procedimiento?
 
-        ```txt
+        ```
         Una función devuelve un valor y se usa en consultas, mientras que un procedimiento ejecuta acciones, puede retornar múltiples resultados y no siempre retorna un valor.
         ```
     4. ¿Qué impacto tienen los índices sobre el rendimiento de una base de datos?
 
-        ```txt
+        ```
         Aceleran búsquedas y filtrados pero pueden ralentizar inserciones y actualizaciones.
         ```
     5. ¿Cuándo se recomienda usar un trigger en lugar de un procedimiento?
 
-        ```txt
+        ```
         Cuando se requiere lógica automática tras una operación (INSERT, UPDATE, DELETE). Es útil para auditorías, validaciones y actualizaciones encadenadas.
         ```
 6. Preguntas prácticas:
@@ -243,7 +243,7 @@ INSERT INTO Ventas (id, id_cliente, id_producto, fecha, cantidad) VALUES
         ```
     3. ¿Qué ocurre si insertas una venta con un "id_cliente" inexistente?
 
-        ```txt
+        ```
         Ocurrirá un error por violar la restricción FOREIGN KEY
         
         ERROR 1452: Cannot add or update a child row: a foreign key constraint fails

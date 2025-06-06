@@ -65,7 +65,7 @@ Se pide:
         PRAGMA index_list('Alumnos');
         ```
 
-        ```txt
+        ```
         ┌─────┬────────────────────────────┬────────┬────────┬─────────┐
         │ seq │            name            │ unique │ origin │ partial │
         ├─────┼────────────────────────────┼────────┼────────┼─────────┤
@@ -84,7 +84,7 @@ Se pide:
     INSERT INTO Alumnos VALUES (1, 2025, 'Pedro Gómez', '87654321', 'Av. Siempre Viva 742', 'Rosario', 'Santa Fe');
     ```
 
-    ```txt
+    ```
     Runtime error: UNIQUE constraint failed: Alumnos.numero_inscripcion, Alumnos.anio_inscripcion (19)
     ```
 5. Intente ingresar un alumno con documento repetido.
@@ -93,7 +93,7 @@ Se pide:
     INSERT INTO Alumnos VALUES (2, 2025, 'Laura Díaz', '12345678', 'Calle 10 N°456', 'Santa Fe', 'Santa Fe');
     ```
 
-    ```txt
+    ```
     Runtime error: UNIQUE constraint failed: Alumnos.documento (19)
     ```
 6. Ingrese varios alumnos de la misma ciudad y provincia.
@@ -114,7 +114,7 @@ Se pide:
     SELECT * FROM Alumnos;
     ```
 
-    ```txt
+    ```
     ┌────────────────────┬──────────────────┬────────────────┬───────────┬───────────────┬─────────┬───────────┐
     │ numero_inscripcion │ anio_inscripcion │     nombre     │ documento │   domicilio   │ ciudad  │ provincia │
     ├────────────────────┼──────────────────┼────────────────┼───────────┼───────────────┼─────────┼───────────┤
@@ -138,7 +138,7 @@ Se pide:
     PRAGMA index_list('Alumnos');
     ```
 
-    ```txt
+    ```
     ┌─────┬────────────────────────────┬────────┬────────┬─────────┐
     │ seq │            name            │ unique │ origin │ partial │
     ├─────┼────────────────────────────┼────────┼────────┼─────────┤

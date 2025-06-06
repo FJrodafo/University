@@ -144,7 +144,7 @@ USE Clinica;
 
 También se puede acceder a través de un navegador. Para ello utilizaremos "Adminer". Una vez que accedas al localhost http://127.0.0.1:8099, Adminer te pedirá los siguientes datos:
 
-```txt
+```
 Sistema: MySQL
 Servidor: db
 Usuario: bae
@@ -162,7 +162,7 @@ Contraseña: bae
             FROM Mascotas;
             ```
 
-            ```txt
+            ```
             +----+--------+---------+-----------+------+------------+
             | id | nombre | especie | raza      | edad | id_cliente |
             +----+--------+---------+-----------+------+------------+
@@ -179,7 +179,7 @@ Contraseña: bae
             FROM Veterinarios;
             ```
 
-            ```txt
+            ```
             +------------------+------------------+
             | nombre           | especialidad     |
             +------------------+------------------+
@@ -195,7 +195,7 @@ Contraseña: bae
             FROM Visitas;
             ```
 
-            ```txt
+            ```
             +----+------------+----------------+------------+----------------------+
             | id | id_mascota | id_veterinario | fecha      | motivo               |
             +----+------------+----------------+------------+----------------------+
@@ -216,7 +216,7 @@ Contraseña: bae
             FROM Clientes;
             ```
 
-            ```txt
+            ```
             +---------------+-----------+
             | nombre        | telefono  |
             +---------------+-----------+
@@ -233,7 +233,7 @@ Contraseña: bae
             FROM Mascotas;
             ```
 
-            ```txt
+            ```
             +--------+---------+------+
             | nombre | especie | edad |
             +--------+---------+------+
@@ -260,7 +260,7 @@ Contraseña: bae
             AND Vet.especialidad = 'Cirugia';
             ```
 
-            ```txt
+            ```
             +----+----------------+--------------------+------------+----------------------+
             | id | nombre_mascota | nombre_veterinario | fecha      | motivo               |
             +----+----------------+--------------------+------------+----------------------+
@@ -283,7 +283,7 @@ Contraseña: bae
             AND M.edad > 5;
             ```
 
-            ```txt
+            ```
             +----+----------------+---------+---------+------+----------------+
             | id | nombre_mascota | especie | raza    | edad | nombre_cliente |
             +----+----------------+---------+---------+------+----------------+
@@ -305,7 +305,7 @@ Contraseña: bae
             AND Vi.fecha > '2023-12-31';
             ```
 
-            ```txt
+            ```
             +----+----------------+--------------------+------------+---------------------+
             | id | nombre_mascota | nombre_veterinario | fecha      | motivo              |
             +----+----------------+--------------------+------------+---------------------+
@@ -327,7 +327,7 @@ Contraseña: bae
             AND C.ciudad = 'Madrid';
             ```
 
-            ```txt
+            ```
             +----------------+----------------+--------+
             | nombre_mascota | nombre_cliente | ciudad |
             +----------------+----------------+--------+
@@ -344,7 +344,7 @@ Contraseña: bae
             WHERE M.id_cliente = C.id;
             ```
 
-            ```txt
+            ```
             +----------------+---------------+
             | nombre_mascota | nombre_duenio |
             +----------------+---------------+
@@ -371,7 +371,7 @@ Contraseña: bae
             WHERE Vet.especialidad = 'Cirugia';
             ```
 
-            ```txt
+            ```
             +----+----------------+--------------------+------------+----------------------+
             | id | nombre_mascota | nombre_veterinario | fecha      | motivo               |
             +----+----------------+--------------------+------------+----------------------+
@@ -394,7 +394,7 @@ Contraseña: bae
             WHERE M.edad > 5;
             ```
 
-            ```txt
+            ```
             +----+----------------+---------+---------+------+----------------+
             | id | nombre_mascota | especie | raza    | edad | nombre_cliente |
             +----+----------------+---------+---------+------+----------------+
@@ -416,7 +416,7 @@ Contraseña: bae
             WHERE Vi.fecha > '2023-12-31';
             ```
 
-            ```txt
+            ```
             +----+----------------+--------------------+------------+---------------------+
             | id | nombre_mascota | nombre_veterinario | fecha      | motivo              |
             +----+----------------+--------------------+------------+---------------------+
@@ -438,7 +438,7 @@ Contraseña: bae
             WHERE C.ciudad = 'Madrid';
             ```
 
-            ```txt
+            ```
             +----------------+----------------+--------+
             | nombre_mascota | nombre_cliente | ciudad |
             +----------------+----------------+--------+
@@ -460,7 +460,7 @@ Contraseña: bae
             WHERE Vet.nombre = 'Dr. Pablo Torres';
             ```
 
-            ```txt
+            ```
             +----+----------------+--------------------+------------+---------------------+
             | id | nombre_mascota | nombre_veterinario | fecha      | motivo              |
             +----+----------------+--------------------+------------+---------------------+
@@ -487,7 +487,7 @@ Contraseña: bae
             );
             ```
 
-            ```txt
+            ```
             +--------+
             | nombre |
             +--------+
@@ -508,7 +508,7 @@ Contraseña: bae
             );
             ```
 
-            ```txt
+            ```
             +-------------+
             | nombre      |
             +-------------+
@@ -526,7 +526,7 @@ Contraseña: bae
             );
             ```
 
-            ```txt
+            ```
             +--------+
             | nombre |
             +--------+
@@ -548,7 +548,7 @@ Contraseña: bae
             );
             ```
 
-            ```txt
+            ```
             +----+------------+----------------+------------+----------------------+
             | id | id_mascota | id_veterinario | fecha      | motivo               |
             +----+------------+----------------+------------+----------------------+
@@ -572,7 +572,7 @@ Contraseña: bae
             );
             ```
 
-            ```txt
+            ```
             +------------------+
             | nombre           |
             +------------------+
@@ -599,7 +599,7 @@ Contraseña: bae
         SHOW INDEX FROM Clientes;
         ```
 
-        ```txt
+        ```
         +----------+------------+------------+--------------+-------------+-----------+-------------+----------+--------+------+------------+---------+---------------+---------+------------+
         | Table    | Non_unique | Key_name   | Seq_in_index | Column_name | Collation | Cardinality | Sub_part | Packed | Null | Index_type | Comment | Index_comment | Visible | Expression |
         +----------+------------+------------+--------------+-------------+-----------+-------------+----------+--------+------+------------+---------+---------------+---------+------------+
@@ -612,7 +612,7 @@ Contraseña: bae
         SHOW INDEX FROM Veterinarios;
         ```
 
-        ```txt
+        ```
         +--------------+------------+------------------+--------------+--------------+-----------+-------------+----------+--------+------+------------+---------+---------------+---------+------------+
         | Table        | Non_unique | Key_name         | Seq_in_index | Column_name  | Collation | Cardinality | Sub_part | Packed | Null | Index_type | Comment | Index_comment | Visible | Expression |
         +--------------+------------+------------------+--------------+--------------+-----------+-------------+----------+--------+------+------------+---------+---------------+---------+------------+
@@ -654,7 +654,7 @@ Contraseña: bae
         WHERE nombre_mascota = 'Rocky';
         ```
 
-        ```txt
+        ```
         +----------------+----------------+--------------------+------------+----------------------+
         | nombre_mascota | nombre_cliente | nombre_veterinario | fecha      | motivo               |
         +----------------+----------------+--------------------+------------+----------------------+
@@ -695,7 +695,7 @@ Contraseña: bae
         SELECT Visitas_por_especie('Perro') AS total_visitas_perros;
         ```
 
-        ```txt
+        ```
         +----------------------+
         | total_visitas_perros |
         +----------------------+
@@ -730,7 +730,7 @@ Contraseña: bae
         CALL Mascotas_por_especialidad('Dermatologia');
         ```
 
-        ```txt
+        ```
         +----------------+
         | nombre_mascota |
         +----------------+
@@ -787,7 +787,7 @@ Contraseña: bae
         SELECT * FROM Auditoria_visitas;
         ```
 
-        ```txt
+        ```
         +------+------------+----------------+------------+----------------+--------+---------------------+
         | id   | id_mascota | id_veterinario | fecha      | motivo         | accion | fecha_auditoria     |
         +------+------------+----------------+------------+----------------+--------+---------------------+

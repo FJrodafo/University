@@ -112,7 +112,7 @@
     </details>
 4. Indica si la BBDD esta normalizada hasta la 3ª forma normal, justificando la respuesta.
 
-    ```txt
+    ```
     Para que la base de datos esté completamente normalizada hasta la 3ª Forma Normal (3FN), es necesario eliminar la redundancia en la columna categoria de la tabla "Productos".
     Esto se logra creando una nueva tabla para las categorías y estableciendo una relación entre ambas tablas.
     ```

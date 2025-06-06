@@ -19,7 +19,7 @@ Se pide:
     DROP TABLE IF EXISTS Alumnos;
     ```
 
-    ```txt
+    ```
     ✅ MySQL returned an empty result set (i.e. zero rows). (Query took 0.0028 seconds.)
     ```
 2. Cree la tabla "Alumnos" definiendo una clave primaria compuesta (número de inscripción y año de inscripción).
@@ -37,7 +37,7 @@ Se pide:
     );
     ```
 
-    ```txt
+    ```
     ✅ MySQL returned an empty result set (i.e. zero rows). (Query took 0.0259 seconds.)
     ```
 3. Define los siguientes indices:
@@ -48,7 +48,7 @@ Se pide:
         CREATE UNIQUE INDEX idx_documento ON Alumnos(documento);
         ```
 
-        ```txt
+        ```
         ✅ MySQL returned an empty result set (i.e. zero rows). (Query took 0.0180 seconds.)
         ```
 
@@ -56,7 +56,7 @@ Se pide:
         CREATE INDEX idx_ciudad_provincia ON Alumnos(ciudad, provincia);
         ```
 
-        ```txt
+        ```
         ✅ MySQL returned an empty result set (i.e. zero rows). (Query took 0.0166 seconds.)
         ```
     2. Vea los índices de la tabla.
@@ -65,7 +65,7 @@ Se pide:
         SHOW INDEX FROM Alumnos;
         ```
 
-        ```txt
+        ```
         db/bae/		http://127.0.0.1:8099/index.php?route=/database/sql&db=bae
         Your SQL query has been executed successfully.
 
@@ -85,7 +85,7 @@ Se pide:
     INSERT INTO Alumnos VALUES (1, 2025, 'Juan Pérez', '12345678', 'Calle Falsa 1', 'Rosario', 'Santa Fe');
     ```
 
-    ```txt
+    ```
     ✅ 1 row inserted. (Query took 0.0045 seconds.)
     ```
 
@@ -93,7 +93,7 @@ Se pide:
     INSERT INTO Alumnos VALUES (1, 2025, 'Pedro Gómez', '87654321', 'Av. Siempre Viva 742', 'Rosario', 'Santa Fe');
     ```
 
-    ```txt
+    ```
     ❎ #1062 - Duplicate entry '1-2025' for key 'Alumnos.PRIMARY'
     ```
 5. Intente ingresar un alumno con documento repetido.
@@ -102,7 +102,7 @@ Se pide:
     INSERT INTO Alumnos VALUES (2, 2025, 'Laura Díaz', '12345678', 'Calle 10 N°456', 'Santa Fe', 'Santa Fe');
     ```
 
-    ```txt
+    ```
     ❎ #1062 - Duplicate entry '12345678' for key 'Alumnos.idx_documento'
     ```
 6. Ingrese varios alumnos de la misma ciudad y provincia.
@@ -111,7 +111,7 @@ Se pide:
     INSERT INTO Alumnos VALUES (2, 2025, 'María García', '23456789', 'Calle Falsa 2', 'Rosario', 'Santa Fe');
     ```
 
-    ```txt
+    ```
     ✅ 1 row inserted. (Query took 0.0053 seconds.)
     ```
 
@@ -119,7 +119,7 @@ Se pide:
     INSERT INTO Alumnos VALUES (3, 2025, 'Luis Rodríguez', '34567890', 'Calle Falsa 3', 'Rosario', 'Santa Fe');
     ```
 
-    ```txt
+    ```
     ✅ 1 row inserted. (Query took 0.0058 seconds.)
     ```
 
@@ -127,7 +127,7 @@ Se pide:
     INSERT INTO Alumnos VALUES (4, 2025, 'Ana López', '45678901', 'Calle Falsa 4', 'Rosario', 'Santa Fe');
     ```
 
-    ```txt
+    ```
     ✅ 1 row inserted. (Query took 0.0049 seconds.)
     ```
 
@@ -135,7 +135,7 @@ Se pide:
     SELECT * FROM Alumnos;
     ```
 
-    ```txt
+    ```
     db/bae/Alumnos/		http://127.0.0.1:8099/index.php?route=/database/sql&db=bae
 
        Showing rows 0 -  3 (4 total, Query took 0.0002 seconds.)
@@ -156,7 +156,7 @@ Se pide:
     DROP INDEX idx_documento ON Alumnos;
     ```
 
-    ```txt
+    ```
     ✅ MySQL returned an empty result set (i.e. zero rows). (Query took 0.0114 seconds.)
     ```
 
@@ -164,7 +164,7 @@ Se pide:
     DROP INDEX idx_ciudad_provincia ON Alumnos;
     ```
 
-    ```txt
+    ```
     ✅ MySQL returned an empty result set (i.e. zero rows). (Query took 0.0117 seconds.)
     ```
 
@@ -172,7 +172,7 @@ Se pide:
     SHOW INDEX FROM Alumnos;
     ```
 
-    ```txt
+    ```
     db/bae/		http://127.0.0.1:8099/index.php?route=/database/sql&db=bae
     Your SQL query has been executed successfully.
     

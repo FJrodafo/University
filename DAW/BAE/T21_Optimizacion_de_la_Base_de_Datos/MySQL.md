@@ -18,7 +18,7 @@ Se pide:
     DROP TABLE IF EXISTS Clientes;
     ```
 
-    ```txt
+    ```
     ✅ MySQL returned an empty result set (i.e. zero rows). (Query took 0.0037 seconds.)
     ```
 2. Cree la tabla "Clientes" definiendo una clave primaria (documento).
@@ -35,7 +35,7 @@ Se pide:
     );
     ```
 
-    ```txt
+    ```
     ✅ MySQL returned an empty result set (i.e. zero rows). (Query took 0.0247 seconds.)
     ```
 3. Define los siguientes indices:
@@ -47,7 +47,7 @@ Se pide:
         CREATE UNIQUE INDEX idx_documento ON Clientes(documento);
         ```
 
-        ```txt
+        ```
         ✅ MySQL returned an empty result set (i.e. zero rows). (Query took 0.0167 seconds.)
         ```
 
@@ -56,7 +56,7 @@ Se pide:
         CREATE INDEX idx_ciudad_provincia ON Clientes(ciudad, provincia);
         ```
 
-        ```txt
+        ```
         ✅ MySQL returned an empty result set (i.e. zero rows). (Query took 0.0170 seconds.)
         ```
     2. Vea los índices de la tabla.
@@ -65,7 +65,7 @@ Se pide:
         SHOW INDEX FROM Clientes;
         ```
 
-        ```txt
+        ```
         db/bae/		http://127.0.0.1:8099/index.php?route=/database/sql&db=bae
         Your SQL query has been executed successfully.
 
@@ -84,7 +84,7 @@ Se pide:
     CREATE UNIQUE INDEX idx_telefono ON Clientes(telefono);
     ```
 
-    ```txt
+    ```
     ✅ MySQL returned an empty result set (i.e. zero rows). (Query took 0.0174 seconds.)
     ```
 
@@ -92,7 +92,7 @@ Se pide:
     SHOW INDEX FROM Clientes;
     ```
 
-    ```txt
+    ```
     db/bae/		http://127.0.0.1:8099/index.php?route=/database/sql&db=bae
     Your SQL query has been executed successfully.
 
@@ -112,7 +112,7 @@ Se pide:
     DROP INDEX idx_documento ON Clientes;
     ```
 
-    ```txt
+    ```
     ✅ MySQL returned an empty result set (i.e. zero rows). (Query took 0.0117 seconds.)
     ```
 
@@ -120,7 +120,7 @@ Se pide:
     DROP INDEX idx_ciudad_provincia ON Clientes;
     ```
 
-    ```txt
+    ```
     ✅ MySQL returned an empty result set (i.e. zero rows). (Query took 0.0128 seconds.)
     ```
 
@@ -128,7 +128,7 @@ Se pide:
     DROP INDEX idx_telefono ON Clientes;
     ```
 
-    ```txt
+    ```
     ✅ MySQL returned an empty result set (i.e. zero rows). (Query took 0.0119 seconds.)
     ```
 
@@ -136,7 +136,7 @@ Se pide:
     SHOW INDEX FROM Clientes;
     ```
 
-    ```txt
+    ```
     db/bae/		http://127.0.0.1:8099/index.php?route=/database/sql&db=bae
     Your SQL query has been executed successfully.
     
