@@ -12,6 +12,7 @@
 10. [Create a Temp repository](#create-a-temp-repository)
 11. [Working with Issues and Pull Requests](#working-with-issues-and-pull-requests)
 12. [Glossary](#glossary)
+13. [Additional information](#additional-information)
 
 ## Install
 
@@ -406,6 +407,12 @@ git branch -r
 **pull request:** a place to compare and discuss the differences introduced on a branch with reviews, comments, integrated tests, and more
 
 **HEAD:** representing your current working directory, the HEAD pointer can be moved to different branches, tags, or commits when using `git checkout`
+
+## Additional information
+
+This cheat sheet is available on GitHub Gist at https://gist.github.com/FJrodafo/20b5f7ec62c17e53d60914fefa2ccdf7
+
+Explore more gists by Francisco José Rodríguez Afonso at https://gist.github.com/FJrodafo
 
 <link rel="stylesheet" href="./../../README.css">
 <a class="scrollup" href="#top">&#x1F53C</a>
