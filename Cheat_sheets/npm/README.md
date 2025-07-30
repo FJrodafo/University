@@ -12,6 +12,7 @@
 4. [My package name is already taken!](#my-package-name-is-already-taken)
 5. [Update your published npm package](#update-your-published-npm-package)
 6. [npm package repository example](#npm-package-repository-example)
+7. [Additional information](#additional-information)
 
 ## Introduction
 
@@ -129,6 +130,12 @@ I have created a repository and published a very simple npm package that will se
 Contribute to the repository on [GitHub](https://github.com/FJrodafo/port-finder).
 
 Check out this package on [GitHub Packages](https://github.com/FJrodafo/port-finder/pkgs/npm/port-finder) or [npmjs](https://www.npmjs.com/package/@fjrodafo/port-finder) website!
+
+## Additional information
+
+This cheat sheet is available on GitHub Gist at https://gist.github.com/FJrodafo/0b300abc47326cc74bb5dfac5202cf8a
+
+Explore more gists by Francisco José Rodríguez Afonso at https://gist.github.com/FJrodafo
 
 <link rel="stylesheet" href="./../../README.css">
 <a class="scrollup" href="#top">&#x1F53C</a>
