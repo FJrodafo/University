@@ -3,6 +3,7 @@
 1. [Introduction](#introduction)
 2. [Getting started](#getting-started)
 3. [Deploy your app](#deploy-your-app)
+4. [Additional information](#additional-information)
 
 ## Introduction
 
@@ -46,6 +47,12 @@ Auto-detected Project Settings (Create React App):
 📝  Deployed to production. Run `vercel --prod` to overwrite later (https://vercel.link/2F).
 💡  To change the domain or build command, go to https://vercel.com/fjrodafos-projects/fjrodafo/settings
 ```
+
+## Additional information
+
+This cheat sheet is available on GitHub Gist at https://gist.github.com/FJrodafo/9e646f258a863cb649b0e659700d299a
+
+Explore more gists by Francisco José Rodríguez Afonso at https://gist.github.com/FJrodafo
 
 <link rel="stylesheet" href="./../../README.css">
 <a class="scrollup" href="#top">&#x1F53C</a>
