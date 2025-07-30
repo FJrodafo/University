@@ -2,6 +2,7 @@
 
 1. [Table](#table)
 2. [Alerts](#alerts)
+3. [Additional information](#additional-information)
 
 ## Table
 
@@ -183,6 +184,12 @@
 > [!CAUTION]
 > 
 > Negative potential consequences of an action.
+
+## Additional information
+
+This cheat sheet is available on GitHub Gist at https://gist.github.com/FJrodafo/ea9b3142a4e43edf2c76ff9ba634e049
+
+Explore more gists by Francisco José Rodríguez Afonso at https://gist.github.com/FJrodafo
 
 <link rel="stylesheet" href="./../../README.css">
 <a class="scrollup" href="#top">&#x1F53C</a>
