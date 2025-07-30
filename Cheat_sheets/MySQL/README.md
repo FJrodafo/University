@@ -3,6 +3,7 @@
 1. [How To Install MySQL on Ubuntu 22.04](#how-to-install-mysql-on-ubuntu-2204)
 2. [Configuring MySQL](#configuring-mysql)
 3. [User authentication and privileges](#user-authentication-and-privileges)
+4. [Additional information](#additional-information)
 
 ## How To Install MySQL on Ubuntu 22.04
 
@@ -137,6 +138,12 @@ This is an example of some privileges:
 ```shell
 GRANT CREATE, ALTER, DROP, INSERT, UPDATE, INDEX, DELETE, SELECT, REFERENCES, RELOAD on users.* TO 'fjrodafo'@'localhost' WITH GRANT OPTION;
 ```
+
+## Additional information
+
+This cheat sheet is available on GitHub Gist at https://gist.github.com/FJrodafo/613d8cff0c47e3346cd20c300c01b3c9
+
+Explore more gists by Francisco José Rodríguez Afonso at https://gist.github.com/FJrodafo
 
 <link rel="stylesheet" href="./../../README.css">
 <a class="scrollup" href="#top">&#x1F53C</a>
