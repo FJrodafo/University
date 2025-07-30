@@ -4,6 +4,7 @@
     1. [APT repository](#apt-repository)
     2. [Manual installation](#manual-installation)
 2. [First steps](#first-steps)
+3. [Additional information](#additional-information)
 
 ## Install
 
@@ -151,6 +152,12 @@ Open a terminal and use the following command to dump the database directly to a
 ```shell
 sqlite3 example.db .dump > example-dump.sql
 ```
+
+## Additional information
+
+This cheat sheet is available on GitHub Gist at https://gist.github.com/FJrodafo/9d3ef82773491b485b6956c3de6fd638
+
+Explore more gists by Francisco José Rodríguez Afonso at https://gist.github.com/FJrodafo
 
 <link rel="stylesheet" href="./../../README.css">
 <a class="scrollup" href="#top">&#x1F53C</a>
