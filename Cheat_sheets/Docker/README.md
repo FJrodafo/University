@@ -28,6 +28,7 @@
     1. [Container volumes](#container-volumes)
     2. [Create a volume and start the container](#create-a-volume-and-start-the-container)
     3. [Dive into the volume](#dive-into-the-volume)
+11. [Additional information](#additional-information)
 
 ## Install
 
@@ -534,6 +535,12 @@ docker volume inspect to-do-db
 ```
 
 The `Mountpoint` is the actual location of the data on the disk. Note that on most machines, you will need to have root access to access this directory from the host.
+
+## Additional information
+
+This cheat sheet is available on GitHub Gist at https://gist.github.com/FJrodafo/3b50a365587223e74cd8d93da960f867
+
+Explore more gists by Francisco José Rodríguez Afonso at https://gist.github.com/FJrodafo
 
 <link rel="stylesheet" href="./../../README.css">
 <a class="scrollup" href="#top">&#x1F53C</a>
