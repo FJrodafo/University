@@ -9,7 +9,8 @@
 1. [SELECT queries 101](#select-queries-101)
 2. [Queries with constraints (Pt. 1)](#queries-with-constraints-pt-1)
 3. [Queries with constraints (Pt. 2)](#queries-with-constraints-pt-2)
-4. [Filtering and sorting Query results]()
+4. [Filtering and sorting Query results](#filtering-and-sorting-query-results)
+5. [Simple SELECT Queries](#simple-select-queries)
 
 ## SELECT queries 101
 
@@ -92,25 +93,29 @@ SELECT * FROM movies;
 ```sql
 -- Find the movie with a row id of 6
 
-SELECT * FROM movies WHERE id = 6;
+SELECT * FROM movies
+WHERE id = 6;
 ```
 
 ```sql
 -- Find the movies released in the years between 2000 and 2010
 
-SELECT * FROM movies WHERE year BETWEEN 2000 AND 2010;
+SELECT * FROM movies
+WHERE year BETWEEN 2000 AND 2010;
 ```
 
 ```sql
 -- Find the movies not released in the years between 2000 and 2010
 
-SELECT * FROM movies WHERE year NOT BETWEEN 2000 AND 2010;
+SELECT * FROM movies
+WHERE year NOT BETWEEN 2000 AND 2010;
 ```
 
 ```sql
 -- Find the first 5 Pixar movies and their release year
 
-SELECT * FROM movies WHERE id BETWEEN 1 AND 5;
+SELECT * FROM movies
+WHERE id BETWEEN 1 AND 5;
 ```
 
 ## Queries with constraints (Pt. 2)
@@ -141,29 +146,35 @@ SELECT * FROM movies WHERE id BETWEEN 1 AND 5;
 ```sql
 -- Find all the Toy Story movies
 
-SELECT * FROM movies WHERE title LIKE 'Toy Story%';
+SELECT * FROM movies
+WHERE title LIKE 'Toy Story%';
 ```
 
 ```sql
 -- Find all the movies directed by John Lasseter
 
-SELECT * FROM movies WHERE director = 'John Lasseter';
+SELECT * FROM movies
+WHERE director = 'John Lasseter';
 
-SELECT * FROM movies WHERE director LIKE 'john lasseter';
+SELECT * FROM movies
+WHERE director LIKE 'john lasseter';
 ```
 
 ```sql
 -- Find all the movies (and director) not directed by John Lasseter
 
-SELECT * FROM movies WHERE director != 'John Lasseter';
+SELECT * FROM movies
+WHERE director != 'John Lasseter';
 
-SELECT * FROM movies WHERE director NOT LIKE 'john lasseter';
+SELECT * FROM movies
+WHERE director NOT LIKE 'john lasseter';
 ```
 
 ```sql
 -- Find all the WALL-* movies
 
-SELECT * FROM movies WHERE title LIKE 'WALL-_';
+SELECT * FROM movies
+WHERE title LIKE 'WALL-_';
 ```
 
 ## Filtering and sorting Query results
@@ -193,26 +204,38 @@ SELECT * FROM movies WHERE title LIKE 'WALL-_';
 ```sql
 -- List all directors of Pixar movies (alphabetically), without duplicates
 
-SELECT DISTINCT director FROM movies ORDER BY director;
+SELECT DISTINCT director
+FROM movies
+ORDER BY director;
 ```
 
 ```sql
 -- List the last four Pixar movies released (ordered from most recent to least)
 
-SELECT * FROM movies ORDER BY year DESC LIMIT 4;
+SELECT * FROM movies
+ORDER BY year DESC
+LIMIT 4;
 ```
 
 ```sql
 -- List the first five Pixar movies sorted alphabetically
 
-SELECT * FROM movies ORDER BY title LIMIT 5;
-SELECT * FROM movies ORDER BY title ASC LIMIT 5;
+SELECT * FROM movies
+ORDER BY title
+LIMIT 5;
+
+SELECT * FROM movies
+ORDER BY title ASC
+LIMIT 5;
 ```
 
 ```sql
 -- List the next five Pixar movies sorted alphabetically
 
-SELECT * FROM movies ORDER BY title LIMIT 5 OFFSET 5;
+SELECT * FROM movies
+ORDER BY title
+LIMIT 5
+OFFSET 5;
 ```
 
 ## Simple SELECT Queries
@@ -240,14 +263,14 @@ SELECT * FROM movies ORDER BY title LIMIT 5 OFFSET 5;
 ```sql
 -- List all the Canadian cities and their population
 
-SELECT * FROM north_american_cities WHERE country = 'Canada';
+SELECT * FROM north_american_cities
+WHERE country = 'Canada';
 ```
 
 ```sql
 -- Order all the cities in the United States by their latitude from north to south
 
-SELECT *
-FROM north_american_cities
+SELECT * FROM north_american_cities
 WHERE country = 'United States'
 ORDER BY latitude DESC;
 ```
@@ -255,8 +278,7 @@ ORDER BY latitude DESC;
 ```sql
 -- List all the cities west of Chicago, ordered from west to east
 
-SELECT *
-FROM north_american_cities
+SELECT * FROM north_american_cities
 WHERE longitude < -87.63
 ORDER BY longitude;
 ```
