@@ -11,8 +11,8 @@
 
 #### Databases
 
-- [x] SQL/PLSQL/*.sql 4
-- [ ] SQL/PLSQL/*.sql 5
+- [x] SQL/PLSQL/*.sql 5
+- [ ] SQL/PLSQL/*.sql 6
 
 - [x] SQL/SQLBolt/README.md 26:39
 - [ ] SQL/SQLBolt/README.md 33:39
