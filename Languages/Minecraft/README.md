@@ -20,6 +20,7 @@
 12. [Invisible items](#inivisible-items)
 13. [Rain on the players](#rain-on-the-players)
 14. [Drop the owner's skull upon death](#drop-the-owners-skull-upon-death)
+15. [Additional information](#additional-information)
 
 ## Minecraft Command Language
 
@@ -844,6 +845,12 @@ https://youtu.be/3u65Dk1bqWg
 
 ---- What's next? ----
 ```
+
+## Additional information
+
+This cheat sheet is available on GitHub Gist at https://gist.github.com/FJrodafo/51697cabe1886ab88568db422a89ca1b
+
+Explore more gists by Francisco José Rodríguez Afonso at https://gist.github.com/FJrodafo
 
 <link rel="stylesheet" href="./../../README.css">
 <a class="scrollup" href="#top">&#x1F53C</a>
