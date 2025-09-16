@@ -257,7 +257,7 @@ By default "HTML Color Code" (FFFFFF) (FF00FF) (000000)
 
 ## Custom potions
 
-[<img src="./Assets/Warning.svg" alt="Warning!" width="40" height="40" align="center" />](./Assets/Warning.svg "Warning!")
+[<img src="https://raw.githubusercontent.com/FJrodafo/University/aa24c97c45949504597fe5aa29ca9f769817ffb9/Languages/Minecraft/Assets/Warning.svg" alt="Warning!" width="40" height="40" align="center" />](https://raw.githubusercontent.com/FJrodafo/University/aa24c97c45949504597fe5aa29ca9f769817ffb9/Languages/Minecraft/Assets/Warning.svg "Warning!")
 `Pending update to version 1.20.6+`
 
 ```sh
@@ -299,28 +299,28 @@ By default "HTML Color Code" (FFFFFF) (FF00FF) (000000)
 
 ## Rain on the players
 
-[<img src="./Assets/Warning.svg" alt="Warning!" width="40" height="40" align="center" />](./Assets/Warning.svg "Warning!")
+[<img src="https://raw.githubusercontent.com/FJrodafo/University/aa24c97c45949504597fe5aa29ca9f769817ffb9/Languages/Minecraft/Assets/Warning.svg" alt="Warning!" width="40" height="40" align="center" />](https://raw.githubusercontent.com/FJrodafo/University/aa24c97c45949504597fe5aa29ca9f769817ffb9/Languages/Minecraft/Assets/Warning.svg "Warning!")
 `Pending update to version 1.20.6+`
 
-[<img src="./Assets/Repeat/Unconditional.gif" alt="(Repeat/Unconditional/Needs Redstone)" width="40" height="40" align="center" />](./Assets/Repeat/Unconditional.gif "(Repeat/Unconditional/Needs Redstone)")
+[<img src="https://raw.githubusercontent.com/FJrodafo/University/refs/heads/main/Languages/Minecraft/Assets/Repeat/Unconditional.gif" alt="(Repeat/Unconditional/Needs Redstone)" width="40" height="40" align="center" />](https://raw.githubusercontent.com/FJrodafo/University/refs/heads/main/Languages/Minecraft/Assets/Repeat/Unconditional.gif "(Repeat/Unconditional/Needs Redstone)")
 `/execute at UserName run particle minecraft:dust 1 1 1 1 ~ ~3 ~ 0.5 0.25 0.5 0 100`
 
-[<img src="./Assets/Chain/Unconditional.gif" alt="(Chain/Unconditional/Always Active)" width="40" height="40" align="center" />](./Assets/Chain/Unconditional.gif "(Chain/Unconditional/Always Active)")
+[<img src="https://raw.githubusercontent.com/FJrodafo/University/refs/heads/main/Languages/Minecraft/Assets/Chain/Unconditional.gif" alt="(Chain/Unconditional/Always Active)" width="40" height="40" align="center" />](https://raw.githubusercontent.com/FJrodafo/University/refs/heads/main/Languages/Minecraft/Assets/Chain/Unconditional.gif "(Chain/Unconditional/Always Active)")
 `/execute at UserName run particle minecraft:falling_water ~ ~3 ~ 0.5 0.1 0.5 0 10`
 
 ## Drop the owner's skull upon death
 
-[<img src="./Assets/Warning.svg" alt="Warning!" width="40" height="40" align="center" />](./Assets/Warning.svg "Warning!")
+[<img src="https://raw.githubusercontent.com/FJrodafo/University/aa24c97c45949504597fe5aa29ca9f769817ffb9/Languages/Minecraft/Assets/Warning.svg" alt="Warning!" width="40" height="40" align="center" />](https://raw.githubusercontent.com/FJrodafo/University/aa24c97c45949504597fe5aa29ca9f769817ffb9/Languages/Minecraft/Assets/Warning.svg "Warning!")
 `Pending update to version 1.20.6+`
 
 ```
 /scoreboard objectives add deaths deathCount
 ```
 
-[<img src="./Assets/Repeat/Unconditional.gif" alt="(Repeat/Unconditional/Needs Redstone)" width="40" height="40" align="center" />](./Assets/Repeat/Unconditional.gif "(Repeat/Unconditional/Needs Redstone)")
+[<img src="https://raw.githubusercontent.com/FJrodafo/University/refs/heads/main/Languages/Minecraft/Assets/Repeat/Unconditional.gif" alt="(Repeat/Unconditional/Needs Redstone)" width="40" height="40" align="center" />](https://raw.githubusercontent.com/FJrodafo/University/refs/heads/main/Languages/Minecraft/Assets/Repeat/Unconditional.gif "(Repeat/Unconditional/Needs Redstone)")
 `/execute as @a[scores={deaths=1..}] at @s run summon minecraft:item ~ ~ ~ {Item:{id:"minecraft:player_head",Count:1b,tag:{SkullOwner:"@s"}},Owner:@s}`
 
-[<img src="./Assets/Chain/Unconditional.gif" alt="(Chain/Unconditional/Always Active)" width="40" height="40" align="center" />](./Assets/Chain/Unconditional.gif "(Chain/Unconditional/Always Active)")
+[<img src="https://raw.githubusercontent.com/FJrodafo/University/refs/heads/main/Languages/Minecraft/Assets/Chain/Unconditional.gif" alt="(Chain/Unconditional/Always Active)" width="40" height="40" align="center" />](https://raw.githubusercontent.com/FJrodafo/University/refs/heads/main/Languages/Minecraft/Assets/Chain/Unconditional.gif "(Chain/Unconditional/Always Active)")
 `/scoreboard players reset @a[scores={deaths=1..}] deaths`
 
 ```
