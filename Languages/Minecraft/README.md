@@ -19,6 +19,7 @@
 11. [Custom potions](#custom-potions)
 12. [Invisible items](#inivisible-items)
 13. [Rain on the players](#rain-on-the-players)
+14. [Drop the owner's skull upon death](#drop-the-owners-skull-upon-death)
 
 ## Minecraft Command Language
 
@@ -64,8 +65,7 @@
 
 ## Pacomeda
 
-<details>
-<summary>Secret</summary>
+Seed: `7334907763147734721`
 
 ```sh
 # 1.15.0+
@@ -82,9 +82,6 @@ execute as @a[nbt={SelectedItem:{id:"minecraft:netherite_pickaxe",Count:1b,tag:{
 
 scoreboard players set @a UserName 0
 ```
-</details>
-
-Seed `7334907763147734721`
 
 ```sh
 # Lobby
@@ -306,21 +303,27 @@ By default "HTML Color Code" (FFFFFF) (FF00FF) (000000)
 `Pending update to version 1.20.6+`
 
 [<img src="./Assets/Repeat/Unconditional.gif" alt="(Repeat/Unconditional/Needs Redstone)" width="40" height="40" align="center" />](./Assets/Repeat/Unconditional.gif "(Repeat/Unconditional/Needs Redstone)")
-`execute at UserName run particle minecraft:dust 1 1 1 1 ~ ~3 ~ 0.5 0.25 0.5 0 100`
+`/execute at UserName run particle minecraft:dust 1 1 1 1 ~ ~3 ~ 0.5 0.25 0.5 0 100`
 
 [<img src="./Assets/Chain/Unconditional.gif" alt="(Chain/Unconditional/Always Active)" width="40" height="40" align="center" />](./Assets/Chain/Unconditional.gif "(Chain/Unconditional/Always Active)")
-`execute at UserName run particle minecraft:falling_water ~ ~3 ~ 0.5 0.1 0.5 0 10`
+`/execute at UserName run particle minecraft:falling_water ~ ~3 ~ 0.5 0.1 0.5 0 10`
+
+## Drop the owner's skull upon death
+
+[<img src="./Assets/Warning.svg" alt="Warning!" width="40" height="40" align="center" />](./Assets/Warning.svg "Warning!")
+`Pending update to version 1.20.6+`
 
 ```
----- Drop the owner's skull upon death ----
-
 /scoreboard objectives add deaths deathCount
+```
 
-(Repeat/Unconditional/Needs Redstone)
-/execute as @a[scores={deaths=1..}] at @s run summon minecraft:item ~ ~ ~ {Item:{id:"minecraft:player_head",Count:1b,tag:{SkullOwner:"@s"}},Owner:@s}
-(Chain/Unconditional/Always Active)
-/scoreboard players reset @a[scores={deaths=1..}] deaths
+[<img src="./Assets/Repeat/Unconditional.gif" alt="(Repeat/Unconditional/Needs Redstone)" width="40" height="40" align="center" />](./Assets/Repeat/Unconditional.gif "(Repeat/Unconditional/Needs Redstone)")
+`/execute as @a[scores={deaths=1..}] at @s run summon minecraft:item ~ ~ ~ {Item:{id:"minecraft:player_head",Count:1b,tag:{SkullOwner:"@s"}},Owner:@s}`
 
+[<img src="./Assets/Chain/Unconditional.gif" alt="(Chain/Unconditional/Always Active)" width="40" height="40" align="center" />](./Assets/Chain/Unconditional.gif "(Chain/Unconditional/Always Active)")
+`/scoreboard players reset @a[scores={deaths=1..}] deaths`
+
+```
 ---- Drill Pickaxe ----
 
 Get the pickaxe with Drill enchantment:
