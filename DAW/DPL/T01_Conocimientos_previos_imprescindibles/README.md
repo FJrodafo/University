@@ -2,6 +2,7 @@
 
 1. [Comandos de gestión y administración en Linux](#comandos-de-gestión-y-administración-en-linux)
 2. [Chuleta rápida: Atajos de Nano y Vim](#chuleta-rápida-atajos-de-nano-y-vim)
+3. [Chuleta rápida: tcpdump](#chuleta-rápida-tcpdump)
 
 ## Comandos de gestión y administración en Linux
 
@@ -222,6 +223,56 @@
     | /palabra | Buscar 'palabra' en el archivo      |
     | gg       | Ir al inicio del archivo            |
     | G        | Ir al final del archivo             |
+
+## Chuleta rápida: tcpdump
+
+`tcpdump` es un sniffer de línea de comandos que captura y muestra paquetes de red en una interfaz. Permite depurar aplicaciones, analizar tráfico y guardar capturas para Wireshark.
+
+* Opciones más útiles
+
+    | Opción            | Descripción                                  |
+    | :---------------: | :------------------------------------------- |
+    | `-i <iface>`      | Slecciona interfaz (ej. eth0, any)           |
+    | `-nn`             | No resolver nombres (IPs y puestos en bruto) |
+    | `-v / -vv / -vvv` | Niveles de detalle (verbose)                 |
+    | `-c <n>`          | Capturar solo n paquetes                     |
+    | `-s 0`            | Captura completa de cada paquete             |
+    | `-w <fichero>`    | Guardar en archivo .pcap                     |
+    | `-r <fichero>`    | Leer captura .pcap                           |
+    | `-A`              | Mostrar payload en ASCII                     |
+    | `-X`              | Mostrar payloads en hex + ASCII              |
+    | `-S`              | Números de secuencia TCP absolutos           |
+    | `-tttt`           | Timestamp detallado                          |
+    | `-e`              | Mostrar MACs (capa de enlace)                |
+* Filtros BPF comunes
+
+    | Filtro     | Ejemplo                        |
+    | :--------: | :----------------------------- |
+    | host       | host 192.168.1.10              |
+    | src / dst  | src 10.0.0.5 / dst example.com |
+    | port       | tcp port 80 / udp port 53      |
+    | portrange  | portrange 8000-8080            |
+    | net        | net 192.168.1.0/24             |
+    | icmp / arp | icmp / arp                     |
+    | Combinar   | host 10.0.0.5 and port 22      |
+* Ejemplos prácticos
+
+    ```shell
+    sudo tcpdump -i eth0 -nn -c 100 # Capturar 100 paquetes en eth0
+    sudo tcpdump -i eth0 -nn -A 'tcp port 80' # Ver HTTP en ASCII
+    sudo tcpdump -i eth0 -nn -s 0 -w captura.pcap # Guardar en archivo
+    tcpdump -nn -r captura.pcap # Leer archivo pcap
+    sudo tcpdump -i eth0 -nn 'tcp port 3306' # Tráfico MySQL
+    sudo tcpdump -i eth0 -nn host 203.0.113.5 # Tráfico hacia/desde host
+    sudo tcpdump -i eth0 -nn 'tcp[tcpflags] & (tcp-syn) !=0' # Paquetes SYN
+    sudo tcpdump -i eth0 -e -nn # Mostrar MAC además de IP
+    ```
+* Buenas prácticas:
+
+    - Usa `sudo` para permisos.
+    - Captura solo lo necesario (-c, -C, filtros).
+    - HTTPS/TLS está cifrado: verás cabeceras, no el contenido.
+    - Guarda en .pcap y usa Wireshark para análisis avanzado.
 
 <link rel="stylesheet" href="./../../../README.css">
 <a class="scrollup" href="#top">&#x1F53C</a>
