@@ -1,6 +1,7 @@
 ## Índice
 
 1. [Comandos de gestión y administración en Linux](#comandos-de-gestión-y-administración-en-linux)
+2. [Chuleta rápida: Atajos de Nano y Vim](#chuleta-rápida-atajos-de-nano-y-vim)
 
 ## Comandos de gestión y administración en Linux
 
@@ -192,6 +193,37 @@
     ```shell
     nc -zv 192.168.1.100 22
     ```
+
+## Chuleta rápida: Atajos de Nano y Vim
+
+* Nano (editor sencillo)
+
+    | Atajo    | Acción          |
+    | :------: | :-------------- |
+    | Ctrl + O | Guardar archivo |
+    | Ctrl + X | Salir           |
+    | Ctrl + K | Cortar línea    |
+    | Ctrl + U | Pegar línea     |
+    | Ctrl + W | Buscar texto    |
+    | Ctrl + G | Ayuda           |
+
+* Vim (editor avanzado)
+
+    | Atajo    | Acción                              |
+    | :------: | :---------------------------------- |
+    | i        | Entrar en modo inserción (escribir) |
+    | Esc      | Volver a modo normal                |
+    | :w       | Guardar archivo                     |
+    | :q       | Salir                               |
+    | :wq      | Guardar y salir                     |
+    | :q!      | Salir sin guardar                   |
+    | dd       | Borrar línea                        |
+    | yy       | Copiar línea                        |
+    | p        | Pegar                               |
+    | u        | Deshacer                            |
+    | /palabra | Buscar 'palabra' en el archivo      |
+    | gg       | Ir al inicio del archivo            |
+    | G        | Ir al final del archivo             |
 
 <link rel="stylesheet" href="./../../../README.css">
 <a class="scrollup" href="#top">&#x1F53C</a>
