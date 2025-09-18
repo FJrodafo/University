@@ -134,9 +134,7 @@
     rm -r carpeta/ # Eliminar directorio y su contenido
     ```
 
-    > [!WARNING]
-    > 
-    > No pide confirmación, elimina definitivamente.
+    ⚠ No pide confirmación, elimina definitivamente.
 15. `grep` (Global Regular Expression Print)
 
     Busca texto dentro de archivos.
