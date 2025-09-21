@@ -3,6 +3,7 @@
 1. [Comandos de gestión y administración en Linux](#comandos-de-gestión-y-administración-en-linux)
 2. [Chuleta rápida: Atajos de Nano y Vim](#chuleta-rápida-atajos-de-nano-y-vim)
 3. [Chuleta rápida: tcpdump](#chuleta-rápida-tcpdump)
+4. [Servicios en Red](#servicios-en-red)
 
 ## Comandos de gestión y administración en Linux
 
@@ -273,6 +274,39 @@
     - Captura solo lo necesario (-c, -C, filtros).
     - HTTPS/TLS está cifrado: verás cabeceras, no el contenido.
     - Guarda en .pcap y usa Wireshark para análisis avanzado.
+
+## Servicios en Red
+
+* Esquema realizado en clase:
+
+    ![Esquema](https://raw.githubusercontent.com/FJrodafo/University/main/DAW/DPL/T01/Assets/Esquema_realizado_en_clase.png)
+* Datagrama IP con un payload compuesto por un segmento TCP:
+
+    ![Datagrama IP](https://raw.githubusercontent.com/FJrodafo/University/main/DAW/DPL/T01/Assets/Datagrama_IP.png)
+* Datagrama IPv4:
+
+    Captura con el sniffer `tcpdump` de linux un datagrama IPv4
+
+    ```shell
+    tcpdump -c 1 -XX -n -vv dst port 80 & curl 192.168.1.100
+    ```
+
+    - `tcpdump` Es el sniffer.
+    - `-c 1` Captura solo 1 paquete y luego `tcpdump` termina.
+    - `-XX` Muestra el contenido del paquete en hex + ASCII. `-X` muestra carga útil (payload) en hex+ASCII, `-xx` añade también la cabecera de enlace (dependiendo de la versión ambas formas pueden variar). En la práctica `-XX` te da una vista completa del frame + payload.
+    - `-n` No resuelve nombres: muestra IPs y puertos numéricos en vez de intentar resolver hostnames/servicios. Esto acelera la salida y evita ruido.
+    - `-vv` Modo muy verboso: imprime más detalles (flags TCP, números de secuencia, opciones, etc.). `-v`, `-vv`, `-vvv` aumentan la verbosidad.
+    - `dst port 80` Filtro BPF: solo paquetes cuyo puerto de destino sea 80. Es decir, paquetes dirigidos a puerto 80 (normalmente peticiones HTTP a un servidor).
+    - `&` Operador del shell: lanza el proceso anterior (`tcpdump ...`) en segundo plano y la shell continua inmediatamente con el siguiente comando.
+    - `curl 192.168.1.100` Hace una petición HTTP GET a `http://192.168.1.100/` y vuelca la respuesta por stdout (la página, generalmente HTML). `curl` por defecto usa el puerto 80 si no se indica otro y hace GET salvo que especifiques otra cosa.
+
+    ![Captura del sniffer](https://raw.githubusercontent.com/FJrodafo/University/main/DAW/DPL/T01/Assets/Captura_del_sniffer.png)
+* Datagrama IP con los datos de la captura del sniffer:
+
+    ![Datagrama IP](https://raw.githubusercontent.com/FJrodafo/University/main/DAW/DPL/T01/Assets/Datagrama_IP_con_datos.png)
+* Segmento/Datagrama de Usuario:
+
+    ![Datagrama de Usuario](https://raw.githubusercontent.com/FJrodafo/University/main/DAW/DPL/T01/Assets/Segmento_-_Datagrama_de_Usuario.png)
 
 <link rel="stylesheet" href="./../../../README.css">
 <a class="scrollup" href="#top">&#x1F53C</a>
