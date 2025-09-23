@@ -301,6 +301,13 @@
     - `curl 192.168.1.100` Hace una petición HTTP GET a `http://192.168.1.100/` y vuelca la respuesta por stdout (la página, generalmente HTML). `curl` por defecto usa el puerto 80 si no se indica otro y hace GET salvo que especifiques otra cosa.
 
     ![Captura del sniffer](https://raw.githubusercontent.com/FJrodafo/University/main/DAW/DPL/T01/Assets/Captura_del_sniffer.png)
+
+    - **Verde**: Versión del datagrama IP.
+    - **Rojo**: Protocolo incluido en la carga útil del datagrama IP (payload) que en la imagen tiene el valor 06 que se corresponde con TPC (para UDP el valor sería 11).
+    - **Naranja**: Dirección IP de origen, es decir, la máquina que envía el datagrama IP.
+    - **Lila**: Dirección IP de destino, es decir, el host al que se destina el datagrama IP.
+    - **Amarillo**: Payload que en este caso es todo un segmento TCP.
+    - **Negro**: El resto de campos de una cabecera IPv4.
 * Datagrama IP con los datos de la captura del sniffer:
 
     ![Datagrama IP](https://raw.githubusercontent.com/FJrodafo/University/main/DAW/DPL/T01/Assets/Datagrama_IP_con_datos.png)
