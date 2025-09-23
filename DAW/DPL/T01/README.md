@@ -324,7 +324,7 @@ tcpdump -c 1 -XX -n -vv dst port 80 & curl 192.168.1.100
 
 ![Datagrama IPv4 TCP (Captura)](https://raw.githubusercontent.com/FJrodafo/University/main/DAW/DPL/T01/Assets/Images/Datagrama_IPv4_TCP.png "Datagrama IPv4 TCP")
 
-![Datagrama IPv4 TCP (Diagrama)](https://raw.githubusercontent.com/FJrodafo/University/main/DAW/DPL/T01/Assets/Diagrams/Exported/Datagrama_IPv4_TCP.svg "Datagrama IPv4 TCP")
+![Datagrama IPv4 TCP (Diagrama)](https://raw.githubusercontent.com/FJrodafo/University/main/DAW/DPL/T01/Assets/Diagrams/Exported/Datagrama_IPv4_TCP.drawio.svg "Datagrama IPv4 TCP")
 
 - **Verde**: Versión del datagrama IP.
 - **Rojo**: Protocolo incluido en la carga útil del datagrama IP (payload) que en la imagen tiene el valor 06 que se corresponde con TCP (para UDP el valor sería 11).
@@ -379,7 +379,7 @@ tcpdump -c 1 -XX -n -vv udp dst port 53 & dig www.angelmelchor.pro
 
 ![Datagrama IPv4 UDP (Captura)](https://raw.githubusercontent.com/FJrodafo/University/main/DAW/DPL/T01/Assets/Images/Datagrama_IPv4_UDP.png "Datagrama IPv4 UDP")
 
-![Datagrama IPv4 UDP (Diagrama)](https://raw.githubusercontent.com/FJrodafo/University/main/DAW/DPL/T01/Assets/Diagrams/Exported/Datagrama_IPv4_UDP.svg "Datagrama IPv4 UDP")
+![Datagrama IPv4 UDP (Diagrama)](https://raw.githubusercontent.com/FJrodafo/University/main/DAW/DPL/T01/Assets/Diagrams/Exported/Datagrama_IPv4_UDP.drawio.svg "Datagrama IPv4 UDP")
 
 - **Verde**: Versión del datagrama IP.
 - **Rojo**: Protocolo incluido en la carga útil del datagrama IP (payload) que en la imagen tiene el valor 11 que se corresponde con UDP (para TCP el valor sería 06).
