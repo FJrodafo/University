@@ -1,6 +1,7 @@
 ## Índice
 
 1. [Virtual Hosts](#virtual-hosts)
+2. [LEMP: Linux + (E)Nginx + MySQL + PHP](#lemp-linux--enginx--mysql--php)
 
 ## Virtual Hosts
 
@@ -89,6 +90,9 @@ Recargamos nginx para que cargue esta nueva configuración:
 
 ```shell
 nginx -s reload
+# Si nos da error el primer comando
+# ejecutamos el siguiente
+/usr/sbin/nginx -s reload
 ```
 
 Agregamos la dirección ip y los dominios para 'engañar a nuestra máquina para que piese que resuelve nuestra ip':
@@ -117,6 +121,96 @@ cd ..
 cd usuaria/
 nano index.html # Hola soy la usuaria!
 ```
+
+## LEMP: Linux + (E)Nginx + MySQL + PHP
+
+Instalamos php-fpm:
+
+```shell
+apt update
+apt install php-fpm
+```
+
+Configuramos nuestro virtual host para que use php:
+
+```shell
+nano /etc/nginx/sites-enabled/usuario.fjrodafo.com
+```
+
+Descomentamos las siguientes lineas para darle a php la habilidad de interpretar archivos `.php` (de lo contrario, este nos descargará los archivos al no poder interpretarlos):
+
+```usuario.fjrodafo.com
+location ~ \.php$ {
+    include snippets/fastcgi-php.conf;
+
+    fastcgi_pass unix:/run/php/php7.4-fpm.sock;
+}
+
+location ~ /\.ht {
+    deny all;
+}
+```
+
+Comprobamos que no hay errores con el siguiente comando:
+
+```shell
+nginx -t
+# Si nos da error el primer comando
+# ejecutamos el siguiente
+/usr/sbin/nginx -t
+```
+
+Reiniciamos nginx con el siguiente comando:
+
+```shell
+systemctl reload nginx
+```
+
+Creamos nuestro primer archivo php
+
+```shell
+nano /var/www/usuario/info.php
+```
+
+Con el siguiente contenido:
+
+```php
+<?php
+phpinfo();
+?>
+```
+
+Ahora con el archivo php configurado, accedemos a http://usuario.fjrodafo.com/info.php y nos daremos cuenta de que nos tira un error de servidor 502 Bad Gateway, por lo que procedemos a leer el log de nginx con el siguiente comando:
+
+```shell
+tail -f /var/log/nginx/error.log
+```
+
+Tratamos de solucionar el error connect() to unix:/run/php/php7.4-fpm.sock failed (2: No such file or directory)
+
+```shell
+ls /var/run/php/php8.4-fpm.sock
+```
+
+El número de versión que viene por defecto en el archivo de configuración de nginx está desactualizado así que vamos a correguirlo:
+
+```shell
+nano /etc/nginx/sites-enabled/usuario.fjrodafo.com
+```
+
+Cambiamos la ruta por la correcta:
+
+```usuario.fjrodafo.com
+fastcgi_pass unix:/run/php/php8.4-fpm.sock;
+```
+
+Siempre que modifiquemos algún archivo de configuración de nginx, tenemos que recargar el servicio:
+
+```shell
+systemctl reload nginx
+```
+
+Para comprobar que hemos hecho lo correcto solucionando el error, volvemos a nuestra página http://usuario.fjrodafo.com/info.php para visualizar la información que nos muestra php por medio de `phpinfo();`
 
 <link rel="stylesheet" href="./../../../README.css">
 <a class="scrollup" href="#top">&#x1F53C</a>
