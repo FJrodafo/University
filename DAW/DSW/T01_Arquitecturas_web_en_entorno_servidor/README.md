@@ -212,5 +212,84 @@ systemctl reload nginx
 
 Para comprobar que hemos hecho lo correcto solucionando el error, volvemos a nuestra página http://usuario.fjrodafo.com/info.php para visualizar la información que nos muestra php por medio de `phpinfo();`
 
+Instalamos MySQL ejecutando los siguientes comandos:
+
+```shell
+apt update
+apt install mysql-server php-mysql
+```
+
+Entramos a MySQL con la terminal ejecutando el siguiente comando:
+
+```shell
+mysql
+```
+
+A continuación descargaremos e instalaremos phpmyadmin desde la página oficial ejecutando los siguientes comandos:
+
+```shell
+cd /var/www/usuario
+wget https://files.phpmyadmin.net/phpMyAdmin/5.2.2/phpMyAdmin-5.2.2-all-languages.zip
+unzip phpMyAdmin-5.2.2-all-languages.zip
+mv phpMyAdmin-5.2.2-all-languages phpmyadmin
+ll # alias ls -la
+```
+
+Finalmente agregamos index.php a la lista del archivo de configuración de nuestro servidor:
+
+```shell
+nano /etc/nginx/sites-enabled/usuario.fjrodafo.com
+```
+
+Modificamos la siguiente linea:
+
+```shell
+# Add index.php to the list if you are using PHP
+index index.php index.html index.htm index.nginx-debian.html;
+```
+
+Comprobamos que no hay errores con el siguiente comando:
+
+```shell
+nginx -t
+# Si nos da error el primer comando
+# ejecutamos el siguiente
+/usr/sbin/nginx -t
+```
+
+Reiniciamos nginx con el siguiente comando:
+
+```shell
+systemctl reload nginx
+```
+
+Y finalmente entramos a phpmyadmin desde el siguiente enlace http://usuario.fjrodafo.com/phpmyadmin
+
+Para poner una contraseña a nuestro servidor sql ejecutamos el siguiente comando:
+
+```shell
+mysqladmin --user=root password "fjrodafo"
+```
+
+Y accedemos a nuestro servidor sql con el siguiente comando:
+
+```shell
+mysql -u root -p
+```
+
+Una vez dentro de mysql ejecutamos el siguiente comando para crear un nuevo usuario que usaremos en phpMyAdmin:
+
+```sql
+CREATE USER 'phpmyadmin'@'localhost' IDENTIFIED BY 'fjrodafo';
+```
+
+A este usuario le vamos a dar todos los permisos ejecutando el siguiente comando:
+
+```sql
+GRANT ALL PRIVILEGES ON *.* TO 'phpmyadmin'@'localhost' WITH GRANT OPTION;
+```
+
+Finalmente podemos iniciar sesión en nuestro phpmyadmin con el usuario phpmyadmin y contraseña fjrodafo.
+
 <link rel="stylesheet" href="./../../../README.css">
 <a class="scrollup" href="#top">&#x1F53C</a>
