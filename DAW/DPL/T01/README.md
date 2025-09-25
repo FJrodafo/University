@@ -6,6 +6,7 @@
 4. [Servicios en Red](#servicios-en-red)
     1. [Datagrama IPv4 (Segmento TCP)](#datagrama-ipv4-segmento-tcp)
     2. [Datagrama IPv4 (Datagrama de Usuario UDP)](#datagrama-ipv4-datagrama-de-usuario-udp)
+    3. [Datagrama IPv4 (URL)](#datagrama-ipv4-url)
 
 ## Comandos de gestión y administración en Linux
 
@@ -288,6 +289,9 @@
 * Segmento / Datagrama de Usuario
 
     ![Segmento / Datagrama de Usuario (Diagrama)](https://raw.githubusercontent.com/FJrodafo/University/main/DAW/DPL/T01/Assets/Diagrams/Exported/Segmento_-_Datagrama_de_Usuario.drawio.svg "Segmento / Datagrama de Usuario")
+* Datagrama desde URL
+
+    ![Datagrama desde URL (Diagrama)](https://raw.githubusercontent.com/FJrodafo/University/main/DAW/DPL/T01/Assets/Diagrams/Exported/Datagrama_desde_URL.drawio.svg "Datagrama desde URL")
 ### Datagrama IPv4 (Segmento TCP)
 
 Captura con el sniffer `tcpdump` un datagrama IPv4:
@@ -387,6 +391,66 @@ tcpdump -c 1 -XX -n -vv udp dst port 53 & dig www.angelmelchor.pro
 - **Cyan**: El puerto origen del Datagrama de Usuario UDP se corresponde con los dos primeros octetos de dicho segmento, es decir, 0xbb71 (47985).
 - **Magenta**: El puerto destino del Datagrama de Usuario UDP se corresponde con los dos siguientes octetos, es decir, 0x0035 (53).
 - **Amarillo**: Todo el contenido que se pasará a la aplicación que escucha en el puerto 53 de la máquina destino.
+
+### Datagrama IPv4 (URL)
+
+Captura con el sniffer `tcpdump` una solicitud del cliente curl:
+
+```shell
+tcpdump -XX -n -vv 'tcp dst port 80 and (tcp[13] & 0x02 = 0)' & curl http://80.240.126.170/sub1/sub2/index.html
+```
+
+* `tcpdump` Es el sniffer.
+
+    * `-XX` Muestra el contenido del paquete en hex + ASCII. `-X` muestra carga útil (payload) en hex+ASCII, `-xx` añade también la cabecera de enlace (dependiendo de la versión ambas formas pueden variar). En la práctica `-XX` te da una vista completa del frame + payload.
+    * `-n` No resuelve nombres DNS. Muestra IPs numéricas. Evita retrasos por resolución inversa.
+    * `-vv` Modo muy verboso: imprime más detalles (decodificación del DNS cuando sea posible). `-v`, `-vv`, `-vvv` aumentan la verbosidad.
+    * `'tcp dst port 80 and (tcp[13] & 0x02 = 0)'` Filtro BPF (entre comillas para que el shell no interprete `()` o `&` de forma errónea).
+
+        * `tcp dst port 80` Solo paquetes TCP cuyo puerto destino sea 80 (peticiones hacia el servidor HTTP).
+        * `(tcp[13] & 0x02 = 0)` Comprobación a nivel de byte/bit del encabezado TCP:
+
+            * `tcp[13]` Es el byte de las flags del TCP (el 14º byte del encabezado TCP, índice 13 empezando en 0).
+            * `& 0x02` Aplica una máscara bit a bit para aislar el bit 0x02 (el bit SYN).
+            * `= 0` Significa "el bit SYN no está puesto".
+    * `&` Operador del shell: lanza el proceso anterior (`tcpdump ...`) en segundo plano y la shell continua inmediatamente con el siguiente comando.
+* `curl http://80.240.126.170/sub1/sub2/index.html` Hace una petición HTTP GET al recurso indicado en el servidor con IP `80.240.126.170`.
+
+    * `curl` (Client URL) en Linux permite transferir datos hacia o desde un servidor utilizando diversos protocolos como HTTP, HTTPS, FTP, entre otros, actuando como un cliente de red desde la línea de comandos. Imprimirá el cuerpo de la respuesta en stdout (la terminal) por defecto.
+
+```
+18:54:30.099831 IP (tos 0x0, ttl 64, id 4885, offset 0, flags [DF], proto TCP (6), length 150)
+    192.168.12.145.35228 > 80.240.126.170.80: Flags [P.], cksum 0x9d5c (incorrect -> 0xf58f), seq 0:98, ack 1, win 502, options [nop,nop,TS val 2575528453 ecr 1002929104], length 98: HTTP, length: 98
+        GET /sub1/sub2/index.html HTTP/1.1
+        Host: 80.240.126.170
+        User-Agent: curl/7.88.1
+        Accept: */*
+
+        0x0000:  18fd 748c 99df 0800 2750 f08e 0800 4500  ..t.....'P....E.
+        0x0010:  0096 1315 4000 4006 8a79 c0a8 0c91 50f0  ....@.@..y....P.
+        0x0020:  7eaa 899c 0050 6435 74fa d59e dcef 8018  ~....Pd5t.......
+        0x0030:  01f6 9d5c 0000 0101 080a 9983 7205 3bc7  ...\........r.;.
+        0x0040:  7bd0 4745 5420 2f73 7562 312f 7375 6232  {.GET./sub1/sub2
+        0x0050:  2f69 6e64 6578 2e68 746d 6c20 4854 5450  /index.html.HTTP
+        0x0060:  2f31 2e31 0d0a 486f 7374 3a20 3830 2e32  /1.1..Host:.80.2
+        0x0070:  3430 2e31 3236 2e31 3730 0d0a 5573 6572  40.126.170..User
+        0x0080:  2d41 6765 6e74 3a20 6375 726c 2f37 2e38  -Agent:.curl/7.8
+        0x0090:  382e 310d 0a41 6363 6570 743a 202a 2f2a  8.1..Accept:.*/*
+        0x00a0:  0d0a 0d0a
+```
+
+![Datagrama IPv4 URL (Captura)](https://raw.githubusercontent.com/FJrodafo/University/main/DAW/DPL/T01/Assets/Images/Datagrama_IPv4_URL.png "Datagrama IPv4 URL")
+
+![Datagrama IPv4 URL (Diagrama)](https://raw.githubusercontent.com/FJrodafo/University/main/DAW/DPL/T01/Assets/Diagrams/Exported/Datagrama_IPv4_URL.drawio.svg "Datagrama IPv4 URL")
+
+- **Verde**: Versión del datagrama IP.
+- **Rojo**: Protocolo incluido en la carga útil del datagrama IP (payload) que en la imagen tiene el valor 06 que se corresponde con TCP (para UDP el valor sería 11).
+- **Cyan**: Dirección IP de origen, es decir, la máquina que envía el datagrama IP.
+- **Azul**: El puerto origen desde el que se envía el datagrama IP.
+- **Magenta**: Dirección IP de destino, es decir, el host al que se destina el datagrama IP.
+- **Púrpura**: El puerto destino al que se destina el datagrama IP, en este caso el puerto bien conocido del servidor (80).
+- **Amarillo**: Payload que en este caso es la ruta hacia el archivo html.
+- **Negrita**: El resto de campos de una cabecera IPv4.
 
 <link rel="stylesheet" href="./../../../README.css">
 <a class="scrollup" href="#top">&#x1F53C</a>

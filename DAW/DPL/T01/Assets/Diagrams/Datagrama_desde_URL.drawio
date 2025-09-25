@@ -1,0 +1,34 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (X11; Linux x86_64; rv:140.0) Gecko/20100101 Firefox/140.0" version="28.2.5">
+  <diagram name="Page-1" id="nVGzWVSRMWcKw0THLTnx">
+    <mxGraphModel dx="1992" dy="1220" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="8T2HMftIgfYwU0W0bToT-13" value="" style="group" vertex="1" connectable="0" parent="1">
+          <mxGeometry x="-126" y="555" width="1080" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="8T2HMftIgfYwU0W0bToT-5" value="payload" style="rounded=0;whiteSpace=wrap;html=1;fontColor=light-dark(#000000,#FFFF00);" vertex="1" parent="8T2HMftIgfYwU0W0bToT-13">
+          <mxGeometry x="720" width="360" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="8T2HMftIgfYwU0W0bToT-6" value="&lt;div&gt;protocolo&lt;/div&gt;TCP/UDP" style="rounded=0;whiteSpace=wrap;html=1;fontColor=light-dark(#000000,#FF0000);" vertex="1" parent="8T2HMftIgfYwU0W0bToT-13">
+          <mxGeometry x="120" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="8T2HMftIgfYwU0W0bToT-7" value="&lt;div&gt;version&lt;/div&gt;&lt;div&gt;4/6&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontColor=light-dark(#000000,#00FF00);" vertex="1" parent="8T2HMftIgfYwU0W0bToT-13">
+          <mxGeometry width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="8T2HMftIgfYwU0W0bToT-8" value="&lt;div&gt;SRC&lt;/div&gt;&lt;div&gt;IP&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontColor=light-dark(#000000,#00FFFF);" vertex="1" parent="8T2HMftIgfYwU0W0bToT-13">
+          <mxGeometry x="240" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="8T2HMftIgfYwU0W0bToT-9" value="&lt;div&gt;DST&lt;/div&gt;&lt;div&gt;IP&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontColor=light-dark(#000000,#FF00FF);" vertex="1" parent="8T2HMftIgfYwU0W0bToT-13">
+          <mxGeometry x="480" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="8T2HMftIgfYwU0W0bToT-11" value="&lt;div&gt;&lt;span style=&quot;color: light-dark(rgb(0, 0, 0), rgb(127, 0, 255));&quot;&gt;DST&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;color: light-dark(transparent, rgb(127, 0, 255));&quot;&gt;Port&lt;/span&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontColor=light-dark(#000000,#FF00FF);" vertex="1" parent="8T2HMftIgfYwU0W0bToT-13">
+          <mxGeometry x="600" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="8T2HMftIgfYwU0W0bToT-12" value="&lt;div&gt;&lt;span style=&quot;color: light-dark(rgb(0, 0, 0), rgb(0, 127, 255));&quot;&gt;SRC&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;color: light-dark(transparent, rgb(0, 127, 255));&quot;&gt;Port&lt;/span&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="8T2HMftIgfYwU0W0bToT-13">
+          <mxGeometry x="360" width="120" height="60" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
