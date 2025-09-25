@@ -7,6 +7,7 @@
     1. [Datagrama IPv4 (Segmento TCP)](#datagrama-ipv4-segmento-tcp)
     2. [Datagrama IPv4 (Datagrama de Usuario UDP)](#datagrama-ipv4-datagrama-de-usuario-udp)
     3. [Datagrama IPv4 (URL)](#datagrama-ipv4-url)
+5. [Comandos útiles](#comandos-útiles)
 
 ## Comandos de gestión y administración en Linux
 
@@ -451,6 +452,27 @@ tcpdump -XX -n -vv 'tcp dst port 80 and (tcp[13] & 0x02 = 0)' & curl http://80.2
 - **Púrpura**: El puerto destino al que se destina el datagrama IP, en este caso el puerto bien conocido del servidor (80).
 - **Amarillo**: Payload que en este caso es la ruta hacia el archivo html.
 - **Negrita**: El resto de campos de una cabecera IPv4.
+
+## Comandos útiles
+
+Visualizar IPs de la máquina en Linux `ip a` / Windows `ipconfig`
+
+Para saber qué servicios (aplicaciones servidoras) se están ejecutando en un equipo Linux y en qué puertos están escuchando, utilizaremos el siguiente comando:
+
+```shell
+ss -putnl
+```
+
+Ejecutar un servidor de pruebas python.
+
+```shell
+cd Public/
+python3 -m http.server 8000
+```
+
+> [!CAUTION]
+> 
+> Ejecutarlo en un directorio específico cuyo contenido quieres compartir, si lo ejecutas en la raiz, todas las máquinas que se conecten a tu servidor tienen acceso completo a todo el contenido de tu máquina!
 
 <link rel="stylesheet" href="./../../../README.css">
 <a class="scrollup" href="#top">&#x1F53C</a>
