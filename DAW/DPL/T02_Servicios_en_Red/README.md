@@ -4,7 +4,8 @@
     1. [Datagrama IPv4 (Segmento TCP)](#datagrama-ipv4-segmento-tcp)
     2. [Datagrama IPv4 (Datagrama de Usuario UDP)](#datagrama-ipv4-datagrama-de-usuario-udp)
     3. [Datagrama IPv4 (URL)](#datagrama-ipv4-url)
-2. [Comandos útiles](#comandos-útiles)
+2. [Protocolo HTTP](#protocolo-http)
+3. [Comandos útiles](#comandos-útiles)
 
 ## Servicios en Red
 
@@ -179,6 +180,140 @@ tcpdump -XX -n -vv 'tcp dst port 80 and (tcp[13] & 0x02 = 0)' & curl http://80.2
 - **Púrpura**: El puerto destino al que se destina el datagrama IP, en este caso el puerto bien conocido del servidor (80).
 - **Amarillo**: Payload que en este caso es la ruta hacia el archivo html.
 - **Negrita**: El resto de campos de una cabecera IPv4.
+
+## Protocolo HTTP
+
+Los principales métodos implementados en el protocolo son:
+
+* **GET**: Solicita un recurso concreto del servidor. El recurso adopta la parte final de una URL, la que haya después del puerto, por ejemplo, en la URL http://usuario:password@192.168.1.100:8080/sub1/sub2/index.html?var1=hola&var2=mundo, el recurso será `/sub1/sub2/index.html?var1=hola&var2=mundo`
+* **HEAD**: Pide una respuesta indéntica a la de una petición GET, pero sin el cuerpo de la respuesta. Es decir, no se devuelve el archivo, en el resto es idéntico al método GET.
+* **POST**: Este método permite al cliente enviar un campo con datos en el mensaje de petición. Este campo se llama cuerpo de la petición. Este método es el que se utiliza normalmente en los formularios al clicar en `Enviar`, especialmente cuando el cliente debe enviar información binaria al servidor.
+* **PUT**: Se utiliza para crear o modificar el recurso con los datos enviados en el cuerpo de la petición.
+* **DELETE**: Elimina el recurso en el servidor.
+
+Las principales cabeceras de petición son:
+
+1. **Host**
+
+    Indica el nombre de dominio o dirección IP y, opcionalmente, el puerto.
+
+    `Obligatoria desde HTTP/1.1`
+
+    Ejemplo:
+
+    ```
+    Host: www.ejemplo.com
+    ```
+2. **User-Agent**
+
+    Identifica el cliente que hace la petición (navegador, versión, sistema operativo).
+
+    Ejemplo:
+
+    ```
+    User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64)
+    ```
+3. **Accept**
+
+    Indica los tipos MIME que el cliente acepta.
+
+    Ejemplo:
+
+    ```
+    Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+    ```
+4. **Accept-Language**
+
+    Idiomas preferidos del cliente.
+
+    Ejemplo:
+
+    ```
+    Accept-Language: es-ES,es;q=0.9,en;q=0.8
+    ```
+5. **Accept-Encoding**
+
+    Codificaciones de compresión aceptadas.
+
+    Ejemplo:
+
+    ```
+    Accept-Encoding: gzip, deflate, br
+    ```
+6. **Connection**
+
+    Controla el uso de la conexión TCP. Esto permite que la conexión TCP continúe abierta y se puedan solicitar más peticiones sin que haya que negociar de nuevo el 3-way handshake.
+
+    Ejemplo:
+
+    ```
+    Connection: keep-alive
+    ```
+7. **Referer** (si, con esa ortografía "incorrecta" histórica)
+
+    Indica la URL de la página desde la que se hizo la petición.
+
+    Ejemplo:
+
+    ```
+    Referer: https://www.google.com/
+    ```
+
+    La cabecera Referer indica la página web de origen desde la que se ha hecho la petición.
+
+    Si en www.google.com haces clic en un enlace a www.ejemplo.com, el navegador mandará:
+
+    ```
+    GET / HTTP/1.1
+    Host: www.ejemplo.com
+    Referer: https://www.google.com/
+    ```
+8. **Cookie**
+
+    Envía cookies almacenadas por el cliente para ese dominio.
+
+    Ejemplo:
+
+    ```
+    Cookie: sessionid=abc123; lang=es
+    ```
+9. **Authorization**
+
+    Contiene credenciales para autenticación (Basic, Bearer tokens...).
+
+    Ejemplo:
+
+    ```
+    Authorization: Basic dXN1YXJpbzpwYXNzd29yZA==
+    ```
+10. **Content-Type**
+
+    Indica el tipo de datos del cuerpo de la petición (en métodos como POST, PUT).
+
+    Ejemplo:
+
+    ```
+    Content-Type: application/json
+    ```
+11. **Content-Length**
+
+    Indica el tamaño (en bytes) del cuerpo de la petición.
+
+    Ejemplo:
+
+    ```
+    Content-Length: 87
+    ```
+12. **If-NoneMatch / If-Modified-Since**
+
+    Cabeceras condicionales usadas para validación de caché.
+
+    Ejemplo:
+
+    ```
+    If-None-Match: "abc123etag"
+    If-Modified-Since: Wed, 21 Oct 2025 07:28:00 GMT
+    ```
 
 ## Comandos útiles
 
