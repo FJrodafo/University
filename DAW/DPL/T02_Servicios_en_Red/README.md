@@ -365,6 +365,68 @@ tcpdump -XX -n -vv host 80.240.126.170 and tcp port 80 & curl http://80.240.126.
 - **Amarillo**: Código ASCII 0d0a de un salto de línea (al final se envían dos saltos de línea consecutivos (0d0a 0d0a) para darle la señal al servidor de que se ha terminado la solicitud del cliente y es su turno para responder).
 - **El resto de colores**: Corresponde al contenido del payload del segmento TCP, en este caso, los datos enviados por el cliente web (curl).
 
+### Petición HTTP POST
+
+Captura con el sniffer `tcpdump` una solicitud del cliente curl:
+
+```shell
+tcpdump -XX -n -vv host 80.240.126.170 and tcp port 80 & curl -d "var1=13.45&var2=Angel" http://80.240.126.170/index.html
+```
+
+* `tcpdump` Es el sniffer.
+
+    * `-XX` Muestra el contenido del paquete en hex + ASCII. `-X` muestra carga útil (payload) en hex+ASCII, `-xx` añade también la cabecera de enlace (dependiendo de la versión ambas formas pueden variar). En la práctica `-XX` te da una vista completa del frame + payload.
+    * `-n` No resuelve nombres DNS. Muestra IPs numéricas. Evita retrasos por resolución inversa.
+    * `-vv` Modo muy verboso: imprime más detalles (decodificación del DNS cuando sea posible). `-v`, `-vv`, `-vvv` aumentan la verbosidad.
+    * `host 80.240.126.170 and tcp port 80` Filtro BPF (En conjunto, esto captura tanto las peticiones (dst port 80) como las respuestas (src port 80) entre tu máquina y 80.240.126.170 (es decir, ambos sentidos)).
+
+        * `host 80.240.126.170` Paquete donde esa dirección sea origen o destino.
+        * `tcp port 80` Paquete TCP donde alguno de los puertos (origen o destino) sea 80.
+    * `&` Operador del shell: lanza el proceso anterior (`tcpdump ...`) en segundo plano y la shell continua inmediatamente con el siguiente comando.
+* `curl -d "var1=13.45&var2=Angel" http://80.240.126.170/index.html` Envía una petición HTTP POST a http://80.240.126.170/index.html y vuelca la respuesta (el HTML) por stdout.
+
+    * `curl` (Client URL) en Linux permite transferir datos hacia o desde un servidor utilizando diversos protocolos como HTTP, HTTPS, FTP, entre otros, actuando como un cliente de red desde la línea de comandos. Imprimirá el cuerpo de la respuesta en stdout (la terminal) por defecto.
+    * `-d` (alias --data) envía los datos en el cuerpo de la petición y hace que curl use el método POST.
+    * Por defecto curl añade la cabecera `Content-Length: 21` y el `Content-Type: application/x-www-form-urlencoded` (salvo que uses opciones que cambien ese comportamiento).
+
+```
+17:49:12.007761 IP (tos 0x0, ttl 64, id 4265, offset 0, flags [DF], proto TCP (6), length 231)
+    192.168.12.145.52758 > 80.240.126.170.80: Flags [P.], cksum 0x9dad (incorrect -> 0xc15a), seq 1:180, ack 1, win 502, options [nop,nop,TS val 2658010360 ecr 1085414411], length 179: HTTP, length: 179
+        POST /index.html HTTP/1.1
+        Host: 80.240.126.170
+        User-Agent: curl/7.88.1
+        Accept: */*
+        Content-Length: 21
+        Content-Type: application/x-www-form-urlencoded
+
+        var1=13.45&var2=Angel [|http]
+        0x0000:  18fd 748c 99df 0800 2750 f08e 0800 4500  ..t.....'P....E.
+        0x0010:  00e7 10a9 4000 4006 8c94 c0a8 0c91 50f0  ....@.@.......P.
+        0x0020:  7eaa ce16 0050 4ed6 166f 9a85 4556 8018  ~....PN..o..EV..
+        0x0030:  01f6 9dad 0000 0101 080a 9e6e 04f8 40b2  ...........n..@.
+        0x0040:  1c0b 504f 5354 202f 696e 6465 782e 6874  ..POST./index.ht
+        0x0050:  6d6c 2048 5454 502f 312e 310d 0a48 6f73  ml.HTTP/1.1..Hos
+        0x0060:  743a 2038 302e 3234 302e 3132 362e 3137  t:.80.240.126.17
+        0x0070:  300d 0a55 7365 722d 4167 656e 743a 2063  0..User-Agent:.c
+        0x0080:  7572 6c2f 372e 3838 2e31 0d0a 4163 6365  url/7.88.1..Acce
+        0x0090:  7074 3a20 2a2f 2a0d 0a43 6f6e 7465 6e74  pt:.*/*..Content
+        0x00a0:  2d4c 656e 6774 683a 2032 310d 0a43 6f6e  -Length:.21..Con
+        0x00b0:  7465 6e74 2d54 7970 653a 2061 7070 6c69  tent-Type:.appli
+        0x00c0:  6361 7469 6f6e 2f78 2d77 7777 2d66 6f72  cation/x-www-for
+        0x00d0:  6d2d 7572 6c65 6e63 6f64 6564 0d0a 0d0a  m-urlencoded....
+        0x00e0:  7661 7231 3d31 332e 3435 2676 6172 323d  var1=13.45&var2=
+        0x00f0:  416e 6765 6c                             Angel
+```
+
+![Petición HTTP POST (Captura)](https://raw.githubusercontent.com/FJrodafo/University/main/DAW/DPL/T02_Servicios_en_Red/Assets/Images/Peticion_HTTP_POST.png "Petición HTTP POST")
+
+- **Verde**: Después de la cabecera se siguen enviando dos saltos de línea (0d0a 0d0a) pero en este caso el servidor sabe que las cabeceras han terminado pero debe esperar a recibir 21 octetos más, antes de procesar la petición. En concreto los 21 octetos ASCII que suponen la cadena `var1=13.45&var2=Angel` contenidos en el cuerpo de la petición.
+- **Cyan**: Content-Length: 21 indica al servidor que el campo cuerpo de la petición incluye datos y que estos ocupan 21 octetos.
+- **Magenta**: Content-Type: application/x-www-form-urlencoded indica al servidor la codificación o tipo de los datos (MIME type) enviados, en el ejemplo dice que el cuerpo de la petición está codificado como si fuera la cadena de una URL, formato _query string_, que es el formato por defecto de los formularios HTML.
+- **Amarillo**: Código ASCII 0d0a de un salto de línea (al final se envían dos saltos de línea consecutivos (0d0a 0d0a) para darle la señal al servidor de que se ha terminado la solicitud del cliente y es su turno para responder).
+
+Ahora vamos a centrarnos en la respuesta del servidor HTTP ante cualquer petición de los clientes web. Lo primero que envía el servidor es la versión del protocolo HTTP seguido de un código de estado. Por ejemplo: `HTTP/1.1 200 OK` De esta manera se le indica al cliente si su petición ha implicado algún error o ha sido procesada correctamente.
+
 ## Comandos útiles
 
 Visualizar IPs de la máquina en Linux `ip a` / Windows `ipconfig`
