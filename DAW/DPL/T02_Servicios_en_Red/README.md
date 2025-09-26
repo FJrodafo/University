@@ -6,7 +6,7 @@
     3. [Datagrama IPv4 (URL)](#datagrama-ipv4-url)
 2. [Protocolo HTTP](#protocolo-http)
     1. [Petición HTTP GET](#petición-http-get)
-    1. [Petición HTTP POST](#petición-http-post)
+    2. [Petición HTTP POST](#petición-http-post)
 3. [Comandos útiles](#comandos-útiles)
 
 ## Servicios en Red
