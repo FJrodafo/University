@@ -19,7 +19,11 @@ Instalamos NGINX:
 sudo apt install nginx
 ```
 
-Una vez instalado podemos observar desde http://localhost/ o http://127.0.0.1/ la página de bienvenida de NGINX.
+Una vez instalado podemos observar desde localhost la página de bienvenida de NGINX:
+
+http://localhost/
+
+http://127.0.0.1/
 
 ## Comandos de administración de servicios en Linux (NGINX)
 
@@ -141,7 +145,11 @@ Con el siguiente contenido:
 Hola, Mundo!
 ```
 
-Para ver el resultado, introducimos la siguiente dirección en nuestro navegador de confianza: http://daw.fjrodafo.com/
+Para ver el resultado, introducimos la siguiente dirección en nuestro navegador de confianza:
+
+http://daw.fjrodafo.com/
+
+http://daw.fjrodafo.com/index.html
 
 ## Configuración NGINX + PHP
 
