@@ -5,6 +5,7 @@
     2. [Datagrama IPv4 (Datagrama de Usuario UDP)](#datagrama-ipv4-datagrama-de-usuario-udp)
     3. [Datagrama IPv4 (URL)](#datagrama-ipv4-url)
 2. [Protocolo HTTP](#protocolo-http)
+    1. [Petición HTTP GET](#petición-http-get)
 3. [Comandos útiles](#comandos-útiles)
 
 ## Servicios en Red
@@ -314,6 +315,55 @@ Las principales cabeceras de petición son:
     If-None-Match: "abc123etag"
     If-Modified-Since: Wed, 21 Oct 2025 07:28:00 GMT
     ```
+
+### Petición HTTP GET
+
+Captura con el sniffer `tcpdump` una solicitud del cliente curl:
+
+```shell
+tcpdump -XX -n -vv host 80.240.126.170 and tcp port 80 & curl http://80.240.126.170/index.html
+```
+
+* `tcpdump` Es el sniffer.
+
+    * `-XX` Muestra el contenido del paquete en hex + ASCII. `-X` muestra carga útil (payload) en hex+ASCII, `-xx` añade también la cabecera de enlace (dependiendo de la versión ambas formas pueden variar). En la práctica `-XX` te da una vista completa del frame + payload.
+    * `-n` No resuelve nombres DNS. Muestra IPs numéricas. Evita retrasos por resolución inversa.
+    * `-vv` Modo muy verboso: imprime más detalles (decodificación del DNS cuando sea posible). `-v`, `-vv`, `-vvv` aumentan la verbosidad.
+    * `host 80.240.126.170 and tcp port 80` Filtro BPF (En conjunto, esto captura tanto las peticiones (dst port 80) como las respuestas (src port 80) entre tu máquina y 80.240.126.170 (es decir, ambos sentidos)).
+
+        * `host 80.240.126.170` Paquete donde esa dirección sea origen o destino.
+        * `tcp port 80` Paquete TCP donde alguno de los puertos (origen o destino) sea 80.
+    * `&` Operador del shell: lanza el proceso anterior (`tcpdump ...`) en segundo plano y la shell continua inmediatamente con el siguiente comando.
+* `curl http://80.240.126.170/index.html` Envía una petición HTTP GET a http://80.240.126.170/index.html y vuelca la respuesta (el HTML) por stdout.
+
+    * `curl` (Client URL) en Linux permite transferir datos hacia o desde un servidor utilizando diversos protocolos como HTTP, HTTPS, FTP, entre otros, actuando como un cliente de red desde la línea de comandos. Imprimirá el cuerpo de la respuesta en stdout (la terminal) por defecto.
+
+```
+17:07:19.024489 IP (tos 0x0, ttl 64, id 39700, offset 0, flags [DF], proto TCP (6), length 140)
+    192.168.12.145.54024 > 80.240.126.170.80: Flags [P.], cksum 0x9d52 (incorrect -> 0xa394), seq 1:89, ack 1, win 502, options [nop,nop,TS val 2655497377 ecr 1082901323], length 88: HTTP, length: 88
+        GET /index.html HTTP/1.1
+        Host: 80.240.126.170
+        User-Agent: curl/7.88.1
+        Accept: */*
+
+        0x0000:  18fd 748c 99df 0800 2750 f08e 0800 4500  ..t.....'P....E.
+        0x0010:  008c 9b14 4000 4006 0284 c0a8 0c91 50f0  ....@.@.......P.
+        0x0020:  7eaa d308 0050 95e5 8d87 4d6f 4388 8018  ~....P....MoC...
+        0x0030:  01f6 9d52 0000 0101 080a 9e47 aca1 408b  ...R.......G..@.
+        0x0040:  c34b 4745 5420 2f69 6e64 6578 2e68 746d  .KGET./index.htm
+        0x0050:  6c20 4854 5450 2f31 2e31 0d0a 486f 7374  l.HTTP/1.1..Host
+        0x0060:  3a20 3830 2e32 3430 2e31 3236 2e31 3730  :.80.240.126.170
+        0x0070:  0d0a 5573 6572 2d41 6765 6e74 3a20 6375  ..User-Agent:.cu
+        0x0080:  726c 2f37 2e38 382e 310d 0a41 6363 6570  rl/7.88.1..Accep
+        0x0090:  743a 202a 2f2a 0d0a 0d0a                 t:.*/*.…
+```
+
+![Petición HTTP GET (Captura)](https://raw.githubusercontent.com/FJrodafo/University/main/DAW/DPL/T02_Servicios_en_Red/Assets/Images/Peticion_HTTP_GET.png "Petición HTTP GET")
+
+- **Negrita**: Corresponde a la cabecera del datagrama IP.
+- **Cursiva**: Corresponde a la cabecera del segmento TCP.
+- **Amarillo**: Código ASCII 0d0a de un salto de línea (al final se envían dos saltos de línea consecutivos (0d0a 0d0a) para darle la señal al servidor de que se ha terminado la solicitud del cliente y es su turno para responder).
+- **El resto de colores**: Corresponde al contenido del payload del segmento TCP, en este caso, los datos enviados por el cliente web (curl).
 
 ## Comandos útiles
 
