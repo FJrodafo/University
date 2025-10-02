@@ -101,6 +101,18 @@ root /var/www/daw;
 server_name daw.fjrodafo.com;
 ```
 
+Comprobamos que no hay errores con el siguiente comando:
+
+```shell
+sudo nginx -t
+```
+
+Si el comando anterior no existe porque no se ha configurado la variable de entorno, ejecute el siguiente comando:
+
+```shell
+sudo /usr/sbin/nginx -t
+```
+
 Recargamos NGINX debido a que hemos hecho un cambio en los archivos de configuración del servidor:
 
 ```shell
@@ -145,6 +157,24 @@ Con el siguiente contenido:
 Hola, Mundo!
 ```
 
+Comprobamos que no hay errores con el siguiente comando:
+
+```shell
+sudo nginx -t
+```
+
+Si el comando anterior no existe porque no se ha configurado la variable de entorno, ejecute el siguiente comando:
+
+```shell
+sudo /usr/sbin/nginx -t
+```
+
+Recargamos NGINX debido a que hemos hecho un cambio en los archivos de configuración del servidor:
+
+```shell
+sudo systemctl reload nginx
+```
+
 Para ver el resultado, introducimos la siguiente dirección en nuestro navegador de confianza:
 
 http://daw.fjrodafo.com/
@@ -162,7 +192,7 @@ sudo apt update
 Instalamos el servicio que permite a NGINX interpretar código PHP:
 
 ```shell
-sudo apt install 
+sudo apt install php-fpm
 ```
 
 Nos dirigimos al archivo `/etc/nginx/sites-available/daw.fjrodafo.com` y editamos el archivo con `nano` para descomentar las siguientes líneas de código:
