@@ -61,7 +61,7 @@
     Imprime texto en pantalla o en un archivo.
 
     ```shell
-    echo "Hola mundo"
+    echo "Hola, Mundo!"
     echo "127.0.0.1 localhost" | sudo tee -a /etc/hosts
     ```
 7. `cat` (Concatenate)
