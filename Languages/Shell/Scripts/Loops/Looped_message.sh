@@ -4,5 +4,5 @@
 # Use echo to print the message within the for loop.
 
 for ((i = 0 ; i < 10 ; i++)); do
-    echo "Hello World!"
+    echo "Hello, World!"
 done
