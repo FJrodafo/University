@@ -86,3 +86,6 @@ Para eliminar esta conexión de nuestro sistema SSH y que nos vuelva a preguntar
 ```shell
 ssh-keygen -R x.x.x.x
 ```
+
+<link rel="stylesheet" href="./../../../README.css">
+<a class="scrollup" href="#top">&#x1F53C</a>
