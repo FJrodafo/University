@@ -28,7 +28,7 @@ if [ "$confirmation" != "Y" ]; then
 fi
 sudo echo
 
-echo "🧹 Cleaning /var/www/ (except html)..."
+echo "🧹 Cleaning /var/www/ (except html) ..."
 sudo find "$TARGET" -mindepth 1 -maxdepth 1 ! -name 'html' -exec rm -rf {} +
 echo "✅ Cleanup completed."
 echo
@@ -46,3 +46,11 @@ echo "🔧 Setting permissions: directories 755, files 644 ..."
 sudo find "$TARGET" -type d -exec chmod 755 {} +
 sudo find "$TARGET" -type f -exec chmod 644 {} +
 echo "✅ Permissions applied successfully."
+echo
+
+# Set special permissions: contador 
+echo "🔧 Setting special permissions: contador ..."
+CONTADOR="/var/www/daw/ejercicios/contador/contador.txt"
+sudo chown www-data:www-data "$CONTADOR"
+sudo chmod 664 "$CONTADOR"
+echo "✅ Special permissions applied successfully."
