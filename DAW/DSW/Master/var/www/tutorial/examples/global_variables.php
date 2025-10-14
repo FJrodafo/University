@@ -9,10 +9,15 @@
     $_SESSION['session_var_1'] = "Some defined value";
     $_SESSION['session_var_2'] = "Some other defined value";
 ?>
-<html>
+
+<!DOCTYPE html>
+<html lang="en">
     <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Example of reserved variables in PHP 7</title>
-        <!-- http://tutorial.fjrodafo.com/global_variables.php?var1=hello&var2=world&var3=0&var4=1234 -->
+        <!-- http://tutorial.fjrodafo.com/examples/global_variables.php?var1=hello&var2=world&var3=0&var4=1234 -->
+    </head>
     </head>
     <body>
         <h2>SERVER</h2><!-- SERVER -->
@@ -29,8 +34,14 @@
         </pre>
         <h2>POST</h2><!-- POST -->
         <form method="post">
-            Write your name: <input type="text" name="name" value="<?=@$_POST['name'];?>" /><br />
-            Write your age: <input type="text" name="age" value="<?=@$_POST['age'];?>" /><br />
+            <label for="name">Write your name:</label>
+            <input type="text" name="name" value="<?=@$_POST['name'];?>" />
+            <br />
+            <br />
+            <label for="age">Write your age:</label>
+            <input type="text" name="age" value="<?=@$_POST['age'];?>" />
+            <br />
+            <br />
             <input type="submit" value="Send" />
         </form>
         <pre>
@@ -48,7 +59,8 @@
         </pre>
         <h2>FILES</h2><!-- FILES -->
         <form method="post" enctype="multipart/form-data">
-            File: <input type="file" name="file" /><br />
+            <label for="file">File:</label>
+            <input type="file" name="file" />
             <input type="submit" value="Send" />
         </form>
         <pre>

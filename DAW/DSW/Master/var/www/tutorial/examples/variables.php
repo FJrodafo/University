@@ -1,14 +1,19 @@
 <?php
-    $author = "John Doe";
-    echo "<h1>Hello, World!</h1>
-    <p>This dynamic web page was created by $author.</p>";
-
-    $author = "Max Mustermann";
-    echo "<p>Supported by $author.</p>";
-
-    echo '$author';
-
     $author1 = "John Doe";
     $author2 = "Max Mustermann";
-    echo "<p>This dynamic web page was created by $author1 and $author2.</p>";
 ?>
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Hello, World!</title>
+    </head>
+    <body>
+        <h2>Hello, World!</h2>
+        <p>This dynamic web page was created by <?= $author1 ?>.</p>
+        <p>Supported by <?= $author2 ?>.</p>
+        <p><?= $author1 ?> and <?= $author2 ?> worked together on this project.</p>
+    </body>
+</html>
