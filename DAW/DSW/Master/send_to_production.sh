@@ -18,6 +18,7 @@ GROUP=$(stat -c "%G" "$REFERENCE")
 echo "🔎 Reference folder: $REFERENCE"
 echo "   Owner: $OWNER"
 echo "   Group: $GROUP"
+echo "   Special: www-data"
 echo
 
 # Confirm before cleaning
@@ -48,9 +49,12 @@ sudo find "$TARGET" -type f -exec chmod 644 {} +
 echo "✅ Permissions applied successfully."
 echo
 
-# Set special permissions: contador 
-echo "🔧 Setting special permissions: contador ..."
+# Set special permissions: contador, frases
+echo "🔧 Setting special permissions: contador, frases ..."
 CONTADOR="/var/www/daw/ejercicios/contador/contador.txt"
 sudo chown www-data:www-data "$CONTADOR"
 sudo chmod 664 "$CONTADOR"
+FRASES="/var/www/daw/ejercicios/frases/frases.txt"
+sudo chown www-data:www-data "$FRASES"
+sudo chmod 664 "$FRASES"
 echo "✅ Special permissions applied successfully."
