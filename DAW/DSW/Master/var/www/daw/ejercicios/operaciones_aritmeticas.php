@@ -1,22 +1,29 @@
 <?php
-    // Script que realiza operaciones aritméticas básicas entre dos números
+    // Realiza operaciones aritméticas entre dos números.
 
-    // Declaración e inicialización de variables numéricas
-    $numero1 = 10;
-    $numero2 = 5; // No debe ser cero para evitar división entre cero
+    $num1 = 7;
+    $num2 = 4;
 
-    // Operaciones
-    $suma = $numero1 + $numero2;
-    $resta = $numero1 - $numero2;
-    $producto = $numero1 * $numero2;
-    $division = $numero1 / $numero2;
-
-    // Mostrar los resultados en formato HTML
-    echo "<h2>Operaciones Aritméticas</h2>";
-    echo "<p>Primer número: " . $numero1 . "</p>";
-    echo "<p>Segundo número: " . $numero2 . "</p>";
-    echo "<p>Suma: " . $suma . "</p>";
-    echo "<p>Resta: " . $resta . "</p>";
-    echo "<p>Producto: " . $producto . "</p>";
-    echo "<p>División: " . $division . "</p>";
+    $suma = $num1 + $num2;
+    $resta = $num1 - $num2;
+    $producto = $num1 * $num2;
+    $division = ($num2 != 0) ? ($num1 / $num2) : "Err";
 ?>
+
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Operaciones Aritméticas</title>
+    </head>
+    <body>
+        <h2>Operaciones Aritméticas</h2>
+        <p>Primer número: <?= $num1 ?></p>
+        <p>Segundo número: <?= $num2 ?></p>
+        <p>Suma: <?= $suma ?></p>
+        <p>Resta: <?= $resta ?></p>
+        <p>Producto: <?= $producto ?></p>
+        <p>División: <?= $division ?></p>
+    </body>
+</html>

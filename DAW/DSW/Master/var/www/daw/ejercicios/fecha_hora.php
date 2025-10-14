@@ -1,16 +1,22 @@
 <?php
-    // Script que muestra la fecha y hora actuales del sistema
+    // Muestra la fecha y hora actuales del sistema.
 
-    // Establecer zona horaria (opcional)
-    #date_default_timezone_set('Europe/Madrid');
     date_default_timezone_set('Atlantic/Canary');
 
-    // Obtener la fecha y hora actuales
     $fechaActual = date('d/m/Y');
     $horaActual = date('H:i:s');
-
-    // Mostrar los resultados en formato HTML
-    echo "<h2>Fecha y hora actuales</h2>";
-    echo "<p>Fecha: " . $fechaActual . "</p>";
-    echo "<p>Hora: " . $horaActual . "</p>";
 ?>
+
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Fecha y hora actuales</title>
+    </head>
+    <body>
+        <h2>Fecha y hora actuales</h2>
+        <p>Fecha: <?= $fechaActual ?></p>
+        <p>Hora: <?= $horaActual ?></p>
+    </body>
+</html>
