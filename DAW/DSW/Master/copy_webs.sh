@@ -1,4 +1,5 @@
 #!/bin/bash
+
 # Script to copy nginx projects from the current directory to /var/www/
 # It keeps the same owner, group, and permissions as /var/www/html/
 
