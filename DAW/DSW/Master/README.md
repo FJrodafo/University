@@ -113,13 +113,13 @@ Si el comando anterior no existe porque no se ha configurado la variable de ento
 sudo /usr/sbin/nginx -t
 ```
 
-Recargamos NGINX debido a que hemos hecho un cambio en los archivos de configuración del servidor:
+Reiniciamos NGINX debido a que hemos hecho un cambio en los archivos de configuración del servidor:
 
 ```shell
-sudo systemctl reload nginx
+sudo systemctl restart nginx
 ```
 
-Creamos un enlace simbólico desde el archivo `/etc/nginx/sites-available/daw.fjrodafo.com` hacia `/etc/nginx/sites-enabled/daw.fjrodafo.com`
+Creamos un enlace simbólico desde el archivo `/etc/nginx/sites-available/daw.fjrodafo.com` hacia `/etc/nginx/sites-enabled/daw.fjrodafo.com` (es importante ejecutar este comando desde el directorio raíz):
 
 ```shell
 sudo ln -s /etc/nginx/sites-available/daw.fjrodafo.com /etc/nginx/sites-enabled/daw.fjrodafo.com
@@ -169,10 +169,10 @@ Si el comando anterior no existe porque no se ha configurado la variable de ento
 sudo /usr/sbin/nginx -t
 ```
 
-Recargamos NGINX debido a que hemos hecho un cambio en los archivos de configuración del servidor:
+Reiniciamos NGINX debido a que hemos hecho un cambio en los archivos de configuración del servidor:
 
 ```shell
-sudo systemctl reload nginx
+sudo systemctl restart nginx
 ```
 
 Para ver el resultado, introducimos la siguiente dirección en nuestro navegador de confianza:
@@ -240,10 +240,10 @@ Si el comando anterior no existe porque no se ha configurado la variable de ento
 sudo /usr/sbin/nginx -t
 ```
 
-Recargamos NGINX debido a que hemos hecho un cambio en los archivos de configuración del servidor:
+Reiniciamos NGINX debido a que hemos hecho un cambio en los archivos de configuración del servidor:
 
 ```shell
-sudo systemctl reload nginx
+sudo systemctl restart nginx
 ```
 
 Nos dirigimos al directorio `/var/www/daw/` y creamos nuestro primer archivo `index.php` y lo editamos con `nano`:
@@ -314,10 +314,10 @@ Si el comando anterior no existe porque no se ha configurado la variable de ento
 sudo /usr/sbin/nginx -t
 ```
 
-Recargamos NGINX debido a que hemos hecho un cambio en los archivos de configuración del servidor:
+Reiniciamos NGINX debido a que hemos hecho un cambio en los archivos de configuración del servidor:
 
 ```shell
-sudo systemctl reload nginx
+sudo systemctl restart nginx
 ```
 
 Finalmente podemos visitar nuestras páginas PHP en nuestro servidor NGINX:
