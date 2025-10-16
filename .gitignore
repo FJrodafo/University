@@ -10,6 +10,9 @@ Languages/Java/MEGA_Curso_JAVA_desde_0_DAM_-_DAW/Apuntes/
 Languages/Java/MEGA_Curso_JAVA_desde_0_DAM_-_DAW/bin/
 Languages/Java/MEGA_Curso_JAVA_desde_0_DAM_-_DAW/lib/
 
+# Nginx
+DAW/DSW/Master/.backup
+
 # Python
 Languages/Python/**/__pycache__/
 Languages/Python/KeepCalm/src/assets/font
