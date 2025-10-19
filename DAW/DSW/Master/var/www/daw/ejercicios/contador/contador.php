@@ -15,10 +15,10 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Contador</title>
+        <title>Contador de visitas con un archivo externo</title>
     </head>
     <body>
-        <h2>Contador</h2>
+        <h2>Contador de visitas con un archivo externo</h2>
         <p>Este script ha sido cargado <?= $contador ?> veces.</p>
     </body>
 </html>
