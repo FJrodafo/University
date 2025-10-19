@@ -1,5 +1,5 @@
 <?php
-    // Muestra la fecha, hora y el número de veces que se ha ejecutado el script a través de una cookie que caduca al año.
+    // Muestra la fecha, hora y el número de veces que se ha ejecutado el script a través de una cookie que caduca al minuto.
 
     $cookieName = "contador_visitas";
 
@@ -9,7 +9,7 @@
         $contador = 1;
     }
 
-    setcookie($cookieName, $contador, time() + (365 * 24 * 60 * 60), "/");
+    setcookie($cookieName, $contador, time() + 60, "/");
 
     $fecha_actual = date("d/m/Y H:i:s");
 ?>
@@ -19,10 +19,10 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Contador de visitas con Cookie</title>
+        <title>Contador de visitas con Cookie que caduca al minuto</title>
     </head>
     <body>
-        <h2>Contador de visitas con Cookie</h2>
+        <h2>Contador de visitas con Cookie que caduca al minuto</h2>
         <p><?= $fecha_actual ?></p>
         <p>Este script ha sido cargado <?= $contador ?> veces.</p>
     </body>
