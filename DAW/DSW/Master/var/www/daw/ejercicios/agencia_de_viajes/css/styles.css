@@ -1,0 +1,253 @@
+:root{
+    --texto: #323334;
+    --texto2: #a780ff;
+    --input-hover: #270570;
+    --blanco: #fff;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background: #f2f4f5;
+    color: var(--texto);
+}
+
+a{
+    text-decoration: none;
+    color: var(--texto);
+}
+
+/*----------HEADER-----------*/
+
+header{
+    background: var(--blanco);
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+header .logo img {
+    max-width: 40px;
+    vertical-align: middle;
+    margin-right: 8px;
+}
+
+header nav a {
+    /* Hacemos que los botones sean flexibles en móvil para que se adapten */
+    flex-grow: 1; /* Permite que los botones crezcan y ocupen el espacio disponible */
+    text-align: center; /* Centra el icono y el texto dentro del botón */
+    padding: 8px 5px; /* Reduce el espaciado horizontal en móvil */
+    margin: 0 2px;
+    border-radius: 5px;
+    transition: all .3s ease;
+}
+
+header  .registrar a {
+     border-radius: 5px;
+     padding: 8px 5px;
+     transition: all .3s ease;
+}
+
+header a:hover {
+    color: var(--input-hover);
+    border-bottom: 4px solid var(--input-hover);
+}
+
+header .logo h1{
+    color: var(--input-hover);
+}
+
+header .logo svg{
+    margin: 0 10px;
+    color: var(--texto2);
+    height: 35px;
+    width: 35px;
+}
+
+header .logo h1{
+    color: var(--input-hover);
+    font-weight: bold;
+}
+
+
+#carousel{
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: hidden; /* Para que las esquinas redondeadas funcionen */
+}
+
+.historia {
+    background: var(--blanco);
+    /* Los estilos de borde, sombra y espaciado ahora se manejan con clases de Bootstrap */
+}
+
+.historia h1{
+    /* La alineación y el espaciado ahora se manejan con clases de Bootstrap */
+    color: var(--input-hover);
+    font-weight: bold;
+}
+
+.historia-texto {
+    text-align: justify;
+    line-height: 1.6;
+}
+
+.mision-item {
+    background-color: var(--blanco);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.mision-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important;
+}
+
+.mision-item svg {
+    width: 50px;
+    height: 50px;
+    color: var(--texto2);
+}
+.mision .titulo{
+       margin-top: 30px;
+       margin-bottom: 20px;
+}
+
+.registro {
+    background: var(--input-hover);
+}
+
+.registro p {
+    color: var(--blanco);
+    font-weight: 300;
+}
+
+.registro p strong {
+    color: var(--texto2);
+    font-weight: 600;
+}
+
+.btn-reservar {
+    background-color: var(--texto2);
+    color: var(--blanco);
+    font-weight: bold;
+    transition: transform 0.2s ease-out, background-color 0.2s ease-out;
+}
+
+.btn-reservar:hover {
+    background-color: #9365ff; /* Un poco más claro que --texto2 */
+    color: var(--blanco);
+    transform: scale(1.05);
+}
+
+/*---------- SERVICIOS PAGE -----------*/
+.servicios-main {
+    padding-top: 120px; /* Ajustar por el header fijo */
+    padding-bottom: 4rem;
+}
+
+.titulo-servicios {
+    color: var(--input-hover);
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.paquete-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: none;
+}
+
+.paquete-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 1rem 3rem rgba(0,0,0,.175)!important;
+}
+
+.paquete-card .card-img-top {
+    height: 200px;
+    object-fit: cover; /* Asegura que la imagen cubra el espacio sin deformarse */
+}
+
+.paquete-card .card-title {
+    color: var(--input-hover);
+    font-weight: bold;
+}
+
+.paquete-card .card-text {
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+}
+
+.paquete-card .card-text strong {
+    color: var(--texto);
+}
+
+/*---------- REGISTRO PAGE -----------*/
+.registro-main {
+    padding-top: 120px; /* Ajustar por el header fijo */
+    padding-bottom: 4rem;
+}
+
+.registro-main .form-titulo {
+    color: var(--input-hover);
+    font-weight: bold;
+}
+
+#registroForm {
+    background-color: var(--blanco);
+}
+
+/*---------- LISTA CLIENTES PAGE -----------*/
+.clientes-main {
+    padding-top: 120px; /* Ajustar por el header fijo */
+    padding-bottom: 4rem;
+}
+
+.page-titulo {
+    color: var(--input-hover);
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+#clientes-tabla-body .btn {
+    margin-right: 5px;
+}
+
+#clientes-tabla-body .btn svg {
+    vertical-align: text-bottom;
+    margin-right: 4px;
+}
+
+/*----------MEDIA-QUERIES-----------*/
+
+/* Para pantallas 'sm' (576px) en adelante, devolvemos un estilo más espaciado */
+@media (min-width: 576px) {
+
+    #carousel{
+        margin: 125px 100px;
+    }
+
+    header nav a {
+        flex-grow: 0; /* Evita que crezcan, usando su tamaño natural */
+        padding: 8px 20px;
+        margin: 5px;
+    }
+    
+
+}
+
+@media (max-width: 576px){
+
+    #carousel{
+        margin-top: 160px;
+    }
+    
+    .servicios-main{
+        margin-top: 50px;
+    }
+    .registro-main{
+        margin-top: 50px;
+    }
+}

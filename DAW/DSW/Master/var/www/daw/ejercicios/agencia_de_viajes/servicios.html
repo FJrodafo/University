@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Servicios - Agencia de Viajes Express</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header class="fixed-top shadow-sm">
+        <div class="container-fluid">
+            <div class="row align-items-center text-center">
+                <div class="d-flex col-6 col-sm-2 order-1 order-sm-1">
+                    <a href="index.html" class="logo d-flex align-items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-airplane-fill" viewBox="0 0 16 16">
+                            <path d="M6.428 1.151C6.708.591 7.213 0 8 0s1.292.592 1.572 1.151C9.861 1.73 10 2.431 10 3v3.691l5.17 2.585a1.5 1.5 0 0 1 .83 1.342V12a.5.5 0 0 1-.582.493l-5.507-.918-.375 2.253 1.318 1.318A.5.5 0 0 1 10.5 16h-5a.5.5 0 0 1-.354-.854l1.319-1.318-.376-2.253-5.507.918A.5.5 0 0 1 0 12v-1.382a1.5 1.5 0 0 1 .83-1.342L6 6.691V3c0-.568.14-1.271.428-1.849"/>
+                        </svg>
+                       <h1>AVG</h1> 
+                    </a>
+                </div>
+                <nav class="d-flex col-12 col-sm-8 justify-content-center order-3 order-sm-2">
+                        <a href="index.html">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-house-door-fill" viewBox="0 0 16 16">
+                                <path d="M6.5 14.5v-3.505c0-.245.25-.495.5-.495h2c.25 0 .5.25.5.5v3.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5"/>
+                            </svg>    
+                            <br>
+                            Inicio
+                        </a>
+                        <a href="servicios.html">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-gear-fill" viewBox="0 0 16 16">
+                                <path d="M9.405 1.05c-.413-1.4-2.397-1.4-2.81 0l-.1.34a1.464 1.464 0 0 1-2.105.872l-.31-.17c-1.283-.698-2.686.705-1.987 1.987l.169.311c.446.82.023 1.841-.872 2.105l-.34.1c-1.4.413-1.4 2.397 0 2.81l.34.1a1.464 1.464 0 0 1 .872 2.105l-.17.31c-.698 1.283.705 2.686 1.987 1.987l.311-.169a1.464 1.464 0 0 1 2.105.872l.1.34c.413 1.4 2.397 1.4 2.81 0l.1-.34a1.464 1.464 0 0 1 2.105-.872l.31.17c1.283.698 2.686-.705 1.987-1.987l-.169-.311a1.464 1.464 0 0 1 .872-2.105l.34-.1c-1.4-.413-1.4-2.397 0-2.81l-.34-.1a1.464 1.464 0 0 1-.872-2.105l.17-.31c.698-1.283-.705-2.686-1.987-1.987l-.311.169a1.464 1.464 0 0 1-2.105-.872zM8 10.93a2.929 2.929 0 1 1 0-5.86 2.929 2.929 0 0 1 0 5.858z"/>
+                            </svg>
+                            <br>
+                            Servicios
+                        </a>
+                        <a href="lista-clientes.html">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-lines-fill" viewBox="0 0 16 16">
+                                <path d="M6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6m-5 6s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zM11 3.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5m.5 2.5a.5.5 0 0 0 0 1h4a.5.5 0 0 0 0-1zm2 3a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1zm0 3a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1z"/>
+                            </svg>
+                            <br>
+                            Lista de clientes
+                        </a>
+                        <a href="contacto.html">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chat-left" viewBox="0 0 16 16">
+                                <path d="M14 1a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H4.414A2 2 0 0 0 3 11.586l-2 2V2a1 1 0 0 1 1-1zM2 0a2 2 0 0 0-2 2v12.793a.5.5 0 0 0 .854.353l2.853-2.853A1 1 0 0 1 4.414 12H14a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2z"/>
+                            </svg>
+                            <br>
+                            Contacto
+                        </a>
+                </nav>
+                <div class="registrar d-flex col-6 col-sm-2 order-2 order-sm-3 justify-content-end">
+                    <a href="registro.html">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-in-right" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M6 3.5a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-2a.5.5 0 0 0-1 0v2A1.5 1.5 0 0 0 6.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-8A1.5 1.5 0 0 0 5 3.5v2a.5.5 0 0 0 1 0z"/>
+                            <path fill-rule="evenodd" d="M11.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H1.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708z"/>
+                        </svg>
+                        <br>
+                        Registro
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="servicios-main">
+        <div class="container">
+            <div class="row mb-4">
+                <div class="col-12 text-center">
+                    <h1 class="titulo-servicios">Nuestros Paquetes de Viaje</h1>
+                    <p class="lead">Explora nuestras ofertas y encuentra la aventura perfecta para ti.</p>
+                </div>
+            </div>
+
+            <div class="row g-4 align-items-stretch">
+                <!-- Paquete 1 -->
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="card h-100 shadow-sm paquete-card">
+                        <img src="img/servicios/cancun-popular1.jpeg" class="card-img-top" alt="Cancún">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title">Cancún All-Inclusive</h5>
+                            <p class="card-text"><strong>Destino:</strong> Cancún, México</p>
+                            <p class="card-text"><strong>Duración:</strong> 5 días / 4 noches</p>
+                            <p class="card-text"><strong>Precio:</strong> $15,000 MXN</p>
+                            <div class="mt-auto pt-3">
+                                <button class="btn btn-reservar w-100" data-bs-toggle="modal" data-bs-target="#modal-paquete-1">Más información</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Paquete 2 -->
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="card h-100 shadow-sm paquete-card">
+                        <img src="img/servicios/europa-popular2.jpeg" class="card-img-top" alt="Europa">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title">Europa en 15 días</h5>
+                            <p class="card-text"><strong>Destino:</strong> Múltiples Ciudades</p>
+                            <p class="card-text"><strong>Duración:</strong> 15 días / 14 noches</p>
+                            <p class="card-text"><strong>Precio:</strong> $60,000 MXN</p>
+                            <div class="mt-auto pt-3">
+                                <button class="btn btn-reservar w-100" data-bs-toggle="modal" data-bs-target="#modal-paquete-2">Más información</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Paquete 3 -->
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="card h-100 shadow-sm paquete-card">
+                        <img src="img/servicios/new-york-3.jpeg" class="card-img-top" alt="Nueva York">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title">Experiencia en Nueva York</h5>
+                            <p class="card-text"><strong>Destino:</strong> Nueva York, USA</p>
+                            <p class="card-text"><strong>Duración:</strong> 7 días / 6 noches</p>
+                            <p class="card-text"><strong>Precio:</strong> $35,000 MXN</p>
+                            <div class="mt-auto pt-3">
+                                <button class="btn btn-reservar w-100" data-bs-toggle="modal" data-bs-target="#modal-paquete-3">Más información</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Paquete 4 -->
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="card h-100 shadow-sm paquete-card">
+                        <img src="img/servicios/africa-popular4.jpeg" class="card-img-top" alt="Safari en África">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title">Safari en África</h5>
+                            <p class="card-text"><strong>Destino:</strong> Kenia y Tanzania</p>
+                            <p class="card-text"><strong>Duración:</strong> 10 días / 9 noches</p>
+                            <p class="card-text"><strong>Precio:</strong> $80,000 MXN</p>
+                            <div class="mt-auto pt-3">
+                                <button class="btn btn-reservar w-100" data-bs-toggle="modal" data-bs-target="#modal-paquete-4">Más información</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Paquete 5 -->
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="card h-100 shadow-sm paquete-card">
+                        <img src="img/servicios/maravillas-de-asia.jpeg" class="card-img-top" alt="Maravillas de Asia">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title">Maravillas de Asia</h5>
+                            <p class="card-text"><strong>Destino:</strong> Tailandia, Vietnam, Camboya</p>
+                            <p class="card-text"><strong>Duración:</strong> 20 días / 19 noches</p>
+                            <p class="card-text"><strong>Precio:</strong> $75,000 MXN</p>
+                            <div class="mt-auto pt-3">
+                                <button class="btn btn-reservar w-100" data-bs-toggle="modal" data-bs-target="#modal-paquete-5">Más información</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Paquete 6 -->
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="card h-100 shadow-sm paquete-card">
+                        <img src="img/servicios/sudamerica.jpeg" class="card-img-top" alt="Ruta por Sudamérica">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title">Ruta por Sudamérica</h5>
+                            <p class="card-text"><strong>Destino:</strong> Perú, Bolivia, Chile</p>
+                            <p class="card-text"><strong>Duración:</strong> 18 días / 17 noches</p>
+                            <p class="card-text"><strong>Precio:</strong> $70,000 MXN</p>
+                            <div class="mt-auto pt-3">
+                                <button class="btn btn-reservar w-100" data-bs-toggle="modal" data-bs-target="#modal-paquete-6">Más información</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Paquete 7 -->
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="card h-100 shadow-sm paquete-card">
+                        <img src="img/servicios/islas-del-caribe.jpeg" class="card-img-top" alt="Islas del Caribe">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title">Islas del Caribe</h5>
+                            <p class="card-text"><strong>Destino:</strong> Crucero por el Caribe</p>
+                            <p class="card-text"><strong>Duración:</strong> 8 días / 7 noches</p>
+                            <p class="card-text"><strong>Precio:</strong> $40,000 MXN</p>
+                            <div class="mt-auto pt-3">
+                                <button class="btn btn-reservar w-100" data-bs-toggle="modal" data-bs-target="#modal-paquete-7">Más información</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Paquete 8 -->
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="card h-100 shadow-sm paquete-card">
+                        <img src="img/servicios/desierto-dubai.jpeg" class="card-img-top" alt="Desierto de Dubái">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title">Desierto de Dubái</h5>
+                            <p class="card-text"><strong>Destino:</strong> Dubái, EAU</p>
+                            <p class="card-text"><strong>Duración:</strong> 6 días / 5 noches</p>
+                            <p class="card-text"><strong>Precio:</strong> $55,000 MXN</p>
+                            <div class="mt-auto pt-3">
+                                <button class="btn btn-reservar w-100" data-bs-toggle="modal" data-bs-target="#modal-paquete-8">Más información</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Paquete 9 -->
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="card h-100 shadow-sm paquete-card">
+                        <img src="img/servicios/canada.jpeg" class="card-img-top" alt="Canadá y sus paisajes">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title">Canadá y sus paisajes</h5>
+                            <p class="card-text"><strong>Destino:</strong> Vancouver, Banff, Jasper</p>
+                            <p class="card-text"><strong>Duración:</strong> 12 días / 11 noches</p>
+                            <p class="card-text"><strong>Precio:</strong> $65,000 MXN</p>
+                            <div class="mt-auto pt-3">
+                                <button class="btn btn-reservar w-100" data-bs-toggle="modal" data-bs-target="#modal-paquete-9">Más información</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Paquete 10 -->
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="card h-100 shadow-sm paquete-card">
+                        <img src="img/servicios/ruta-maya.jpeg" class="card-img-top" alt="Ruta Maya México">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title">Ruta Maya México</h5>
+                            <p class="card-text"><strong>Destino:</strong> Chiapas, Yucatán, Q. Roo</p>
+                            <p class="card-text"><strong>Duración:</strong> 10 días / 9 noches</p>
+                            <p class="card-text"><strong>Precio:</strong> $30,000 MXN</p>
+                            <div class="mt-auto pt-3">
+                                <button class="btn btn-reservar w-100" data-bs-toggle="modal" data-bs-target="#modal-paquete-10">Más información</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Modal para Paquete 1: Cancún -->
+    <div class="modal fade" id="modal-paquete-1" tabindex="-1" aria-labelledby="modalLabel1" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalLabel1">Cancún All-Inclusive</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <img src="img/servicios/cancun-popular1.jpeg" class="img-fluid rounded mb-3" alt="Playa de Cancún">
+                    <h6>Detalles del Paquete</h6>
+                    <ul>
+                        <li><strong>Destino:</strong> Cancún, México</li>
+                        <li><strong>Duración:</strong> 5 días / 4 noches</li>
+                        <li><strong>Incluye:</strong> Hospedaje en hotel 5 estrellas, vuelos redondos desde CDMX, transporte aeropuerto-hotel, tours a Chichén Itzá e Isla Mujeres, todas las comidas y bebidas ilimitadas.</li>
+                        <li><strong>Precio:</strong> $15,000 MXN por persona.</li>
+                    </ul>
+                    <h6>Políticas de Cancelación</h6>
+                    <p class="small">Cancelación gratuita hasta 15 días antes de la fecha de viaje. Se aplicará un cargo del 50% para cancelaciones entre 14 y 7 días antes. No hay reembolso para cancelaciones con menos de 7 días de antelación.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    <a href="registro.html" class="btn btn-reservar">Reservar Ahora</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal para Paquete 2: Europa -->
+    <div class="modal fade" id="modal-paquete-2" tabindex="-1" aria-labelledby="modalLabel2" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalLabel2">Europa en 15 días</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <img src="img/servicios/europa-popular2.jpeg" class="img-fluid rounded mb-3" alt="Ciudades de Europa">
+                    <h6>Detalles del Paquete</h6>
+                    <ul>
+                        <li><strong>Destino:</strong> París, Roma, Madrid y Barcelona.</li>
+                        <li><strong>Duración:</strong> 15 días / 14 noches.</li>
+                        <li><strong>Incluye:</strong> Vuelos intercontinentales, trenes de alta velocidad entre ciudades, hospedaje en hoteles 4 estrellas, desayunos diarios y tours guiados en cada ciudad (Torre Eiffel, Coliseo Romano, etc.).</li>
+                        <li><strong>Precio:</strong> $60,000 MXN por persona.</li>
+                    </ul>
+                    <h6>Políticas de Cancelación</h6>
+                    <p class="small">Cancelación gratuita hasta 15 días antes de la fecha de viaje. Se aplicará un cargo del 50% para cancelaciones entre 14 y 7 días antes. No hay reembolso para cancelaciones con menos de 7 días de antelación.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    <a href="registro.html" class="btn btn-reservar">Reservar Ahora</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal para Paquete 3: Nueva York -->
+    <div class="modal fade" id="modal-paquete-3" tabindex="-1" aria-labelledby="modalLabel3" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalLabel3">Experiencia en Nueva York</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <img src="img/servicios/new-york-3.jpeg" class="img-fluid rounded mb-3" alt="Nueva York">
+                    <h6>Detalles del Paquete</h6>
+                    <ul>
+                        <li><strong>Destino:</strong> Nueva York, USA.</li>
+                        <li><strong>Duración:</strong> 7 días / 6 noches.</li>
+                        <li><strong>Incluye:</strong> Vuelo redondo, hospedaje en hotel céntrico en Manhattan, CityPASS para atracciones principales (Empire State, Top of the Rock), tour en ferry a la Estatua de la Libertad.</li>
+                        <li><strong>Precio:</strong> $35,000 MXN por persona.</li>
+                    </ul>
+                    <h6>Políticas de Cancelación</h6>
+                    <p class="small">Cancelación gratuita hasta 15 días antes de la fecha de viaje. Se aplicará un cargo del 50% para cancelaciones entre 14 y 7 días antes. No hay reembolso para cancelaciones con menos de 7 días de antelación.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    <a href="registro.html" class="btn btn-reservar">Reservar Ahora</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal para Paquete 4: Safari en África -->
+    <div class="modal fade" id="modal-paquete-4" tabindex="-1" aria-labelledby="modalLabel4" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalLabel4">Safari en África</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <img src="img/servicios/africa-popular4.jpeg" class="img-fluid rounded mb-3" alt="Safari en África">
+                    <h6>Detalles del Paquete</h6>
+                    <ul>
+                        <li><strong>Destino:</strong> Kenia y Tanzania.</li>
+                        <li><strong>Duración:</strong> 10 días / 9 noches.</li>
+                        <li><strong>Incluye:</strong> Vuelos, hospedaje en lodges de lujo, safaris diarios en 4x4 con guía experto, visita a la reserva Masai Mara y al Parque Nacional Serengueti, todas las comidas.</li>
+                        <li><strong>Precio:</strong> $80,000 MXN por persona.</li>
+                    </ul>
+                    <h6>Políticas de Cancelación</h6>
+                    <p class="small">Cancelación gratuita hasta 30 días antes de la fecha de viaje. Se aplicará un cargo del 50% para cancelaciones entre 29 y 15 días antes. No hay reembolso para cancelaciones con menos de 15 días de antelación.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    <a href="registro.html" class="btn btn-reservar">Reservar Ahora</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal para Paquete 5: Maravillas de Asia -->
+    <div class="modal fade" id="modal-paquete-5" tabindex="-1" aria-labelledby="modalLabel5" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalLabel5">Maravillas de Asia</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <img src="img/servicios/maravillas-de-asia.jpeg" class="img-fluid rounded mb-3" alt="Maravillas de Asia">
+                    <h6>Detalles del Paquete</h6>
+                    <ul>
+                        <li><strong>Destino:</strong> Tailandia, Vietnam, Camboya.</li>
+                        <li><strong>Duración:</strong> 20 días / 19 noches.</li>
+                        <li><strong>Incluye:</strong> Vuelos internacionales y regionales, hospedaje, desayunos, tour a los templos de Angkor Wat, crucero por la Bahía de Ha-Long, visita a los mercados flotantes de Bangkok.</li>
+                        <li><strong>Precio:</strong> $75,000 MXN por persona.</li>
+                    </ul>
+                    <h6>Políticas de Cancelación</h6>
+                    <p class="small">Cancelación gratuita hasta 30 días antes de la fecha de viaje. Se aplicará un cargo del 50% para cancelaciones entre 29 y 15 días antes. No hay reembolso para cancelaciones con menos de 15 días de antelación.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    <a href="registro.html" class="btn btn-reservar">Reservar Ahora</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal para Paquete 6: Ruta por Sudamérica -->
+    <div class="modal fade" id="modal-paquete-6" tabindex="-1" aria-labelledby="modalLabel6" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalLabel6">Ruta por Sudamérica</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <img src="img/servicios/sudamerica.jpeg" class="img-fluid rounded mb-3" alt="Ruta por Sudamérica">
+                    <h6>Detalles del Paquete</h6>
+                    <ul>
+                        <li><strong>Destino:</strong> Perú, Bolivia, Chile.</li>
+                        <li><strong>Duración:</strong> 18 días / 17 noches.</li>
+                        <li><strong>Incluye:</strong> Vuelos, hospedaje, tour a Machu Picchu, visita al Salar de Uyuni, exploración del Desierto de Atacama, guías locales.</li>
+                        <li><strong>Precio:</strong> $70,000 MXN por persona.</li>
+                    </ul>
+                    <h6>Políticas de Cancelación</h6>
+                    <p class="small">Cancelación gratuita hasta 30 días antes de la fecha de viaje. Se aplicará un cargo del 50% para cancelaciones entre 29 y 15 días antes. No hay reembolso para cancelaciones con menos de 15 días de antelación.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    <a href="registro.html" class="btn btn-reservar">Reservar Ahora</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal para Paquete 7: Islas del Caribe -->
+    <div class="modal fade" id="modal-paquete-7" tabindex="-1" aria-labelledby="modalLabel7" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalLabel7">Islas del Caribe</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <img src="img/servicios/islas-del-caribe.jpeg" class="img-fluid rounded mb-3" alt="Islas del Caribe">
+                    <h6>Detalles del Paquete</h6>
+                    <ul>
+                        <li><strong>Destino:</strong> Crucero por el Caribe (Bahamas, Jamaica, Cozumel).</li>
+                        <li><strong>Duración:</strong> 8 días / 7 noches.</li>
+                        <li><strong>Incluye:</strong> Alojamiento en camarote con balcón, todas las comidas y bebidas a bordo, entretenimiento, acceso a piscinas y actividades del crucero.</li>
+                        <li><strong>Precio:</strong> $40,000 MXN por persona.</li>
+                    </ul>
+                    <h6>Políticas de Cancelación</h6>
+                    <p class="small">Cancelación gratuita hasta 15 días antes de la fecha de viaje. Se aplicará un cargo del 50% para cancelaciones entre 14 y 7 días antes. No hay reembolso para cancelaciones con menos de 7 días de antelación.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    <a href="registro.html" class="btn btn-reservar">Reservar Ahora</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal para Paquete 8: Desierto de Dubái -->
+    <div class="modal fade" id="modal-paquete-8" tabindex="-1" aria-labelledby="modalLabel8" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalLabel8">Desierto de Dubái</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <img src="img/servicios/desierto-dubai.jpeg" class="img-fluid rounded mb-3" alt="Desierto de Dubái">
+                    <h6>Detalles del Paquete</h6>
+                    <ul>
+                        <li><strong>Destino:</strong> Dubái, EAU.</li>
+                        <li><strong>Duración:</strong> 6 días / 5 noches.</li>
+                        <li><strong>Incluye:</strong> Vuelo redondo, hospedaje en hotel de lujo, tour por la ciudad, visita al Burj Khalifa, safari por el desierto con cena y espectáculo.</li>
+                        <li><strong>Precio:</strong> $55,000 MXN por persona.</li>
+                    </ul>
+                    <h6>Políticas de Cancelación</h6>
+                    <p class="small">Cancelación gratuita hasta 15 días antes de la fecha de viaje. Se aplicará un cargo del 50% para cancelaciones entre 14 y 7 días antes. No hay reembolso para cancelaciones con menos de 7 días de antelación.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    <a href="registro.html" class="btn btn-reservar">Reservar Ahora</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal para Paquete 9: Canadá y sus paisajes -->
+    <div class="modal fade" id="modal-paquete-9" tabindex="-1" aria-labelledby="modalLabel9" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalLabel9">Canadá y sus paisajes</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <img src="img/servicios/canada.jpeg" class="img-fluid rounded mb-3" alt="Canadá y sus paisajes">
+                    <h6>Detalles del Paquete</h6>
+                    <ul>
+                        <li><strong>Destino:</strong> Vancouver, Banff, Jasper.</li>
+                        <li><strong>Duración:</strong> 12 días / 11 noches.</li>
+                        <li><strong>Incluye:</strong> Vuelos, hospedaje, renta de auto, pase para los Parques Nacionales de las Montañas Rocosas, visita al Lago Louise y Moraine.</li>
+                        <li><strong>Precio:</strong> $65,000 MXN por persona.</li>
+                    </ul>
+                    <h6>Políticas de Cancelación</h6>
+                    <p class="small">Cancelación gratuita hasta 15 días antes de la fecha de viaje. Se aplicará un cargo del 50% para cancelaciones entre 14 y 7 días antes. No hay reembolso para cancelaciones con menos de 7 días de antelación.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    <a href="registro.html" class="btn btn-reservar">Reservar Ahora</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal para Paquete 10: Ruta Maya México -->
+    <div class="modal fade" id="modal-paquete-10" tabindex="-1" aria-labelledby="modalLabel10" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalLabel10">Ruta Maya México</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <img src="img/servicios/ruta-maya.jpeg" class="img-fluid rounded mb-3" alt="Ruta Maya México">
+                    <h6>Detalles del Paquete</h6>
+                    <ul>
+                        <li><strong>Destino:</strong> Chiapas, Yucatán, Q. Roo.</li>
+                        <li><strong>Duración:</strong> 10 días / 9 noches.</li>
+                        <li><strong>Incluye:</strong> Transporte terrestre, hospedaje en hoteles boutique, visita a Palenque, Chichén Itzá, Uxmal y Tulum, guía certificado.</li>
+                        <li><strong>Precio:</strong> $30,000 MXN por persona.</li>
+                    </ul>
+                    <h6>Políticas de Cancelación</h6>
+                    <p class="small">Cancelación gratuita hasta 15 días antes de la fecha de viaje. Se aplicará un cargo del 50% para cancelaciones entre 14 y 7 días antes. No hay reembolso para cancelaciones con menos de 7 días de antelación.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    <a href="registro.html" class="btn btn-reservar">Reservar Ahora</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer mt-auto py-3">
+        <div class="container text-center">
+            <span class="text-muted">© 2025 Agencia de Viajes Express. Todos los derechos reservados.</span>
+        </div>
+    </footer>
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
