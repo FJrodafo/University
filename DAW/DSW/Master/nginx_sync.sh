@@ -2,6 +2,12 @@
 
 # Script to export Nginx files and configurations from the current working directory (local) to production!
 
+# Log file
+LOG_FILE="$(pwd)/.log/nginx_$(date +%Y%m%d_%H%M%S).log"
+mkdir -p "$(pwd)/.log"
+# Redirige stdout y stderr al log y también a la pantalla
+exec > >(tee -a "$LOG_FILE") 2>&1
+
 # Ensure the script is run with sudo privileges.
 if [ "$(id -u)" -ne 0 ]; then
     echo "This script must be run as root."
@@ -11,6 +17,7 @@ fi
 # Verify that Nginx is active, prompt to start if not.
 if ! systemctl is-active --quiet nginx.service; then
     read -p "Nginx service is not active. Do you want to start it? [Y/n]: " start_nginx_confirmation
+    echo "" >> "$LOG_FILE"
     if [[ "$start_nginx_confirmation" =~ ^[Yy]$ ]]; then
         sudo systemctl start nginx.service
         if ! systemctl is-active --quiet nginx.service; then
@@ -58,6 +65,7 @@ if [ -d $(pwd)/etc/nginx/sites-available/ ]; then
     done
     # Validate selection.
     read -p "Select a file to enable (number): " site_choice
+    echo "" >> "$LOG_FILE"
     if [[ "$site_choice" =~ ^[0-9]+$ ]] && [ "$site_choice" -ge 0 ] && [ "$site_choice" -lt "${#SITE_FILES[@]}" ]; then
         SELECTED_SITE="${SITE_FILES[$site_choice]}"
         LINK_PATH="/etc/nginx/sites-enabled/$SELECTED_SITE"
@@ -95,6 +103,7 @@ fi
 
 # Testing Nginx configuration.
 read -p "Do you want to test Nginx configuration before reload? [Y/n]: " nginx_test_confirmation
+echo "" >> "$LOG_FILE"
 if [[ "$nginx_test_confirmation" =~ ^[Yy]$ ]]; then
     sudo nginx -t
 else
@@ -103,6 +112,7 @@ fi
 
 # Reload Nginx.
 read -p "Do you want to reload Nginx now? [Y/n]: " nginx_reload_confirmation
+echo "" >> "$LOG_FILE"
 if [[ "$nginx_reload_confirmation" =~ ^[Yy]$ ]]; then
     sudo systemctl reload nginx.service
 else

@@ -12,6 +12,7 @@ Languages/Java/MEGA_Curso_JAVA_desde_0_DAM_-_DAW/lib/
 
 # Nginx
 DAW/DSW/Master/.backup
+DAW/DSW/Master/.log
 
 # Python
 Languages/Python/**/__pycache__/
