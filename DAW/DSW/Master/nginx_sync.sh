@@ -42,7 +42,9 @@ echo "Backup directory at $BACKUP_DIR"
 if [ -f $(pwd)/etc/nginx/mime.types ]; then sudo cp $(pwd)/etc/nginx/mime.types /etc/nginx/mime.types; fi
 
 if [ -d $(pwd)/etc/nginx/sites-available/ ]; then
-    # Export Nginx sites-available to production.
+    # Clean sites-available
+    sudo rm -rf /etc/nginx/sites-available/*
+    # Export sites-available to production.
     sudo cp -r $(pwd)/etc/nginx/sites-available/* /etc/nginx/sites-available/
     # Clean sites-enabled
     sudo rm -rf /etc/nginx/sites-enabled/*
@@ -68,29 +70,30 @@ if [ -d $(pwd)/etc/nginx/sites-available/ ]; then
     fi
 fi
 
-# Clean /var/www/
-read -p "Do you want to clean ALL contents of /var/www/ directory? [Y/n]: " clear_www_confirmation
-if [[ "$clear_www_confirmation" =~ ^[Yy]$ ]]; then sudo rm -rf /var/www/*; fi
-# Export web content.
-sudo cp -r $(pwd)/var/www/* /var/www/
-# Apply ownership.
-sudo chown -R root:root /var/www/*
-# Set permissions: directories 755, files 644
-sudo find /var/www -type d -exec chmod 755 {} +
-sudo find /var/www -type f -exec chmod 644 {} +
-# Set www-data ownership for specific files
-CONTADOR="/var/www/daw/ejercicios/contador/contador.txt"
-if [ -f "$CONTADOR" ]; then
-    sudo chown www-data:www-data "$CONTADOR"
-    sudo chmod 664 "$CONTADOR"
-fi
-FRASES="/var/www/daw/ejercicios/frases/frases.txt"
-if [ -f "$FRASES" ]; then
-    sudo chown www-data:www-data "$FRASES"
-    sudo chmod 664 "$FRASES"
+if [ -d $(pwd)/var/www/ ]; then
+    # Clean web content.
+    sudo rm -rf /var/www/*
+    # Export web content.
+    sudo cp -r $(pwd)/var/www/* /var/www/
+    # Apply ownership.
+    sudo chown -R root:root /var/www/*
+    # Set permissions: directories 755, files 644
+    sudo find /var/www -type d -exec chmod 755 {} +
+    sudo find /var/www -type f -exec chmod 644 {} +
+    # Set www-data ownership for specific files.
+    CONTADOR="/var/www/daw/ejercicios/contador/contador.txt"
+    if [ -f "$CONTADOR" ]; then
+        sudo chown www-data:www-data "$CONTADOR"
+        sudo chmod 664 "$CONTADOR"
+    fi
+    FRASES="/var/www/daw/ejercicios/frases/frases.txt"
+    if [ -f "$FRASES" ]; then
+        sudo chown www-data:www-data "$FRASES"
+        sudo chmod 664 "$FRASES"
+    fi
 fi
 
-# Testing Nginx configuration
+# Testing Nginx configuration.
 read -p "Do you want to test Nginx configuration before reload? [Y/n]: " nginx_test_confirmation
 if [[ "$nginx_test_confirmation" =~ ^[Yy]$ ]]; then
     sudo nginx -t
@@ -98,7 +101,7 @@ else
     echo "You may need to test Nginx manually because configuration files may have changed."
 fi
 
-# Reload Nginx
+# Reload Nginx.
 read -p "Do you want to reload Nginx now? [Y/n]: " nginx_reload_confirmation
 if [[ "$nginx_reload_confirmation" =~ ^[Yy]$ ]]; then
     sudo systemctl reload nginx.service
