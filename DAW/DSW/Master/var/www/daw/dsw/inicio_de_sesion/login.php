@@ -1,5 +1,5 @@
 <?php
-    // http://daw.fjrodafo.com/ejercicios/inicio_de_sesion/login.php
+    // http://daw.fjrodafo.com/dsw/inicio_de_sesion/login.php
 
     session_start();
 

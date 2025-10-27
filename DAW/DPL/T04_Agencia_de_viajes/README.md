@@ -7,9 +7,9 @@ Usa Nginx para configurar un sitio web de una Agencia de Viajes.
 
 Verifica que puedes acceder y que todo funciona correctamente.
 
-[Código](./../../DSW/Master/var/www/daw/ejercicios/agencia_de_viajes/index.html)
+[Código](./../../DSW/Master/var/www/daw/dpl/agencia_de_viajes/index.html)
 
-http://daw.fjrodafo.com/ejercicios/agencia_de_viajes/index.html
+http://daw.fjrodafo.com/dpl/agencia_de_viajes/index.html
 
 <link rel="stylesheet" href="./../../../README.css">
 <a class="scrollup" href="#top">&#x1F53C</a>

@@ -89,12 +89,12 @@ if [ -d $(pwd)/var/www/ ]; then
     sudo find /var/www -type d -exec chmod 755 {} +
     sudo find /var/www -type f -exec chmod 644 {} +
     # Set www-data ownership for specific files.
-    CONTADOR="/var/www/daw/ejercicios/contador/contador.txt"
+    CONTADOR="/var/www/daw/dsw/contador/contador.txt"
     if [ -f "$CONTADOR" ]; then
         sudo chown www-data:www-data "$CONTADOR"
         sudo chmod 664 "$CONTADOR"
     fi
-    FRASES="/var/www/daw/ejercicios/frases/frases.txt"
+    FRASES="/var/www/daw/dsw/frases/frases.txt"
     if [ -f "$FRASES" ]; then
         sudo chown www-data:www-data "$FRASES"
         sudo chmod 664 "$FRASES"
