@@ -88,7 +88,12 @@ if [ -d $(pwd)/var/www/ ]; then
     # Set permissions: directories 755, files 644
     sudo find /var/www -type d -exec chmod 755 {} +
     sudo find /var/www -type f -exec chmod 644 {} +
-    # Set www-data ownership for specific files.
+    # Set www-data ownership for specific directories/files.
+    TEST="/var/www/test/"
+    if [ -d "$TEST" ]; then
+        sudo chown -R www-data:www-data "$TEST"
+        sudo chmod -R 755 "$TEST"
+    fi
     CONTADOR="/var/www/daw/dsw/contador/contador.txt"
     if [ -f "$CONTADOR" ]; then
         sudo chown www-data:www-data "$CONTADOR"
