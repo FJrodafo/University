@@ -69,7 +69,7 @@ Deshabilitar NGINX al arranque:
 sudo systemctl disable nginx
 ```
 
-Para resolver el conflicto que suele generar Nginx al no poder iniciarse porque un proceso suyo sigue activo ocupando el puerto 80, ejecute los siguientes comandos para detener Nginx a toda costa y poder iniciarlo nuevamente con total normalidad:
+Para resolver el conflicto que suele generar NGINX al no poder iniciarse porque un proceso suyo sigue activo ocupando el puerto 80, ejecute los siguientes comandos para detener NGINX a toda costa y poder iniciarlo nuevamente con total normalidad:
 
 ```shell
 sudo lsof -i :80
