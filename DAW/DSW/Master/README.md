@@ -1,11 +1,11 @@
 ## Índice
 
-1. [Instalar NGINX](#instalar-nginx)
-2. [Comandos de administración de servicios en Linux (NGINX)](#comandos-de-administración-de-servicios-en-linux-nginx)
-3. [Configuración del servidor NGINX](#configuración-del-servidor-nginx)
-4. [Configuración NGINX + PHP](#configuración-nginx--php)
+1. [Instalar Nginx](#instalar-nginx)
+2. [Comandos de administración de servicios en Linux (Nginx)](#comandos-de-administración-de-servicios-en-linux-nginx)
+3. [Configuración del servidor Nginx](#configuración-del-servidor-nginx)
+4. [Configuración Nginx + PHP](#configuración-nginx--php)
 
-## Instalar NGINX
+## Instalar Nginx
 
 Actualizamos los paquetes disponibles en el repositorio APT (Advanced Package Tool):
 
@@ -13,70 +13,70 @@ Actualizamos los paquetes disponibles en el repositorio APT (Advanced Package To
 sudo apt update
 ```
 
-Instalamos NGINX:
+Instalamos Nginx:
 
 ```shell
 sudo apt install nginx
 ```
 
-Una vez instalado podemos observar desde localhost la página de bienvenida de NGINX:
+Una vez instalado podemos observar desde localhost la página de bienvenida de Nginx:
 
 http://localhost/
 
 http://127.0.0.1/
 
-## Comandos de administración de servicios en Linux (NGINX)
+## Comandos de administración de servicios en Linux (Nginx)
 
-Ver el estado de NGINX:
-
-```shell
-sudo systemctl status nginx
-```
-
-Detener NGINX:
+Ver el estado de Nginx:
 
 ```shell
-sudo systemctl stop nginx
+sudo systemctl status nginx.service
 ```
 
-Iniciar NGINX:
+Detener Nginx:
 
 ```shell
-sudo systemctl start nginx
+sudo systemctl stop nginx.service
 ```
 
-Reiniciar NGINX (detener e iniciar de nuevo):
+Iniciar Nginx:
 
 ```shell
-sudo systemctl restart nginx
+sudo systemctl start nginx.service
 ```
 
-Recargar la configuración de NGINX sin cortar las conexiones activas:
+Reiniciar Nginx (detener e iniciar de nuevo):
 
 ```shell
-sudo systemctl reload nginx
+sudo systemctl restart nginx.service
 ```
 
-Habilitar NGINX al arranque (se activa automáticamente al encender la máquina):
+Recargar la configuración de Nginx sin cortar las conexiones activas:
 
 ```shell
-sudo systemctl enable nginx
+sudo systemctl reload nginx.service
 ```
 
-Deshabilitar NGINX al arranque:
+Habilitar Nginx al arranque (se activa automáticamente al encender la máquina):
 
 ```shell
-sudo systemctl disable nginx
+sudo systemctl enable nginx.service
 ```
 
-Para resolver el conflicto que suele generar NGINX al no poder iniciarse porque un proceso suyo sigue activo ocupando el puerto 80, ejecute los siguientes comandos para detener NGINX a toda costa y poder iniciarlo nuevamente con total normalidad:
+Deshabilitar Nginx al arranque:
+
+```shell
+sudo systemctl disable nginx.service
+```
+
+Para resolver el conflicto que suele generar Nginx al no poder iniciarse porque un proceso suyo sigue activo ocupando el puerto 80, ejecute los siguientes comandos para detener Nginx a toda costa y poder iniciarlo nuevamente con total normalidad:
 
 ```shell
 sudo lsof -i :80
 sudo pkill -9 nginx
 ```
 
-## Configuración del servidor NGINX
+## Configuración del servidor Nginx
 
 Nos dirigimos al directorio `/etc/nginx/sites-available/`, realizamos una copia del archivo `default` con el nombre de nuestro dominio y editamos el archivo con `nano`.
 
@@ -120,10 +120,10 @@ Si el comando anterior no existe porque no se ha configurado la variable de ento
 sudo /usr/sbin/nginx -t
 ```
 
-Reiniciamos NGINX debido a que hemos hecho un cambio en los archivos de configuración del servidor:
+Reiniciamos Nginx debido a que hemos hecho un cambio en los archivos de configuración del servidor:
 
 ```shell
-sudo systemctl restart nginx
+sudo systemctl restart nginx.service
 ```
 
 Creamos un enlace simbólico desde el archivo `/etc/nginx/sites-available/daw.fjrodafo.com` hacia `/etc/nginx/sites-enabled/daw.fjrodafo.com` (es importante ejecutar este comando desde el directorio raíz):
@@ -176,10 +176,10 @@ Si el comando anterior no existe porque no se ha configurado la variable de ento
 sudo /usr/sbin/nginx -t
 ```
 
-Reiniciamos NGINX debido a que hemos hecho un cambio en los archivos de configuración del servidor:
+Reiniciamos Nginx debido a que hemos hecho un cambio en los archivos de configuración del servidor:
 
 ```shell
-sudo systemctl restart nginx
+sudo systemctl restart nginx.service
 ```
 
 Para ver el resultado, introducimos la siguiente dirección en nuestro navegador de confianza:
@@ -188,7 +188,7 @@ http://daw.fjrodafo.com/
 
 http://daw.fjrodafo.com/index.html
 
-## Configuración NGINX + PHP
+## Configuración Nginx + PHP
 
 Actualizamos los paquetes disponibles en el repositorio APT:
 
@@ -196,7 +196,7 @@ Actualizamos los paquetes disponibles en el repositorio APT:
 sudo apt update
 ```
 
-Instalamos el servicio que permite a NGINX interpretar código PHP:
+Instalamos el servicio que permite a Nginx interpretar código PHP:
 
 ```shell
 sudo apt install php-fpm
@@ -233,7 +233,7 @@ location ~ /\.ht {
 
 > [!IMPORTANT]
 > 
-> El usuario tiene que elegir entre utilizar `fastcgi_pass unix:/run/php/php7.4-fpm.sock;` o `fastcgi_pass 127.0.0.1:9000;` a la hora de configurar NGINX para que pueda interpretar código PHP. Una vez elegida qué opción se usará, la otra línea de código permanecerá comentada.
+> El usuario tiene que elegir entre utilizar `fastcgi_pass unix:/run/php/php7.4-fpm.sock;` o `fastcgi_pass 127.0.0.1:9000;` a la hora de configurar Nginx para que pueda interpretar código PHP. Una vez elegida qué opción se usará, la otra línea de código permanecerá comentada.
 
 Comprobamos que no hay errores con el siguiente comando:
 
@@ -247,10 +247,10 @@ Si el comando anterior no existe porque no se ha configurado la variable de ento
 sudo /usr/sbin/nginx -t
 ```
 
-Reiniciamos NGINX debido a que hemos hecho un cambio en los archivos de configuración del servidor:
+Reiniciamos Nginx debido a que hemos hecho un cambio en los archivos de configuración del servidor:
 
 ```shell
-sudo systemctl restart nginx
+sudo systemctl restart nginx.service
 ```
 
 Nos dirigimos al directorio `/var/www/daw/` y creamos nuestro primer archivo `index.php` y lo editamos con `nano`:
@@ -321,13 +321,13 @@ Si el comando anterior no existe porque no se ha configurado la variable de ento
 sudo /usr/sbin/nginx -t
 ```
 
-Reiniciamos NGINX debido a que hemos hecho un cambio en los archivos de configuración del servidor:
+Reiniciamos Nginx debido a que hemos hecho un cambio en los archivos de configuración del servidor:
 
 ```shell
-sudo systemctl restart nginx
+sudo systemctl restart nginx.service
 ```
 
-Finalmente podemos visitar nuestras páginas PHP en nuestro servidor NGINX:
+Finalmente podemos visitar nuestras páginas PHP en nuestro servidor Nginx:
 
 http://daw.fjrodafo.com/index.php
 
