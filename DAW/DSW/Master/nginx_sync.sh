@@ -14,20 +14,46 @@ if [ "$(id -u)" -ne 0 ]; then
     exit 1
 fi
 
-# Verify that Nginx is active, prompt to start if not.
-if ! systemctl is-active --quiet nginx.service; then
-    read -p "Nginx service is not active. Do you want to start it? [Y/n]: " start_nginx_confirmation
-    echo "" >> "$LOG_FILE"
-    if [[ "$start_nginx_confirmation" =~ ^[Yy]$ ]]; then
-        sudo systemctl start nginx.service
-        if ! systemctl is-active --quiet nginx.service; then
-            echo "Failed to start Nginx. Please check manually."
+# Verify that Nginx is installed and active, prompt to start if not.
+if sudo nginx -v >/dev/null 2>&1; then
+    if ! systemctl is-active --quiet nginx.service; then
+        read -p "Nginx service is not active. Do you want to start it? [Y/n]: " start_nginx_confirmation
+        echo "" >> "$LOG_FILE"
+        if [[ "$start_nginx_confirmation" =~ ^[Yy]$ ]]; then
+            sudo systemctl start nginx.service
+            if ! systemctl is-active --quiet nginx.service; then
+                echo "Failed to start Nginx. Please check manually."
+                exit 1
+            fi
+        else
+            echo "Nginx is required for this script to run properly."
             exit 1
         fi
-    else
-        echo "Nginx is required for this script to run properly."
-        exit 1
     fi
+else
+    echo "Nginx is not installed..."
+    exit 1
+fi
+
+# Verify that php8.2-fpm is installed and active, prompt to start if not.
+if php -v | grep -q 8.2; then
+    if ! systemctl is-active --quiet php8.2-fpm.service; then
+        read -p "php8.2-fpm service is not active. Do you want to start it? [Y/n]: " start_php_fpm_confirmation
+        echo "" >> "$LOG_FILE"
+        if [[ "$start_php_fpm_confirmation" =~ ^[Yy]$ ]]; then
+            sudo systemctl start php8.2-fpm.service
+            if ! systemctl is-active --quiet php8.2-fpm.service; then
+                echo "Failed to start php8.2-fpm. Please check manually."
+                exit 1
+            fi
+        else
+            echo "php8.2-fpm is required for this script to run properly."
+            exit 1
+        fi
+    fi
+else
+    echo "php8.2-fpm is not installed..."
+    exit 1
 fi
 
 # Backup Nginx files and configurations.
@@ -78,6 +104,13 @@ if [ -d $(pwd)/etc/nginx/sites-available/ ]; then
     fi
 fi
 
+# Export PHP www.conf to production.
+if [ -f $(pwd)/etc/php/8.2/fpm/pool.d/www.conf ] && [ -f /etc/php/8.2/fpm/pool.d/www.conf ]; then
+    sudo cp $(pwd)/etc/php/8.2/fpm/pool.d/www.conf /etc/php/8.2/fpm/pool.d/www.conf
+else
+    echo "PHP 8.2 is not installed or not active. Check the version using 'php -v'"
+fi
+
 if [ -d $(pwd)/var/www/ ]; then
     # Clean web content.
     sudo rm -rf /var/www/*
@@ -122,6 +155,17 @@ if [[ "$nginx_reload_confirmation" =~ ^[Yy]$ ]]; then
     sudo systemctl reload nginx.service
 else
     echo "You may need to reload Nginx manually because configuration files may have changed."
+fi
+
+# Reload PHP.
+if php -v | grep -q 8.2; then
+    read -p "Do you want to reload PHP now? [Y/n]: " php_fpm_reload_confirmation
+    echo "" >> "$LOG_FILE"
+    if [[ "$php_fpm_reload_confirmation" =~ ^[Yy]$ ]]; then
+        sudo systemctl reload php8.2-fpm.service
+    else
+        echo "You may need to reload PHP manually because configuration files may have changed."
+    fi
 fi
 
 echo "Remember: None of this will work properly if your Nginx server domains are not mapped correctly in /etc/hosts."
