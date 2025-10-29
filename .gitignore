@@ -17,3 +17,6 @@ DAW/DSW/Master/.log
 # Python
 Languages/Python/**/__pycache__/
 Languages/Python/KeepCalm/src/assets/font
+
+# Miscellaneous
+DAW/PRW/
