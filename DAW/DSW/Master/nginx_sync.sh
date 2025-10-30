@@ -117,26 +117,10 @@ if [ -d $(pwd)/var/www/ ]; then
     # Export web content.
     sudo cp -r $(pwd)/var/www/* /var/www/
     # Apply ownership.
-    sudo chown -R root:root /var/www/*
+    sudo chown -R www-data:www-data /var/www/*
     # Set permissions: directories 755, files 644
     sudo find /var/www -type d -exec chmod 755 {} +
     sudo find /var/www -type f -exec chmod 644 {} +
-    # Set www-data ownership for specific directories/files.
-    TEST="/var/www/test/"
-    if [ -d "$TEST" ]; then
-        sudo chown -R www-data:www-data "$TEST"
-        sudo chmod -R 755 "$TEST"
-    fi
-    CONTADOR="/var/www/daw/dsw/contador/contador.txt"
-    if [ -f "$CONTADOR" ]; then
-        sudo chown www-data:www-data "$CONTADOR"
-        sudo chmod 664 "$CONTADOR"
-    fi
-    FRASES="/var/www/daw/dsw/frases/frases.txt"
-    if [ -f "$FRASES" ]; then
-        sudo chown www-data:www-data "$FRASES"
-        sudo chmod 664 "$FRASES"
-    fi
 fi
 
 # Testing Nginx configuration.

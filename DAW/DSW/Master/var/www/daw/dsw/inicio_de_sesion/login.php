@@ -30,7 +30,7 @@
         </style>
     </head>
     <body>
-        <form action="chequea_login.php" method="post">
+        <form action="chequear_login.php" method="post">
             <h2>Iniciar sesión</h2>
             <label>Usuario:</label>
             <input type="text" name="usuario" required>
