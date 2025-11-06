@@ -18,7 +18,7 @@ fi
 if sudo nginx -v >/dev/null 2>&1; then
     if ! systemctl is-active --quiet nginx.service; then
         read -p "Nginx service is not active. Do you want to start it? [Y/n]: " start_nginx_confirmation
-        echo "" >> "$LOG_FILE"
+        echo "$start_nginx_confirmation" >> "$LOG_FILE"
         if [[ "$start_nginx_confirmation" =~ ^[Yy]$ ]]; then
             sudo systemctl start nginx.service
             if ! systemctl is-active --quiet nginx.service; then
@@ -39,7 +39,7 @@ fi
 if php -v | grep -q 8.2; then
     if ! systemctl is-active --quiet php8.2-fpm.service; then
         read -p "php8.2-fpm service is not active. Do you want to start it? [Y/n]: " start_php_fpm_confirmation
-        echo "" >> "$LOG_FILE"
+        echo "$start_php_fpm_confirmation" >> "$LOG_FILE"
         if [[ "$start_php_fpm_confirmation" =~ ^[Yy]$ ]]; then
             sudo systemctl start php8.2-fpm.service
             if ! systemctl is-active --quiet php8.2-fpm.service; then
@@ -57,6 +57,11 @@ else
 fi
 
 # Backup Nginx files and configurations.
+if [ -d $(pwd)/.backup/ ]; then
+    read -p "Do you want to clean /.backup/ directory? [Y/n]: " nginx_clean_backup_directory_confirmation
+    echo "$nginx_clean_backup_directory_confirmation" >> "$LOG_FILE"
+    if [[ "$nginx_clean_backup_directory_confirmation" =~ ^[Yy]$ ]]; then sudo rm -r .backup/; fi
+fi
 BACKUP_DIR="$(pwd)/.backup/nginx_$(date +%Y%m%d_%H%M%S)"
 sudo mkdir -p "$BACKUP_DIR"
 sudo mkdir "$BACKUP_DIR/etc"
@@ -91,7 +96,7 @@ if [ -d $(pwd)/etc/nginx/sites-available/ ]; then
     done
     # Validate selection.
     read -p "Select a file to enable (number): " site_choice
-    echo "" >> "$LOG_FILE"
+    echo "$site_choice" >> "$LOG_FILE"
     if [[ "$site_choice" =~ ^[0-9]+$ ]] && [ "$site_choice" -ge 0 ] && [ "$site_choice" -lt "${#SITE_FILES[@]}" ]; then
         SELECTED_SITE="${SITE_FILES[$site_choice]}"
         LINK_PATH="/etc/nginx/sites-enabled/$SELECTED_SITE"
@@ -105,7 +110,7 @@ if [ -d $(pwd)/etc/nginx/sites-available/ ]; then
 fi
 
 # Export PHP www.conf to production.
-if [ -f $(pwd)/etc/php/8.2/fpm/pool.d/www.conf ] && [ -f /etc/php/8.2/fpm/pool.d/www.conf ]; then
+if [ -f $(pwd)/etc/php/8.2/fpm/pool.d/www.conf ] && [ -f $(pwd)/etc/php/8.2/fpm/pool.d/www.conf ]; then
     sudo cp $(pwd)/etc/php/8.2/fpm/pool.d/www.conf /etc/php/8.2/fpm/pool.d/www.conf
 else
     echo "PHP 8.2 is not installed or not active. Check the version using 'php -v'"
@@ -125,7 +130,7 @@ fi
 
 # Testing Nginx configuration.
 read -p "Do you want to test Nginx configuration before reload? [Y/n]: " nginx_test_confirmation
-echo "" >> "$LOG_FILE"
+echo "$nginx_test_confirmation" >> "$LOG_FILE"
 if [[ "$nginx_test_confirmation" =~ ^[Yy]$ ]]; then
     sudo nginx -t
 else
@@ -134,7 +139,7 @@ fi
 
 # Reload Nginx.
 read -p "Do you want to reload Nginx now? [Y/n]: " nginx_reload_confirmation
-echo "" >> "$LOG_FILE"
+echo "$nginx_reload_confirmation" >> "$LOG_FILE"
 if [[ "$nginx_reload_confirmation" =~ ^[Yy]$ ]]; then
     sudo systemctl reload nginx.service
 else
@@ -144,7 +149,7 @@ fi
 # Reload PHP.
 if php -v | grep -q 8.2; then
     read -p "Do you want to reload PHP now? [Y/n]: " php_fpm_reload_confirmation
-    echo "" >> "$LOG_FILE"
+    echo "$php_fpm_reload_confirmation" >> "$LOG_FILE"
     if [[ "$php_fpm_reload_confirmation" =~ ^[Yy]$ ]]; then
         sudo systemctl reload php8.2-fpm.service
     else
@@ -152,7 +157,7 @@ if php -v | grep -q 8.2; then
     fi
 fi
 
-echo "Remember: None of this will work properly if your Nginx server domains are not mapped correctly in /etc/hosts."
-echo "          Open /etc/hosts and verify that each server domain points to the right IP address (e.g., 127.0.0.1)."
+echo "Remember: None of this will work properly if your Nginx server domains are not mapped correctly in /etc/hosts"
+echo "          Open /etc/hosts and verify that each server domain points to the right IP address (e.g., 127.0.0.1)"
 
 echo "Script completed successfully!"
