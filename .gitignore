@@ -14,6 +14,7 @@ Languages/Java/MEGA_Curso_JAVA_desde_0_DAM_-_DAW/lib/*
 DAW/DSW/Master/.backup
 DAW/DSW/Master/.log
 DAW/DSW/Master/var/www/cloud/drive/*
+DAW/DSW/Master/var/www/daw/dpl/agencia_de_viajes/*
 
 # Python
 Languages/Python/**/__pycache__/
