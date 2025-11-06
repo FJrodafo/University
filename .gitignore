@@ -1,22 +1,23 @@
 # JavaScript
-Languages/JavaScript/Node/EJS_Express/node_modules/
-Languages/JavaScript/Node/Tutorial/node_modules/
+Languages/JavaScript/Node/EJS_Express/node_modules/*
+Languages/JavaScript/Node/Tutorial/node_modules/*
 
 # Java
-DAW/PRO/Master/bin/
-DAW/PRO/Master/lib/
+DAW/PRO/Master/bin/*
+DAW/PRO/Master/lib/*
 
-Languages/Java/MEGA_Curso_JAVA_desde_0_DAM_-_DAW/Apuntes/
-Languages/Java/MEGA_Curso_JAVA_desde_0_DAM_-_DAW/bin/
-Languages/Java/MEGA_Curso_JAVA_desde_0_DAM_-_DAW/lib/
+Languages/Java/MEGA_Curso_JAVA_desde_0_DAM_-_DAW/Apuntes/*
+Languages/Java/MEGA_Curso_JAVA_desde_0_DAM_-_DAW/bin/*
+Languages/Java/MEGA_Curso_JAVA_desde_0_DAM_-_DAW/lib/*
 
 # Nginx
 DAW/DSW/Master/.backup
 DAW/DSW/Master/.log
+DAW/DSW/Master/var/www/cloud/drive/*
 
 # Python
 Languages/Python/**/__pycache__/
-Languages/Python/KeepCalm/src/assets/font
+Languages/Python/KeepCalm/src/assets/font/*
 
 # Miscellaneous
-DAW/PRW/
+DAW/PRW/*
