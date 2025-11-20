@@ -1,6 +1,6 @@
 <?php
     // Recibe parámetros mediante GET y los muestra en pantalla.
-    // Ejemplo de uso: http://daw.fjrodafo.com/dsw/get.php?nombre=Fran&apellido=Afonso
+    // Ejemplo de uso: http://daw.fjrodafo.com/dsw/ejercicios/get.php?nombre=Fran&apellido=Afonso
 
     $nombre = $_GET['nombre'];
     $apellido = $_GET['apellido'];
