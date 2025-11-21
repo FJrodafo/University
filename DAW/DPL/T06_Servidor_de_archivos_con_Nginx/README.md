@@ -2,11 +2,11 @@
 
 En esta práctica debes instalar un servidor de archivos en tu VPS.
 
-* Crea una configuración nueva de server nginx virtual en [sites-available](./../../DSW/Master/etc/nginx/sites-available/) llamada `cloud.drive.fjrodafo.com`:
+* Crea una configuración nueva de server nginx virtual en [sites-available](./../Master/etc/nginx/sites-available/) llamada `cloud.drive.fjrodafo.com`:
     * Puerto TCP: 8080 para HTTP
     * Activa PHP con fastcgi_pass => php-fpm con sock unix.
     * Haz que el directorio raíz sea `/var/www/cloud/drive/`
-    * Descarga en un directorio temporal de tu elección la aplicación PHP desde: `https://github.com/filegator/static/raw/master/builds/filegator_latest.zip` descomprímela con unzip y copia todo el contenido en el [directorio raíz](./../../DSW/Master/var/www/cloud/drive/) de tu servidor nginx.
+    * Descarga en un directorio temporal de tu elección la aplicación PHP desde: `https://github.com/filegator/static/raw/master/builds/filegator_latest.zip` descomprímela con unzip y copia todo el contenido en el [directorio raíz](./../Master/var/www/cloud/drive/) de tu servidor nginx.
     * Haz los ajustes de permisos.
 
 http://cloud.drive.fjrodafo.com:8080/index.php#/

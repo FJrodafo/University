@@ -56,14 +56,14 @@ php -v
             phpinfo();
         ?>
         ```
-    - Crea un archivo index.html con un formulario [GET](./../../DSW/Master/var/www/test/formulario/get/index.html) que contenga dos variables:
+    - Crea un archivo index.html con un formulario [GET](./../Master/var/www/test/formulario/get/index.html) que contenga dos variables:
         - **var1** será el usuario.
         - **var2** será la contraseña.
         - El script PHP será login.php y devolverá al cliente:
             ```
             Hola <var1>, tu contraseña es <var2>.
             ```
-        - Modifica index.html para que el formulario sea [POST](./../../DSW/Master/var/www/test/formulario/post/index.html).
+        - Modifica index.html para que el formulario sea [POST](./../Master/var/www/test/formulario/post/index.html).
     - Comprobamos que no hay errores con el siguiente comando:
         ```shell
         sudo nginx -t
