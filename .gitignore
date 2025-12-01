@@ -13,6 +13,7 @@ Languages/Java/MEGA_Curso_JAVA_desde_0_DAM_-_DAW/lib/*
 # Nginx
 DAW/DPL/Master/var/www/cloud/drive/*
 DAW/DPL/Master/var/www/daw/ejercicios/agencia_de_viajes/*
+DAW/DSW/Master/var/www/daw/ejercicios/tienda/config.php
 
 # Python
 Languages/Python/**/__pycache__/
