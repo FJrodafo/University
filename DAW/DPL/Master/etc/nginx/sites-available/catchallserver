@@ -1,0 +1,24 @@
+server {
+	listen 80;
+	listen [::]:80;
+
+	root /var/www/primero;
+
+	server_name _;
+
+	# Archivo por defecto SOLO para el directorio raíz.
+	location = / {
+		index index.dpl
+		try_files $uri $uri/ =404;
+	}
+
+	# Archivo por defecto para todos los demás directorios.
+	location / {
+		index subprimero.html
+		try_files $uri $uri/ =404;
+	}
+
+	location ~* /([a-z0-9]+\.jpe?g)$ {
+		try_files /imagenes/$1 =404;
+	}
+}
