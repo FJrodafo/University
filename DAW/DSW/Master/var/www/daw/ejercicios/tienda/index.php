@@ -1,6 +1,6 @@
 <?php
     // Cargar configuración
-    $config = require __DIR__ . '/config.php';
+    $config = require __DIR__ . '/../../../private/config.php';
 
     // Datos de conexión tomados desde config.php
     $host = $config['host'];
