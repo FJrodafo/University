@@ -1,3 +1,12 @@
+## Índice
+
+1. [Descarga e instalación de PostgreSQL](#descarga-e-instalación-de-postgresql)
+2. [Comandos básicos](#comandos-básicos)
+3. [Crear un usuario](#crear-un-usuario)
+4. [Crear una base de datos](#crear-una-base-de-datos)
+5. [PHP + PostgreSQL + Nginx](#php--postgresql--nginx)
+6. [Script de conexión](#script-de-conexión)
+
 ## Descarga e instalación de PostgreSQL
 
 Para llevar a cabo la descarga e instalación del gestor de bases de datos PostgreSQL, accedemos a la sección de descargas del sitio oficial y seguiremos las indicaciones para instalar la última versión del SGBD en nuestro sistema.

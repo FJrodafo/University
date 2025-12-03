@@ -1,3 +1,8 @@
+## Índice
+
+1. [Actividad 1](#actividad-1)
+2. [Actividad 2](#actividad-2)
+
 ## Actividad 1
 
 En la configuración por defecto de Nginx, el archivo `mime.types` no incluye la extensión `php` y el archivo `/etc/nginx/sites-enable/default` solo tiene el siguiente location:
