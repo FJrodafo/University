@@ -175,10 +175,10 @@ Para finalizar con la configuración se deben reiniciar los servicios `nginx` y 
 <?php
     // Datos de conexión
     $host = 'localhost';
-    $port = 'xxxx';
+    $port = '5432';
     $dbname = 'tienda';
     $user = 'fjrodafo';
-    $password = 'xxxx';
+    $password = '0000';
 
     // Cadena de conexión PDO
     $dsn = "pgsql:host=$host;port=$port;dbname=$dbname";
@@ -228,10 +228,10 @@ Para ocultar los datos sensibles como la contraseña o el puerto, se podría con
 <?php
     return [
         'host' => 'localhost',
-        'port' => 'xxxx',
+        'port' => '5432',
         'dbname' => 'tienda',
         'user' => 'fjrodafo',
-        'password' => 'xxxx'
+        'password' => '0000'
     ];
 ?>
 ```
