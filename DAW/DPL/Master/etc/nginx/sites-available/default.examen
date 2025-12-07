@@ -1,0 +1,41 @@
+server {
+    listen 80 default_server;
+    listen 8080 default_server;
+
+    root /var/www/examen;
+
+    location ^~ /html {
+        include mime.types;
+
+        types {
+            text/html dpl;
+        }
+
+        index index.dpl;
+    }
+
+    location ~ \.dpl$ {
+        default_type application/octet-stream;
+    }
+
+    location = / {
+        try_files /html/index.html /index.html =404;
+    }
+
+    location / {
+        index index.html;
+    }
+
+    location ~* \.png$ {
+        alias /var/www/examen/html/foto.jpg;
+    }
+}
+
+server {
+    listen 80;
+    server_name www.angelmelchor.pro;
+
+    root /var/www/examen/html;
+
+    index index.html;
+}

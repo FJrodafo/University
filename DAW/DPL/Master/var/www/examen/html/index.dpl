@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>DPL25</title>
+  <meta charset="utf-8">
+  <style>
+    html {
+      color-scheme: light dark;
+    }
+
+    body {
+      width: 35em;
+      margin: 0 auto;
+      font-family: Tahoma, Verdana, Arial, sans-serif;
+    }
+
+    #reloj {
+      font-family: Arial, sans-serif;
+      font-size: 24px;
+      color: #333;
+      margin-top: 20px;
+      border: 3px solid green;
+      text-align: center;
+      background-color: lightyellow;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Página con extensión dpl</h1>
+  <p>Esta página tiene que estar en el directorio html</p>
+  <div id="reloj"></div>
+  <script>
+    function actualizarReloj() {
+      const ahora = new Date();
+      const opcionesFecha = {
+        weekday: 'long',
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
+      };
+      const fecha = ahora.toLocaleDateString('es-ES', opcionesFecha);
+      const hora = ahora.toLocaleTimeString('es-ES');
+      document.getElementById('reloj').textContent = `${fecha} - ${hora}`;
+    }
+    // Actualizar de inmediato y luego cada segundo
+    actualizarReloj();
+    setInterval(actualizarReloj, 1000);
+  </script>
+  <p><em>Thank you for using nginx.</em></p>
+</body>
+
+</html>
