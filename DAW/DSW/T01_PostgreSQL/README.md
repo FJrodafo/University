@@ -372,6 +372,37 @@ StartupWMClass=Postman
 
 ## API REST
 
+[Código](./../Master/var/www/daw/ejercicios/tienda/api/productos.php)
+
+http://daw.fjrodafo.com/ejercicios/tienda/api/productos.php
+
+http://daw.fjrodafo.com/ejercicios/tienda/api/productos.php?id=4
+
+```shell
+curl -X GET http://daw.fjrodafo.com/ejercicios/tienda/api/productos.php
+```
+
+```shell
+curl -X GET "http://daw.fjrodafo.com/ejercicios/tienda/api/productos.php?id=4"
+```
+
+```shell
+curl -X POST http://daw.fjrodafo.com/ejercicios/tienda/api/productos.php \
+  -H "Authorization: Bearer 123456TOKENSEGURO" \
+  -H "Content-Type: application/json" \
+  -d '{
+        "id": 21,
+        "nombre": "Ratón inalámbrico",
+        "precio": 25.99,
+        "id_fabricante": 2
+    }'
+```
+
+```shell
+curl -X DELETE "http://daw.fjrodafo.com/ejercicios/tienda/api/productos.php?id=21" \
+     -H "Authorization: Bearer 123456TOKENSEGURO"
+```
+
 ### Get
 
 [Código](./../Master/var/www/daw/ejercicios/tienda/api/get/productos.php)
