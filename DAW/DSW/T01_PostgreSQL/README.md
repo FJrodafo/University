@@ -403,7 +403,7 @@ curl -X DELETE "http://daw.fjrodafo.com/ejercicios/tienda/api/productos.php?id=2
      -H "Authorization: Bearer 123456TOKENSEGURO"
 ```
 
-### Get
+### GET
 
 [Código](./../Master/var/www/daw/ejercicios/tienda/api/get/productos.php)
 
@@ -419,7 +419,7 @@ curl -X GET http://daw.fjrodafo.com/ejercicios/tienda/api/get/productos.php
 curl -X GET "http://daw.fjrodafo.com/ejercicios/tienda/api/get/productos.php?id=5"
 ```
 
-### Post
+### POST
 
 [Código](./../Master/var/www/daw/ejercicios/tienda/api/post/productos.php)
 
@@ -435,7 +435,7 @@ curl -X POST http://daw.fjrodafo.com/ejercicios/tienda/api/post/productos.php \
     }'
 ```
 
-### Delete
+### DELETE
 
 [Código](./../Master/var/www/daw/ejercicios/tienda/api/delete/productos.php)
 
