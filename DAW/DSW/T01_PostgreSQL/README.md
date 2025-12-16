@@ -9,6 +9,7 @@
 7. [Postman](#postman)
 8. [API REST](#api-rest)
     1. [GET](#get)
+    2. [POST](#post)
 
 ## Descarga e instalación de PostgreSQL
 
@@ -384,6 +385,22 @@ curl -X GET http://daw.fjrodafo.com/ejercicios/tienda/api/get/productos.php
 
 ```shell
 curl -X GET "http://daw.fjrodafo.com/ejercicios/tienda/api/get/productos.php?id=5"
+```
+
+### Post
+
+[Código](./../Master/var/www/daw/ejercicios/tienda/api/post/productos.php)
+
+```shell
+curl -X POST http://daw.fjrodafo.com/ejercicios/tienda/api/post/productos.php \
+  -H "Authorization: Bearer 123456TOKENSEGURO" \
+  -H "Content-Type: application/json" \
+  -d '{
+        "id": 22,
+        "nombre": "Teclado mecánico",
+        "precio": 45.99,
+        "id_fabricante": 2
+    }'
 ```
 
 <link rel="stylesheet" href="./../../../README.css">
