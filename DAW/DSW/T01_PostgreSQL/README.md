@@ -10,6 +10,7 @@
 8. [API REST](#api-rest)
     1. [GET](#get)
     2. [POST](#post)
+    3. [DELETE](#delete)
 
 ## Descarga e instalación de PostgreSQL
 
@@ -401,6 +402,15 @@ curl -X POST http://daw.fjrodafo.com/ejercicios/tienda/api/post/productos.php \
         "precio": 45.99,
         "id_fabricante": 2
     }'
+```
+
+### Delete
+
+[Código](./../Master/var/www/daw/ejercicios/tienda/api/delete/productos.php)
+
+```shell
+curl -X DELETE "http://daw.fjrodafo.com/ejercicios/tienda/api/delete/productos.php?id=22" \
+     -H "Authorization: Bearer 123456TOKENSEGURO"
 ```
 
 <link rel="stylesheet" href="./../../../README.css">
