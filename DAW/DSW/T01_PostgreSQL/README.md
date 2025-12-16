@@ -6,6 +6,7 @@
 4. [Crear una base de datos](#crear-una-base-de-datos)
 5. [PHP + PostgreSQL + Nginx](#php--postgresql--nginx)
 6. [Script de conexión](#script-de-conexión)
+7. [Postman](#postman)
 
 ## Descarga e instalación de PostgreSQL
 
@@ -315,6 +316,54 @@ Y cargar el archivo `.env` como si fuera un INI:
     $user = $env['DB_USER'];
     $password = $env['DB_PASSWORD'];
 ...
+```
+
+## Postman
+
+Descargar el archivo `postman-linux-arm64.tar.gz` desde la web oficial: https://www.postman.com/downloads/
+
+```shell
+cd /tmp
+wget https://dl.pstmn.io/download/latest/linux64 -O postman.tar.gz
+file postman.tar.gz
+```
+
+Para extraer el archivo, ejecuta el siguiente comando:
+
+```shell
+sudo tar -xzf postman.tar.gz -C /opt
+ls -l /opt/Postman/Postman
+file /opt/Postman/Postman
+```
+
+Crear enlace ejecutable:
+
+```shell
+sudo ln -s /opt/Postman/app/Postman /usr/bin/postman
+file /opt/Postman/app/Postman
+```
+
+Ejecutar Postman con el siguiente comando:
+
+```shell
+postman
+```
+
+Hacer que postman aparezca en el menú de aplicaciones:
+
+```shell
+sudo nano /usr/share/applications/postman.desktop
+```
+```desktop
+[Desktop Entry]
+Name=Postman
+Comment=API Development Environment
+Exec=/opt/Postman/app/Postman
+Icon=/opt/Postman/app/resources/app/assets/icon.png
+Terminal=false
+Type=Application
+Categories=Development;
+StartupWMClass=Postman
 ```
 
 <link rel="stylesheet" href="./../../../README.css">
