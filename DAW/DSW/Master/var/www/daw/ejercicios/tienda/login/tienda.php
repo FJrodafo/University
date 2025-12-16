@@ -59,7 +59,6 @@
         echo '<input type="hidden" name="user" value="' . htmlspecialchars($user) . '">';
         echo '<button type="submit">Desconectar</button>';
         echo '</form>';
-
     } catch (PDOException $e) {
         // Redirigir al formulario con mensaje de error y conservar los valores
         $errorMsg = urlencode($e->getMessage());
