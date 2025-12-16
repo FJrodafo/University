@@ -7,6 +7,8 @@
 5. [PHP + PostgreSQL + Nginx](#php--postgresql--nginx)
 6. [Script de conexión](#script-de-conexión)
 7. [Postman](#postman)
+8. [API REST](#api-rest)
+    1. [GET](#get)
 
 ## Descarga e instalación de PostgreSQL
 
@@ -364,6 +366,24 @@ Terminal=false
 Type=Application
 Categories=Development;
 StartupWMClass=Postman
+```
+
+## API REST
+
+### Get
+
+[Código](./../Master/var/www/daw/ejercicios/tienda/api/get/productos.php)
+
+http://daw.fjrodafo.com/ejercicios/tienda/api/get/productos.php
+
+http://daw.fjrodafo.com/ejercicios/tienda/api/get/productos.php?id=5
+
+```shell
+curl -X GET http://daw.fjrodafo.com/ejercicios/tienda/api/get/productos.php
+```
+
+```shell
+curl -X GET "http://daw.fjrodafo.com/ejercicios/tienda/api/get/productos.php?id=5"
 ```
 
 <link rel="stylesheet" href="./../../../README.css">
