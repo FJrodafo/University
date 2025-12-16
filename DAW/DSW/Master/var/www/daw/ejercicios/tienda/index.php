@@ -1,13 +1,13 @@
 <?php
     // Cargar configuración
-    $config = require __DIR__ . '/../../../private/config.php';
+    $env = parse_ini_file(__DIR__ . '/../../../private/.env');
 
-    // Datos de conexión tomados desde config.php
-    $host = $config['host'];
-    $port = $config['port'];
-    $dbname = $config['dbname'];
-    $user = $config['user'];
-    $password = $config['password'];
+    // Datos de conexión tomados desde .env
+    $host = $env['DB_HOST'];
+    $port = $env['DB_PORT'];
+    $dbname = $env['DB_NAME'];
+    $user = $env['DB_USER'];
+    $password = $env['DB_PASSWORD'];
 
     // Cadena de conexión PDO
     $dsn = "pgsql:host=$host;port=$port;dbname=$dbname";
@@ -44,7 +44,6 @@
         }
 
         echo "</table>";
-
     } catch (PDOException $e) {
         echo "<strong>Error de conexión: </strong>" . $e->getMessage();
     }

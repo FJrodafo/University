@@ -6,7 +6,6 @@
 4. [Crear una base de datos](#crear-una-base-de-datos)
 5. [PHP + PostgreSQL + Nginx](#php--postgresql--nginx)
 6. [Script de conexión](#script-de-conexión)
-7. [API REST](#api-rest)
 
 ## Descarga e instalación de PostgreSQL
 
@@ -286,74 +285,36 @@ El archivo `index.php` quedaría de la siguiente manera:
         }
 
         echo "</table>";
-
     } catch (PDOException $e) {
         echo "<strong>Error de conexión: </strong>" . $e->getMessage();
     }
 ?>
 ```
 
-## API REST
+También se podría utilizar un archivo `.env` con la siguiente estructura:
 
-http://daw.fjrodafo.com/ejercicios/tienda/productos.php
+```env
+DB_HOST=localhost
+DB_PORT=5432
+DB_NAME=tienda
+DB_USER=fjrodafo
+DB_PASSWORD=0000
+```
 
-http://daw.fjrodafo.com/ejercicios/tienda/productos.php?id=4
+Y cargar el archivo `.env` como si fuera un INI:
 
 ```php
 <?php
-    header("Content-Type: application/json; charset=UTF-8");
-    // Permitir pruebas con Postman desde otros orígenes
-    header("Access-Control-Allow-Origin: *");
-
     // Cargar configuración
-    $config = require __DIR__ . "/../../../private/config.php";
+    $env = parse_ini_file(__DIR__ . '/../../../private/.env');
 
-    // Datos de conexión tomados desde config.php
-    $host = $config['host'];
-    $port = $config['port'];
-    $dbname = $config['dbname'];
-    $user = $config['user'];
-    $password = $config['password'];
-
-    // Cadena de conexión PDO
-    $dsn = "pgsql:host=$host;port=$port;dbname=$dbname";
-
-    try {
-        // Crear conexión
-        $pdo = new PDO($dsn, $user, $password, [
-            PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION // Mostrar errores
-        ]);
-
-    } catch (PDOException $e) {
-        echo json_encode([
-            "error" => "Error de conexión",
-            "detalle" => $e->getMessage()
-        ]);
-        exit;
-    }
-
-    // Lógica de API REST
-    if (isset($_GET['id'])) {
-        // Consulta por ID
-        $sql = "SELECT * FROM Productos WHERE id = :id";
-        $stmt = $pdo->prepare($sql);
-        $stmt->execute(['id' => $_GET['id']]);
-        $producto = $stmt->fetch(PDO::FETCH_ASSOC);
-
-        if ($producto) {
-            echo json_encode($producto, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
-        } else {
-            echo json_encode(["error" => "Producto no encontrado"]);
-        }
-    } else {
-        // Devolver todos los productos
-        $sql = "SELECT * FROM Productos";
-        $stmt = $pdo->query($sql);
-        $productos = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-        echo json_encode($productos, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
-    }
-?>
+    // Datos de conexión tomados desde .env
+    $host = $env['DB_HOST'];
+    $port = $env['DB_PORT'];
+    $dbname = $env['DB_NAME'];
+    $user = $env['DB_USER'];
+    $password = $env['DB_PASSWORD'];
+...
 ```
 
 <link rel="stylesheet" href="./../../../README.css">
