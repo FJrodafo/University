@@ -10,7 +10,8 @@
 8. [API REST](#api-rest)
     1. [GET](#get)
     2. [POST](#post)
-    3. [DELETE](#delete)
+    3. [PUT](#put)
+    4. [DELETE](#delete)
 
 ## Descarga e instalación de PostgreSQL
 
@@ -399,6 +400,18 @@ curl -X POST http://daw.fjrodafo.com/ejercicios/tienda/api/productos.php \
 ```
 
 ```shell
+curl -X PUT http://daw.fjrodafo.com/ejercicios/tienda/api/productos.php \
+  -H "Authorization: Bearer 123456TOKENSEGURO" \
+  -H "Content-Type: application/json" \
+  -d '{
+        "id": 21,
+        "nombre": "Ratón inalámbrico PRO",
+        "precio": 29.99,
+        "id_fabricante": 2
+      }'
+```
+
+```shell
 curl -X DELETE "http://daw.fjrodafo.com/ejercicios/tienda/api/productos.php?id=21" \
      -H "Authorization: Bearer 123456TOKENSEGURO"
 ```
@@ -433,6 +446,22 @@ curl -X POST http://daw.fjrodafo.com/ejercicios/tienda/api/post/productos.php \
         "precio": 45.99,
         "id_fabricante": 2
     }'
+```
+
+### PUT
+
+[Código](./../Master/var/www/daw/ejercicios/tienda/api/put/productos.php)
+
+```shell
+curl -X PUT http://daw.fjrodafo.com/ejercicios/tienda/api/put/productos.php \
+  -H "Authorization: Bearer 123456TOKENSEGURO" \
+  -H "Content-Type: application/json" \
+  -d '{
+        "id": 22,
+        "nombre": "Teclado mecánico PRO",
+        "precio": 49.99,
+        "id_fabricante": 2
+      }'
 ```
 
 ### DELETE

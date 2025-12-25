@@ -146,6 +146,64 @@
                 "detalle" => $e->getMessage()
             ]);
         }
+
+        exit;
+    }
+
+    // Peticiones PUT
+    if ($method === 'PUT') {
+        // Verificar token
+        $headers = getallheaders();
+        $auth = $headers['Authorization'] ?? '';
+
+        if ($auth !== 'Bearer ' . API_TOKEN) {
+            http_response_code(401);
+            echo json_encode(["error" => "No autorizado."]);
+            exit;
+        }
+
+        // Obtener datos JSON
+        $data = json_decode(file_get_contents("php://input"), true);
+
+        if (
+            empty($data['id']) ||
+            empty($data['nombre']) ||
+            empty($data['precio']) ||
+            empty($data['id_fabricante'])
+        ) {
+            echo json_encode(["error" => "Datos incompletos."]);
+            exit;
+        }
+
+        $sql = "
+            UPDATE Productos
+            SET nombre = :nombre,
+                precio = :precio,
+                id_fabricante = :id_fabricante
+            WHERE id = :id
+        ";
+
+        try {
+            $stmt = $pdo->prepare($sql);
+            $stmt->execute([
+                'id' => $data['id'],
+                'nombre' => $data['nombre'],
+                'precio' => $data['precio'],
+                'id_fabricante' => $data['id_fabricante']
+            ]);
+
+            if ($stmt->rowCount() > 0) {
+                echo json_encode(["mensaje" => "Producto actualizado correctamente."]);
+            } else {
+                echo json_encode(["error" => "Producto no encontrado o sin cambios."]);
+            }
+        } catch (PDOException $e) {
+            echo json_encode([
+                "error" => "Error al actualizar el producto.",
+                "detalle" => $e->getMessage()
+            ]);
+        }
+
         exit;
     }
 
