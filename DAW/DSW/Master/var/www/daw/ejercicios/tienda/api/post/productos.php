@@ -6,6 +6,13 @@
     // Token para autorizar POST
     define('API_TOKEN', '123456TOKENSEGURO');
 
+    // Comprobar método POST
+    if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+        http_response_code(405);
+        echo json_encode(["error" => "Método no permitido."]);
+        exit;
+    }
+
     // Cargar configuración
     $config = require __DIR__ . "/../../../../../private/config.php";
 
@@ -32,7 +39,7 @@
         exit;
     }
 
-    // Lógica de API REST
+    // Lógica de API REST - POST
     // Verificar token
     $headers = getallheaders();
     $auth = $headers['Authorization'] ?? '';
@@ -45,6 +52,11 @@
 
     // Obtener datos JSON
     $data = json_decode(file_get_contents("php://input"), true);
+
+    if ($data === null) {
+        echo json_encode(["error" => "JSON inválido."]);
+        exit;
+    }
 
     if (
         empty($data['id']) ||

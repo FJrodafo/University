@@ -3,6 +3,13 @@
     // Permitir pruebas con Postman desde otros orígenes
     header("Access-Control-Allow-Origin: *");
 
+    // Comprobar método GET
+    if ($_SERVER['REQUEST_METHOD'] !== 'GET') {
+        http_response_code(405);
+        echo json_encode(["error" => "Método no permitido."]);
+        exit;
+    }
+
     // Cargar configuración
     $config = require __DIR__ . "/../../../../../private/config.php";
 
@@ -29,7 +36,7 @@
         exit;
     }
 
-    // Lógica de API REST
+    // Lógica de API REST - GET
     if (isset($_GET['id'])) {
         // Consulta por ID
         $sql = "SELECT * FROM Productos WHERE id = :id";

@@ -32,6 +32,17 @@
         exit;
     }
 
+    function checkToken() {
+        $headers = getallheaders();
+        $auth = $headers['Authorization'] ?? '';
+    
+        if ($auth !== 'Bearer ' . API_TOKEN) {
+            http_response_code(401);
+            echo json_encode(["error" => "No autorizado."]);
+            exit;
+        }
+    }
+
     // Método HTTP
     $method = $_SERVER['REQUEST_METHOD'];
 
@@ -65,17 +76,15 @@
     // Peticiones POST
     if ($method === 'POST') {
         // Verificar token
-        $headers = getallheaders();
-        $auth = $headers['Authorization'] ?? '';
-
-        if ($auth !== 'Bearer ' . API_TOKEN) {
-            http_response_code(401);
-            echo json_encode(["error" => "No autorizado."]);
-            exit;
-        }
+        checkToken();
 
         // Obtener datos JSON
         $data = json_decode(file_get_contents("php://input"), true);
+
+        if ($data === null) {
+            echo json_encode(["error" => "JSON inválido."]);
+            exit;
+        }
 
         if (
             empty($data['id']) ||
@@ -110,60 +119,18 @@
         exit;
     }
 
-    // Peticiones DELETE
-    if ($method === 'DELETE') {
-        // Verificar token
-        $headers = getallheaders();
-        $auth = $headers['Authorization'] ?? '';
-
-        if ($auth !== 'Bearer ' . API_TOKEN) {
-            http_response_code(401);
-            echo json_encode(["error" => "No autorizado."]);
-            exit;
-        }
-
-        // Tomar ID desde query string
-        if (!isset($_GET['id'])) {
-            echo json_encode(["error" => "Falta el ID del producto a eliminar."]);
-            exit;
-        }
-
-        $id = $_GET['id'];
-        $sql = "DELETE FROM Productos WHERE id = :id";
-
-        try {
-            $stmt = $pdo->prepare($sql);
-            $stmt->execute(['id' => $id]);
-
-            if ($stmt->rowCount() > 0) {
-                echo json_encode(["mensaje" => "Producto eliminado correctamente."]);
-            } else {
-                echo json_encode(["error" => "Producto no encontrado."]);
-            }
-        } catch (PDOException $e) {
-            echo json_encode([
-                "error" => "Error al eliminar el producto.",
-                "detalle" => $e->getMessage()
-            ]);
-        }
-
-        exit;
-    }
-
     // Peticiones PUT
     if ($method === 'PUT') {
         // Verificar token
-        $headers = getallheaders();
-        $auth = $headers['Authorization'] ?? '';
-
-        if ($auth !== 'Bearer ' . API_TOKEN) {
-            http_response_code(401);
-            echo json_encode(["error" => "No autorizado."]);
-            exit;
-        }
+        checkToken();
 
         // Obtener datos JSON
         $data = json_decode(file_get_contents("php://input"), true);
+
+        if ($data === null) {
+            echo json_encode(["error" => "JSON inválido."]);
+            exit;
+        }
 
         if (
             empty($data['id']) ||
@@ -200,6 +167,39 @@
         } catch (PDOException $e) {
             echo json_encode([
                 "error" => "Error al actualizar el producto.",
+                "detalle" => $e->getMessage()
+            ]);
+        }
+
+        exit;
+    }
+
+    // Peticiones DELETE
+    if ($method === 'DELETE') {
+        // Verificar token
+        checkToken();
+
+        // Tomar ID desde query string
+        if (!isset($_GET['id'])) {
+            echo json_encode(["error" => "Falta el ID del producto a eliminar."]);
+            exit;
+        }
+
+        $id = $_GET['id'];
+        $sql = "DELETE FROM Productos WHERE id = :id";
+
+        try {
+            $stmt = $pdo->prepare($sql);
+            $stmt->execute(['id' => $id]);
+
+            if ($stmt->rowCount() > 0) {
+                echo json_encode(["mensaje" => "Producto eliminado correctamente."]);
+            } else {
+                echo json_encode(["error" => "Producto no encontrado."]);
+            }
+        } catch (PDOException $e) {
+            echo json_encode([
+                "error" => "Error al eliminar el producto.",
                 "detalle" => $e->getMessage()
             ]);
         }

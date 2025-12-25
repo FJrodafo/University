@@ -3,8 +3,15 @@
     // Permitir pruebas con Postman desde otros orígenes
     header("Access-Control-Allow-Origin: *");
 
-    // Token para autorizar POST
+    // Token para autorizar DELETE
     define('API_TOKEN', '123456TOKENSEGURO');
+
+    // Comprobar método DELETE
+    if ($_SERVER['REQUEST_METHOD'] !== 'DELETE') {
+        http_response_code(405);
+        echo json_encode(["error" => "Método no permitido."]);
+        exit;
+    }
 
     // Cargar configuración
     $config = require __DIR__ . "/../../../../../private/config.php";
@@ -32,7 +39,7 @@
         exit;
     }
 
-    // Lógica de API REST
+    // Lógica de API REST - DELETE
     // Verificar token
     $headers = getallheaders();
     $auth = $headers['Authorization'] ?? '';

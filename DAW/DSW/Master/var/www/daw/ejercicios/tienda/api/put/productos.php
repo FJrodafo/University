@@ -3,6 +3,16 @@
     // Permitir pruebas con Postman desde otros orígenes
     header("Access-Control-Allow-Origin: *");
 
+    // Token para autorizar PUT
+    define('API_TOKEN', '123456TOKENSEGURO');
+
+    // Comprobar método PUT
+    if ($_SERVER['REQUEST_METHOD'] !== 'PUT') {
+        http_response_code(405);
+        echo json_encode(["error" => "Método no permitido."]);
+        exit;
+    }
+
     // Cargar configuración
     $config = require __DIR__ . "/../../../../../private/config.php";
 
@@ -29,7 +39,7 @@
         exit;
     }
 
-    // Lógica de API REST
+    // Lógica de API REST - PUT
     // Verificar token
     $headers = getallheaders();
     $auth = $headers['Authorization'] ?? '';
@@ -42,6 +52,11 @@
 
     // Obtener datos JSON
     $data = json_decode(file_get_contents("php://input"), true);
+
+    if ($data === null) {
+        echo json_encode(["error" => "JSON inválido."]);
+        exit;
+    }
 
     if (
         empty($data['id']) ||

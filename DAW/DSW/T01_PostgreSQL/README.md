@@ -380,11 +380,11 @@ http://daw.fjrodafo.com/ejercicios/tienda/api/productos.php
 http://daw.fjrodafo.com/ejercicios/tienda/api/productos.php?id=4
 
 ```shell
-curl -X GET http://daw.fjrodafo.com/ejercicios/tienda/api/productos.php
+curl -X GET http://daw.fjrodafo.com/ejercicios/tienda/api/productos.php; echo
 ```
 
 ```shell
-curl -X GET "http://daw.fjrodafo.com/ejercicios/tienda/api/productos.php?id=4"
+curl -X GET "http://daw.fjrodafo.com/ejercicios/tienda/api/productos.php?id=4"; echo
 ```
 
 ```shell
@@ -396,7 +396,7 @@ curl -X POST http://daw.fjrodafo.com/ejercicios/tienda/api/productos.php \
         "nombre": "Ratón inalámbrico",
         "precio": 25.99,
         "id_fabricante": 2
-    }'
+    }'; echo
 ```
 
 ```shell
@@ -408,12 +408,12 @@ curl -X PUT http://daw.fjrodafo.com/ejercicios/tienda/api/productos.php \
         "nombre": "Ratón inalámbrico PRO",
         "precio": 29.99,
         "id_fabricante": 2
-      }'
+      }'; echo
 ```
 
 ```shell
 curl -X DELETE "http://daw.fjrodafo.com/ejercicios/tienda/api/productos.php?id=21" \
-     -H "Authorization: Bearer 123456TOKENSEGURO"
+     -H "Authorization: Bearer 123456TOKENSEGURO"; echo
 ```
 
 ### GET
@@ -425,11 +425,11 @@ http://daw.fjrodafo.com/ejercicios/tienda/api/get/productos.php
 http://daw.fjrodafo.com/ejercicios/tienda/api/get/productos.php?id=5
 
 ```shell
-curl -X GET http://daw.fjrodafo.com/ejercicios/tienda/api/get/productos.php
+curl -X GET http://daw.fjrodafo.com/ejercicios/tienda/api/get/productos.php; echo
 ```
 
 ```shell
-curl -X GET "http://daw.fjrodafo.com/ejercicios/tienda/api/get/productos.php?id=5"
+curl -X GET "http://daw.fjrodafo.com/ejercicios/tienda/api/get/productos.php?id=5"; echo
 ```
 
 ### POST
@@ -445,7 +445,7 @@ curl -X POST http://daw.fjrodafo.com/ejercicios/tienda/api/post/productos.php \
         "nombre": "Teclado mecánico",
         "precio": 45.99,
         "id_fabricante": 2
-    }'
+    }'; echo
 ```
 
 ### PUT
@@ -461,7 +461,7 @@ curl -X PUT http://daw.fjrodafo.com/ejercicios/tienda/api/put/productos.php \
         "nombre": "Teclado mecánico PRO",
         "precio": 49.99,
         "id_fabricante": 2
-      }'
+      }'; echo
 ```
 
 ### DELETE
@@ -470,7 +470,7 @@ curl -X PUT http://daw.fjrodafo.com/ejercicios/tienda/api/put/productos.php \
 
 ```shell
 curl -X DELETE "http://daw.fjrodafo.com/ejercicios/tienda/api/delete/productos.php?id=22" \
-     -H "Authorization: Bearer 123456TOKENSEGURO"
+     -H "Authorization: Bearer 123456TOKENSEGURO"; echo
 ```
 
 <link rel="stylesheet" href="./../../../README.css">
