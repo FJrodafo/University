@@ -11,7 +11,8 @@
     1. [GET](#get)
     2. [POST](#post)
     3. [PUT](#put)
-    4. [DELETE](#delete)
+    4. [PATCH](#patch)
+    5. [DELETE](#delete)
 
 ## Descarga e instalación de PostgreSQL
 
@@ -412,6 +413,16 @@ curl -X PUT http://daw.fjrodafo.com/ejercicios/tienda/api/productos.php \
 ```
 
 ```shell
+curl -X PATCH http://daw.fjrodafo.com/ejercicios/tienda/api/productos.php \
+  -H "Authorization: Bearer 123456TOKENSEGURO" \
+  -H "Content-Type: application/json" \
+  -d '{
+        "id": 21,
+        "precio": 39.99
+      }'; echo
+```
+
+```shell
 curl -X DELETE "http://daw.fjrodafo.com/ejercicios/tienda/api/productos.php?id=21" \
      -H "Authorization: Bearer 123456TOKENSEGURO"; echo
 ```
@@ -461,6 +472,20 @@ curl -X PUT http://daw.fjrodafo.com/ejercicios/tienda/api/put/productos.php \
         "nombre": "Teclado mecánico PRO",
         "precio": 49.99,
         "id_fabricante": 2
+      }'; echo
+```
+
+### PATCH
+
+[Código](./../Master/var/www/daw/ejercicios/tienda/api/patch/productos.php)
+
+```shell
+curl -X PATCH http://daw.fjrodafo.com/ejercicios/tienda/api/patch/productos.php \
+  -H "Authorization: Bearer 123456TOKENSEGURO" \
+  -H "Content-Type: application/json" \
+  -d '{
+        "id": 22,
+        "precio": 59.99
       }'; echo
 ```
 

@@ -174,6 +174,65 @@
         exit;
     }
 
+    // Peticiones PATCH
+    if ($method === 'PATCH') {
+        // Verificar token
+        checkToken();
+
+        // Obtener datos JSON
+        $data = json_decode(file_get_contents("php://input"), true);
+
+        if ($data === null) {
+            echo json_encode(["error" => "JSON inválido."]);
+            exit;
+        }
+
+        // El ID es obligatorio
+        if (empty($data['id'])) {
+            echo json_encode(["error" => "Falta el ID del producto."]);
+            exit;
+        }
+
+        $id = $data['id'];
+        // Campos permitidos para actualizar
+        $camposPermitidos = ['nombre', 'precio', 'id_fabricante'];
+        $campos = [];
+        $parametros = ['id' => $id];
+
+        foreach ($camposPermitidos as $campo) {
+            if (isset($data[$campo])) {
+                $campos[] = "$campo = :$campo";
+                $parametros[$campo] = $data[$campo];
+            }
+        }
+
+        // Debe haber al menos un campo a actualizar
+        if (empty($campos)) {
+            echo json_encode(["error" => "No se han enviado campos para actualizar."]);
+            exit;
+        }
+
+        $sql = "UPDATE Productos SET " . implode(', ', $campos) . " WHERE id = :id";
+
+        try {
+            $stmt = $pdo->prepare($sql);
+            $stmt->execute($parametros);
+
+            if ($stmt->rowCount() > 0) {
+                echo json_encode(["mensaje" => "Producto actualizado parcialmente."]);
+            } else {
+                echo json_encode(["error" => "Producto no encontrado o sin cambios."]);
+            }
+        } catch (PDOException $e) {
+            echo json_encode([
+                "error" => "Error al actualizar el producto.",
+                "detalle" => $e->getMessage()
+            ]);
+        }
+
+        exit;
+    }
+
     // Peticiones DELETE
     if ($method === 'DELETE') {
         // Verificar token
