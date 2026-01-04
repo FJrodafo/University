@@ -53,7 +53,7 @@ If you can't use Docker's `apt` repository to install Docker Engine, you can dow
     * `docker-buildx-plugin_<version>_<arch>.deb`
     * `docker-compose-plugin_<version>_<arch>.deb`
 5. Install the `.deb` packages. Update the paths in the following example to where you downloaded the Docker packages.
-    ```sh
+    ```shell
     sudo dpkg -i ./containerd.io_<version>_<arch>.deb \
     ./docker-ce_<version>_<arch>.deb \
     ./docker-ce-cli_<version>_<arch>.deb \
@@ -62,7 +62,7 @@ If you can't use Docker's `apt` repository to install Docker Engine, you can dow
     ```
     The Docker daemon starts automatically.
 6. Verify that the installation is successful by running the `hello-world` image:
-    ```sh
+    ```shell
     sudo service docker start
     sudo docker run hello-world
     ```
@@ -446,12 +446,12 @@ Now that your image has been built and pushed into a registry, try running your 
 
 1. Log in to **Docker Hub**:
 
-    ```sh
+    ```shell
     docker login
     ```
 2. Log in to **GitHub Packages**:
 
-    ```sh
+    ```shell
     echo YOUR_GITHUB_TOKEN | docker login ghcr.io -u YOUR_GITHUB_USERNAME --password-stdin
     ```
 
@@ -459,17 +459,17 @@ Now that your image has been built and pushed into a registry, try running your 
 
 3. Build the Docker image:
 
-    ```sh
+    ```shell
     docker build -t fjrodafo/getting-started:v1.0.0 .
     ```
 4. Tag the image for **Docker Hub**:
 
-    ```sh
+    ```shell
     docker tag fjrodafo/getting-started:v1.0.0 fjrodafo/getting-started:v1.0.0
     ```
 5. Tag the image for **GitHub Packages**:
 
-    ```sh
+    ```shell
     docker tag fjrodafo/getting-started:v1.0.0 ghcr.io/fjrodafo/getting-started:v1.0.0
     ```
 
@@ -477,12 +477,12 @@ Now that your image has been built and pushed into a registry, try running your 
 
 6. Push the image to **Docker Hub**:
 
-    ```sh
+    ```shell
     docker push fjrodafo/getting-started:v1.0.0
     ```
 7. Push the image to **GitHub Packages**:
 
-    ```sh
+    ```shell
     docker push ghcr.io/fjrodafo/getting-started:v1.0.0
     ```
 
@@ -490,12 +490,12 @@ Now that your image has been built and pushed into a registry, try running your 
 
 8. Pull the image from **Docker Hub**:
 
-    ```sh
+    ```shell
     docker pull fjrodafo/getting-started:v1.0.0
     ```
 9. Pull the image from **GitHub Packages**:
 
-    ```sh
+    ```shell
     docker pull ghcr.io/fjrodafo/getting-started:v1.0.0
     ```
 
