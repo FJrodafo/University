@@ -24,7 +24,7 @@
 
 ## Minecraft Command Language
 
-```sh
+```shell
 # Command Block
 /give UserName minecraft:command_block
 
@@ -32,34 +32,34 @@
 /give UserName minecraft:structure_block
 ```
 
-```sh
+```shell
 # Force load a chunk so commands work anywhere
 /forceload 0 0 0
 ```
 
 ## Useful game rules for servers
 
-```sh
+```shell
 # Prevent spam from command messages
 /gamerule commandBlockOutput false
 ```
 
-```sh
+```shell
 # Log used commands
 /gamerule logAdminCommands true
 ```
 
-```sh
+```shell
 # Keep your inventory on death
 /gamerule keepInventory true
 ```
 
-```sh
+```shell
 # Prevent mobs from breaking the environment
 /gamerule mobGriefing false
 ```
 
-```sh
+```shell
 # Prevent fires
 /gamerule doFireTick false
 ```
@@ -68,7 +68,7 @@
 
 Seed: `7334907763147734721`
 
-```sh
+```shell
 # 1.15.0+
 
 /give @p minecraft:elytra{display:{Name:'{"text":"ナヤイシャ","color":"yellow","italic":false}'},Unbreakable:1b,Enchantments:[{}]} 1
@@ -84,22 +84,22 @@ execute as @a[nbt={SelectedItem:{id:"minecraft:netherite_pickaxe",Count:1b,tag:{
 scoreboard players set @a UserName 0
 ```
 
-```sh
+```shell
 # Lobby
 /tp UserName 0 68 23 -180 0
 ```
 
-```sh
+```shell
 # Island
 /tp UserName -9775 69 15614 -180 0
 ```
 
-```sh
+```shell
 # Map
 /tp UserName -9776 14.2 15551 180 90
 ```
 
-```sh
+```shell
 # Home
 /tp UserName -9770 11 15540 90 90
 ```
@@ -227,7 +227,7 @@ By default "HTML Color Code" (FFFFFF) (FF00FF) (000000)
 
 ## Custom heads
 
-```sh
+```shell
 # Your own head
 
 # 1.15.0+
@@ -239,14 +239,14 @@ By default "HTML Color Code" (FFFFFF) (FF00FF) (000000)
 
 ## Custom shields
 
-```sh
+```shell
 # Shield color
 
 # 1.20.6+
 /give @p minecraft:shield[minecraft:base_color="white"]
 ```
 
-```sh
+```shell
 # Pirate
 
 # 1.15.0+
@@ -261,21 +261,21 @@ By default "HTML Color Code" (FFFFFF) (FF00FF) (000000)
 [<img src="https://raw.githubusercontent.com/FJrodafo/University/aa24c97c45949504597fe5aa29ca9f769817ffb9/Languages/Minecraft/Assets/Warning.svg" alt="Warning!" width="40" height="40" align="center" />](https://raw.githubusercontent.com/FJrodafo/University/aa24c97c45949504597fe5aa29ca9f769817ffb9/Languages/Minecraft/Assets/Warning.svg "Warning!")
 `Pending update to version 1.20.6+`
 
-```sh
+```shell
 # Soda
 
 # 1.15.0+
 /give @p potion{display:{Name:'{"text":"Soda","color":"green"}',Lore:['{"text":"Bien fresquita!"}']},CustomPotionEffects:[{Id:9b,Amplifier:0b,Duration:1200}],CustomPotionColor:FF00FF} 1
 ```
 
-```sh
+```shell
 # Granizado de fresa
 
 # 1.15.0+
 /give @p potion{display:{Name:'{"text":"Granizado de fresa"}',CustomPotionColor:D53032}} 1
 ```
 
-```sh
+```shell
 # Licor de fuego
 
 # 1.15.0+
@@ -284,14 +284,14 @@ By default "HTML Color Code" (FFFFFF) (FF00FF) (000000)
 
 ## Inivisible items
 
-```sh
+```shell
 # 1.15.0+
 /give @s minecraft:item_frame{EntityTag:{Invisible:1b}}
 /give @s minecraft:glow_item_frame{EntityTag:{Invisible:1b}}
 /give @s minecraft:armor_stand{EntityTag:{Invisible:1b}}
 ```
 
-```sh
+```shell
 # 1.20.6+
 /give @s minecraft:item_frame[minecraft:entity_data={id:"item_frame",Invisible:1b}]
 /give @s minecraft:glow_item_frame[minecraft:entity_data={id:"glow_item_frame",Invisible:1b}]
