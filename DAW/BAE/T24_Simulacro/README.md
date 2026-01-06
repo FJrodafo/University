@@ -452,6 +452,3 @@ Contraseña: bae
         ```sql
         DROP PROCEDURE IF EXISTS cursos_por_profesor;
         ```
-
-<link rel="stylesheet" href="./../../../README.css">
-<a class="scrollup" href="#top">&#x1F53C</a>

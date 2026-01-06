@@ -160,6 +160,3 @@ sqlite3 example.db .dump > example-dump.sql
 This cheat sheet is available on GitHub Gist at https://gist.github.com/FJrodafo/9d3ef82773491b485b6956c3de6fd638
 
 Explore more gists by Francisco José Rodríguez Afonso at https://gist.github.com/FJrodafo
-
-<link rel="stylesheet" href="./../../README.css">
-<a class="scrollup" href="#top">&#x1F53C</a>

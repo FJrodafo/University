@@ -74,6 +74,3 @@ Representa las entidades, relaciones y cardinalidades mínimas y máximas para c
     <img src="https://raw.githubusercontent.com/FJrodafo/University/main/DAW/BAE/T02_Ejercicios_basicos_de_ER/Assets/Diagrams/Exported/9.drawio.png">
     </details>
     <br />
-
-<link rel="stylesheet" href="./../../../README.css">
-<a class="scrollup" href="#top">&#x1F53C</a>

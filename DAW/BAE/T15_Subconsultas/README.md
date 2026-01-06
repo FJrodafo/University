@@ -248,6 +248,3 @@ INSERT INTO Ventas (id_cliente, id_coche, fecha_venta) VALUES
     GROUP BY Co.marca
     ORDER BY TotalVentas DESC;
     ```
-
-<link rel="stylesheet" href="./../../../README.css">
-<a class="scrollup" href="#top">&#x1F53C</a>

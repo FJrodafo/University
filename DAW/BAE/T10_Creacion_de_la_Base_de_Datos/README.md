@@ -271,6 +271,3 @@
         ```sql
         UPDATE Vehiculos SET marca = 'Renault' WHERE modelo = 'Fiesta';
         ```
-
-<link rel="stylesheet" href="./../../../README.css">
-<a class="scrollup" href="#top">&#x1F53C</a>

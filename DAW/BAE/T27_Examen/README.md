@@ -995,6 +995,3 @@ Contraseña: bae
         ```sql
         DROP TABLE IF EXISTS Auditoria_pedidos;
         ```
-
-<link rel="stylesheet" href="./../../../README.css">
-<a class="scrollup" href="#top">&#x1F53C</a>

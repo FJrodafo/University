@@ -88,6 +88,3 @@ python3 ./src/main.py --width 400 --text "keeeep" "caaaalm" "&" "continue" "codi
     <img alt="KEEEEP CAAAALM & CONTINUE CODING" src="https://raw.githubusercontent.com/FJrodafo/University/main/Languages/Python/KeepCalm/src/output/test.png">
   </a>
 </div>
-
-<link rel="stylesheet" href="./../../../README.css">
-<a class="scrollup" href="#top">&#x1F53C</a>

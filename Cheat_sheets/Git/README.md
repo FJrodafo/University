@@ -415,6 +415,3 @@ git branch -r
 This cheat sheet is available on GitHub Gist at https://gist.github.com/FJrodafo/20b5f7ec62c17e53d60914fefa2ccdf7
 
 Explore more gists by Francisco José Rodríguez Afonso at https://gist.github.com/FJrodafo
-
-<link rel="stylesheet" href="./../../README.css">
-<a class="scrollup" href="#top">&#x1F53C</a>

@@ -364,6 +364,3 @@ INSERT INTO Pedidos (id_cliente, id_producto, cantidad, fecha_pedido) VALUES
     SELECT * FROM Productos 
     WHERE nombre REGEXP '^[aeiouAEIOU]';
     ```
-
-<link rel="stylesheet" href="./../../../README.css">
-<a class="scrollup" href="#top">&#x1F53C</a>

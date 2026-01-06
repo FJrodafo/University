@@ -19,6 +19,3 @@ docker compose down -v
 El volumen de datos de MySQL se monta en `./mysql_data` en la máquina host. Esto garantiza que los datos de MySQL persistan incluso si el contenedor se detiene o elimina.
 
 Asegúrate de que los puertos necesarios (3306 para MySQL y 8080 para phpMyAdmin) no estén siendo utilizados por otras aplicaciones en tu sistema antes de ejecutar los contenedores.
-
-<link rel="stylesheet" href="./../../../README.css">
-<a class="scrollup" href="#top">&#x1F53C</a>

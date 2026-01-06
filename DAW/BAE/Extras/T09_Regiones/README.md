@@ -52,6 +52,3 @@ Para importar las tablas ejecutaremos el siguiente comando (Es importante tener 
 ```shell
 mysql -u root -p -h 127.0.0.1 -P 3306 regiones < /home/user/Documents/path/to/regiones.sql
 ```
-
-<link rel="stylesheet" href="./../../../../README.css">
-<a class="scrollup" href="#top">&#x1F53C</a>

@@ -332,6 +332,3 @@ Finalmente podemos visitar nuestras páginas PHP en nuestro servidor Nginx:
 http://daw.fjrodafo.com/index.php
 
 http://daw.fjrodafo.com/info.php
-
-<link rel="stylesheet" href="./../../../README.css">
-<a class="scrollup" href="#top">&#x1F53C</a>

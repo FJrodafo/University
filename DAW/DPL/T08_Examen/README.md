@@ -73,6 +73,3 @@ Despliega una aplicación web con Nginx y PHP que cumpla lo siguiente:
 7. Crea otro servidor en el puerto TCP 82.
 8. La aplicación PHP se encuentra en el PC del profesor en `http://<ip_del_pc_del_profesor>/enunciados_dpl/app_php`.
 9. Permite que se pueda ejecutar la aplicación cuando el cliente web usa la URL `http://<ip_de_la_VPS>:82` (Cuando actúas como proxy, ten en cuenta usar un `/` al final en la redirección).
-
-<link rel="stylesheet" href="./../../../README.css">
-<a class="scrollup" href="#top">&#x1F53C</a>

@@ -293,6 +293,3 @@
         -- Esto no es posible, ya que ningún producto puede tener un precio superior al máximo.
         SELECT nombre FROM Productos WHERE precio > (SELECT MAX(precio) FROM Productos);
         ```
-
-<link rel="stylesheet" href="./../../../README.css">
-<a class="scrollup" href="#top">&#x1F53C</a>

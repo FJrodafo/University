@@ -146,6 +146,3 @@ GRANT CREATE, ALTER, DROP, INSERT, UPDATE, INDEX, DELETE, SELECT, REFERENCES, RE
 This cheat sheet is available on GitHub Gist at https://gist.github.com/FJrodafo/613d8cff0c47e3346cd20c300c01b3c9
 
 Explore more gists by Francisco José Rodríguez Afonso at https://gist.github.com/FJrodafo
-
-<link rel="stylesheet" href="./../../README.css">
-<a class="scrollup" href="#top">&#x1F53C</a>

@@ -1,6 +1,6 @@
 <div align="center">
     <a href="https://www.minecraft.net/" target="_blank">
-        <img alt="logo" width="270" src="https://raw.githubusercontent.com/FJrodafo/University/main/Languages/Minecraft/Assets/Logo.svg" />
+        <img alt="logo" height="50" src="https://raw.githubusercontent.com/FJrodafo/University/main/Languages/Minecraft/Assets/Logo.svg" />
     </a>
 </div>
 
@@ -852,5 +852,5 @@ This cheat sheet is available on GitHub Gist at https://gist.github.com/FJrodafo
 
 Explore more gists by Francisco José Rodríguez Afonso at https://gist.github.com/FJrodafo
 
-<link rel="stylesheet" href="./../../README.css">
+<link rel="stylesheet" href="./README.css">
 <a class="scrollup" href="#top">&#x1F53C</a>

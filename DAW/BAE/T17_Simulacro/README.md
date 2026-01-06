@@ -398,6 +398,3 @@ INSERT INTO Compras (id, total, fecha, id_consumidor, id_suministrador) VALUES
             WHERE co.id_suministrador = s.id
         );
         ```
-
-<link rel="stylesheet" href="./../../../README.css">
-<a class="scrollup" href="#top">&#x1F53C</a>

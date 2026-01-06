@@ -180,6 +180,3 @@ INSERT INTO Inscripciones (id_alumno, id_clase) VALUES
     JOIN Alumnos A ON I.id_alumno = A.id_alumno
     GROUP BY A.id_alumno;
     ```
-
-<link rel="stylesheet" href="./../../../README.css">
-<a class="scrollup" href="#top">&#x1F53C</a>

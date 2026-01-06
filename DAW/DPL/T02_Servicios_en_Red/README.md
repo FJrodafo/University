@@ -448,6 +448,3 @@ python3 -m http.server 8000
 > [!CAUTION]
 > 
 > Ejecutarlo en un directorio específico cuyo contenido quieres compartir, si lo ejecutas en la raiz, todas las máquinas que se conecten a tu servidor tienen acceso completo a todo el contenido de tu máquina!
-
-<link rel="stylesheet" href="./../../../README.css">
-<a class="scrollup" href="#top">&#x1F53C</a>

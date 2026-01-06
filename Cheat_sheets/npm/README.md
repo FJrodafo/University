@@ -132,6 +132,3 @@ Check out this package on [GitHub Packages](https://github.com/FJrodafo/port-fin
 This cheat sheet is available on GitHub Gist at https://gist.github.com/FJrodafo/0b300abc47326cc74bb5dfac5202cf8a
 
 Explore more gists by Francisco José Rodríguez Afonso at https://gist.github.com/FJrodafo
-
-<link rel="stylesheet" href="./../../README.css">
-<a class="scrollup" href="#top">&#x1F53C</a>

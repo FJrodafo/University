@@ -183,6 +183,3 @@ Se pide:
     Alumnos	0	PRIMARY	1	numero_inscripcion	A	0	NULL	NULL		BTREE			YES	NULL	
     Alumnos	0	PRIMARY	2	anio_inscripcion	A	0	NULL	NULL		BTREE			YES	NULL	
     ```
-
-<link rel="stylesheet" href="./../../../README.css">
-<a class="scrollup" href="#top">&#x1F53C</a>

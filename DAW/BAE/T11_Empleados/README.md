@@ -184,6 +184,3 @@
             ```sql
             SELECT * FROM Empleados WHERE departamento = 'Recursos Humanos' AND nombre NOT LIKE '%e%';
             ```
-
-<link rel="stylesheet" href="./../../../README.css">
-<a class="scrollup" href="#top">&#x1F53C</a>

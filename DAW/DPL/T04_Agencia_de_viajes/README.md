@@ -8,6 +8,3 @@ Usa Nginx para configurar un sitio web de una [Agencia de viajes](./../Master/va
 Verifica que puedes acceder y que todo funciona correctamente.
 
 http://daw.fjrodafo.com/dpl/ejercicios/agencia_de_viajes/index.html
-
-<link rel="stylesheet" href="./../../../README.css">
-<a class="scrollup" href="#top">&#x1F53C</a>

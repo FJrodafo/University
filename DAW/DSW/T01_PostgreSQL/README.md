@@ -497,6 +497,3 @@ curl -X PATCH http://daw.fjrodafo.com/ejercicios/tienda/api/patch/productos.php 
 curl -X DELETE "http://daw.fjrodafo.com/ejercicios/tienda/api/delete/productos.php?id=22" \
      -H "Authorization: Bearer 123456TOKENSEGURO"; echo
 ```
-
-<link rel="stylesheet" href="./../../../README.css">
-<a class="scrollup" href="#top">&#x1F53C</a>

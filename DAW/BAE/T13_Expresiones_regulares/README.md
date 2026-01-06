@@ -420,6 +420,3 @@ INSERT INTO Libros (titulo, autor_id, editorial, precio) VALUES
     -- El símbolo ^ dentro de los corchetes [^...] significa "cualquier cosa que no sea" las letras o el espacio. Así, cualquier nombre que contenga caracteres no permitidos (como puntos, comas, números, etc.) será excluido.
     SELECT nombre FROM Autores WHERE nombre NOT REGEXP '[^a-zA-Z ]';
     ```
-
-<link rel="stylesheet" href="./../../../README.css">
-<a class="scrollup" href="#top">&#x1F53C</a>

@@ -186,6 +186,3 @@ php -v
         - http://127.0.0.1:8080/info.php
         - http://127.0.0.1:8080/formulario/get/index.html
         - http://127.0.0.1:8080/formulario/post/index.html
-
-<link rel="stylesheet" href="./../../../README.css">
-<a class="scrollup" href="#top">&#x1F53C</a>

@@ -388,6 +388,3 @@ Instala un servidor Nginx que dé servicio a dos sitios web diferentes simultán
         #
         xx.xxx.xx.xxx www.miagenda.com
         ```
-
-<link rel="stylesheet" href="./../../../README.css">
-<a class="scrollup" href="#top">&#x1F53C</a>

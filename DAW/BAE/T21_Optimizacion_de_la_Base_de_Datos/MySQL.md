@@ -146,6 +146,3 @@ Se pide:
     
     Clientes	0	PRIMARY	1	documento	A	0	NULL	NULL		BTREE			YES	NULL	
     ```
-
-<link rel="stylesheet" href="./../../../README.css">
-<a class="scrollup" href="#top">&#x1F53C</a>

@@ -273,6 +273,3 @@
     - Captura solo lo necesario (-c, -C, filtros).
     - HTTPS/TLS está cifrado: verás cabeceras, no el contenido.
     - Guarda en .pcap y usa Wireshark para análisis avanzado.
-
-<link rel="stylesheet" href="./../../../README.css">
-<a class="scrollup" href="#top">&#x1F53C</a>

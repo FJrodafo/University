@@ -55,6 +55,3 @@ Auto-detected Project Settings (Create React App):
 This cheat sheet is available on GitHub Gist at https://gist.github.com/FJrodafo/9e646f258a863cb649b0e659700d299a
 
 Explore more gists by Francisco José Rodríguez Afonso at https://gist.github.com/FJrodafo
-
-<link rel="stylesheet" href="./../../README.css">
-<a class="scrollup" href="#top">&#x1F53C</a>

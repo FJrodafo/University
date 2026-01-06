@@ -543,6 +543,3 @@ The `Mountpoint` is the actual location of the data on the disk. Note that on mo
 This cheat sheet is available on GitHub Gist at https://gist.github.com/FJrodafo/3b50a365587223e74cd8d93da960f867
 
 Explore more gists by Francisco José Rodríguez Afonso at https://gist.github.com/FJrodafo
-
-<link rel="stylesheet" href="./../../README.css">
-<a class="scrollup" href="#top">&#x1F53C</a>

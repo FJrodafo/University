@@ -97,6 +97,3 @@ Fue a través del desarrollo de bots de Discord que me interesé por el mundo de
     - [Zendesk - What is CRM?](https://www.zendesk.es/blog/create-crm-database/#)
     - [Microsoft - What is Data Lake?](https://azure.microsoft.com/en-us/resources/cloud-computing-dictionary/what-is-a-data-lake/)
     - [IBM - What is Data Lake?](https://www.ibm.com/think/topics/data-lake)
-
-<link rel="stylesheet" href="./../../../README.css">
-<a class="scrollup" href="#top">&#x1F53C</a>

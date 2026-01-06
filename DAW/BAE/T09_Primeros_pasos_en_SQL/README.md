@@ -179,6 +179,3 @@
         ```sql
         UPDATE Ejemplos SET fecha = DATE('now');
         ```
-
-<link rel="stylesheet" href="./../../../README.css">
-<a class="scrollup" href="#top">&#x1F53C</a>

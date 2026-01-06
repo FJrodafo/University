@@ -301,6 +301,3 @@ ORDER BY population DESC
 LIMIT 2
 OFFSET 2;
 ```
-
-<link rel="stylesheet" href="./../../../README.css">
-<a class="scrollup" href="#top">&#x1F53C</a>

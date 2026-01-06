@@ -561,6 +561,3 @@ INSERT INTO Prestamos (id, fecha_prestamo, fecha_devolucion, id_socio, id_libro,
             )
         );
         ```
-
-<link rel="stylesheet" href="./../../../README.css">
-<a class="scrollup" href="#top">&#x1F53C</a>

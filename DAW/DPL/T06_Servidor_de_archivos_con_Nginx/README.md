@@ -23,6 +23,3 @@ TIPS:
 * La aplicación espera servir sus archivos desde el directorio `dist/`
 * Los datos se almacenan en el directorio `repository/`
 * Las cuentas se almacenan en el directorio `private/`
-
-<link rel="stylesheet" href="./../../../README.css">
-<a class="scrollup" href="#top">&#x1F53C</a>
