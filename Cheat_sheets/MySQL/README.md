@@ -1,3 +1,5 @@
+# MySQL
+
 ## Index
 
 1. [How To Install MySQL on Ubuntu 22.04](#how-to-install-mysql-on-ubuntu-2204)
