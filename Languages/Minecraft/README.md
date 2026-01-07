@@ -91,7 +91,7 @@ scoreboard players set @a UserName 0
 
 ```shell
 # Island
-/tp UserName -9775 69 15614 -180 0
+/tp UserName -9775 69 15608 0 0
 ```
 
 ```shell
