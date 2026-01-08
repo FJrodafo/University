@@ -1,0 +1,19 @@
+server {
+    listen 443 ssl;
+
+    ssl_certificate /etc/ssl/certs/ssl-cert-snakeoil.pem;
+    ssl_certificate_key /etc/ssl/private/ssl-cert-snakeoil.key;
+
+    root /var/www/snakeoil;
+    index index.html index.htm;
+
+    location / {
+        try_files $uri $uri/ =404;
+    }
+}
+
+server {
+    listen 80;
+
+    return 301 https://$host$request_uri;
+}
