@@ -16,7 +16,8 @@ DAW/DPL/Master/var/www/daw/ejercicios/agencia_de_viajes/*
 DAW/DSW/Master/var/www/private/*
 
 # Python
-Languages/Python/**/__pycache__/
+/**/__pycache__/
+DAW/DPL/Master/flaskapps/venv/*
 Languages/Python/KeepCalm/src/assets/font/*
 
 # Miscellaneous
