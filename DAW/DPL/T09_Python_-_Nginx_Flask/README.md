@@ -44,7 +44,7 @@ server {
 
 Una vez creado el servidor Nginx, visita http://localhost/
 
-Al terminado de operar en el entorno virtual, debemos desactivarlo con el siguiente comando desde el directorio `flaskapps`:
+Al terminar de operar en el entorno virtual, debemos desactivarlo con el siguiente comando desde el directorio `flaskapps`:
 
 ```shell
 deactivate
