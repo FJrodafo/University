@@ -1,0 +1,64 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/26.0.9 Chrome/128.0.6613.186 Electron/32.2.5 Safari/537.36" version="26.0.9">
+  <diagram name="Page-1" id="Im79tLQWAnmlwjqXxM6X">
+    <mxGraphModel dx="474" dy="367" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="-npu-4ynU3RSH-eKTTa7-40" value="" style="group" parent="1" vertex="1" connectable="0">
+          <mxGeometry width="480" height="300" as="geometry" />
+        </mxCell>
+        <mxCell id="-npu-4ynU3RSH-eKTTa7-39" value="" style="rounded=0;whiteSpace=wrap;html=1;" parent="-npu-4ynU3RSH-eKTTa7-40" vertex="1">
+          <mxGeometry width="480" height="300" as="geometry" />
+        </mxCell>
+        <mxCell id="-npu-4ynU3RSH-eKTTa7-37" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" parent="-npu-4ynU3RSH-eKTTa7-40" source="-npu-4ynU3RSH-eKTTa7-1" target="-npu-4ynU3RSH-eKTTa7-16" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="-npu-4ynU3RSH-eKTTa7-1" value="Mensaje original&lt;div&gt;↓&lt;/div&gt;&lt;div&gt;&quot;Hola, mundo!&quot;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="-npu-4ynU3RSH-eKTTa7-40" vertex="1">
+          <mxGeometry x="20" y="120" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="-npu-4ynU3RSH-eKTTa7-22" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="-npu-4ynU3RSH-eKTTa7-40" source="-npu-4ynU3RSH-eKTTa7-5" target="-npu-4ynU3RSH-eKTTa7-19" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="-npu-4ynU3RSH-eKTTa7-5" value="Hash del mensaje&lt;div&gt;↓&lt;br&gt;&lt;div&gt;&quot;X8F3A9&quot;&lt;/div&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="-npu-4ynU3RSH-eKTTa7-40" vertex="1">
+          <mxGeometry x="180" y="20" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="-npu-4ynU3RSH-eKTTa7-34" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="-npu-4ynU3RSH-eKTTa7-40" source="-npu-4ynU3RSH-eKTTa7-14" target="-npu-4ynU3RSH-eKTTa7-25" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="-npu-4ynU3RSH-eKTTa7-14" value="FIRMA DIGITAL" style="rounded=0;whiteSpace=wrap;html=1;" parent="-npu-4ynU3RSH-eKTTa7-40" vertex="1">
+          <mxGeometry x="340" y="120" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="-npu-4ynU3RSH-eKTTa7-18" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="-npu-4ynU3RSH-eKTTa7-40" source="-npu-4ynU3RSH-eKTTa7-16" target="-npu-4ynU3RSH-eKTTa7-5" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="-npu-4ynU3RSH-eKTTa7-16" value="Función&lt;br&gt;&lt;div&gt;HASH&lt;/div&gt;" style="shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;" parent="-npu-4ynU3RSH-eKTTa7-40" vertex="1">
+          <mxGeometry x="40" y="20" width="80" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="-npu-4ynU3RSH-eKTTa7-33" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="-npu-4ynU3RSH-eKTTa7-40" source="-npu-4ynU3RSH-eKTTa7-19" target="-npu-4ynU3RSH-eKTTa7-14" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="-npu-4ynU3RSH-eKTTa7-19" value="Cifrar con&lt;div&gt;↓&lt;/div&gt;&lt;div&gt;CLAVE PRIVADA&lt;/div&gt;" style="shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;" parent="-npu-4ynU3RSH-eKTTa7-40" vertex="1">
+          <mxGeometry x="340" y="20" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="-npu-4ynU3RSH-eKTTa7-30" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" parent="-npu-4ynU3RSH-eKTTa7-40" source="-npu-4ynU3RSH-eKTTa7-25" target="-npu-4ynU3RSH-eKTTa7-27" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="-npu-4ynU3RSH-eKTTa7-25" value="Descifrar con&lt;div&gt;↓&lt;/div&gt;&lt;div&gt;CLAVE PÚBLICA&lt;/div&gt;" style="shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;" parent="-npu-4ynU3RSH-eKTTa7-40" vertex="1">
+          <mxGeometry x="340" y="220" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="-npu-4ynU3RSH-eKTTa7-27" value="Hash del mensaje&lt;div&gt;↓&lt;br&gt;&lt;div&gt;&quot;X8F3A9&quot;&lt;/div&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="-npu-4ynU3RSH-eKTTa7-40" vertex="1">
+          <mxGeometry x="180" y="220" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="-npu-4ynU3RSH-eKTTa7-35" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.55;exitY=0.95;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;curved=1;" parent="-npu-4ynU3RSH-eKTTa7-40" source="-npu-4ynU3RSH-eKTTa7-32" target="-npu-4ynU3RSH-eKTTa7-27" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="-npu-4ynU3RSH-eKTTa7-36" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.4;exitY=0.1;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;curved=1;" parent="-npu-4ynU3RSH-eKTTa7-40" source="-npu-4ynU3RSH-eKTTa7-32" target="-npu-4ynU3RSH-eKTTa7-5" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="-npu-4ynU3RSH-eKTTa7-32" value="¿Coinciden?" style="ellipse;shape=cloud;whiteSpace=wrap;html=1;" parent="-npu-4ynU3RSH-eKTTa7-40" vertex="1">
+          <mxGeometry x="180" y="120" width="120" height="60" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
