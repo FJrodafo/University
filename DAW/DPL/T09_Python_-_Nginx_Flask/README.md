@@ -24,7 +24,7 @@ which pip
 Para comenzar con el servidor, activamos el servicio `gunicorn` para que escuche en el puerto TCP 9000 e importe la aplicación `flask`:
 
 ```shell
-gunicorn --bind 0.0.0.0:9000 app:app
+gunicorn --bind 127.0.0.1:9000 app:app
 ```
 
 Para comprobar que funciona, visita http://localhost:9000/
