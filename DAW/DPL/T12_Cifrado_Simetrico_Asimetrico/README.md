@@ -1,3 +1,8 @@
+## Index
+
+1. [Cifrado Simétrico](#cifrado-simétrico)
+2. [Cirado Asimétrico](#cirado-asimétrico)
+
 # Cifrado Simétrico
 
 Una sola clave para cifrar y descifrar los datos.
