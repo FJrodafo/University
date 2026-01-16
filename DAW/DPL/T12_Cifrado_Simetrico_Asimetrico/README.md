@@ -1,4 +1,4 @@
-## Index
+## Índice
 
 1. [Cifrado Simétrico](#cifrado-simétrico)
 2. [Cirado Asimétrico](#cirado-asimétrico)
