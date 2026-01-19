@@ -71,17 +71,25 @@ Seed: `7334907763147734721`
 ```shell
 # 1.15.0+
 
-/give @p minecraft:elytra{display:{Name:'{"text":"ナヤイシャ","color":"yellow","italic":false}'},Unbreakable:1b,Enchantments:[{}]} 1
+/give @p minecraft:chainmail_helmet{display:{Name:'{"text":"カナリア","color":"yellow","italic":false}'},Unbreakable:1b,Enchantments:[{}]} 1
+/give @p minecraft:chainmail_chestplate{display:{Name:'{"text":"カナリア","color":"yellow","italic":false}'},Unbreakable:1b,Enchantments:[{}]} 1
+/give @p minecraft:chainmail_leggings{display:{Name:'{"text":"カナリア","color":"yellow","italic":false}'},Unbreakable:1b,Enchantments:[{}]} 1
+/give @p minecraft:chainmail_boots{display:{Name:'{"text":"カナリア","color":"yellow","italic":false}'},Unbreakable:1b,Enchantments:[{}]} 1
 
-/scoreboard objectives add UserName minecraft.used:minecraft.netherite_pickaxe
-
-/give @p netherite_pickaxe{display:{Name:'{"text":"ナヤイシャ","color":"yellow","italic":false}'},Unbreakable:1b,Enchantments:[{id:binding_curse,lvl:1},{id:vanishing_curse,lvl:1},{id:looting,lvl:4},{id:fortune,lvl:4}]} 1
-
-effect give @a[nbt={Inventory:[{id:"minecraft:netherite_pickaxe",tag:{display:{Name:'{"text":"ナヤイシャ","color":"yellow","italic":false}'}}}]}] minecraft:saturation 2 0 true
-
-execute as @a[nbt={SelectedItem:{id:"minecraft:netherite_pickaxe",Count:1b,tag:{display:{Name:'{"text":"ナヤイシャ","color":"yellow","italic":false}'}}}},scores={UserName=1..}] at @s run execute as @e[distance=..10,limit=1,nbt=!{HurtTime:0s}] at @s run particle minecraft:ambient_entity_effect ~ ~1 ~ 1 1 1 .1 9 force
-
+/scoreboard objectives add UserName minecraft.used:minecraft.golden_hoe
+/give @p golden_hoe{display:{Name:'{"text":"カナリア","color":"yellow","italic":false}'},Unbreakable:1b,Enchantments:[{id:binding_curse,lvl:1},{id:vanishing_curse,lvl:1},{id:looting,lvl:4},{id:fortune,lvl:4}]} 1
+effect give @a[nbt={Inventory:[{id:"minecraft:golden_hoe",tag:{display:{Name:'{"text":"カナリア","color":"yellow","italic":false}'}}}]}] minecraft:saturation 2 0 true
+execute as @a[nbt={SelectedItem:{id:"minecraft:golden_hoe",Count:1b,tag:{display:{Name:'{"text":"カナリア","color":"yellow","italic":false}'}}}},scores={UserName=1..}] at @s run execute as @e[distance=..10,limit=1,nbt=!{HurtTime:0s}] at @s run particle minecraft:ambient_entity_effect ~ ~1 ~ 1 1 1 .1 9 force
 scoreboard players set @a UserName 0
+
+# 1.20.6+
+
+/give @p chainmail_helmet[custom_name={"color":"yellow","italic":false,"text":"カナリア"},enchantments={"protection":10},unbreakable={}] 1
+/give @p chainmail_chestplate[custom_name={"color":"yellow","italic":false,"text":"カナリア"},enchantments={"protection":10},unbreakable={}] 1
+/give @p chainmail_leggings[custom_name={"color":"yellow","italic":false,"text":"カナリア"},enchantments={"protection":10},unbreakable={}] 1
+/give @p chainmail_boots[custom_name={"color":"yellow","italic":false,"text":"カナリア"},enchantments={"protection":10},unbreakable={}] 1
+
+/give @p bow[custom_name={"color":"yellow","italic":false,"text":"カナリア"},enchantments={"infinity":1,"vanishing_curse":1},unbreakable={}] 1
 ```
 
 ```shell
@@ -208,6 +216,8 @@ By default "HTML Color Code" (FFFFFF) (FF00FF) (000000)
 [Wiki](https://minecraft.fandom.com/wiki/Commands)
 
 [Command Block](https://minecraft.fandom.com/wiki/Command_Block)
+
+[Command generator](https://mcstacker.net/)
 
 [Commands](https://www.minecraft.net/en-us/article/minecraft-commands)
 
