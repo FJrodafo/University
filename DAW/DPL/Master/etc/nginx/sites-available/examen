@@ -1,0 +1,11 @@
+server {
+    listen 443 ssl default_server;
+    listen [::]:443 ssl default_server;
+
+    ssl_certificate /etc/nginx/snakeoil.pem;
+    ssl_certificate_key /etc/nginx/snakeoil.key;
+
+    location / {
+        proxy_pass http://<ip_del_pc_del_profesor>/enunciados_dpl/app_php/;
+    }
+}
