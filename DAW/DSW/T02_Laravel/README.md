@@ -38,14 +38,14 @@ laravel new GestorProductos
 Modificamos el archivo `.env` con los datos de nuestra base de datos:
 
 ```env
-SESSION_DRIVER=file  # Soluciona el error: Falta la tabla sessions
-
 DB_CONNECTION=pgsql
 DB_HOST=127.0.0.1
 DB_PORT=5432
 DB_DATABASE=tienda
 DB_USERNAME=fjrodafo
 DB_PASSWORD=0000
+
+SESSION_DRIVER=file  # Soluciona el error: Falta la tabla sessions
 ```
 
 Limpia el caché de configuración:
