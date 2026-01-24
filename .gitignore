@@ -18,7 +18,6 @@ DAW/DSW/Master/var/www/private/*
 # Python
 /**/__pycache__/
 DAW/DPL/Master/flaskapps/venv/*
-Languages/Python/KeepCalm/src/assets/font/*
 
 # Miscellaneous
 DAW/PRW/*
