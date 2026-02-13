@@ -300,6 +300,14 @@ git push -u origin main
 ```
 
 ```shell
+# CHANGE .git FOLDER TO ORIGINAL REPOSITORY
+git add -A
+git commit -m "Initial Update"
+git push -u origin main
+git log --pretty=format:'%h %an %ae'
+```
+
+```shell
 # MOVE .git FOLDER TO TEMP REPOSITORY
 git branch
 git branch -m main master
@@ -318,11 +326,6 @@ git push origin main --force
 git log --pretty=format:'%h %an %ae'
 git branch
 git branch -D master
-# CHANGE .git FOLDER TO ORIGINAL REPOSITORY
-git add -A
-git commit -m "Initial Update"
-git push -u origin main
-git log --pretty=format:'%h %an %ae'
 ```
 
 ## Working with Issues and Pull Requests
