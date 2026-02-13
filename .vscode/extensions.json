@@ -1,8 +1,9 @@
 {
   "recommendations": [
+    "midudev.better-svg",
     "ms-python.black-formatter",
-    "vscjava.vscode-java-pack",
     "redhat.vscode-xml",
-    "redhat.vscode-yaml"
+    "redhat.vscode-yaml",
+    "vscjava.vscode-java-pack"
   ]
 }
