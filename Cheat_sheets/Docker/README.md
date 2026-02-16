@@ -516,9 +516,9 @@ There are two main types of volumes. You'll eventually use both, but you'll star
     docker volume create to-do-db
     ```
 2. Stop and remove the to-do app container with `docker rm -f <container-id>`, as it is still running without using the persistent volume.
-3. Start the to-do app container, but add the `--mount` option to specify a volume mount. Give the volume a name, and mount it to `/etc/todos` in the container, which captures all files created at the path. In your Mac or Linux terminal, or in Windows Command Prompt or PowerShell, run the following command:
+3. Start the to-do app container, but add the `--mount` option to specify a volume mount. Give the volume a name, and mount it to `/etc/todo` in the container, which captures all files created at the path. In your Mac or Linux terminal, or in Windows Command Prompt or PowerShell, run the following command:
     ```shell
-    docker run -dp 127.0.0.1:3000:3000 --mount type=volume,src=to-do-db,target=/etc/todos getting-started
+    docker run -dp 127.0.0.1:3000:3000 --mount type=volume,src=to-do-db,target=/etc/todo getting-started
     ```
     [![Items added](https://raw.githubusercontent.com/FJrodafo/University/main/Cheat_sheets/Docker/Assets/Items_added.png)](http://localhost:3000/)
 4. Stop and remove the container for the to-do app. Use Docker Desktop or `docker ps` to get the ID and then `docker rm -f <container-id>` to remove it.
