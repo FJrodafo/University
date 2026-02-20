@@ -2,13 +2,67 @@
 
 ## Index
 
-1. [Docker Hub & GitHub Packages](#docker-hub--github-packages)
+1. [Commands](#commands)
+    1. [View Containers](#view-containers)
+    2. [View Images](#view-images)
+    3. [View Volumes](#view-volumes)
+    4. [Check Disk Usage](#check-disk-usage)
+    5. [Clean Up](#clean-up)
+2. [Docker Hub & GitHub Packages](#docker-hub--github-packages)
     1. [Login](#login)
     2. [Build](#build)
     3. [Tag](#tag)
     4. [Push](#push)
     5. [Pull](#pull)
 10. [Additional information](#additional-information)
+
+## Commands
+
+#### View Containers
+
+```shell
+# Running containers
+docker ps
+```
+
+```shell
+# All containers (including stopped)
+docker ps -a
+```
+
+#### View Images
+
+```shell
+docker images
+```
+
+```shell
+docker image ls
+```
+
+#### View Volumes
+
+```shell
+docker volume ls
+```
+
+#### Check Disk Usage
+
+```shell
+docker system df
+```
+
+#### Clean Up
+
+```shell
+# Remove build cache
+docker builder prune
+```
+
+```shell
+# Full cleanup (images, stopped containers, volumes, cache)
+docker system prune -a --volumes
+```
 
 ## Docker Hub & GitHub Packages
 
