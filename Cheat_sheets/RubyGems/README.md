@@ -17,7 +17,7 @@
 To publish and install gems from the public RubyGems registry you must install Ruby and Gem using the apt of Linux Debian.
 
 ```shell
-sudo apt install ruby
+sudo apt install ruby-full
 ```
 
 To see if you already have Ruby and Gem installed and check the installed version, run the following commands:
