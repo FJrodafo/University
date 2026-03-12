@@ -34,7 +34,7 @@ tar -cvzf your-package-v1.0.0.tar.gz LICENSE README.md your-package.sh
 
 ```shell
 # List
-tar -tzf your-package-v1.0.0.tar.gz
+tar -tvzf your-package-v1.0.0.tar.gz
 ```
 
 ```shell
