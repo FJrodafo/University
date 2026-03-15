@@ -29,17 +29,17 @@ unzip your-package-v1.0.0.zip
 
 ```shell
 # Compress
-tar -cvzf your-package-v1.0.0.tar.gz LICENSE README.md your-package.sh
+tar -czvf your-package-v1.0.0.tar.gz LICENSE README.md your-package.sh
 ```
 
 ```shell
 # List
-tar -tvzf your-package-v1.0.0.tar.gz
+tar -tzvf your-package-v1.0.0.tar.gz
 ```
 
 ```shell
 # Extract
-tar -xvzf your-package-v1.0.0.tar.gz
+tar -xzvf your-package-v1.0.0.tar.gz
 ```
 
 ## Additional information
