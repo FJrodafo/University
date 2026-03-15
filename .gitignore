@@ -1,7 +1,3 @@
-# JavaScript
-Languages/JavaScript/Node/EJS_Express/node_modules/*
-Languages/JavaScript/Node/Tutorial/node_modules/*
-
 # Java
 DAW/PRO/Master/bin/*
 DAW/PRO/Master/lib/*
@@ -9,6 +5,10 @@ DAW/PRO/Master/lib/*
 Languages/Java/MEGA_Curso_JAVA_desde_0_DAM_-_DAW/Apuntes/*
 Languages/Java/MEGA_Curso_JAVA_desde_0_DAM_-_DAW/bin/*
 Languages/Java/MEGA_Curso_JAVA_desde_0_DAM_-_DAW/lib/*
+
+# JavaScript
+Languages/JavaScript/Node/EJS_Express/node_modules/*
+Languages/JavaScript/Node/Tutorial/node_modules/*
 
 # Nginx
 DAW/DPL/Master/var/www/cloud/drive/*
