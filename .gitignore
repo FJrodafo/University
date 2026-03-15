@@ -19,5 +19,5 @@ DAW/DSW/Master/var/www/private/*
 /**/__pycache__/
 DAW/DPL/Master/flaskapps/venv/*
 
-# Miscellaneous
-DAW/PRW/*
+# Releases
+/Releases/v*
