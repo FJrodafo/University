@@ -12,34 +12,34 @@
 
 ```shell
 # Compress
-zip -r your-package-v1.0.0.zip LICENSE README.md your-package.sh
+zip -r your-package-1.0.0.zip LICENSE README.md your-package.sh
 ```
 
 ```shell
 # List
-unzip -l your-package-v1.0.0.zip
+unzip -l your-package-1.0.0.zip
 ```
 
 ```shell
 # Extract
-unzip your-package-v1.0.0.zip
+unzip your-package-1.0.0.zip
 ```
 
 ### Tar
 
 ```shell
 # Compress
-tar -czvf your-package-v1.0.0.tar.gz LICENSE README.md your-package.sh
+tar -czvf your-package-1.0.0.tar.gz LICENSE README.md your-package.sh
 ```
 
 ```shell
 # List
-tar -tzvf your-package-v1.0.0.tar.gz
+tar -tzvf your-package-1.0.0.tar.gz
 ```
 
 ```shell
 # Extract
-tar -xzvf your-package-v1.0.0.tar.gz
+tar -xzvf your-package-1.0.0.tar.gz
 ```
 
 ## Additional information
