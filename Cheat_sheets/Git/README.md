@@ -4,17 +4,16 @@
 
 1. [Install](#install)
 2. [Configuration](#configuration)
-3. [Create Repositories](#create-repositories)
+3. [Create/Clone Repositories](#createclone-repositories)
 4. [The .gitignore File](#the-gitignore-file)
 5. [Branches](#branches)
 6. [Make Changes](#make-changes)
 7. [Synchronize Changes](#synchronize-changes)
 8. [Revert commits](#revert-commits)
 9. [Go back and merge](#go-back-and-merge)
-10. [Create a Temp repository](#create-a-temp-repository)
-11. [Working with Issues and Pull Requests](#working-with-issues-and-pull-requests)
-12. [Glossary](#glossary)
-13. [Additional information](#additional-information)
+10. [Working with Issues and Pull Requests](#working-with-issues-and-pull-requests)
+11. [Glossary](#glossary)
+12. [Additional information](#additional-information)
 
 ## Install
 
@@ -84,7 +83,7 @@ If you’re a Windows programmer doing a Windows-only project, then you can turn
 git config --global core.autocrlf false
 ```
 
-## Create Repositories
+## Create/Clone Repositories
 
 Turn an existing directory into a git repository:
 
@@ -133,7 +132,7 @@ git branch branch-name
 Switches to the specified branch and updates the working directory:
 
 ```shell
-git checkout branch-name
+git switch branch-name
 ```
 
 Rename current branch:
@@ -283,50 +282,6 @@ git merge <name_of_new_branch_from_previous_commit>
 ```
 
 It's important to note that by going back to a previous commit and creating a new branch from that point, you are creating a fork in your repository history. This can be useful for experimenting or fixing bugs, but keep in mind that it can complicate project history if not handled properly.
-
-## Create a Temp repository
-
-```shell
-cd Documents/Dev/FJrodafo/Repositories/
-mkdir Temp
-cd Temp
-touch README.md
-git init
-git branch -M main
-git add -A
-git commit -m "Initial Commit"
-git remote add origin git@github.com:FJrodafo/Temp.git
-git push -u origin main
-```
-
-```shell
-# CHANGE .git FOLDER TO ORIGINAL REPOSITORY
-git add -A
-git commit -m "Initial Update"
-git push -u origin main
-git log --pretty=format:'%h %an %ae'
-```
-
-```shell
-# MOVE .git FOLDER TO TEMP REPOSITORY
-git branch
-git branch -m main master
-git branch
-git checkout --orphan main
-git branch
-git add -A
-git commit -m "Initial Commit"
-git remote
-git remote remove bitbucket
-git remote remove github
-git remote remove gitlab
-git remote
-git remote add origin git@github.com:FJrodafo/Temp.git
-git push origin main --force
-git log --pretty=format:'%h %an %ae'
-git branch
-git branch -D master
-```
 
 ## Working with Issues and Pull Requests
 
