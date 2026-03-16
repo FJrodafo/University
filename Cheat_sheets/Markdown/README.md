@@ -2,9 +2,31 @@
 
 ## Index
 
-1. [Table](#table)
-2. [Alerts](#alerts)
+1. [Alerts](#alerts)
+2. [Table](#table)
 3. [Additional information](#additional-information)
+
+## Alerts
+
+> [!NOTE]
+> 
+> Highlights information that users should take into account, even when skimming.
+
+> [!TIP]
+> 
+> Optional information to help a user be more successful.
+
+> [!IMPORTANT]
+> 
+> Crucial information necessary for users to succeed.
+
+> [!WARNING]
+> 
+> Critical content demanding immediate user attention due to potential risks.
+
+> [!CAUTION]
+> 
+> Negative potential consequences of an action.
 
 ## Table
 
@@ -164,28 +186,6 @@
         </tr>
     </tbody>
 </table>
-
-## Alerts
-
-> [!NOTE]
-> 
-> Highlights information that users should take into account, even when skimming.
-
-> [!TIP]
-> 
-> Optional information to help a user be more successful.
-
-> [!IMPORTANT]
-> 
-> Crucial information necessary for users to succeed.
-
-> [!WARNING]
-> 
-> Critical content demanding immediate user attention due to potential risks.
-
-> [!CAUTION]
-> 
-> Negative potential consequences of an action.
 
 ## Additional information
 
