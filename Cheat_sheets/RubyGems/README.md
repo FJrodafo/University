@@ -7,6 +7,8 @@
 3. [Dev commands](#dev-commands)
 4. [Gem credentials](#gem-credentials)
 5. [Publish your new gem](#publish-your-new-gem)
+    1. [RubyGems](#rubygems-1)
+    2. [GitHub Packages](#github-packages)
 6. [Update your published gem](#update-your-published-gem)
 7. [Install your published gem](#install-your-published-gem)
 8. [Gem repository example](#gem-repository-example)
@@ -27,36 +29,34 @@ ruby -v
 gem -v
 ```
 
-Check out the [RubyGems Guides](https://guides.rubygems.org/) for more information.
+Check out the [Ruby](https://www.ruby-lang.org/en/documentation/installation/#apt) and [RubyGems](https://guides.rubygems.org/) websites for more information.
 
 ## Getting started
 
 The structure of a basic RubyGems project looks like this:
 
 ```
-your_gem/
+Slugify/
 ├── bin/
-│   └── your_gem
+│   └── fjrodafo-slugify
 ├── build/
-│   ├── your_gem-0.1.0.gem
-│   ├── your_gem-0.1.1.gem
-│   └── your_gem-1.0.0.gem
+│   └── fjrodafo-slugify-1.0.0.gem
 ├── lib/
-│   └── .../
-│       └── *.rb
+│   └── fjrodafo/
+│       ├── slugify
+│       │   └── transliteration.rb
+│       └── slugify.rb
 ├── test/
-│   └── test_your_gem.rb
-├── LICENSE
+│   └── test_fjrodafo-slugify.rb
 ├── Rakefile
-├── README.md
-└── your_gem.gemspec
+└── fjrodafo-slugify.gemspec
 ```
 
 ## Dev commands
 
 ```shell
 # Run the slugify executable locally using the lib folder
-ruby -Ilib bin/your_gem "Hello, World!"
+ruby -Ilib bin/fjrodafo-slugify "Hello, World!"
 ```
 
 ```shell
@@ -72,36 +72,38 @@ nano ~/.gem/credentials
 
 ```
 ---
-:rubygems_api_key: TOKEN
-:github: Bearer TOKEN
+:rubygems_api_key: rubygems_****
+:github: Bearer ghp_****
 ```
 
 ## Publish your new gem
 
 ```shell
-gem build your_gem.gemspec
+gem build fjrodafo-slugify.gemspec
 ```
 
+### RubyGems
+
 ```shell
-# RubyGems
 gem signin
-gem push your_gem-1.0.0.gem
+gem push fjrodafo-slugify-1.0.0.gem
 ```
 
+### GitHub Packages
+
 ```shell
-# GitHub Packages
-gem push --key github --host https://rubygems.pkg.github.com/NAMESPACE your_gem-1.0.0.gem
+gem push --key github --host https://rubygems.pkg.github.com/fjrodafo-slugify fjrodafo-slugify-1.0.0.gem
 ```
 
 ## Update your published gem
 
-Once the gem code has been updated, the version number located in the "your_gem.gemspec" file is changed to a higher number and then the build and push commands are executed as mentioned before.
+Once the gem code has been updated, the version number located in the "fjrodafo-slugify.gemspec" file is changed to a higher number and then the build and push commands are executed as mentioned before.
 
 ## Install your published gem
 
 ```shell
-gem install your_gem
-gem list | grep your_gem
+gem install fjrodafo-slugify
+gem list | grep fjrodafo-slugify
 ```
 
 ## Gem repository example
@@ -110,7 +112,7 @@ I have created a repository and published a very simple gem that will serve as a
 
 Contribute to the repository on [GitHub](https://github.com/FJrodafo/Slugify).
 
-Check out this gem on [GitHub Packages](https://github.com/FJrodafo/Slugify/pkgs/rubygems/your_gem) or [RubyGems](https://rubygems.org/gems/your_gem) website!
+Check out this gem on [GitHub Packages](https://github.com/FJrodafo/Slugify/pkgs/rubygems/fjrodafo-slugify) or [RubyGems](https://rubygems.org/gems/fjrodafo-slugify) website!
 
 ## Additional information
 
