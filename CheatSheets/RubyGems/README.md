@@ -92,7 +92,7 @@ gem push fjrodafo-slugify-1.0.0.gem
 ### GitHub Packages
 
 ```shell
-gem push --key github --host https://rubygems.pkg.github.com/fjrodafo-slugify fjrodafo-slugify-1.0.0.gem
+gem push --key github --host https://rubygems.pkg.github.com/FJrodafo fjrodafo-slugify-1.0.0.gem
 ```
 
 ## Update your published gem
