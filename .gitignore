@@ -21,4 +21,5 @@ DAW/DPL/Master/flaskapps/venv/*
 
 # Releases
 /Releases/*
+!Releases/CHANGELOG.md
 !Releases/VERSION.md
