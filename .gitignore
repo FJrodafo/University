@@ -20,6 +20,6 @@ DAW/DSW/Master/var/www/private/*
 DAW/DPL/Master/flaskapps/venv/*
 
 # Releases
-/Releases/*
-!Releases/CHANGELOG.md
-!Releases/VERSION.md
+/releases/*
+!releases/CHANGELOG.md
+!releases/VERSION.md
