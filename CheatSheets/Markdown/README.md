@@ -184,6 +184,13 @@
                 <code>X^2^</code>
             </td>
         </tr>
+        <tr>
+            <td>Abbreviation</td>
+            <td>
+                <code>*[HTML]: Hyper Text Markup Language</code><br />
+                <code> The HTML specification is maintained by the W3C.</code>
+            </td>
+        </tr>
     </tbody>
 </table>
 
