@@ -1,4 +1,40 @@
+# ===============================
+# Line ending normalization (EOL)
+# ===============================
+
+# Automatically detects text files and normalizes them to LF (Unix)
+# Git will convert CRLF -> LF on commit
 * text=auto eol=lf
+
+# Force CRLF (Windows) for specific scripts
+# Useful because some Windows environments require this format
 *.bat text eol=crlf
 *.cmd text eol=crlf
 *.ahk text eol=crlf
+
+# ============================================
+# GitHub Linguist configuration
+# (how GitHub calculates repository languages)
+# ============================================
+
+# Force ALL files to be considered detectable
+# -> Included in language statistics
+* linguist-detectable=true
+
+# Prevent GitHub from marking files as "generated"
+# -> Even minified files or build outputs will be counted
+* linguist-generated=false
+
+# Prevent files from being treated as "vendored" (third-party code)
+# -> node_modules, vendor, etc. will also be counted
+* linguist-vendored=false
+
+# Prevent files from being treated as documentation
+# -> Markdown and docs will count as main repository content
+* linguist-documentation=false
+
+# NOTE:
+# This configuration forces GitHub to count nearly ALL files
+# in language statistics. This may cause the language graph
+# to include documentation, data files, and build outputs,
+# not only the actual source code.
